@@ -173,7 +173,7 @@ theme_plus:
   #   - path: '_macro/sidebar.swig'
   #     file: 'custom/sidebar.swig'
 
-theme: jekyll-theme-cayman
+theme: cake
 
 marked_highlight:
   engine: highlight
