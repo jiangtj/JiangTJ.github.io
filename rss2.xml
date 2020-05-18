@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dnocm ☀</title>
+    <link>https://www.dnocm.com/</link>
+    
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>一个两个三个小朋友 四个五个...</description>
+    <pubDate>Mon, 11 May 2020 07:36:12 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>暗色模式上线啦！！</title>
+      <link>https://www.dnocm.com/articles/cherry/dark-mode/</link>
+      <guid>https://www.dnocm.com/articles/cherry/dark-mode/</guid>
+      <pubDate>Mon, 11 May 2020 07:36:12 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;馋好久了，最近总算是改完了&lt;/p&gt;
+&lt;p&gt;当切换系统的色彩方案（亮/暗）时，能自动切换到对应的模式&lt;/p&gt;
+&lt;p&gt;&lt;img
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/cherry/dark-mode/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>JPromise:Java版的Promise</title>
+      <link>https://www.dnocm.com/articles/cherry/JPromise/</link>
+      <guid>https://www.dnocm.com/articles/cherry/JPromise/</guid>
+      <pubDate>Thu, 23 Apr 2020 08:49:07 GMT</pubDate>
+      <description>
+      
+        有一个小轮子
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/cherry/JPromise/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>造了套自己的 Promise</title>
+      <link>https://www.dnocm.com/articles/cherry/mine-promise/</link>
+      <guid>https://www.dnocm.com/articles/cherry/mine-promise/</guid>
+      <pubDate>Wed, 22 Apr 2020 08:39:45 GMT</pubDate>
+      <description>
+      
+        39行代码，走过路过不要错过哦~
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/cherry/mine-promise/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>发布 npm 包到 GitHub Packages</title>
+      <link>https://www.dnocm.com/articles/cherry/github-packages-npm/</link>
+      <guid>https://www.dnocm.com/articles/cherry/github-packages-npm/</guid>
+      <pubDate>Wed, 22 Apr 2020 01:37:54 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;GitHub Packages在半年前尝试过，那时候存在些问题&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;del&gt;不能使用yarn安装（这个已经修复了）&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;必须认证授权才能使用，即便你的包是开源的，很不方便&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img data-src=&quot;https://jiangtj-lab.github.io/pic-repo/img-apricot/20200422094211.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;但不管怎样，GitHub Packages始终是个不错的备选方案&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/cherry/github-packages-npm/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>JUnit 5 教程</title>
+      <link>https://www.dnocm.com/articles/cherry/junit-5-info/</link>
+      <guid>https://www.dnocm.com/articles/cherry/junit-5-info/</guid>
+      <pubDate>Thu, 16 Jan 2020 03:02:30 GMT</pubDate>
+      <description>
+      
+        欢迎欣赏新的一年第一篇博文😁
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/cherry/junit-5-info/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Intersection Observer 简介</title>
+      <link>https://www.dnocm.com/articles/beechnut/intersection-observer-info/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/intersection-observer-info/</guid>
+      <pubDate>Tue, 03 Dec 2019 05:38:45 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Intersection Observer API提供了一种异步观察目标元素与祖先元素或顶级文档viewport的交集中的变化的方法。这使得以往较难实现的功能，更加简单，例如，监听图片元素，在适当的时候懒加载图片。&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/intersection-observer-info/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>探究：优惠券的设计</title>
+      <link>https://www.dnocm.com/articles/beechnut/coupon-info/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/coupon-info/</guid>
+      <pubDate>Tue, 05 Nov 2019 06:15:10 GMT</pubDate>
+      <description>
+      
+        优惠券一直都是系统中较为复杂的部分，往往设计多个模块（支付、活动、用户等等），将从架构设计角度展开，设计一种合理的架构
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/coupon-info/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>npm 免密 publish</title>
+      <link>https://www.dnocm.com/articles/beechnut/npm-publish-no-password/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/npm-publish-no-password/</guid>
+      <pubDate>Fri, 27 Sep 2019 02:59:05 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;blockquote&gt;
+&lt;p&gt;做个笔记，毕竟多台电脑，需要配置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;创建token&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/npm-publish-no-password/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>一个简单的retrofit工具类</title>
+      <link>https://www.dnocm.com/articles/beechnut/retrofit-utils/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/retrofit-utils/</guid>
+      <pubDate>Fri, 06 Sep 2019 03:51:17 GMT</pubDate>
+      <description>
+      
+        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&quot;使用&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;a class=&quot;article-anchor&quot; href=&quot;#使用&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&lt;pre&gt;
+&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 同步返回Optional&amp;lt;T&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; repos = RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&quot;octocat&quot;&lt;/span&gt;)).orElse(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;());
+&lt;span class=&quot;hljs-comment&quot;&gt;// 异步&lt;/span&gt;
+RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&quot;octocat&quot;&lt;/span&gt;), repos -&amp;gt; {
+  &lt;span class=&quot;hljs-comment&quot;&gt;//业务逻辑&lt;/span&gt;
+});&lt;/code&gt;
+&lt;/pre&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/retrofit-utils/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>JDK12 新特性 switch expressions （预览）</title>
+      <link>https://www.dnocm.com/articles/beechnut/jdk12-switch-expressions/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/jdk12-switch-expressions/</guid>
+      <pubDate>Mon, 19 Aug 2019 04:49:41 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;switch expressions 这个新特性蛮有意思的，在部分情况下能减少我们的代码量，尤其在工厂模式下，会很简单&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/jdk12-switch-expressions/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Hexo Netlify CMS 1.0</title>
+      <link>https://www.dnocm.com/articles/beechnut/hexo-netlify-cms-1.0/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/hexo-netlify-cms-1.0/</guid>
+      <pubDate>Thu, 08 Aug 2019 16:00:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;Hexo Netlify CMS隔了好久终于迎来了一次大更新（不兼容），主要有以下的更新内容&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;扩展fields，在原本的Netlify
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/hexo-netlify-cms-1.0/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>使用Git Submodule管理Hexo主题</title>
+      <link>https://www.dnocm.com/articles/beechnut/hexo-git-submodule/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/hexo-git-submodule/</guid>
+      <pubDate>Wed, 07 Aug 2019 15:23:25 GMT</pubDate>
+      <description>
+      
+        “小白”都能玩耍的的方式，将一切井井有条
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/hexo-git-submodule/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Hexo NexT 高阶教程之 Injects</title>
+      <link>https://www.dnocm.com/articles/beechnut/hexo-next-injects/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/hexo-next-injects/</guid>
+      <pubDate>Thu, 11 Jul 2019 01:54:31 GMT</pubDate>
+      <description>
+      
+        一个全新的自定义主题方式，分享你的Code。
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/hexo-next-injects/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Spring Cloud 之 Gateway （Greenwich版）</title>
+      <link>https://www.dnocm.com/articles/beechnut/spring-cloud-gateway/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/spring-cloud-gateway/</guid>
+      <pubDate>Mon, 20 May 2019 13:16:33 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;众所周知，netflix OSS 2.0 难产了，上一代的zuul网关虽说不错，但其并不是异步的。所以，Spring团队推出了基于Spring Webflux的全新异步的网关–Spring Cloud Gateway。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文内容基于Spring Cloud Gateway 2.1.0.GA&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;来跟着我一步步，探索它的&lt;del&gt;魅力&lt;/del&gt;坑吧！&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/spring-cloud-gateway/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Theme Show Case</title>
+      <link>https://www.dnocm.com/articles/beechnut/theme-show-case/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/theme-show-case/</guid>
+      <pubDate>Fri, 17 May 2019 07:13:09 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;展示些样式，逐步修改中~&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/theme-show-case/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>想写个自己的主题</title>
+      <link>https://www.dnocm.com/articles/beechnut/todo-an-new-theme/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/todo-an-new-theme/</guid>
+      <pubDate>Tue, 30 Apr 2019 02:37:37 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;目前使用的NexT主题，也是NexT成员。但果然还是希望自己的站点能够与众不同点，所以想写个自己的主题。整理下一些资源&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;参考主题&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/todo-an-new-theme/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Contract DSL</title>
+      <link>https://www.dnocm.com/articles/beechnut/spring-cloud-contract-dsl/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/spring-cloud-contract-dsl/</guid>
+      <pubDate>Sun, 28 Apr 2019 13:29:12 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;这是一篇介绍Spring Cloud Contract语言定义的文章，也就是该怎么写契约内容。如果您对Spring Cloud Contract不是很了解，不知如何更好的实践的话，可以先看下我之前的文章&lt;a href=&quot;/articles/beechnut/spring-cloud-contract&quot;&gt;《Spring Cloud Contract 契约测试》&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在这个框架中，我们既可以采用Groovy，也可以yaml。但由于本身属于Java的框架，在支持上Groovy要更好些，推荐且这里只介绍Groovy（事实上，我对Spring官方同时支持两种定义方式并不理解，专注一种或许会更好啊）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;该文章基于Spring Cloud Contract 2.1.0.GA&lt;/p&gt;
+&lt;/blockquote&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/spring-cloud-contract-dsl/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>一点点解析Vue CLI之Create</title>
+      <link>https://www.dnocm.com/articles/beechnut/vue-cli-create/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/vue-cli-create/</guid>
+      <pubDate>Tue, 16 Apr 2019 13:27:47 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Nodejs除了赋予前端后端的能力外，还能有各种各样的脚本，极大的简单各种操作。在早期，脚本做的工作大都是生成固定的模版，所以你需要了解的，仅仅生成的项目就够了。然而，随着框架的完善，架构师往往希望通过脚本处理默认的配置或者环境，这样能减少环境差异导致的问题，还能简化升级核心框架的升级，例如Vue CLI做的事。&lt;/p&gt;
+&lt;p&gt;这时候，我们不得不探一探它的神秘面纱。&lt;/p&gt;
+&lt;p&gt;这次带来的是Create的原理解析。&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/vue-cli-create/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Contract 契约测试</title>
+      <link>https://www.dnocm.com/articles/beechnut/spring-cloud-contract/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/spring-cloud-contract/</guid>
+      <pubDate>Thu, 28 Mar 2019 15:18:51 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。&lt;/p&gt;
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1 id=&quot;什么是契约测试？&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#什么是契约测试？&quot; class=&quot;headerlink&quot; title=&quot;什么是契约测试？&quot;&gt;&lt;/a&gt;什么是契约测试？&lt;a class=&quot;article-anchor&quot; href=&quot;#什么是契约测试？&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&lt;p&gt;首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;验证提供方是否履约&lt;/li&gt;
+&lt;li&gt;验证消费方在提供方履约下是否正常工作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于一般都只考虑提供方的履约验证，所以误解为消费者驱动。事实呢，提供方与消费方是唯一的么？你的契约不会变么？一旦发生改变，那么契约测试也会对消费方进行验证。&lt;/p&gt;
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/spring-cloud-contract/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>两幅图，谷歌与百度的差距有多大</title>
+      <link>https://www.dnocm.com/articles/beechnut/google-vs-baidu/</link>
+      <guid>https://www.dnocm.com/articles/beechnut/google-vs-baidu/</guid>
+      <pubDate>Fri, 22 Mar 2019 06:33:12 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;img src=&quot;/articles/beechnut/google-vs-baidu/baidu.png&quot; class=&quot;box&quot; title=&quot;baidu&quot;&gt;
+&lt;img src=&quot;/articles/beechnut/google-vs-baidu/google.png&quot;
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/beechnut/google-vs-baidu/#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>
