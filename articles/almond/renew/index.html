@@ -81,7 +81,7 @@
 </div>
 
 <script>
-if (window.location.hostname != 'dnocm.com' && window.location.hostname != 'localhost') {
+if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.location.hostname) < 0) {
 
   document.querySelector(".pin-top-msg").style.display = 'block';
   document.querySelector(".jump-to-dnocm").href = "https://dnocm.com" + window.location.pathname;
@@ -328,7 +328,7 @@ if (window.location.hostname != 'dnocm.com' && window.location.hostname != 'loca
 <p>新的域名（dnocm.com）,我会再近期将其他站点迁移到这上面   </p>
 <p>新的博客Lofter，准备写一些其他兴趣相关的（Code外，动漫、游戏？），虽然目前还是零记录   </p>
 <p>新的CI/CD，使用Netlify做静态托管，能自动https，GitLab 3年前就开始讨论与准备集成Let’s Encrypt，但。。。    </p>
-<p>新的邮箱（有新域名自然换啊），<a href="mailto:&#105;&#x40;&#100;&#110;&#x6f;&#x63;&#x6d;&#x2e;&#x63;&#111;&#x6d;">&#105;&#x40;&#100;&#110;&#x6f;&#x63;&#x6d;&#x2e;&#x63;&#111;&#x6d;</a>欢迎联系   </p>
+<p>新的邮箱（有新域名自然换啊），<a href="mailto:&#x69;&#64;&#x64;&#x6e;&#x6f;&#99;&#109;&#46;&#x63;&#111;&#109;">&#x69;&#64;&#x64;&#x6e;&#x6f;&#99;&#109;&#46;&#x63;&#111;&#109;</a>欢迎联系   </p>
 <p>新的封页（<a href="https://www.dnocm.com/cover">https://www.dnocm.com/cover</a>）,可能调整到根路径下，打算用Web Components重写，打算中。。。</p>
       
     </div>
