@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="一个两个三个小朋友 四个五个...">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dnocm ☀">
-<meta property="og:url" content="https://www.dnocm.com/page/5/index.html">
+<meta property="og:url" content="https://jiangtj.com/page/5/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="一个两个三个小朋友 四个五个...">
 <meta property="og:locale" content="zh">
@@ -72,23 +72,29 @@
 
 <body itemscope itemtype="http://schema.org/WebPage">
 
-  
-<div class="pin-top-msg">
-<a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
-<i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
+  <div class="pin-top-msg">
+  <a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
+  <i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
 </div>
 
 <script>
-if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.location.hostname) < 0) {
+  if ([
+    'dnocm.com',
+    'www.dnocm.com',
+    'localhost',
+    'jiangtj.com',
+    'zh.jiangtj.com',
+    'wwww.jiangtj.com'
+  ].indexOf(window.location.hostname) < 0) {
 
-  document.querySelector(".pin-top-msg").style.display = 'block';
-  document.querySelector(".jump-to-dnocm").href = "https://dnocm.com" + window.location.pathname;
+    document.querySelector(".pin-top-msg").style.display = 'block';
+    document.querySelector(".jump-to-dnocm").href = "https://jiangtj.com" + window.location.pathname;
 
-  var hidePin = function() {
-    document.querySelector(".pin-top-msg").style.display = 'none';
+    var hidePin = function () {
+      document.querySelector(".pin-top-msg").style.display = 'none';
+    }
+
   }
-
-}
 </script>
   
   <header class="main-header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,7 +277,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/git-flow/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/git-flow/" />
     <meta itemprop="dateCreated datePublished" content="2018-05-02T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-05-01T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -353,7 +359,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/lets-encrypt-certbot/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/lets-encrypt-certbot/" />
     <meta itemprop="dateCreated datePublished" content="2018-04-27T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-04-26T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -434,7 +440,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/spring-boot-autodeploy-with-gitlab/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/spring-boot-autodeploy-with-gitlab/" />
     <meta itemprop="dateCreated datePublished" content="2018-04-23T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-04-22T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -519,7 +525,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/spring-boot-autorun-with-gitlab/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/spring-boot-autorun-with-gitlab/" />
     <meta itemprop="dateCreated datePublished" content="2018-04-20T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-04-19T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -607,7 +613,7 @@ nohup java -jar bill-server.jar &amp;
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/test-driven%20development/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/test-driven%20development/" />
     <meta itemprop="dateCreated datePublished" content="2018-04-15T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-04-14T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -688,7 +694,7 @@ nohup java -jar bill-server.jar &amp;
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/mysql-in-and-exists/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/mysql-in-and-exists/" />
     <meta itemprop="dateCreated datePublished" content="2017-12-01T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2017-11-30T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -780,7 +786,7 @@ nohup java -jar bill-server.jar &amp;
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/gitlab-pages-for-hexo/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/gitlab-pages-for-hexo/" />
     <meta itemprop="dateCreated datePublished" content="2017-10-11T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2017-10-10T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -864,7 +870,7 @@ nohup java -jar bill-server.jar &amp;
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/dart-get-start/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/dart-get-start/" />
     <meta itemprop="dateCreated datePublished" content="2017-10-08T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2017-10-07T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -950,7 +956,7 @@ nohup java -jar bill-server.jar &amp;
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/Java%20ProjectReactor-Flux/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/Java%20ProjectReactor-Flux/" />
     <meta itemprop="dateCreated datePublished" content="2017-09-17T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2017-09-16T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1032,7 +1038,7 @@ nohup java -jar bill-server.jar &amp;
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/Spring-data-jpa-and-Mybatis/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/Spring-data-jpa-and-Mybatis/" />
     <meta itemprop="dateCreated datePublished" content="2017-09-11T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2017-09-10T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">

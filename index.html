@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="一个两个三个小朋友 四个五个...">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dnocm ☀">
-<meta property="og:url" content="https://www.dnocm.com/index.html">
+<meta property="og:url" content="https://jiangtj.com/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="一个两个三个小朋友 四个五个...">
 <meta property="og:locale" content="zh">
@@ -72,23 +72,29 @@
 
 <body itemscope itemtype="http://schema.org/WebPage">
 
-  
-<div class="pin-top-msg">
-<a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
-<i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
+  <div class="pin-top-msg">
+  <a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
+  <i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
 </div>
 
 <script>
-if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.location.hostname) < 0) {
+  if ([
+    'dnocm.com',
+    'www.dnocm.com',
+    'localhost',
+    'jiangtj.com',
+    'zh.jiangtj.com',
+    'wwww.jiangtj.com'
+  ].indexOf(window.location.hostname) < 0) {
 
-  document.querySelector(".pin-top-msg").style.display = 'block';
-  document.querySelector(".jump-to-dnocm").href = "https://dnocm.com" + window.location.pathname;
+    document.querySelector(".pin-top-msg").style.display = 'block';
+    document.querySelector(".jump-to-dnocm").href = "https://jiangtj.com" + window.location.pathname;
 
-  var hidePin = function() {
-    document.querySelector(".pin-top-msg").style.display = 'none';
+    var hidePin = function () {
+      document.querySelector(".pin-top-msg").style.display = 'none';
+    }
+
   }
-
-}
 </script>
   
   <header class="main-header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,7 +277,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/cherry/new-deploy/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/cherry/new-deploy/" />
     <meta itemprop="dateCreated datePublished" content="2020-05-19T13:29:58+08:00" />
     <meta itemprop="dateModified" content="2020-05-19T05:29:58+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -323,12 +329,15 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
       
       <p>netlify免费版的网络真的太差了（跟1年多前刚使用的时候比，差太多），所以原本打算迁移到github pages</p>
 <p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200519112323.png"></p>
-<p>看对比，github pages整体比netlify稳定的多，但github不支持重定向。而腾讯云的解析服务，重定向需要备案，所以dnocm只好保持不动，新增了新域名</p>
+<p>看对比，github pages整体比netlify稳定的多，但github不支持重定向。而腾讯云的解析服务，重定向需要备案，所以dnocm只好保持不动，选择新增了一个部署</p>
+<p>同时也尝试了coding，但在国外的ping不理想，所以干脆一次性部署了多个</p>
 <ul>
+<li><a href="https://dnocm.com/">https://dnocm.com</a>(<a href="https://www.dnocm.com/">https://www.dnocm.com</a>) 由netlify提供服务</li>
 <li><a href="https://jiangtj.com/">https://jiangtj.com</a> 由github pages提供服务</li>
-<li><a href="https://jiangtj.gitlab.io/">https://jiangtj.gitlab.io</a> gitlab的，不知道好不好，也部署了一个</li>
+<li><a href="https://jiangtj.gitlab.io/">https://jiangtj.gitlab.io</a> 由gitlab pages提供服务</li>
+<li><a href="https://zh.jiangtj.com/">https://zh.jiangtj.com</a>(<a href="https://www.jiangtj.com/">https://www.jiangtj.com</a>) 由coding提供服务，中国访问较快</li>
 </ul>
-<p>假如，你访问dnocm时感觉卡，可以试试前往我的其他域名下</p>
+<p>假如，你在访问当前地址时，感觉卡，可以试试前往我的其他域名下</p>
       
     </div>
 
@@ -343,7 +352,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/cherry/dark-mode/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/cherry/dark-mode/" />
     <meta itemprop="dateCreated datePublished" content="2020-05-11T15:36:12+08:00" />
     <meta itemprop="dateModified" content="2020-05-11T07:36:12+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -415,7 +424,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/cherry/JPromise/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/cherry/JPromise/" />
     <meta itemprop="dateCreated datePublished" content="2020-04-23T16:49:07+08:00" />
     <meta itemprop="dateModified" content="2020-04-23T08:49:07+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -493,7 +502,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/cherry/mine-promise/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/cherry/mine-promise/" />
     <meta itemprop="dateCreated datePublished" content="2020-04-22T16:39:45+08:00" />
     <meta itemprop="dateModified" content="2020-04-22T08:39:45+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -627,7 +636,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/cherry/github-packages-npm/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/cherry/github-packages-npm/" />
     <meta itemprop="dateCreated datePublished" content="2020-04-22T09:37:54+08:00" />
     <meta itemprop="dateModified" content="2020-04-22T01:37:54+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -713,7 +722,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/cherry/junit-5-info/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/cherry/junit-5-info/" />
     <meta itemprop="dateCreated datePublished" content="2020-01-16T11:02:30+08:00" />
     <meta itemprop="dateModified" content="2020-01-16T03:02:30+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -798,7 +807,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/beechnut/intersection-observer-info/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/beechnut/intersection-observer-info/" />
     <meta itemprop="dateCreated datePublished" content="2019-12-03T13:38:45+08:00" />
     <meta itemprop="dateModified" content="2019-12-03T05:38:45+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -878,7 +887,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/beechnut/coupon-info/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/beechnut/coupon-info/" />
     <meta itemprop="dateCreated datePublished" content="2019-11-05T14:15:10+08:00" />
     <meta itemprop="dateModified" content="2019-11-05T06:15:10+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -974,7 +983,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/beechnut/npm-publish-no-password/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/beechnut/npm-publish-no-password/" />
     <meta itemprop="dateCreated datePublished" content="2019-09-27T10:59:05+08:00" />
     <meta itemprop="dateModified" content="2019-09-27T02:59:05+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1064,7 +1073,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/beechnut/retrofit-utils/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/beechnut/retrofit-utils/" />
     <meta itemprop="dateCreated datePublished" content="2019-09-06T11:51:17+08:00" />
     <meta itemprop="dateModified" content="2019-09-06T03:51:17+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">

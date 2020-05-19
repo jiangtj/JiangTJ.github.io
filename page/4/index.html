@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="一个两个三个小朋友 四个五个...">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dnocm ☀">
-<meta property="og:url" content="https://www.dnocm.com/page/4/index.html">
+<meta property="og:url" content="https://jiangtj.com/page/4/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="一个两个三个小朋友 四个五个...">
 <meta property="og:locale" content="zh">
@@ -72,23 +72,29 @@
 
 <body itemscope itemtype="http://schema.org/WebPage">
 
-  
-<div class="pin-top-msg">
-<a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
-<i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
+  <div class="pin-top-msg">
+  <a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
+  <i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
 </div>
 
 <script>
-if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.location.hostname) < 0) {
+  if ([
+    'dnocm.com',
+    'www.dnocm.com',
+    'localhost',
+    'jiangtj.com',
+    'zh.jiangtj.com',
+    'wwww.jiangtj.com'
+  ].indexOf(window.location.hostname) < 0) {
 
-  document.querySelector(".pin-top-msg").style.display = 'block';
-  document.querySelector(".jump-to-dnocm").href = "https://dnocm.com" + window.location.pathname;
+    document.querySelector(".pin-top-msg").style.display = 'block';
+    document.querySelector(".jump-to-dnocm").href = "https://jiangtj.com" + window.location.pathname;
 
-  var hidePin = function() {
-    document.querySelector(".pin-top-msg").style.display = 'none';
+    var hidePin = function () {
+      document.querySelector(".pin-top-msg").style.display = 'none';
+    }
+
   }
-
-}
 </script>
   
   <header class="main-header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,7 +277,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/microservices-version-control/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/microservices-version-control/" />
     <meta itemprop="dateCreated datePublished" content="2018-11-10T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-11-09T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -362,7 +368,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/hexo-theme-manage/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/hexo-theme-manage/" />
     <meta itemprop="dateCreated datePublished" content="2018-10-15T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-10-14T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -450,7 +456,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/f-open-feign/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/f-open-feign/" />
     <meta itemprop="dateCreated datePublished" content="2018-08-01T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-07-31T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -531,7 +537,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/f-eureka-server/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/f-eureka-server/" />
     <meta itemprop="dateCreated datePublished" content="2018-07-25T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-07-24T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -612,7 +618,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/spring-boot-relaxed-binding-2.0/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/spring-boot-relaxed-binding-2.0/" />
     <meta itemprop="dateCreated datePublished" content="2018-07-12T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-07-11T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -695,7 +701,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/aria2-info/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/aria2-info/" />
     <meta itemprop="dateCreated datePublished" content="2018-06-05T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-06-04T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -775,7 +781,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/jweb-for-static-resource/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/jweb-for-static-resource/" />
     <meta itemprop="dateCreated datePublished" content="2018-05-31T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-05-30T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -857,7 +863,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/dart-vs-node/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/dart-vs-node/" />
     <meta itemprop="dateCreated datePublished" content="2018-05-28T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-05-27T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -938,7 +944,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/tick-stack-for-server/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/tick-stack-for-server/" />
     <meta itemprop="dateCreated datePublished" content="2018-05-21T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-05-20T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1025,7 +1031,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/almond/jmeter-info/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/jmeter-info/" />
     <meta itemprop="dateCreated datePublished" content="2018-05-15T00:00:00+08:00" />
     <meta itemprop="dateModified" content="2018-05-14T16:00:00+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">

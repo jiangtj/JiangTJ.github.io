@@ -13,12 +13,12 @@
 <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="请输入匹配值：  正则表达式：   匹配值：    function doRegex() {   var patt &#x3D; eval(document.getElementById(&#39;regex&#39;).value);   var inputValue &#x3D; document.getElementById(&#39;input-value&#39;).value;   debugger;   var outputTxt &#x3D;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="正则">
-<meta property="og:url" content="https://www.dnocm.com/more/tools/regex/index.html">
+<meta property="og:url" content="https://jiangtj.com/more/tools/regex/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="请输入匹配值：  正则表达式：   匹配值：    function doRegex() {   var patt &#x3D; eval(document.getElementById(&#39;regex&#39;).value);   var inputValue &#x3D; document.getElementById(&#39;input-value&#39;).value;   debugger;   var outputTxt &#x3D;">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-05-19T08:41:43.758Z">
-<meta property="article:modified_time" content="2020-05-19T08:41:43.758Z">
+<meta property="article:published_time" content="2020-05-19T08:58:11.698Z">
+<meta property="article:modified_time" content="2020-05-19T08:58:11.698Z">
 <meta property="article:author" content="Mr.J">
 <meta name="twitter:card" content="summary">  <title>正则 | Dnocm ☀</title>  
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
@@ -74,23 +74,29 @@
 
 <body itemscope itemtype="http://schema.org/WebPage">
 
-  
-<div class="pin-top-msg">
-<a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
-<i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
+  <div class="pin-top-msg">
+  <a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
+  <i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
 </div>
 
 <script>
-if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.location.hostname) < 0) {
+  if ([
+    'dnocm.com',
+    'www.dnocm.com',
+    'localhost',
+    'jiangtj.com',
+    'zh.jiangtj.com',
+    'wwww.jiangtj.com'
+  ].indexOf(window.location.hostname) < 0) {
 
-  document.querySelector(".pin-top-msg").style.display = 'block';
-  document.querySelector(".jump-to-dnocm").href = "https://dnocm.com" + window.location.pathname;
+    document.querySelector(".pin-top-msg").style.display = 'block';
+    document.querySelector(".jump-to-dnocm").href = "https://jiangtj.com" + window.location.pathname;
 
-  var hidePin = function() {
-    document.querySelector(".pin-top-msg").style.display = 'none';
+    var hidePin = function () {
+      document.querySelector(".pin-top-msg").style.display = 'none';
+    }
+
   }
-
-}
 </script>
   
   <header class="main-header" itemscope itemtype="http://schema.org/WPHeader">
@@ -273,9 +279,9 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/more/tools/regex/index.html" />
-    <meta itemprop="dateCreated datePublished" content="2020-05-19T08:41:43+00:00" />
-    <meta itemprop="dateModified" content="2020-05-19T08:41:43+00:00" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/more/tools/regex/index.html" />
+    <meta itemprop="dateCreated datePublished" content="2020-05-19T08:58:11+00:00" />
+    <meta itemprop="dateModified" content="2020-05-19T08:58:11+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr.J" />
       <meta itemprop="description" content="一个两个三个小朋友 四个五个..." />
@@ -462,7 +468,7 @@ if ('serviceWorker' in navigator) {
 <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js" crossorigin="anonymous"></script><script>lozad('[data-src]').observe();</script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js" crossorigin="anonymous"></script><script>mediumZoom('.post-body img:not([data-zoomable="false"]), [data-zoomable]:not([data-zoomable="false"])', {background: 'var(--bg-color)'});</script>
 <script>
   var disqus_config = function () {
-    this.page.url = 'https://www.dnocm.com/more/tools/regex/index.html';
+    this.page.url = 'https://jiangtj.com/more/tools/regex/index.html';
     this.page.identifier = 'more/tools/regex/index.html';
   };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {

@@ -4,7 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Dnocm ☀</title>
-    <link>https://www.dnocm.com/</link>
+    <link>https://jiangtj.com/</link>
     
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
@@ -14,8 +14,8 @@
     
     <item>
       <title>新网址！</title>
-      <link>https://www.dnocm.com/articles/cherry/new-deploy/</link>
-      <guid>https://www.dnocm.com/articles/cherry/new-deploy/</guid>
+      <link>https://jiangtj.com/articles/cherry/new-deploy/</link>
+      <guid>https://jiangtj.com/articles/cherry/new-deploy/</guid>
       <pubDate>Tue, 19 May 2020 05:29:58 GMT</pubDate>
       <description>
       
@@ -31,13 +31,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/cherry/new-deploy/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/cherry/new-deploy/#disqus_thread</comments>
     </item>
     
     <item>
       <title>暗色模式上线啦！！</title>
-      <link>https://www.dnocm.com/articles/cherry/dark-mode/</link>
-      <guid>https://www.dnocm.com/articles/cherry/dark-mode/</guid>
+      <link>https://jiangtj.com/articles/cherry/dark-mode/</link>
+      <guid>https://jiangtj.com/articles/cherry/dark-mode/</guid>
       <pubDate>Mon, 11 May 2020 07:36:12 GMT</pubDate>
       <description>
       
@@ -54,13 +54,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/cherry/dark-mode/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/cherry/dark-mode/#disqus_thread</comments>
     </item>
     
     <item>
       <title>JPromise:Java版的Promise</title>
-      <link>https://www.dnocm.com/articles/cherry/JPromise/</link>
-      <guid>https://www.dnocm.com/articles/cherry/JPromise/</guid>
+      <link>https://jiangtj.com/articles/cherry/JPromise/</link>
+      <guid>https://jiangtj.com/articles/cherry/JPromise/</guid>
       <pubDate>Thu, 23 Apr 2020 08:49:07 GMT</pubDate>
       <description>
       
@@ -69,13 +69,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/cherry/JPromise/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/cherry/JPromise/#disqus_thread</comments>
     </item>
     
     <item>
       <title>造了套自己的 Promise</title>
-      <link>https://www.dnocm.com/articles/cherry/mine-promise/</link>
-      <guid>https://www.dnocm.com/articles/cherry/mine-promise/</guid>
+      <link>https://jiangtj.com/articles/cherry/mine-promise/</link>
+      <guid>https://jiangtj.com/articles/cherry/mine-promise/</guid>
       <pubDate>Wed, 22 Apr 2020 08:39:45 GMT</pubDate>
       <description>
       
@@ -84,13 +84,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/cherry/mine-promise/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/cherry/mine-promise/#disqus_thread</comments>
     </item>
     
     <item>
       <title>发布 npm 包到 GitHub Packages</title>
-      <link>https://www.dnocm.com/articles/cherry/github-packages-npm/</link>
-      <guid>https://www.dnocm.com/articles/cherry/github-packages-npm/</guid>
+      <link>https://jiangtj.com/articles/cherry/github-packages-npm/</link>
+      <guid>https://jiangtj.com/articles/cherry/github-packages-npm/</guid>
       <pubDate>Wed, 22 Apr 2020 01:37:54 GMT</pubDate>
       <description>
       
@@ -105,13 +105,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/cherry/github-packages-npm/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/cherry/github-packages-npm/#disqus_thread</comments>
     </item>
     
     <item>
       <title>JUnit 5 教程</title>
-      <link>https://www.dnocm.com/articles/cherry/junit-5-info/</link>
-      <guid>https://www.dnocm.com/articles/cherry/junit-5-info/</guid>
+      <link>https://jiangtj.com/articles/cherry/junit-5-info/</link>
+      <guid>https://jiangtj.com/articles/cherry/junit-5-info/</guid>
       <pubDate>Thu, 16 Jan 2020 03:02:30 GMT</pubDate>
       <description>
       
@@ -120,13 +120,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/cherry/junit-5-info/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/cherry/junit-5-info/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Intersection Observer 简介</title>
-      <link>https://www.dnocm.com/articles/beechnut/intersection-observer-info/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/intersection-observer-info/</guid>
+      <link>https://jiangtj.com/articles/beechnut/intersection-observer-info/</link>
+      <guid>https://jiangtj.com/articles/beechnut/intersection-observer-info/</guid>
       <pubDate>Tue, 03 Dec 2019 05:38:45 GMT</pubDate>
       <description>
       
@@ -135,13 +135,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/intersection-observer-info/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/intersection-observer-info/#disqus_thread</comments>
     </item>
     
     <item>
       <title>探究：优惠券的设计</title>
-      <link>https://www.dnocm.com/articles/beechnut/coupon-info/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/coupon-info/</guid>
+      <link>https://jiangtj.com/articles/beechnut/coupon-info/</link>
+      <guid>https://jiangtj.com/articles/beechnut/coupon-info/</guid>
       <pubDate>Tue, 05 Nov 2019 06:15:10 GMT</pubDate>
       <description>
       
@@ -150,13 +150,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/coupon-info/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/coupon-info/#disqus_thread</comments>
     </item>
     
     <item>
       <title>npm 免密 publish</title>
-      <link>https://www.dnocm.com/articles/beechnut/npm-publish-no-password/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/npm-publish-no-password/</guid>
+      <link>https://jiangtj.com/articles/beechnut/npm-publish-no-password/</link>
+      <guid>https://jiangtj.com/articles/beechnut/npm-publish-no-password/</guid>
       <pubDate>Fri, 27 Sep 2019 02:59:05 GMT</pubDate>
       <description>
       
@@ -177,13 +177,13 @@
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/npm-publish-no-password/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/npm-publish-no-password/#disqus_thread</comments>
     </item>
     
     <item>
       <title>一个简单的retrofit工具类</title>
-      <link>https://www.dnocm.com/articles/beechnut/retrofit-utils/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/retrofit-utils/</guid>
+      <link>https://jiangtj.com/articles/beechnut/retrofit-utils/</link>
+      <guid>https://jiangtj.com/articles/beechnut/retrofit-utils/</guid>
       <pubDate>Fri, 06 Sep 2019 03:51:17 GMT</pubDate>
       <description>
       
@@ -199,13 +199,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/retrofit-utils/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/retrofit-utils/#disqus_thread</comments>
     </item>
     
     <item>
       <title>JDK12 新特性 switch expressions （预览）</title>
-      <link>https://www.dnocm.com/articles/beechnut/jdk12-switch-expressions/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/jdk12-switch-expressions/</guid>
+      <link>https://jiangtj.com/articles/beechnut/jdk12-switch-expressions/</link>
+      <guid>https://jiangtj.com/articles/beechnut/jdk12-switch-expressions/</guid>
       <pubDate>Mon, 19 Aug 2019 04:49:41 GMT</pubDate>
       <description>
       
@@ -214,13 +214,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/jdk12-switch-expressions/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/jdk12-switch-expressions/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Hexo Netlify CMS 1.0</title>
-      <link>https://www.dnocm.com/articles/beechnut/hexo-netlify-cms-1.0/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/hexo-netlify-cms-1.0/</guid>
+      <link>https://jiangtj.com/articles/beechnut/hexo-netlify-cms-1.0/</link>
+      <guid>https://jiangtj.com/articles/beechnut/hexo-netlify-cms-1.0/</guid>
       <pubDate>Thu, 08 Aug 2019 16:00:00 GMT</pubDate>
       <description>
       
@@ -237,13 +237,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/hexo-netlify-cms-1.0/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/hexo-netlify-cms-1.0/#disqus_thread</comments>
     </item>
     
     <item>
       <title>使用Git Submodule管理Hexo主题</title>
-      <link>https://www.dnocm.com/articles/beechnut/hexo-git-submodule/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/hexo-git-submodule/</guid>
+      <link>https://jiangtj.com/articles/beechnut/hexo-git-submodule/</link>
+      <guid>https://jiangtj.com/articles/beechnut/hexo-git-submodule/</guid>
       <pubDate>Wed, 07 Aug 2019 15:23:25 GMT</pubDate>
       <description>
       
@@ -252,13 +252,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/hexo-git-submodule/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/hexo-git-submodule/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Hexo NexT 高阶教程之 Injects</title>
-      <link>https://www.dnocm.com/articles/beechnut/hexo-next-injects/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/hexo-next-injects/</guid>
+      <link>https://jiangtj.com/articles/beechnut/hexo-next-injects/</link>
+      <guid>https://jiangtj.com/articles/beechnut/hexo-next-injects/</guid>
       <pubDate>Thu, 11 Jul 2019 01:54:31 GMT</pubDate>
       <description>
       
@@ -267,13 +267,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/hexo-next-injects/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/hexo-next-injects/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Spring Cloud 之 Gateway （Greenwich版）</title>
-      <link>https://www.dnocm.com/articles/beechnut/spring-cloud-gateway/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/spring-cloud-gateway/</guid>
+      <link>https://jiangtj.com/articles/beechnut/spring-cloud-gateway/</link>
+      <guid>https://jiangtj.com/articles/beechnut/spring-cloud-gateway/</guid>
       <pubDate>Mon, 20 May 2019 13:16:33 GMT</pubDate>
       <description>
       
@@ -286,13 +286,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/spring-cloud-gateway/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/spring-cloud-gateway/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Theme Show Case</title>
-      <link>https://www.dnocm.com/articles/beechnut/theme-show-case/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/theme-show-case/</guid>
+      <link>https://jiangtj.com/articles/beechnut/theme-show-case/</link>
+      <guid>https://jiangtj.com/articles/beechnut/theme-show-case/</guid>
       <pubDate>Fri, 17 May 2019 07:13:09 GMT</pubDate>
       <description>
       
@@ -301,13 +301,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/theme-show-case/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/theme-show-case/#disqus_thread</comments>
     </item>
     
     <item>
       <title>想写个自己的主题</title>
-      <link>https://www.dnocm.com/articles/beechnut/todo-an-new-theme/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/todo-an-new-theme/</guid>
+      <link>https://jiangtj.com/articles/beechnut/todo-an-new-theme/</link>
+      <guid>https://jiangtj.com/articles/beechnut/todo-an-new-theme/</guid>
       <pubDate>Tue, 30 Apr 2019 02:37:37 GMT</pubDate>
       <description>
       
@@ -325,13 +325,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/todo-an-new-theme/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/todo-an-new-theme/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Spring Cloud Contract DSL</title>
-      <link>https://www.dnocm.com/articles/beechnut/spring-cloud-contract-dsl/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/spring-cloud-contract-dsl/</guid>
+      <link>https://jiangtj.com/articles/beechnut/spring-cloud-contract-dsl/</link>
+      <guid>https://jiangtj.com/articles/beechnut/spring-cloud-contract-dsl/</guid>
       <pubDate>Sun, 28 Apr 2019 13:29:12 GMT</pubDate>
       <description>
       
@@ -344,13 +344,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/spring-cloud-contract-dsl/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/spring-cloud-contract-dsl/#disqus_thread</comments>
     </item>
     
     <item>
       <title>一点点解析Vue CLI之Create</title>
-      <link>https://www.dnocm.com/articles/beechnut/vue-cli-create/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/vue-cli-create/</guid>
+      <link>https://jiangtj.com/articles/beechnut/vue-cli-create/</link>
+      <guid>https://jiangtj.com/articles/beechnut/vue-cli-create/</guid>
       <pubDate>Tue, 16 Apr 2019 13:27:47 GMT</pubDate>
       <description>
       
@@ -361,13 +361,13 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/vue-cli-create/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/vue-cli-create/#disqus_thread</comments>
     </item>
     
     <item>
       <title>Spring Cloud Contract 契约测试</title>
-      <link>https://www.dnocm.com/articles/beechnut/spring-cloud-contract/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/spring-cloud-contract/</guid>
+      <link>https://jiangtj.com/articles/beechnut/spring-cloud-contract/</link>
+      <guid>https://jiangtj.com/articles/beechnut/spring-cloud-contract/</guid>
       <pubDate>Thu, 28 Mar 2019 15:18:51 GMT</pubDate>
       <description>
       
@@ -382,7 +382,7 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       </description>
       
       
-      <comments>https://www.dnocm.com/articles/beechnut/spring-cloud-contract/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/beechnut/spring-cloud-contract/#disqus_thread</comments>
     </item>
     
   </channel>

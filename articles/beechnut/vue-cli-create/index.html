@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="Nodejs除了赋予前端后端的能力外，还能有各种各样的脚本，极大的简单各种操作。在早期，脚本做的工作大都是生成固定的模版，所以你需要了解的，仅仅生成的项目就够了。然而，随着框架的完善，架构师往往希望通过脚本处理默认的配置或者环境，这样能减少环境差异导致的问题，还能简化升级核心框架的升级，例如Vue CLI做的事。 这时候，我们不得不探一探它的神秘面纱。 这次带来的是Create的原理解析。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一点点解析Vue CLI之Create">
-<meta property="og:url" content="https://www.dnocm.com/articles/beechnut/vue-cli-create/index.html">
+<meta property="og:url" content="https://jiangtj.com/articles/beechnut/vue-cli-create/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="Nodejs除了赋予前端后端的能力外，还能有各种各样的脚本，极大的简单各种操作。在早期，脚本做的工作大都是生成固定的模版，所以你需要了解的，仅仅生成的项目就够了。然而，随着框架的完善，架构师往往希望通过脚本处理默认的配置或者环境，这样能减少环境差异导致的问题，还能简化升级核心框架的升级，例如Vue CLI做的事。 这时候，我们不得不探一探它的神秘面纱。 这次带来的是Create的原理解析。">
 <meta property="og:locale" content="zh">
@@ -76,23 +76,29 @@
 
 <body itemscope itemtype="http://schema.org/WebPage">
 
-  
-<div class="pin-top-msg">
-<a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
-<i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
+  <div class="pin-top-msg">
+  <a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
+  <i class="fa fa-times" aria-hidden="true" onclick="hidePin()"></i>
 </div>
 
 <script>
-if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.location.hostname) < 0) {
+  if ([
+    'dnocm.com',
+    'www.dnocm.com',
+    'localhost',
+    'jiangtj.com',
+    'zh.jiangtj.com',
+    'wwww.jiangtj.com'
+  ].indexOf(window.location.hostname) < 0) {
 
-  document.querySelector(".pin-top-msg").style.display = 'block';
-  document.querySelector(".jump-to-dnocm").href = "https://dnocm.com" + window.location.pathname;
+    document.querySelector(".pin-top-msg").style.display = 'block';
+    document.querySelector(".jump-to-dnocm").href = "https://jiangtj.com" + window.location.pathname;
 
-  var hidePin = function() {
-    document.querySelector(".pin-top-msg").style.display = 'none';
+    var hidePin = function () {
+      document.querySelector(".pin-top-msg").style.display = 'none';
+    }
+
   }
-
-}
 </script>
   
   <header class="main-header" itemscope itemtype="http://schema.org/WPHeader">
@@ -285,7 +291,7 @@ if (['dnocm.com', 'www.dnocm.com', 'localhost', 'jiangtj.com'].indexOf(window.lo
 <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   <div class="card post-block">
 
-    <link itemprop="mainEntityOfPage" href="https://www.dnocm.com/articles/beechnut/vue-cli-create/" />
+    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/beechnut/vue-cli-create/" />
     <meta itemprop="dateCreated datePublished" content="2019-04-16T13:27:47+00:00" />
     <meta itemprop="dateModified" content="2019-04-16T13:27:47+00:00" />
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -530,7 +536,7 @@ program
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.dnocm.com/articles/beechnut/vue-cli-create/" title="一点点解析Vue CLI之Create">https://www.dnocm.com/articles/beechnut/vue-cli-create/</a>    </li>
+      <a href="https://jiangtj.com/articles/beechnut/vue-cli-create/" title="一点点解析Vue CLI之Create">https://jiangtj.com/articles/beechnut/vue-cli-create/</a>    </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
       本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="creative-commons" class="svg-inline--fa fa-creative-commons fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M245.83 214.87l-33.22 17.28c-9.43-19.58-25.24-19.93-27.46-19.93-22.13 0-33.22 14.61-33.22 43.84 0 23.57 9.21 43.84 33.22 43.84 14.47 0 24.65-7.09 30.57-21.26l30.55 15.5c-6.17 11.51-25.69 38.98-65.1 38.98-22.6 0-73.96-10.32-73.96-77.05 0-58.69 43-77.06 72.63-77.06 30.72-.01 52.7 11.95 65.99 35.86zm143.05 0l-32.78 17.28c-9.5-19.77-25.72-19.93-27.9-19.93-22.14 0-33.22 14.61-33.22 43.84 0 23.55 9.23 43.84 33.22 43.84 14.45 0 24.65-7.09 30.54-21.26l31 15.5c-2.1 3.75-21.39 38.98-65.09 38.98-22.69 0-73.96-9.87-73.96-77.05 0-58.67 42.97-77.06 72.63-77.06 30.71-.01 52.58 11.95 65.56 35.86zM247.56 8.05C104.74 8.05 0 123.11 0 256.05c0 138.49 113.6 248 247.56 248 129.93 0 248.44-100.87 248.44-248 0-137.87-106.62-248-248.44-248zm.87 450.81c-112.54 0-203.7-93.04-203.7-202.81 0-105.42 85.43-203.27 203.72-203.27 112.53 0 202.82 89.46 202.82 203.26-.01 121.69-99.68 202.82-202.84 202.82z"></path></svg>BY-NC-SA</a> 许可协议。转载请注明出处！    </li>
@@ -676,7 +682,7 @@ if ('serviceWorker' in navigator) {
 <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js" crossorigin="anonymous"></script><script>lozad('[data-src]').observe();</script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js" crossorigin="anonymous"></script><script>mediumZoom('.post-body img:not([data-zoomable="false"]), [data-zoomable]:not([data-zoomable="false"])', {background: 'var(--bg-color)'});</script>
 <script>
   var disqus_config = function () {
-    this.page.url = 'https://www.dnocm.com/articles/beechnut/vue-cli-create/';
+    this.page.url = 'https://jiangtj.com/articles/beechnut/vue-cli-create/';
     this.page.identifier = 'articles/beechnut/vue-cli-create/';
   };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
