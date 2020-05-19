@@ -9,8 +9,30 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个两个三个小朋友 四个五个...</description>
-    <pubDate>Mon, 11 May 2020 07:36:12 GMT</pubDate>
+    <pubDate>Tue, 19 May 2020 05:29:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>新网址！</title>
+      <link>https://www.dnocm.com/articles/cherry/new-deploy/</link>
+      <guid>https://www.dnocm.com/articles/cherry/new-deploy/</guid>
+      <pubDate>Tue, 19 May 2020 05:29:58 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            &lt;p&gt;netlify免费版的网络真的太差了（跟1年多前刚使用的时候比，差太多），所以原本打算迁移到github pages&lt;/p&gt;
+&lt;p&gt;&lt;img
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://www.dnocm.com/articles/cherry/new-deploy/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>暗色模式上线啦！！</title>
@@ -361,28 +383,6 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       
       
       <comments>https://www.dnocm.com/articles/beechnut/spring-cloud-contract/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>两幅图，谷歌与百度的差距有多大</title>
-      <link>https://www.dnocm.com/articles/beechnut/google-vs-baidu/</link>
-      <guid>https://www.dnocm.com/articles/beechnut/google-vs-baidu/</guid>
-      <pubDate>Fri, 22 Mar 2019 06:33:12 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            &lt;img src=&quot;/articles/beechnut/google-vs-baidu/baidu.png&quot; class=&quot;box&quot; title=&quot;baidu&quot;&gt;
-&lt;img src=&quot;/articles/beechnut/google-vs-baidu/google.png&quot;
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://www.dnocm.com/articles/beechnut/google-vs-baidu/#disqus_thread</comments>
     </item>
     
   </channel>
