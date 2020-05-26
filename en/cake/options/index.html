@@ -363,7 +363,7 @@
 
     <div class="post-body" itemprop="articleBody">
       
-      <html><head></head><body><h1 id="Modify-theme-configuration" class="article-heading"><a href="#Modify-theme-configuration" class="headerlink" title="Modify theme configuration"></a>Modify theme configuration<a class="article-anchor" href="#Modify-theme-configuration" aria-hidden="true"></a></h1></body></html><p>Although themes are managed by NPM, they can be easily configured, and hexo supports overridden configurations in themes through the key <code>theme_config</code></p>
+      <h1 id="Modify-theme-configuration" class="article-heading"><a href="#Modify-theme-configuration" class="headerlink" title="Modify theme configuration"></a>Modify theme configuration<a class="article-anchor" href="#Modify-theme-configuration" aria-hidden="true"></a></h1><p>Although themes are managed by NPM, they can be easily configured, and hexo supports overridden configurations in themes through the key <code>theme_config</code></p>
 <p>For example, to add a website icon:</p>
 <pre>
 <code class="yml"><span class="hljs-attr">theme_config:</span>
@@ -375,8 +375,8 @@
 </pre><p>If your hexo version is greater than 4.2, you can also configure it in <code>config.&lt;theme&gt;.yml</code>, which is equivalent to <code>theme_config</code></p>
 <p>You can also use this <a href="https://github.com/jiangtj-lab/hexo-config-plus">hexo-config-plus</a> plugin to modify the configuration</p>
 <p>For the complete configuration,<a href="https://github.com/jiangtj/hexo-theme-cake/blob/master/_config.yml">go to the theme repository to view it</a></p>
-<html><head></head><body><h1 id="Inject-content" class="article-heading"><a href="#Inject-content" class="headerlink" title="Inject content"></a>Inject content<a class="article-anchor" href="#Inject-content" aria-hidden="true"></a></h1></body></html><p>This is the function of <a href="https://github.com/jiangtj/hexo-extend-injector2">hexo-extend-injector2</a> plugin. Cake theme provides these injection points (headBegin, headEnd (head), bodyBegin, bodyEnd, header, footer, postBodyEnd, menu, postMeta, sidebar, variable, style), how to use see plugin warehouse</p>
-<html><head></head><body><h1 id="Replace-layout" class="article-heading"><a href="#Replace-layout" class="headerlink" title="Replace layout"></a>Replace layout<a class="article-anchor" href="#Replace-layout" aria-hidden="true"></a></h1></body></html><p>This part is the function of hexo, which is supported in most themes (you need to replace include with partial, and Cake can be replaced except for the root of layout).</p>
+<h1 id="Inject-content" class="article-heading"><a href="#Inject-content" class="headerlink" title="Inject content"></a>Inject content<a class="article-anchor" href="#Inject-content" aria-hidden="true"></a></h1><p>This is the function of <a href="https://github.com/jiangtj/hexo-extend-injector2">hexo-extend-injector2</a> plugin. Cake theme provides these injection points (headBegin, headEnd (head), bodyBegin, bodyEnd, header, footer, postBodyEnd, menu, postMeta, sidebar, variable, style), how to use see plugin warehouse</p>
+<h1 id="Replace-layout" class="article-heading"><a href="#Replace-layout" class="headerlink" title="Replace layout"></a>Replace layout<a class="article-anchor" href="#Replace-layout" aria-hidden="true"></a></h1><p>This part is the function of hexo, which is supported in most themes (you need to replace include with partial, and Cake can be replaced except for the root of layout).</p>
 <pre>
 <code class="js">Const fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
 Hexo.extend.filter.register(<span class="hljs-string">'before_generate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{

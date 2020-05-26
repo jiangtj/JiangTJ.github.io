@@ -375,9 +375,9 @@
 
 <p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20191106145354.png"></p>
 <p><em>发放策略与其他系统紧密相关，暂时未设计数据结构</em></p>
-<html><head></head><body><h1 id="优惠券主体" class="article-heading"><a href="#优惠券主体" class="headerlink" title="优惠券主体"></a>优惠券主体<a class="article-anchor" href="#优惠券主体" aria-hidden="true"></a></h1></body></html><p>这部分是优惠券的一些共同的信息，一般在查询展示时用到。所以前期比较简单，但后期如果需要对优惠券美化时，就需要扩展这部分来支持</p>
+<h1 id="优惠券主体" class="article-heading"><a href="#优惠券主体" class="headerlink" title="优惠券主体"></a>优惠券主体<a class="article-anchor" href="#优惠券主体" aria-hidden="true"></a></h1><p>这部分是优惠券的一些共同的信息，一般在查询展示时用到。所以前期比较简单，但后期如果需要对优惠券美化时，就需要扩展这部分来支持</p>
 <p>建议创建后不允许修改优惠券，为后续订单追溯优惠提供可能</p>
-<html><head></head><body><h1 id="优惠策略" class="article-heading"><a href="#优惠策略" class="headerlink" title="优惠策略"></a>优惠策略<a class="article-anchor" href="#优惠策略" aria-hidden="true"></a></h1></body></html><p>优惠的策略与主体间是1对1的关系（一张优惠券一种优惠方式），理论上这部分可以和主体存放在一张表内</p>
+<h1 id="优惠策略" class="article-heading"><a href="#优惠策略" class="headerlink" title="优惠策略"></a>优惠策略<a class="article-anchor" href="#优惠策略" aria-hidden="true"></a></h1><p>优惠的策略与主体间是1对1的关系（一张优惠券一种优惠方式），理论上这部分可以和主体存放在一张表内</p>
 <p>优惠策略的关键在于handler处理器，所有的优惠策略处理器都需要继承优惠处理器相关的接口，例如java版如下（其他语言应该也能有类似的功能把）</p>
 <pre>
 <code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DiscountHandler</span> </span>{
@@ -418,7 +418,7 @@
 </pre><p>其中，name用于记录处理器的名称，spring可以获取所有DiscountHandler的实例，我们处理后，作为选择列表供用户选择，使用哪个处理器</p>
 <p>args在不同处理器时，具有不同的含义，在SubtractDiscountHandler下，填1，表示立减1元，MultiplyDiscountHandler下填0.9，表示打9折</p>
 <p>当用户选择优惠券(多张)后，获取选择的优惠券的处理器并依据order排序，依次处理价格(一般情况我们会把折扣放在后面处理，减少总的优惠额)</p>
-<html><head></head><body><h1 id="限制规则" class="article-heading"><a href="#限制规则" class="headerlink" title="限制规则"></a>限制规则<a class="article-anchor" href="#限制规则" aria-hidden="true"></a></h1></body></html><p>限制规则与优惠策略处理的方式是一样的，不同点在于优惠券主体与限制规则是1对多的关系。</p>
+<h1 id="限制规则" class="article-heading"><a href="#限制规则" class="headerlink" title="限制规则"></a>限制规则<a class="article-anchor" href="#限制规则" aria-hidden="true"></a></h1><p>限制规则与优惠策略处理的方式是一样的，不同点在于优惠券主体与限制规则是1对多的关系。</p>
 <p>限制规则的handler也与优惠券有点区别，大致如下</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Data</span>
@@ -446,7 +446,7 @@
 <blockquote>
 <p>TBD</p>
 </blockquote>
-<html><head></head><body><h1 id="发放策略" class="article-heading"><a href="#发放策略" class="headerlink" title="发放策略"></a>发放策略<a class="article-anchor" href="#发放策略" aria-hidden="true"></a></h1></body></html><p>发放策略在优惠券部分的逻辑其实只是添加一条用户领取的记录，但其难在何时如何领取优惠券。所以，总结一下就是</p>
+<h1 id="发放策略" class="article-heading"><a href="#发放策略" class="headerlink" title="发放策略"></a>发放策略<a class="article-anchor" href="#发放策略" aria-hidden="true"></a></h1><p>发放策略在优惠券部分的逻辑其实只是添加一条用户领取的记录，但其难在何时如何领取优惠券。所以，总结一下就是</p>
 <ol>
 <li>优惠券系统需要暴露API给外部系统调用，以生成用户的优惠券领取记录</li>
 <li>在外部系统（比如活动系统），制定其领取规则</li>

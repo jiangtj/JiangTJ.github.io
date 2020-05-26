@@ -618,7 +618,7 @@
 
     <div class="post-body" itemprop="articleBody">
       
-      <html><head></head><body><h1 id="前世因" class="article-heading"><a href="#前世因" class="headerlink" title="前世因"></a>前世因<a class="article-anchor" href="#前世因" aria-hidden="true"></a></h1></body></html><p>这要追溯到3月份，Mimi的<a href="https://github.com/theme-next/hexo-theme-next/pull/663">PR:Adding Submodule</a>，我们讨论了如何管理第三方依赖。LEAFERx提出了使用NPM管理会更好，他进行了实践PR:Extract leancloud-counter to plugins <a href="https://github.com/theme-next/hexo-theme-next/pull/677">#677</a> <a href="https://github.com/theme-next/hexo-theme-next/pull/707">#707</a>。在我看来LEAFERx的方案并不好，因为复杂。所以要做到插件化，有两个必须达到的要求：</p>
+      <h1 id="前世因" class="article-heading"><a href="#前世因" class="headerlink" title="前世因"></a>前世因<a class="article-anchor" href="#前世因" aria-hidden="true"></a></h1><p>这要追溯到3月份，Mimi的<a href="https://github.com/theme-next/hexo-theme-next/pull/663">PR:Adding Submodule</a>，我们讨论了如何管理第三方依赖。LEAFERx提出了使用NPM管理会更好，他进行了实践PR:Extract leancloud-counter to plugins <a href="https://github.com/theme-next/hexo-theme-next/pull/677">#677</a> <a href="https://github.com/theme-next/hexo-theme-next/pull/707">#707</a>。在我看来LEAFERx的方案并不好，因为复杂。所以要做到插件化，有两个必须达到的要求：</p>
 <ol>
 <li>灵活与可扩展性，在插件中，我们就要能修改大部分内容。</li>
 <li>操作简单，我们通过极少的代码集成我们想要的功能。</li>
@@ -1146,7 +1146,7 @@
     <div class="post-body" itemprop="articleBody">
       
       <p>Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。</p>
-<html><head></head><body><h1 id="什么是契约测试？" class="article-heading"><a href="#什么是契约测试？" class="headerlink" title="什么是契约测试？"></a>什么是契约测试？<a class="article-anchor" href="#什么是契约测试？" aria-hidden="true"></a></h1></body></html><p>首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：</p>
+<h1 id="什么是契约测试？" class="article-heading"><a href="#什么是契约测试？" class="headerlink" title="什么是契约测试？"></a>什么是契约测试？<a class="article-anchor" href="#什么是契约测试？" aria-hidden="true"></a></h1><p>首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：</p>
 <ul>
 <li>验证提供方是否履约</li>
 <li>验证消费方在提供方履约下是否正常工作</li>

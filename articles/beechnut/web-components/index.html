@@ -362,8 +362,8 @@
 <blockquote>
 <p>假如您无法查看例子，请使用最新的Chrome访问该页面</p>
 </blockquote>
-<html><head></head><body><h1 id="自定义elements" class="article-heading"><a href="#自定义elements" class="headerlink" title="自定义elements"></a>自定义elements<a class="article-anchor" href="#自定义elements" aria-hidden="true"></a></h1></body></html><p>Web Components通过CustomElementRegistry.define()来定义elements，目前有两种elements，独立的element与继承自基本的HTML element</p>
-<html><head></head><body><h2 id="独立的element" class="article-heading"><a href="#独立的element" class="headerlink" title="独立的element"></a>独立的element<a class="article-anchor" href="#独立的element" aria-hidden="true"></a></h2></body></html><p>独立的element像<code>&lt;custom-element&gt;</code>这样的自定义标签。代码如下：</p>
+<h1 id="自定义elements" class="article-heading"><a href="#自定义elements" class="headerlink" title="自定义elements"></a>自定义elements<a class="article-anchor" href="#自定义elements" aria-hidden="true"></a></h1><p>Web Components通过CustomElementRegistry.define()来定义elements，目前有两种elements，独立的element与继承自基本的HTML element</p>
+<h2 id="独立的element" class="article-heading"><a href="#独立的element" class="headerlink" title="独立的element"></a>独立的element<a class="article-anchor" href="#独立的element" aria-hidden="true"></a></h2><p>独立的element像<code>&lt;custom-element&gt;</code>这样的自定义标签。代码如下：</p>
 <pre>
 <code class="js">customElements.define(<span class="hljs-string">'custom-element'</span>,
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
@@ -402,7 +402,7 @@ customElements.define('custom-element',
 )
 </script>
 
-<html><head></head><body><h2 id="继承自基本的HTML-element" class="article-heading"><a href="#继承自基本的HTML-element" class="headerlink" title="继承自基本的HTML element"></a>继承自基本的HTML element<a class="article-anchor" href="#继承自基本的HTML-element" aria-hidden="true"></a></h2></body></html><p>通过例如<code>&lt;p is=&#39;custom-p&#39;&gt;</code>的方式调用，例如：</p>
+<h2 id="继承自基本的HTML-element" class="article-heading"><a href="#继承自基本的HTML-element" class="headerlink" title="继承自基本的HTML element"></a>继承自基本的HTML element<a class="article-anchor" href="#继承自基本的HTML-element" aria-hidden="true"></a></h2><p>通过例如<code>&lt;p is=&#39;custom-p&#39;&gt;</code>的方式调用，例如：</p>
 <pre>
 <code class="js">customElements.define(<span class="hljs-string">'custom-p'</span>,
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLParagraphElement</span>  </span>{
@@ -440,7 +440,7 @@ customElements.define('custom-p',
 )
 </script>
 
-<html><head></head><body><h2 id="生命周期回调函数" class="article-heading"><a href="#生命周期回调函数" class="headerlink" title="生命周期回调函数"></a>生命周期回调函数<a class="article-anchor" href="#生命周期回调函数" aria-hidden="true"></a></h2></body></html><p>在自定义的element的构造函数中，可以指定多个不同的回调函数，它们将会在元素的不同生命时期被调用：</p>
+<h2 id="生命周期回调函数" class="article-heading"><a href="#生命周期回调函数" class="headerlink" title="生命周期回调函数"></a>生命周期回调函数<a class="article-anchor" href="#生命周期回调函数" aria-hidden="true"></a></h2><p>在自定义的element的构造函数中，可以指定多个不同的回调函数，它们将会在元素的不同生命时期被调用：</p>
 <ul>
 <li>connectedCallback：当 custom element首次被插入文档DOM时，被调用。</li>
 <li>disconnectedCallback：当 custom element从文档DOM中删除时，被调用。</li>
@@ -469,10 +469,10 @@ customElements.define('custom-p',
     }
   }
 )</code>
-</pre><html><head></head><body><h1 id="Shadow-DOM" class="article-heading"><a href="#Shadow-DOM" class="headerlink" title="Shadow DOM"></a>Shadow DOM<a class="article-anchor" href="#Shadow-DOM" aria-hidden="true"></a></h1></body></html><img src="/articles/beechnut/web-components/shadow-dom.png" class="">
+</pre><h1 id="Shadow-DOM" class="article-heading"><a href="#Shadow-DOM" class="headerlink" title="Shadow DOM"></a>Shadow DOM<a class="article-anchor" href="#Shadow-DOM" aria-hidden="true"></a></h1><img src="/articles/beechnut/web-components/shadow-dom.png" class="">
 
 <p>如图，Shadow DOM会在自定义标签解析时，加载到普通的DOM上。内部可以通过Element.attachShadow()来获取shadow root。它有一个mode属性，值可以是<code>open</code>或者<code>closed</code>,表示能否在外部获取Shadow DOM对象，一般而言应当为<code>closed</code>，内部实现不应该对外可见。</p>
-<html><head></head><body><h1 id="HTML-templates" class="article-heading"><a href="#HTML-templates" class="headerlink" title="HTML templates"></a>HTML templates<a class="article-anchor" href="#HTML-templates" aria-hidden="true"></a></h1></body></html><p>如果你熟悉Vue的话，这块与它很相似，是template与slot。</p>
+<h1 id="HTML-templates" class="article-heading"><a href="#HTML-templates" class="headerlink" title="HTML templates"></a>HTML templates<a class="article-anchor" href="#HTML-templates" aria-hidden="true"></a></h1><p>如果你熟悉Vue的话，这块与它很相似，是template与slot。</p>
 <pre>
 <code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"person-template"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
@@ -525,8 +525,8 @@ customElements.define('person-details',
 });
 </script>
 
-<html><head></head><body><h1 id="HTML-Imports" class="article-heading"><a href="#HTML-Imports" class="headerlink" title="HTML Imports"></a>HTML Imports<a class="article-anchor" href="#HTML-Imports" aria-hidden="true"></a></h1></body></html><p>这块存在争议，Mozilla认为将来应该用更合适的方式。不多做介绍。</p>
-<html><head></head><body><h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1></body></html><ul>
+<h1 id="HTML-Imports" class="article-heading"><a href="#HTML-Imports" class="headerlink" title="HTML Imports"></a>HTML Imports<a class="article-anchor" href="#HTML-Imports" aria-hidden="true"></a></h1><p>这块存在争议，Mozilla认为将来应该用更合适的方式。不多做介绍。</p>
+<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ul>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components">MDN Web_Components</a></li>
 </ul>
 <p>近期，打算利用这个技术写自己的个人主页！！</p>

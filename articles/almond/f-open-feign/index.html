@@ -355,9 +355,9 @@
 <p>Feign一开始作为Eureka的子项目，用于简化Http请求。但由于其不断完善，目前作为一个轻量级、声明式的Http请求客户端项目，独立维护。在Spring Cloud中，其引入了Feign，并提供了一系列默认的配置与Spring MVC注解的支持。因此，Feign一直被作为首先的Http请求客户端。   </p>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="准备工作" class="article-heading"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作<a class="article-anchor" href="#准备工作" aria-hidden="true"></a></h1></body></html><p>需要Eureka Server，这部分看之前的文档部署，这篇以及以后的文章不在多提</p>
+<h1 id="准备工作" class="article-heading"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作<a class="article-anchor" href="#准备工作" aria-hidden="true"></a></h1><p>需要Eureka Server，这部分看之前的文档部署，这篇以及以后的文章不在多提</p>
 <p>搭建基础的Eureka Client，给Feign Clinet调用    </p>
-<html><head></head><body><h2 id="引入web相关依赖" class="article-heading"><a href="#引入web相关依赖" class="headerlink" title="引入web相关依赖"></a>引入web相关依赖<a class="article-anchor" href="#引入web相关依赖" aria-hidden="true"></a></h2></body></html><pre>
+<h2 id="引入web相关依赖" class="article-heading"><a href="#引入web相关依赖" class="headerlink" title="引入web相关依赖"></a>引入web相关依赖<a class="article-anchor" href="#引入web相关依赖" aria-hidden="true"></a></h2><pre>
 <code class="xml"><span class="hljs-comment">&lt;!-- 为了方便引入了lombok --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
@@ -378,7 +378,7 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>reactor-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code>
-</pre><html><head></head><body><h2 id="编写Curl-Controller" class="article-heading"><a href="#编写Curl-Controller" class="headerlink" title="编写Curl Controller"></a>编写Curl Controller<a class="article-anchor" href="#编写Curl-Controller" aria-hidden="true"></a></h2></body></html><pre>
+</pre><h2 id="编写Curl-Controller" class="article-heading"><a href="#编写Curl-Controller" class="headerlink" title="编写Curl Controller"></a>编写Curl Controller<a class="article-anchor" href="#编写Curl-Controller" aria-hidden="true"></a></h2><pre>
 <code class="java"><span class="hljs-meta">@Slf4j</span>
 <span class="hljs-meta">@RestController</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurlController</span> </span>{
@@ -428,7 +428,7 @@
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     }
 }</code>
-</pre><html><head></head><body><h2 id="编写测试用例" class="article-heading"><a href="#编写测试用例" class="headerlink" title="编写测试用例"></a>编写测试用例<a class="article-anchor" href="#编写测试用例" aria-hidden="true"></a></h2></body></html><pre>
+</pre><h2 id="编写测试用例" class="article-heading"><a href="#编写测试用例" class="headerlink" title="编写测试用例"></a>编写测试用例<a class="article-anchor" href="#编写测试用例" aria-hidden="true"></a></h2><pre>
 <code class="java">@RunWith(SpringRunner.class)
 @SpringBootTest
 public class CurlControllerTest {
@@ -483,11 +483,11 @@ public class CurlControllerTest {
         client.delete().uri("/curl").exchange().expectStatus().isNoContent();
     }
 }</code>
-</pre><html><head></head><body><h2 id="测试接口" class="article-heading"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口<a class="article-anchor" href="#测试接口" aria-hidden="true"></a></h2></body></html><pre>
+</pre><h2 id="测试接口" class="article-heading"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口<a class="article-anchor" href="#测试接口" aria-hidden="true"></a></h2><pre>
 <code class="">[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.204 s <<< FAILURE! - in com.jtj.cloud.baseclient.CurlControllerTest
 [ERROR] delete(com.jtj.cloud.baseclient.CurlControllerTest)  Time elapsed: 0.077 s  <<< FAILURE!</code>
 </pre><p>测试接口如预期，成功3个，失败1个（删除接口）    </p>
-<html><head></head><body><h1 id="Feign服务" class="article-heading"><a href="#Feign服务" class="headerlink" title="Feign服务"></a>Feign服务<a class="article-anchor" href="#Feign服务" aria-hidden="true"></a></h1></body></html><html><head></head><body><h2 id="相对于基础的客户端，多引入Feign依赖，并启用Feign" class="article-heading"><a href="#相对于基础的客户端，多引入Feign依赖，并启用Feign" class="headerlink" title="相对于基础的客户端，多引入Feign依赖，并启用Feign"></a>相对于基础的客户端，多引入Feign依赖，并启用Feign<a class="article-anchor" href="#相对于基础的客户端，多引入Feign依赖，并启用Feign" aria-hidden="true"></a></h2></body></html><pre>
+<h1 id="Feign服务" class="article-heading"><a href="#Feign服务" class="headerlink" title="Feign服务"></a>Feign服务<a class="article-anchor" href="#Feign服务" aria-hidden="true"></a></h1><h2 id="相对于基础的客户端，多引入Feign依赖，并启用Feign" class="article-heading"><a href="#相对于基础的客户端，多引入Feign依赖，并启用Feign" class="headerlink" title="相对于基础的客户端，多引入Feign依赖，并启用Feign"></a>相对于基础的客户端，多引入Feign依赖，并启用Feign<a class="article-anchor" href="#相对于基础的客户端，多引入Feign依赖，并启用Feign" aria-hidden="true"></a></h2><pre>
 <code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
@@ -498,7 +498,7 @@ public class CurlControllerTest {
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FeignClientApplication</span> </span>{
     <span class="hljs-comment">//...</span>
 }</code>
-</pre><html><head></head><body><h2 id="编写声明式的Feign接口" class="article-heading"><a href="#编写声明式的Feign接口" class="headerlink" title="编写声明式的Feign接口"></a>编写声明式的Feign接口<a class="article-anchor" href="#编写声明式的Feign接口" aria-hidden="true"></a></h2></body></html><pre>
+</pre><h2 id="编写声明式的Feign接口" class="article-heading"><a href="#编写声明式的Feign接口" class="headerlink" title="编写声明式的Feign接口"></a>编写声明式的Feign接口<a class="article-anchor" href="#编写声明式的Feign接口" aria-hidden="true"></a></h2><pre>
 <code class="java"><span class="hljs-meta">@FeignClient(value = "base-client")</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BaseClient</span> </span>{
 
@@ -522,7 +522,7 @@ public class CurlControllerTest {
 
 }</code>
 </pre><p>该接口注解与Spring MVC的基本一致（@PathVariable不能省略value值）<br>其中@FeignClient定义该接口实例化为Feign服务并注入到Spring中，由Spring管理，value值为配置文件中微服务的名称（spring.application.name的值）   </p>
-<html><head></head><body><h2 id="调用Feign服务" class="article-heading"><a href="#调用Feign服务" class="headerlink" title="调用Feign服务"></a>调用Feign服务<a class="article-anchor" href="#调用Feign服务" aria-hidden="true"></a></h2></body></html><pre>
+<h2 id="调用Feign服务" class="article-heading"><a href="#调用Feign服务" class="headerlink" title="调用Feign服务"></a>调用Feign服务<a class="article-anchor" href="#调用Feign服务" aria-hidden="true"></a></h2><pre>
 <code class="java">
 <span class="hljs-meta">@Resource</span>
 <span class="hljs-keyword">private</span> BaseClient baseClient;
@@ -551,7 +551,7 @@ public class CurlControllerTest {
     <span class="hljs-keyword">return</span> result;
 }
 </code>
-</pre><html><head></head><body><h2 id="访问接口测试" class="article-heading"><a href="#访问接口测试" class="headerlink" title="访问接口测试"></a>访问接口测试<a class="article-anchor" href="#访问接口测试" aria-hidden="true"></a></h2></body></html><p>我们能得到如下结果，其中Delete是失败的</p>
+</pre><h2 id="访问接口测试" class="article-heading"><a href="#访问接口测试" class="headerlink" title="访问接口测试"></a>访问接口测试<a class="article-anchor" href="#访问接口测试" aria-hidden="true"></a></h2><p>我们能得到如下结果，其中Delete是失败的</p>
 <pre>
 <code class="json">{
     <span class="hljs-attr">"Delete"</span>:<span class="hljs-string">"fail: BaseClient#deleteUser() failed and no fallback available."</span>,
@@ -561,7 +561,7 @@ public class CurlControllerTest {
     <span class="hljs-attr">"Put"</span>:<span class="hljs-string">"Your Body is {\"name\":\"Jone Kolo\",\"age\":30,\"sex\":1}"</span>
 }</code>
 </pre><p>上述这些例子包含了基本的REST操作，也就是Feign的基本使用</p>
-<html><head></head><body><h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1></body></html><ul>
+<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ul>
 <li><a href="https://github.com/OpenFeign/feign">Feign源码地址</a></li>
 <li><a href="http://cloud.spring.io/spring-cloud-openfeign/single/spring-cloud-openfeign.html">Spring Cloud OpenFeign 官方文档</a></li>
 <li><a href="https://github.com/JiangTJ/spring-cloud-examples/tree/master/simple-example">例子源码地址（可能存在改动和完善）</a></li>

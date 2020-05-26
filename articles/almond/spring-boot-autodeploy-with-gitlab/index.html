@@ -353,14 +353,14 @@
 
     <div class="post-body" itemprop="articleBody">
       
-      <html><head></head><body><h1 id="定义场景" class="article-heading"><a href="#定义场景" class="headerlink" title="定义场景"></a>定义场景<a class="article-anchor" href="#定义场景" aria-hidden="true"></a></h1></body></html><p>spring boot应用在手动部署过程中主要分为两步，打包编译与上传部署（也可能存在测试环境，但由于该项目目前只有我开发，并未写测试用例）。同样的在gitlab-ci文件中也定义相应的两步骤</p>
+      <h1 id="定义场景" class="article-heading"><a href="#定义场景" class="headerlink" title="定义场景"></a>定义场景<a class="article-anchor" href="#定义场景" aria-hidden="true"></a></h1><p>spring boot应用在手动部署过程中主要分为两步，打包编译与上传部署（也可能存在测试环境，但由于该项目目前只有我开发，并未写测试用例）。同样的在gitlab-ci文件中也定义相应的两步骤</p>
 <pre>
 <code class="yml"><span class="hljs-attr">stages:</span>
   <span class="hljs-bullet">-</span> <span class="hljs-string">build</span>
   <span class="hljs-bullet">-</span> <span class="hljs-string">deploy</span></code>
 </pre><a id="more"></a>
 
-<html><head></head><body><h1 id="编译" class="article-heading"><a href="#编译" class="headerlink" title="编译"></a>编译<a class="article-anchor" href="#编译" aria-hidden="true"></a></h1></body></html><p>使用GitLab公共CI服务为Spring Boot打包编译。image定义所使用的docker镜像，stage指定场景，script打包脚本（跳过测试阶段），artifacts定义需要归档的文件，only指定仅release分支打包（支持正则表达式）</p>
+<h1 id="编译" class="article-heading"><a href="#编译" class="headerlink" title="编译"></a>编译<a class="article-anchor" href="#编译" aria-hidden="true"></a></h1><p>使用GitLab公共CI服务为Spring Boot打包编译。image定义所使用的docker镜像，stage指定场景，script打包脚本（跳过测试阶段），artifacts定义需要归档的文件，only指定仅release分支打包（支持正则表达式）</p>
 <pre>
 <code class="yml"><span class="hljs-attr">release-build:</span>
   <span class="hljs-attr">image:</span> <span class="hljs-string">maven:3.5.2-jdk-8</span>
@@ -371,7 +371,7 @@
       <span class="hljs-bullet">-</span> <span class="hljs-string">target/bill-server.jar</span>
   <span class="hljs-attr">only:</span>
     <span class="hljs-bullet">-</span> <span class="hljs-string">/^release-.*$/</span></code>
-</pre><html><head></head><body><h1 id="部署" class="article-heading"><a href="#部署" class="headerlink" title="部署"></a>部署<a class="article-anchor" href="#部署" aria-hidden="true"></a></h1></body></html><p>配置文件的结构与编译的基本一直，这里使用ubuntu镜像，如果您使用的yam请替换相应的命令。如果您使用自己的CI Runner(shell)，建议密钥存放在自己的服务器上，手动配置实现对部署服务器的ssh访问</p>
+</pre><h1 id="部署" class="article-heading"><a href="#部署" class="headerlink" title="部署"></a>部署<a class="article-anchor" href="#部署" aria-hidden="true"></a></h1><p>配置文件的结构与编译的基本一直，这里使用ubuntu镜像，如果您使用的yam请替换相应的命令。如果您使用自己的CI Runner(shell)，建议密钥存放在自己的服务器上，手动配置实现对部署服务器的ssh访问</p>
 <pre>
 <code class="yml"><span class="hljs-attr">release-deploy:</span>
   <span class="hljs-attr">image:</span> <span class="hljs-string">ubuntu</span>
@@ -410,7 +410,7 @@
   <span class="hljs-attr">only:</span>
     <span class="hljs-bullet">-</span> <span class="hljs-string">/^release-.*$/</span></code>
 </pre><p>其中shell脚本，与我的<a href="https://www.dnocm.com/articles/almond/spring-boot-autorun-with-gitlab/">另一篇博客</a>类似，稍做修改就行</p>
-<html><head></head><body><h1 id="参考文档" class="article-heading"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档<a class="article-anchor" href="#参考文档" aria-hidden="true"></a></h1></body></html><ul>
+<h1 id="参考文档" class="article-heading"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档<a class="article-anchor" href="#参考文档" aria-hidden="true"></a></h1><ul>
 <li><a href="https://docs.gitlab.com/ee/ci/">GitLab CI Document</a></li>
 <li><a href="https://gitlab.com/dream-room/bill-server/blob/master/.gitlab-ci.yml">bill-server example</a></li>
 </ul>

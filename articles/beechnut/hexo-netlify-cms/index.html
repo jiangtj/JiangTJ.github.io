@@ -354,7 +354,7 @@
 
     <div class="post-body" itemprop="articleBody">
       
-      <html><head></head><body><h1 id="缘由" class="article-heading"><a href="#缘由" class="headerlink" title="缘由"></a>缘由<a class="article-anchor" href="#缘由" aria-hidden="true"></a></h1></body></html><p>有时候不想打开电脑修改文章，所以需要一个管理页面代替电脑操作（简单的能修改），一般而言，存在两种方案实现它</p>
+      <h1 id="缘由" class="article-heading"><a href="#缘由" class="headerlink" title="缘由"></a>缘由<a class="article-anchor" href="#缘由" aria-hidden="true"></a></h1><p>有时候不想打开电脑修改文章，所以需要一个管理页面代替电脑操作（简单的能修改），一般而言，存在两种方案实现它</p>
 <ul>
 <li>调用GitHub（或者其他Repo）的Api，获取与修改文件</li>
 <li>通过Git命令获取修改以及推送文件</li>
@@ -365,23 +365,23 @@
 
 <p>在将它应用到Hexo的时候，很不方便，官方例子很老旧，而且没有相关插件，所以简单的写了一个…</p>
 <p>下面是0.1.1的Hexo Netlify CMS插件的使用文档</p>
-<html><head></head><body><h1 id="Hexo-Netlify-CMS" class="article-heading"><a href="#Hexo-Netlify-CMS" class="headerlink" title="Hexo Netlify CMS"></a>Hexo Netlify CMS<a class="article-anchor" href="#Hexo-Netlify-CMS" aria-hidden="true"></a></h1></body></html><p>这是一个Netlify CMS的Hexo插件，你可以使用它，简单的开启Netlify CMS服务.   </p>
+<h1 id="Hexo-Netlify-CMS" class="article-heading"><a href="#Hexo-Netlify-CMS" class="headerlink" title="Hexo Netlify CMS"></a>Hexo Netlify CMS<a class="article-anchor" href="#Hexo-Netlify-CMS" aria-hidden="true"></a></h1><p>这是一个Netlify CMS的Hexo插件，你可以使用它，简单的开启Netlify CMS服务.   </p>
 <p><a href="https://github.com/JiangTJ/hexo-netlify-cms-example">Live Demo</a></p>
-<html><head></head><body><h2 id="如何使用" class="article-heading"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用<a class="article-anchor" href="#如何使用" aria-hidden="true"></a></h2></body></html><html><head></head><body><h3 id="Step1-添加依赖" class="article-heading"><a href="#Step1-添加依赖" class="headerlink" title="Step1: 添加依赖"></a>Step1: 添加依赖<a class="article-anchor" href="#Step1-添加依赖" aria-hidden="true"></a></h3></body></html><pre>
+<h2 id="如何使用" class="article-heading"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用<a class="article-anchor" href="#如何使用" aria-hidden="true"></a></h2><h3 id="Step1-添加依赖" class="article-heading"><a href="#Step1-添加依赖" class="headerlink" title="Step1: 添加依赖"></a>Step1: 添加依赖<a class="article-anchor" href="#Step1-添加依赖" aria-hidden="true"></a></h3><pre>
 <code class="bash">yarn add hexo-netlify-cms
 // or npm
 npm i hexo-netlify-cms --save</code>
-</pre><html><head></head><body><h3 id="Step2-在Hexo中添加配置" class="article-heading"><a href="#Step2-在Hexo中添加配置" class="headerlink" title="Step2: 在Hexo中添加配置"></a>Step2: 在Hexo中添加配置<a class="article-anchor" href="#Step2-在Hexo中添加配置" aria-hidden="true"></a></h3></body></html><pre>
+</pre><h3 id="Step2-在Hexo中添加配置" class="article-heading"><a href="#Step2-在Hexo中添加配置" class="headerlink" title="Step2: 在Hexo中添加配置"></a>Step2: 在Hexo中添加配置<a class="article-anchor" href="#Step2-在Hexo中添加配置" aria-hidden="true"></a></h3><pre>
 <code class="yaml"><span class="hljs-attr">netlify_cms:</span>
   <span class="hljs-attr">backend:</span>
     <span class="hljs-attr">name:</span> <span class="hljs-string">git-gateway</span>
     <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span></code>
-</pre><html><head></head><body><h3 id="Step3-在Netlify中开启服务" class="article-heading"><a href="#Step3-在Netlify中开启服务" class="headerlink" title="Step3: 在Netlify中开启服务"></a>Step3: 在Netlify中开启服务<a class="article-anchor" href="#Step3-在Netlify中开启服务" aria-hidden="true"></a></h3></body></html><p>开启netlify git-gateway服务
+</pre><h3 id="Step3-在Netlify中开启服务" class="article-heading"><a href="#Step3-在Netlify中开启服务" class="headerlink" title="Step3: 在Netlify中开启服务"></a>Step3: 在Netlify中开启服务<a class="article-anchor" href="#Step3-在Netlify中开启服务" aria-hidden="true"></a></h3><p>开启netlify git-gateway服务
 <img data-src="https://raw.githubusercontent.com/JiangTJ/hexo-netlify-cms/master/imgs/git-gateway.png">  </p>
 <p>添加netlify-identity-widget.js, 代码如下<br><code>&lt;script src=&quot;https://identity.netlify.com/v1/netlify-identity-widget.js&quot;&gt;&lt;/script&gt;</code><br><img data-src="https://raw.githubusercontent.com/JiangTJ/hexo-netlify-cms/master/imgs/snippet.png"></p>
 <p><strong>注意： 建议将身份认证设为仅邀请模式</strong></p>
 <p>Okay, 现在Netlify CMS已经好了, 你可以访问<code>your-site/admin</code>查看</p>
-<html><head></head><body><h2 id="其他配置" class="article-heading"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置<a class="article-anchor" href="#其他配置" aria-hidden="true"></a></h2></body></html><p>自定义pages自动生成配置</p>
+<h2 id="其他配置" class="article-heading"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置<a class="article-anchor" href="#其他配置" aria-hidden="true"></a></h2><p>自定义pages自动生成配置</p>
 <pre>
 <code class="yml"><span class="hljs-attr">netlify_cms:</span>
   <span class="hljs-comment"># pages auto generate</span>
@@ -412,14 +412,14 @@ npm i hexo-netlify-cms --save</code>
   <span class="hljs-attr">scripts:</span>
     <span class="hljs-bullet">-</span> <span class="hljs-string">js/cms/youtube.js</span></code>
 </pre><p>另外，其他的<code>netlify_cms</code>配置变量可以在<a href="https://www.netlifycms.org/docs/configuration-options/">Netlify CMS</a>中找到  </p>
-<html><head></head><body><h2 id="调试" class="article-heading"><a href="#调试" class="headerlink" title="调试"></a>调试<a class="article-anchor" href="#调试" aria-hidden="true"></a></h2></body></html><pre>
+<h2 id="调试" class="article-heading"><a href="#调试" class="headerlink" title="调试"></a>调试<a class="article-anchor" href="#调试" aria-hidden="true"></a></h2><pre>
 <code class="">yarn link
 cd example
 yarn link hexo-netlify-cms
 hexo s</code>
-</pre><html><head></head><body><h1 id="关于脚本" class="article-heading"><a href="#关于脚本" class="headerlink" title="关于脚本"></a>关于脚本<a class="article-anchor" href="#关于脚本" aria-hidden="true"></a></h1></body></html><p>事实上只是简单的在admin的页面下引入，可以通过Netlift CMS的全局变量<code>CMS</code>添加你想实现的自定义组件等。但这块需要花很多时间维护，毕竟预览的原理和hexo生成文件并不一样…    </p>
+</pre><h1 id="关于脚本" class="article-heading"><a href="#关于脚本" class="headerlink" title="关于脚本"></a>关于脚本<a class="article-anchor" href="#关于脚本" aria-hidden="true"></a></h1><p>事实上只是简单的在admin的页面下引入，可以通过Netlift CMS的全局变量<code>CMS</code>添加你想实现的自定义组件等。但这块需要花很多时间维护，毕竟预览的原理和hexo生成文件并不一样…    </p>
 <p>后续可能会添加对Image Tag的支持(其它应该不考虑实现，因为用不到)….</p>
-<html><head></head><body><h1 id="项目" class="article-heading"><a href="#项目" class="headerlink" title="项目"></a>项目<a class="article-anchor" href="#项目" aria-hidden="true"></a></h1></body></html><ul>
+<h1 id="项目" class="article-heading"><a href="#项目" class="headerlink" title="项目"></a>项目<a class="article-anchor" href="#项目" aria-hidden="true"></a></h1><ul>
 <li><a href="https://github.com/JiangTJ/hexo-netlify-cms">Hexo Netlify CMS</a></li>
 </ul>
       

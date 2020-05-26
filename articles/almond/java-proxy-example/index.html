@@ -351,7 +351,7 @@
 
     <div class="post-body" itemprop="articleBody">
       
-      <html><head></head><body><h3 id="例子" class="article-heading"><a href="#例子" class="headerlink" title="例子"></a>例子<a class="article-anchor" href="#例子" aria-hidden="true"></a></h3></body></html><p>1，先创建teacher接口   </p>
+      <h3 id="例子" class="article-heading"><a href="#例子" class="headerlink" title="例子"></a>例子<a class="article-anchor" href="#例子" aria-hidden="true"></a></h3><p>1，先创建teacher接口   </p>
 <pre>
 <code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Teacher</span> </span>{
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">manageWork</span><span class="hljs-params">(String s)</span></span>;
@@ -426,7 +426,7 @@ TeacherB开始布置作业：数学作业
 TeacherB的任务完成
 StudentA开始做作业
 StudentB开始做作业</code>
-</pre><html><head></head><body><h3 id="说明" class="article-heading"><a href="#说明" class="headerlink" title="说明"></a>说明<a class="article-anchor" href="#说明" aria-hidden="true"></a></h3></body></html><p>如上面结果所示，teacherProxyA是由Proxy产生的动态代理类，它拥有接口所对应的方法，调用这个方法其实就是调用invoke方法。
+</pre><h3 id="说明" class="article-heading"><a href="#说明" class="headerlink" title="说明"></a>说明<a class="article-anchor" href="#说明" aria-hidden="true"></a></h3><p>如上面结果所示，teacherProxyA是由Proxy产生的动态代理类，它拥有接口所对应的方法，调用这个方法其实就是调用invoke方法。
 在invoke中，调用的是他所代理对象的方法。<br>所以说，动态代理很强大，他可以在代理过程中执行拦截或者记录日志，spring的aop核心便是这个。
 除此之外，不得不提一下retrofit框架，这是面向android的RESTful网络请求框架，他的核心也是动态代理，不过，对于所有的请求都提供一样的实现，而所有的参数都通过flied值与注解来得到，然后通过okhttp提交并返回call对象。这种实现很精彩。</p>
       

@@ -361,7 +361,7 @@
 </ul>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="安装" class="article-heading"><a href="#安装" class="headerlink" title="安装"></a>安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h1></body></html><p>TICK在官网<a href="https://portal.influxdata.com/downloads">https://portal.influxdata.com/downloads</a>提供相应的下载安装方式，注意需要翻墙（JQuery引用的是Google源，会导致页面点击无反应）<br>下面是Ubuntu &amp; Debian的安装方式     </p>
+<h1 id="安装" class="article-heading"><a href="#安装" class="headerlink" title="安装"></a>安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h1><p>TICK在官网<a href="https://portal.influxdata.com/downloads">https://portal.influxdata.com/downloads</a>提供相应的下载安装方式，注意需要翻墙（JQuery引用的是Google源，会导致页面点击无反应）<br>下面是Ubuntu &amp; Debian的安装方式     </p>
 <pre>
 <code class="bash"><span class="hljs-comment"># telegraf</span>
 wget https://dl.influxdata.com/telegraf/releases/telegraf_1.6.2-1_amd64.deb
@@ -385,21 +385,21 @@ sudo apt-get install influxdb
 sudo apt-get install telegraf
 sudo apt-get install chronograf
 sudo apt-get install kapacitor</code>
-</pre><html><head></head><body><h1 id="运行" class="article-heading"><a href="#运行" class="headerlink" title="运行"></a>运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1></body></html><p>通过linux命令启动相应的服务    </p>
+</pre><h1 id="运行" class="article-heading"><a href="#运行" class="headerlink" title="运行"></a>运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1><p>通过linux命令启动相应的服务    </p>
 <pre>
 <code class="bash">sudo service telegraf start
 sudo service influxd start
 sudo service kapacitor start
 sudo service chronograf start</code>
 </pre><p>默认情况下，访问<a href="http://chronograf-ip:8888/">http://chronograf-ip:8888</a>即可    </p>
-<html><head></head><body><h1 id="配置" class="article-heading"><a href="#配置" class="headerlink" title="配置"></a>配置<a class="article-anchor" href="#配置" aria-hidden="true"></a></h1></body></html><p>一般情况下需要调整配置文件，使服务满足我们的需求，如权限等。<br>可以查看官方相关的文档配置    </p>
+<h1 id="配置" class="article-heading"><a href="#配置" class="headerlink" title="配置"></a>配置<a class="article-anchor" href="#配置" aria-hidden="true"></a></h1><p>一般情况下需要调整配置文件，使服务满足我们的需求，如权限等。<br>可以查看官方相关的文档配置    </p>
 <ul>
 <li><a href="https://docs.influxdata.com/chronograf/v1.4/introduction/getting-started/">chronograf</a>   </li>
 <li><a href="https://docs.influxdata.com/influxdb/v1.5/">influxdb</a>    </li>
 </ul>
 <p>目前Chronograf 的权限支持github,google等账号体系，但企业内部使用可能需要重新开发，满足企业内部帐号权限系统  </p>
-<html><head></head><body><h1 id="其他" class="article-heading"><a href="#其他" class="headerlink" title="其他"></a>其他<a class="article-anchor" href="#其他" aria-hidden="true"></a></h1></body></html><p>事实上，监控的功能挺多余的，云服务商一般都为我们提供了不错的监控服务。但influxdb，目前来说最主流的时序数据库，可以用来存储其他一些数据。例如网站的访问量等。再通过chronograf展示数据，在<a href="https://www.dnocm.com/">我的博客</a>的左侧菜单上有站点数据，就是通过这种方式来实现的，<a href="https://gitlab.com/JiangTJ/jiangtj.gitlab.io/blob/master/source/_data/metric.swig">我统计用的js脚本可以点这里看</a>。   </p>
-<html><head></head><body><h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1></body></html><ul>
+<h1 id="其他" class="article-heading"><a href="#其他" class="headerlink" title="其他"></a>其他<a class="article-anchor" href="#其他" aria-hidden="true"></a></h1><p>事实上，监控的功能挺多余的，云服务商一般都为我们提供了不错的监控服务。但influxdb，目前来说最主流的时序数据库，可以用来存储其他一些数据。例如网站的访问量等。再通过chronograf展示数据，在<a href="https://www.dnocm.com/">我的博客</a>的左侧菜单上有站点数据，就是通过这种方式来实现的，<a href="https://gitlab.com/JiangTJ/jiangtj.gitlab.io/blob/master/source/_data/metric.swig">我统计用的js脚本可以点这里看</a>。   </p>
+<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ul>
 <li><a href="https://blog.csdn.net/lin_credible/article/details/60579738">TICK技术栈 – DevOps轻量级监控解决方案</a>  </li>
 <li><a href="https://www.influxdata.com/time-series-platform/">Open Source Time Series Platform</a>  </li>
 </ul>

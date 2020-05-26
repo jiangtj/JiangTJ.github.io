@@ -355,16 +355,16 @@
 
     <div class="post-body" itemprop="articleBody">
       
-      <html><head></head><body><h1 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h1></body></html><p>Git LFS一直都想尝试，但，GitHub上</p>
+      <h1 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h1><p>Git LFS一直都想尝试，但，GitHub上</p>
 <img src="/articles/beechnut/netlify-lm/1.png" class="">
 
 <p>1G的存储，1G的带宽是，这量实在是。。。在2月26日，Netlify宣布了流量限制100G，也宣布新的功能，图像转换功能为流量限制做铺垫，以及这个转换功能所附带的大文件存储。一半伤心一半心动。虽然转换功能也有限制，2500次每月（同一次相同转换会缓存，只消耗1次次数），所以对于大部分中小型网站来说都够用了，当然100G的带宽，也是一样。</p>
 <p>作为转换功能基础的文件存储，则没提及，可能无限制吧。所以是时候升级啦。</p>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="为什么要使用LFS" class="article-heading"><a href="#为什么要使用LFS" class="headerlink" title="为什么要使用LFS"></a>为什么要使用LFS<a class="article-anchor" href="#为什么要使用LFS" aria-hidden="true"></a></h1></body></html><p>原因涉及到Git的底层原理，很多介绍上只说了会使存储库变的很大，所以要用LFS，但事实上二进制文件就是很大的，用了LFS，最后还不是得下一堆二进制文件。根本原因不是这个，而是Git的底层文件系统。Git的所有文件都存放在<code>.git\objects</code>中，而修改是保存一个新的文件，而目录中以hash值引用，旧文件是不会被删除的，删除也是一样。所以整个<code>.git</code>文件夹会变得特别膨大。</p>
+<h1 id="为什么要使用LFS" class="article-heading"><a href="#为什么要使用LFS" class="headerlink" title="为什么要使用LFS"></a>为什么要使用LFS<a class="article-anchor" href="#为什么要使用LFS" aria-hidden="true"></a></h1><p>原因涉及到Git的底层原理，很多介绍上只说了会使存储库变的很大，所以要用LFS，但事实上二进制文件就是很大的，用了LFS，最后还不是得下一堆二进制文件。根本原因不是这个，而是Git的底层文件系统。Git的所有文件都存放在<code>.git\objects</code>中，而修改是保存一个新的文件，而目录中以hash值引用，旧文件是不会被删除的，删除也是一样。所以整个<code>.git</code>文件夹会变得特别膨大。</p>
 <p>Git LFS能将二进制存储在别处，在Git中存储的只是标记文件，占用空间十分小。所以，当文件被删除后，空间占用也就少了，不会想原先那样，只增不减。</p>
-<html><head></head><body><h1 id="如何使用" class="article-heading"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用<a class="article-anchor" href="#如何使用" aria-hidden="true"></a></h1></body></html><p>这里使用Netlify Large Media做存储库。</p>
+<h1 id="如何使用" class="article-heading"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用<a class="article-anchor" href="#如何使用" aria-hidden="true"></a></h1><p>这里使用Netlify Large Media做存储库。</p>
 <ol>
 <li>安装netlify-cli，以及登录<pre>
 <code class="bash">npm install netlify-cli -g
@@ -388,9 +388,9 @@ git push origin master</code>
 </pre></li>
 </ol>
 <p>注意：在初次安装Large Media插件时，可能需要关掉命令终端，重新启动来加载脚本</p>
-<html><head></head><body><h1 id="图像转换功能" class="article-heading"><a href="#图像转换功能" class="headerlink" title="图像转换功能"></a>图像转换功能<a class="article-anchor" href="#图像转换功能" aria-hidden="true"></a></h1></body></html><p>这是另一大激动人心的功能，能帮我们自动转换图片大小。可以省下我们很多事。或者说我们可以不再准备多套分辨率了，想调用api一样获得</p>
+<h1 id="图像转换功能" class="article-heading"><a href="#图像转换功能" class="headerlink" title="图像转换功能"></a>图像转换功能<a class="article-anchor" href="#图像转换功能" aria-hidden="true"></a></h1><p>这是另一大激动人心的功能，能帮我们自动转换图片大小。可以省下我们很多事。或者说我们可以不再准备多套分辨率了，想调用api一样获得</p>
 <p>通过响应式懒加载库lazod.js实现了该功能，<a href="https://github.com/JiangTJ/hexo-theme-next/blob/neet/scripts/filters/lazyload.js">过滤器</a>，但奇怪的地方是图片明明一样的，但在不同屏幕下，显示大小不同。所以我改为宽度100%作为默认方案。</p>
-<html><head></head><body><h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1></body></html><ol>
+<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ol>
 <li><a href="https://www.netlify.com/docs/large-media/">Netlify Large Media Doc</a></li>
 </ol>
       

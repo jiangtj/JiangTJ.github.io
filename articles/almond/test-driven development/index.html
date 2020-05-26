@@ -356,9 +356,9 @@
 <p>OK,最好的描述方式应该分为三部分吧，是什么？为什么？怎么做？那么就从这三部分，分别的描述测试驱动开发方法论。 </p>
 <a id="more"></a>  
 
-<html><head></head><body><h1 id="What-TDD-是什么" class="article-heading"><a href="#What-TDD-是什么" class="headerlink" title="What: TDD 是什么"></a>What: TDD 是什么<a class="article-anchor" href="#What-TDD-是什么" aria-hidden="true"></a></h1></body></html><p>测试驱动开发，英文全称Test-Driven Development，简称TDD，是一种不同于传统软件开发流程的新型的开发方法。它要求在编写某个功能的代码之前先编写测试代码，然后只编写使测试通过的功能代码，通过测试来推动整个开发的进行。这有助于编写简洁可用和高质量的代码，并加速开发过程。    </p>
+<h1 id="What-TDD-是什么" class="article-heading"><a href="#What-TDD-是什么" class="headerlink" title="What: TDD 是什么"></a>What: TDD 是什么<a class="article-anchor" href="#What-TDD-是什么" aria-hidden="true"></a></h1><p>测试驱动开发，英文全称Test-Driven Development，简称TDD，是一种不同于传统软件开发流程的新型的开发方法。它要求在编写某个功能的代码之前先编写测试代码，然后只编写使测试通过的功能代码，通过测试来推动整个开发的进行。这有助于编写简洁可用和高质量的代码，并加速开发过程。    </p>
 <p>Kent Beck先生最早在其极限编程（XP）方法论中，向大家推荐“测试驱动”这一最佳实践，还专门撰写了《测试驱动开发》一书，详细说明如何实现。经过几年的迅猛发展，测试驱动开发已经成长为一门独立的软件开发技术，其名气甚至盖过了极限编程。      </p>
-<html><head></head><body><h1 id="Why-为什么需要-TDD" class="article-heading"><a href="#Why-为什么需要-TDD" class="headerlink" title="Why: 为什么需要 TDD"></a>Why: 为什么需要 TDD<a class="article-anchor" href="#Why-为什么需要-TDD" aria-hidden="true"></a></h1></body></html><blockquote>
+<h1 id="Why-为什么需要-TDD" class="article-heading"><a href="#Why-为什么需要-TDD" class="headerlink" title="Why: 为什么需要 TDD"></a>Why: 为什么需要 TDD<a class="article-anchor" href="#Why-为什么需要-TDD" aria-hidden="true"></a></h1><blockquote>
 <p>再摘个百度百科中的例子    </p>
 </blockquote>
 <p>盖房子的时候，工人师傅砌墙，会先用桩子拉上线，以使砖能够垒的笔直，因为垒砖的时候都是以这根线为基准的。TDD就像这样，先写测试代码，就像工人师傅先用桩子拉上线，然后编码的时候以此为基准，只编写符合这个测试的功能代码。    </p>
@@ -371,13 +371,13 @@
 <li>产品开发设计（Test过程）: 由于仅先编写测试用例，相对于直接的开发更加迅速，能快速的响应需求的变化     </li>
 <li>产品实现（Develop阶段）: 我们仅需确保测试用例都通过，能有效的降低引入bug的可能性。同时测试用例的存在，对于后期维护，提供了强大的支持（回归测试）    </li>
 </ul>
-<html><head></head><body><h1 id="How-TDD-如何实践" class="article-heading"><a href="#How-TDD-如何实践" class="headerlink" title="How: TDD 如何实践"></a>How: TDD 如何实践<a class="article-anchor" href="#How-TDD-如何实践" aria-hidden="true"></a></h1></body></html><p>我的实践是 Spring Test + TestNG 集成测试，再配合 Spring Restdocs 文档生成。    </p>
-<html><head></head><body><h2 id="Spring-Test" class="article-heading"><a href="#Spring-Test" class="headerlink" title="Spring Test"></a>Spring Test<a class="article-anchor" href="#Spring-Test" aria-hidden="true"></a></h2></body></html><p>首先，这不是一个独立的框架，它与Spring框架是绑在一起的，正如开头的第一句话所说，测试驱动在国内不受重视，但在国外恰恰相反。大部分国外的开源框架都集成了测试所需的一些工具类，比如<a href="https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/#boot-features-testing">Spring Boot 单独的一节讲解测试</a>。在这里我们需要用到它的一个TestNG支持的抽象类<code>AbstractTransactionalTestNGSpringContextTests</code>，这个类的用于初始化Spring环境以及添加事务支持   </p>
-<html><head></head><body><h2 id="TestNG" class="article-heading"><a href="#TestNG" class="headerlink" title="TestNG"></a>TestNG<a class="article-anchor" href="#TestNG" aria-hidden="true"></a></h2></body></html><p>在Java里，最为流行的测试框架应该是JUnit和TestNG，他们的功能也十分相似。在这里，做个简单的比较，和阐述一下采用TestNG的原因    </p>
+<h1 id="How-TDD-如何实践" class="article-heading"><a href="#How-TDD-如何实践" class="headerlink" title="How: TDD 如何实践"></a>How: TDD 如何实践<a class="article-anchor" href="#How-TDD-如何实践" aria-hidden="true"></a></h1><p>我的实践是 Spring Test + TestNG 集成测试，再配合 Spring Restdocs 文档生成。    </p>
+<h2 id="Spring-Test" class="article-heading"><a href="#Spring-Test" class="headerlink" title="Spring Test"></a>Spring Test<a class="article-anchor" href="#Spring-Test" aria-hidden="true"></a></h2><p>首先，这不是一个独立的框架，它与Spring框架是绑在一起的，正如开头的第一句话所说，测试驱动在国内不受重视，但在国外恰恰相反。大部分国外的开源框架都集成了测试所需的一些工具类，比如<a href="https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/#boot-features-testing">Spring Boot 单独的一节讲解测试</a>。在这里我们需要用到它的一个TestNG支持的抽象类<code>AbstractTransactionalTestNGSpringContextTests</code>，这个类的用于初始化Spring环境以及添加事务支持   </p>
+<h2 id="TestNG" class="article-heading"><a href="#TestNG" class="headerlink" title="TestNG"></a>TestNG<a class="article-anchor" href="#TestNG" aria-hidden="true"></a></h2><p>在Java里，最为流行的测试框架应该是JUnit和TestNG，他们的功能也十分相似。在这里，做个简单的比较，和阐述一下采用TestNG的原因    </p>
 <p>首先，先说一下JUnit，它是个优秀的单元测试框架，严格的遵守一个实现类一个测试类的方式。事实上，如果对代码质量要求很高，的确需要对每个类都编写测试用例。但例如Spring的代码，分为Dao层，Service层，Controller层，即便只是完成一个小功能，都需要编写多个测试类，来完成测试。这中间会耗费许多的时间，同时对于我们程序猿来说，也是件痛苦的事。而且，一般情况下，并需要如此高的质量。TestNG既包涵了JUnit的单元测试的功能，同时他也可以进行集成测试。我们仅需对功能点（接口）编写相应的集成测试，这能减少大量的代码量。所以，如果能把测试用例的编写变成一般轻松的事，谁不愿这么做呢   </p>
-<html><head></head><body><h2 id="Spring-Restdocs" class="article-heading"><a href="#Spring-Restdocs" class="headerlink" title="Spring Restdocs"></a>Spring Restdocs<a class="article-anchor" href="#Spring-Restdocs" aria-hidden="true"></a></h2></body></html><p>Spring REST Docs helps you to document RESTful services. It combines hand-written documentation written with Asciidoctor and auto-generated snippets produced with Spring MVC Test. This approach frees you from the limitations of the documentation produced by tools like Swagger. It helps you to produce documentation that is accurate, concise, and well-structured. This documentation then allows your users to get the information they need with a minimum of fuss.     </p>
+<h2 id="Spring-Restdocs" class="article-heading"><a href="#Spring-Restdocs" class="headerlink" title="Spring Restdocs"></a>Spring Restdocs<a class="article-anchor" href="#Spring-Restdocs" aria-hidden="true"></a></h2><p>Spring REST Docs helps you to document RESTful services. It combines hand-written documentation written with Asciidoctor and auto-generated snippets produced with Spring MVC Test. This approach frees you from the limitations of the documentation produced by tools like Swagger. It helps you to produce documentation that is accurate, concise, and well-structured. This documentation then allows your users to get the information they need with a minimum of fuss.     </p>
 <p>简单的说，它能使用Asciidoctor组合Spring MVC Test生成的代码片段，编写RESTful的接口文档   </p>
-<html><head></head><body><h2 id="环境配置" class="article-heading"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置<a class="article-anchor" href="#环境配置" aria-hidden="true"></a></h2></body></html><p>主要是Maven的配置，因为使用TestNG以及Spring Restdocs，我们需要添加以下依赖    </p>
+<h2 id="环境配置" class="article-heading"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置<a class="article-anchor" href="#环境配置" aria-hidden="true"></a></h2><p>主要是Maven的配置，因为使用TestNG以及Spring Restdocs，我们需要添加以下依赖    </p>
 <pre>
 <code class="xml"><span class="hljs-comment">&lt;!-- test --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
@@ -455,7 +455,7 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span></code>
-</pre><html><head></head><body><h2 id="组装" class="article-heading"><a href="#组装" class="headerlink" title="组装"></a>组装<a class="article-anchor" href="#组装" aria-hidden="true"></a></h2></body></html><ol>
+</pre><h2 id="组装" class="article-heading"><a href="#组装" class="headerlink" title="组装"></a>组装<a class="article-anchor" href="#组装" aria-hidden="true"></a></h2><ol>
 <li><p>我们需要定义自己的TestNG抽象类，继承<code>AbstractTransactionalTestNGSpringContextTests</code>，并配置Spring Restdocs      </p>
 <pre>
 <code class="java"><span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span>
@@ -616,7 +616,7 @@ public class UserServiceTestBean implements UserService {
 </pre></li>
 </ol>
 <p>这样我们完成了在实现之前，优先编写完测试用例。当然当service实现后，相应的mock代码都需要注释掉。使用Mockito模拟service对象也是行的，但在尝试后，不如直接编写测试对象来的高效。    </p>
-<html><head></head><body><h1 id="结尾" class="article-heading"><a href="#结尾" class="headerlink" title="结尾"></a>结尾<a class="article-anchor" href="#结尾" aria-hidden="true"></a></h1></body></html><p>上面代码开源在GitHub上，有兴趣的可以去看看<br><a href="https://github.com/JiangTJ/enterpriseAssetManagement/tree/testng%26spring-rest-docs">https://github.com/JiangTJ/enterpriseAssetManagement/tree/testng%26spring-rest-docs</a><br>缺少mock相关的代码，毕竟当时写测试用例时，service已经全部实现了，当然，您可以fork后自己尝试一下mock一些对象    </p>
+<h1 id="结尾" class="article-heading"><a href="#结尾" class="headerlink" title="结尾"></a>结尾<a class="article-anchor" href="#结尾" aria-hidden="true"></a></h1><p>上面代码开源在GitHub上，有兴趣的可以去看看<br><a href="https://github.com/JiangTJ/enterpriseAssetManagement/tree/testng%26spring-rest-docs">https://github.com/JiangTJ/enterpriseAssetManagement/tree/testng%26spring-rest-docs</a><br>缺少mock相关的代码，毕竟当时写测试用例时，service已经全部实现了，当然，您可以fork后自己尝试一下mock一些对象    </p>
       
     </div>
 

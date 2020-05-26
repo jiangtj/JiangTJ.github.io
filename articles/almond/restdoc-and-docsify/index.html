@@ -356,7 +356,7 @@
 <p>事实上，当时我最先尝试的也是Markdown，使用Spring Restdoc中推荐的Slate方案，来解决Markdown无法包含问题。缺点是它运行使用的Ruby，与我所学的完全不同（Java、Js）。但最近看到了另一个文档工具Docsify，它也添加了包含功能，它足够简单，以至于看几遍例子就完全学会，虽然也有缺点，SEO方面，但内部接口文档，你会在乎这个么？下面是一个例子整合Restdoc与Docsify</p>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="创建服务" class="article-heading"><a href="#创建服务" class="headerlink" title="创建服务"></a>创建服务<a class="article-anchor" href="#创建服务" aria-hidden="true"></a></h1></body></html><p>首先，创建一个简单的Spring Boot服务，以及暴露一个用户接口</p>
+<h1 id="创建服务" class="article-heading"><a href="#创建服务" class="headerlink" title="创建服务"></a>创建服务<a class="article-anchor" href="#创建服务" aria-hidden="true"></a></h1><p>首先，创建一个简单的Spring Boot服务，以及暴露一个用户接口</p>
 <pre>
 <code class="java"><span class="hljs-meta">@RestController</span>
 <span class="hljs-meta">@SpringBootApplication</span>
@@ -377,7 +377,7 @@
     }
 
 }</code>
-</pre><html><head></head><body><h1 id="创建测试用例" class="article-heading"><a href="#创建测试用例" class="headerlink" title="创建测试用例"></a>创建测试用例<a class="article-anchor" href="#创建测试用例" aria-hidden="true"></a></h1></body></html><p>这个测试用例是集成测试</p>
+</pre><h1 id="创建测试用例" class="article-heading"><a href="#创建测试用例" class="headerlink" title="创建测试用例"></a>创建测试用例<a class="article-anchor" href="#创建测试用例" aria-hidden="true"></a></h1><p>这个测试用例是集成测试</p>
 <pre>
 <code class="java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span>
 <span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span>
@@ -404,7 +404,7 @@
                 .expectBody();
     }
 }</code>
-</pre><html><head></head><body><h1 id="整合Restdoc" class="article-heading"><a href="#整合Restdoc" class="headerlink" title="整合Restdoc"></a>整合Restdoc<a class="article-anchor" href="#整合Restdoc" aria-hidden="true"></a></h1></body></html><ol>
+</pre><h1 id="整合Restdoc" class="article-heading"><a href="#整合Restdoc" class="headerlink" title="整合Restdoc"></a>整合Restdoc<a class="article-anchor" href="#整合Restdoc" aria-hidden="true"></a></h1><ol>
 <li>添加自动配置注解<code>@AutoConfigureRestDocs</code></li>
 <li>为每个WebTestClient添加文档参数说明<code>.consumeWith(document())</code>
 整合之后的结果如下</li>
@@ -442,7 +442,7 @@
         configurer.snippets().withTemplateFormat(TemplateFormats.markdown());
     }
 }</code>
-</pre><html><head></head><body><h1 id="创建Docsify文件" class="article-heading"><a href="#创建Docsify文件" class="headerlink" title="创建Docsify文件"></a>创建Docsify文件<a class="article-anchor" href="#创建Docsify文件" aria-hidden="true"></a></h1></body></html><p>Docsify的一些入门，可以查看<a href="https://docsify.js.org/#/zh-cn/quickstart">官网</a>，这里已经当你会基本的操作了。首先创建一个<code>index.html</code>，您可以使用命令行生成，或者直接Copy下面的代码</p>
+</pre><h1 id="创建Docsify文件" class="article-heading"><a href="#创建Docsify文件" class="headerlink" title="创建Docsify文件"></a>创建Docsify文件<a class="article-anchor" href="#创建Docsify文件" aria-hidden="true"></a></h1><p>Docsify的一些入门，可以查看<a href="https://docsify.js.org/#/zh-cn/quickstart">官网</a>，这里已经当你会基本的操作了。首先创建一个<code>index.html</code>，您可以使用命令行生成，或者直接Copy下面的代码</p>
 <pre>
 <code class="html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
@@ -519,17 +519,17 @@ click sidebar <span class="hljs-code">`User Api`</span></code>
 [<span class="hljs-string">response-fields</span>](<span class="hljs-link">snippets/user/response-fields.md ':include'</span>)</code>
 </pre></li>
 </ul>
-<html><head></head><body><h1 id="运行" class="article-heading"><a href="#运行" class="headerlink" title="运行"></a>运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1></body></html><ol>
+<h1 id="运行" class="article-heading"><a href="#运行" class="headerlink" title="运行"></a>运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1><ol>
 <li>运行maven测试<code>mvn test</code>生成代码片段   </li>
 <li>执行命令行<code>docsify serve docs</code>，浏览器打开<code>localhost:3000</code>就可以预览刚才编写的文档了(事实上该命令只是将docs下的文件直接放置在web服务器中，如果使用CI可以很方便的部署该文档服务)</li>
 </ol>
-<html><head></head><body><h1 id="不足" class="article-heading"><a href="#不足" class="headerlink" title="不足"></a>不足<a class="article-anchor" href="#不足" aria-hidden="true"></a></h1></body></html><p>Docsify足够简单，Restdoc在测试阶段生成文档的方式既校验了代码，又校验文档，这种方式还有什么不足呢？在以下两方面</p>
+<h1 id="不足" class="article-heading"><a href="#不足" class="headerlink" title="不足"></a>不足<a class="article-anchor" href="#不足" aria-hidden="true"></a></h1><p>Docsify足够简单，Restdoc在测试阶段生成文档的方式既校验了代码，又校验文档，这种方式还有什么不足呢？在以下两方面</p>
 <ul>
 <li>无法很好的生成pdf文件</li>
 <li>Mock接口</li>
 </ul>
 <p>如果你所在的公司非常“传统”，对于doc或者pdf之类的文件很执着，那Asciidoctor更适合您，多学一门语言而已，但Asciidoctor生成的pdf是真的漂亮。另外一个Mock接口，是为了在完成前，前端可以直接调用Mock接口进行调试，这是一个很好的实践，具体如何做到，你可以尝试一下，方式应该是多种多样的</p>
-<html><head></head><body><h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1></body></html><ul>
+<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ul>
 <li><a href="https://github.com/JiangTJ/restdoc-docsify">该文档的例子工程</a></li>
 <li><a href="https://docs.spring.io/spring-boot/docs/2.1.1.RELEASE/reference/htmlsingle/#boot-features-testing">Spring Boot文档</a></li>
 <li><a href="https://docs.spring.io/spring-restdocs/docs/2.0.2.RELEASE/reference/html5/">Spring Restdoc文档</a></li>

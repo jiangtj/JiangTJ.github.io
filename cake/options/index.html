@@ -363,7 +363,7 @@
 
     <div class="post-body" itemprop="articleBody">
       
-      <html><head></head><body><h1 id="修改主题配置" class="article-heading"><a href="#修改主题配置" class="headerlink" title="修改主题配置"></a>修改主题配置<a class="article-anchor" href="#修改主题配置" aria-hidden="true"></a></h1></body></html><p>虽然主题通过npm管理，但仍可以很方便的修改配置，hexo支持通过<code>theme_config</code>配置来覆盖主题中的配置</p>
+      <h1 id="修改主题配置" class="article-heading"><a href="#修改主题配置" class="headerlink" title="修改主题配置"></a>修改主题配置<a class="article-anchor" href="#修改主题配置" aria-hidden="true"></a></h1><p>虽然主题通过npm管理，但仍可以很方便的修改配置，hexo支持通过<code>theme_config</code>配置来覆盖主题中的配置</p>
 <p>例如，添加网站icon：</p>
 <pre>
 <code class="yml"><span class="hljs-attr">theme_config:</span>
@@ -375,8 +375,8 @@
 </pre><p>如果你的hexo版本大于4.2，你还以在<code>_config.&lt;theme&gt;.yml</code>中配置，这等效于<code>theme_config</code></p>
 <p>你也可以使用这个<a href="https://github.com/jiangtj-lab/hexo-config-plus">hexo-config-plus</a>插件，修改配置</p>
 <p>完整的配置，<a href="https://github.com/jiangtj/hexo-theme-cake/blob/master/_config.yml">前往主题仓库查看</a></p>
-<html><head></head><body><h1 id="注入布局" class="article-heading"><a href="#注入布局" class="headerlink" title="注入布局"></a>注入布局<a class="article-anchor" href="#注入布局" aria-hidden="true"></a></h1></body></html><p><a href="https://github.com/jiangtj/hexo-extend-injector2">hexo-extend-injector2</a>插件的功能，Cake主题提供这些注入点（headBegin,headEnd(head),bodyBegin,bodyEnd,header,footer,postBodyEnd,menu,postMeta,sidebar,variable,style）,如何使用见插件仓库</p>
-<html><head></head><body><h1 id="替换布局文件" class="article-heading"><a href="#替换布局文件" class="headerlink" title="替换布局文件"></a>替换布局文件<a class="article-anchor" href="#替换布局文件" aria-hidden="true"></a></h1></body></html><p>这部分是hexo的功能，在大部分主题中都支持</p>
+<h1 id="注入布局" class="article-heading"><a href="#注入布局" class="headerlink" title="注入布局"></a>注入布局<a class="article-anchor" href="#注入布局" aria-hidden="true"></a></h1><p><a href="https://github.com/jiangtj/hexo-extend-injector2">hexo-extend-injector2</a>插件的功能，Cake主题提供这些注入点（headBegin,headEnd(head),bodyBegin,bodyEnd,header,footer,postBodyEnd,menu,postMeta,sidebar,variable,style）,如何使用见插件仓库</p>
+<h1 id="替换布局文件" class="article-heading"><a href="#替换布局文件" class="headerlink" title="替换布局文件"></a>替换布局文件<a class="article-anchor" href="#替换布局文件" aria-hidden="true"></a></h1><p>这部分是hexo的功能，在大部分主题中都支持</p>
 <pre>
 <code class="js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
 hexo.extend.filter.register(<span class="hljs-string">'before_generate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{

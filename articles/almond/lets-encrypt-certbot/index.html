@@ -354,10 +354,10 @@
 <p>Chrome作为浏览器界的巨头，做出如此的决定，将极大的推进HTTPS的进程，我们自然也应该跟进，一同建立更安全的网络环境。但一般证书都是较为昂贵的，因此互联网安全研究小组Internet Security Research Group(ISRG)以及Linux基金会等，提供了公益的项目，用于加速HTTPS的发展    </p>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="概念" class="article-heading"><a href="#概念" class="headerlink" title="概念"></a>概念<a class="article-anchor" href="#概念" aria-hidden="true"></a></h1></body></html><html><head></head><body><h2 id="HTTPS" class="article-heading"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS<a class="article-anchor" href="#HTTPS" aria-hidden="true"></a></h2></body></html><p>HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 它是一个URI scheme（抽象标识符体系），句法类同http:体系。用于安全的HTTP数据传输。https:URL表明它使用了HTTP，但HTTPS存在不同于HTTP的默认端口及一个加密/身份验证层（在HTTP与TCP之间）。</p>
-<html><head></head><body><h2 id="Let’s-Encrypt" class="article-heading"><a href="#Let’s-Encrypt" class="headerlink" title="Let’s Encrypt"></a>Let’s Encrypt<a class="article-anchor" href="#Let’s-Encrypt" aria-hidden="true"></a></h2></body></html><p>Let’s Encrypt是一个公益的，免费的，自动化的和开源的证书颁发机构(CA)。是由互联网安全研究小组(ISRG)提供的服务。</p>
-<html><head></head><body><h2 id="Certbot" class="article-heading"><a href="#Certbot" class="headerlink" title="Certbot"></a>Certbot<a class="article-anchor" href="#Certbot" aria-hidden="true"></a></h2></body></html><p>Certbot是一个简单易用的工具，它能为您的Web服务器获取和部署SSL/TLS证书。Certbot是EFF和其他公司为Let’s Encrypt提供的客户端。在之前，它被称为“官方的Let’s Encrypt客户端”或“Let’s Encrypt 的Python客户端”。Certbot同样支持其他的支持ACME协议的证书颁发机构。</p>
-<html><head></head><body><h1 id="配置" class="article-heading"><a href="#配置" class="headerlink" title="配置"></a>配置<a class="article-anchor" href="#配置" aria-hidden="true"></a></h1></body></html><html><head></head><body><h2 id="安装" class="article-heading"><a href="#安装" class="headerlink" title="安装"></a>安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h2></body></html><p>可以在官网<a href="https://certbot.eff.org/">https://certbot.eff.org/</a>上获取其安装文档，由于我服务端是Ubuntu16.04，同时以安装Nginx，所以选择了与此相应的安装文档。</p>
+<h1 id="概念" class="article-heading"><a href="#概念" class="headerlink" title="概念"></a>概念<a class="article-anchor" href="#概念" aria-hidden="true"></a></h1><h2 id="HTTPS" class="article-heading"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS<a class="article-anchor" href="#HTTPS" aria-hidden="true"></a></h2><p>HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 它是一个URI scheme（抽象标识符体系），句法类同http:体系。用于安全的HTTP数据传输。https:URL表明它使用了HTTP，但HTTPS存在不同于HTTP的默认端口及一个加密/身份验证层（在HTTP与TCP之间）。</p>
+<h2 id="Let’s-Encrypt" class="article-heading"><a href="#Let’s-Encrypt" class="headerlink" title="Let’s Encrypt"></a>Let’s Encrypt<a class="article-anchor" href="#Let’s-Encrypt" aria-hidden="true"></a></h2><p>Let’s Encrypt是一个公益的，免费的，自动化的和开源的证书颁发机构(CA)。是由互联网安全研究小组(ISRG)提供的服务。</p>
+<h2 id="Certbot" class="article-heading"><a href="#Certbot" class="headerlink" title="Certbot"></a>Certbot<a class="article-anchor" href="#Certbot" aria-hidden="true"></a></h2><p>Certbot是一个简单易用的工具，它能为您的Web服务器获取和部署SSL/TLS证书。Certbot是EFF和其他公司为Let’s Encrypt提供的客户端。在之前，它被称为“官方的Let’s Encrypt客户端”或“Let’s Encrypt 的Python客户端”。Certbot同样支持其他的支持ACME协议的证书颁发机构。</p>
+<h1 id="配置" class="article-heading"><a href="#配置" class="headerlink" title="配置"></a>配置<a class="article-anchor" href="#配置" aria-hidden="true"></a></h1><h2 id="安装" class="article-heading"><a href="#安装" class="headerlink" title="安装"></a>安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h2><p>可以在官网<a href="https://certbot.eff.org/">https://certbot.eff.org/</a>上获取其安装文档，由于我服务端是Ubuntu16.04，同时以安装Nginx，所以选择了与此相应的安装文档。</p>
 <pre>
 <code class="bash">$ sudo apt-get update
 $ sudo apt-get install software-properties-common
@@ -365,11 +365,11 @@ $ sudo add-apt-repository ppa:certbot/certbot
 $ sudo apt-get update
 $ sudo apt-get install python-certbot-nginx </code>
 </pre><p>Ubuntu上一般通过apt-get包管理工具安装。</p>
-<html><head></head><body><h2 id="开始" class="article-heading"><a href="#开始" class="headerlink" title="开始"></a>开始<a class="article-anchor" href="#开始" aria-hidden="true"></a></h2></body></html><p>Certbot 有支持多环境的Nginx插件</p>
+<h2 id="开始" class="article-heading"><a href="#开始" class="headerlink" title="开始"></a>开始<a class="article-anchor" href="#开始" aria-hidden="true"></a></h2><p>Certbot 有支持多环境的Nginx插件</p>
 <pre>
 <code class="bash">$ sudo certbot --nginx</code>
 </pre><p>接下来是一些列问答式的配置，安装要求，或者自己的需求填写好<br>之后，我们可以发现网站已经可以通过https访问了</p>
-<html><head></head><body><h2 id="Nginx代理" class="article-heading"><a href="#Nginx代理" class="headerlink" title="Nginx代理"></a>Nginx代理<a class="article-anchor" href="#Nginx代理" aria-hidden="true"></a></h2></body></html><p>Certbot 的Nginx配置在<code>/etc/nginx/sites-enabled/default</code>中，我们可以找到配置的网站</p>
+<h2 id="Nginx代理" class="article-heading"><a href="#Nginx代理" class="headerlink" title="Nginx代理"></a>Nginx代理<a class="article-anchor" href="#Nginx代理" aria-hidden="true"></a></h2><p>Certbot 的Nginx配置在<code>/etc/nginx/sites-enabled/default</code>中，我们可以找到配置的网站</p>
 <pre>
 <code class="">server {
     root /var/www/html;
@@ -394,11 +394,11 @@ $ sudo apt-get install python-certbot-nginx </code>
 <pre>
 <code class="bash">$ sudo service nginx restart</code>
 </pre><p>重新Nginx服务</p>
-<html><head></head><body><h2 id="重新获取证书" class="article-heading"><a href="#重新获取证书" class="headerlink" title="重新获取证书"></a>重新获取证书<a class="article-anchor" href="#重新获取证书" aria-hidden="true"></a></h2></body></html><p>证书都是有有效期的，我们需要在有效期内重新获取更新证书，Let’s Encrypt的证书有效期为3个月。所以我们需要通过Certbot工具自动的更新证书</p>
+<h2 id="重新获取证书" class="article-heading"><a href="#重新获取证书" class="headerlink" title="重新获取证书"></a>重新获取证书<a class="article-anchor" href="#重新获取证书" aria-hidden="true"></a></h2><p>证书都是有有效期的，我们需要在有效期内重新获取更新证书，Let’s Encrypt的证书有效期为3个月。所以我们需要通过Certbot工具自动的更新证书</p>
 <pre>
 <code class="bash">$ sudo certbot renew --dry-run</code>
-</pre><html><head></head><body><h1 id="校验" class="article-heading"><a href="#校验" class="headerlink" title="校验"></a>校验<a class="article-anchor" href="#校验" aria-hidden="true"></a></h1></body></html><p>打开配置好的地址<a href="https://x.j-time.cn/">https://x.j-time.cn/</a>，能正常的通过https访问了，同时谷歌、火狐等浏览器，也将此站点标记为了安全站点</p>
-<html><head></head><body><h1 id="更多细节" class="article-heading"><a href="#更多细节" class="headerlink" title="更多细节"></a>更多细节<a class="article-anchor" href="#更多细节" aria-hidden="true"></a></h1></body></html><p><a href="https://certbot.eff.org/docs/index.html">Certbot Documentation</a></p>
+</pre><h1 id="校验" class="article-heading"><a href="#校验" class="headerlink" title="校验"></a>校验<a class="article-anchor" href="#校验" aria-hidden="true"></a></h1><p>打开配置好的地址<a href="https://x.j-time.cn/">https://x.j-time.cn/</a>，能正常的通过https访问了，同时谷歌、火狐等浏览器，也将此站点标记为了安全站点</p>
+<h1 id="更多细节" class="article-heading"><a href="#更多细节" class="headerlink" title="更多细节"></a>更多细节<a class="article-anchor" href="#更多细节" aria-hidden="true"></a></h1><p><a href="https://certbot.eff.org/docs/index.html">Certbot Documentation</a></p>
       
     </div>
 

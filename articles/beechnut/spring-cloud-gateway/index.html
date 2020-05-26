@@ -359,7 +359,7 @@
 <p>来跟着我一步步，探索它的<del>魅力</del>坑吧！</p>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="环境搭建" class="article-heading"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建<a class="article-anchor" href="#环境搭建" aria-hidden="true"></a></h1></body></html><p>与所有的微服务组件一样，demo总是很简单的，如果你要启用，创建时勾上相关依赖即可。</p>
+<h1 id="环境搭建" class="article-heading"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建<a class="article-anchor" href="#环境搭建" aria-hidden="true"></a></h1><p>与所有的微服务组件一样，demo总是很简单的，如果你要启用，创建时勾上相关依赖即可。</p>
 <p>就像这样：</p>
 <pre>
 <code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
@@ -421,7 +421,7 @@
   <span class="hljs-attr">client:</span>
     <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span></code>
 </pre><p>就此完成，启动运行。当你访问<code>localhost:8080/app/**</code>路由时，都会调整至<code>www.dnocm.com/**</code>。这是因为我设置了<code>http</code>一律<code>302</code>跳转至<code>https</code>。所以，这证明我们的网关搭建完成啦！！</p>
-<html><head></head><body><h1 id="Route-Predicate-Factory" class="article-heading"><a href="#Route-Predicate-Factory" class="headerlink" title="Route Predicate Factory"></a>Route Predicate Factory<a class="article-anchor" href="#Route-Predicate-Factory" aria-hidden="true"></a></h1></body></html><p>id uri顾名思义，不多说，但predicates是什么呢？predicates做动词有<code>使基于; 使以…为依据; 表明; 阐明; 断言;</code>的意思，简单说，用于表明在那种条件下，该路由配置生效。</p>
+<h1 id="Route-Predicate-Factory" class="article-heading"><a href="#Route-Predicate-Factory" class="headerlink" title="Route Predicate Factory"></a>Route Predicate Factory<a class="article-anchor" href="#Route-Predicate-Factory" aria-hidden="true"></a></h1><p>id uri顾名思义，不多说，但predicates是什么呢？predicates做动词有<code>使基于; 使以…为依据; 表明; 阐明; 断言;</code>的意思，简单说，用于表明在那种条件下，该路由配置生效。</p>
 <p>官方提供给我了许多的predicates</p>
 <pre>
 <code class="yml"><span class="hljs-attr">spring:</span>
@@ -568,7 +568,7 @@
   }
 }</code>
 </pre><p>配置添加<code>- NonHeader=tt</code>，当存在<code>tt</code>header时 <code>404 ERROR</code>，不存在时，正常访问。符合推测！</p>
-<html><head></head><body><h1 id="GatewayFilter-Factory" class="article-heading"><a href="#GatewayFilter-Factory" class="headerlink" title="GatewayFilter Factory"></a>GatewayFilter Factory<a class="article-anchor" href="#GatewayFilter-Factory" aria-hidden="true"></a></h1></body></html><p>除此predicates外，还有filter，用于过滤请求。与predicates一样，Spring官方也提供了需要内置的过滤器。过滤器部分相对于predicates来说难得多，有全局的也有可配置的。甚至一些过滤器不支持通过配置文件来修改。</p>
+<h1 id="GatewayFilter-Factory" class="article-heading"><a href="#GatewayFilter-Factory" class="headerlink" title="GatewayFilter Factory"></a>GatewayFilter Factory<a class="article-anchor" href="#GatewayFilter-Factory" aria-hidden="true"></a></h1><p>除此predicates外，还有filter，用于过滤请求。与predicates一样，Spring官方也提供了需要内置的过滤器。过滤器部分相对于predicates来说难得多，有全局的也有可配置的。甚至一些过滤器不支持通过配置文件来修改。</p>
 <pre>
 <code class="yml"><span class="hljs-attr">spring:</span>
   <span class="hljs-attr">cloud:</span>
@@ -760,8 +760,8 @@
         }));
     };
 }</code>
-</pre><html><head></head><body><h1 id="Others" class="article-heading"><a href="#Others" class="headerlink" title="Others"></a>Others<a class="article-anchor" href="#Others" aria-hidden="true"></a></h1></body></html><html><head></head><body><h2 id="Fluent-Java-Routes-API" class="article-heading"><a href="#Fluent-Java-Routes-API" class="headerlink" title="Fluent Java Routes API"></a>Fluent Java Routes API<a class="article-anchor" href="#Fluent-Java-Routes-API" aria-hidden="true"></a></h2></body></html><p>关于Java DSL，个人是极度不推荐使用。由于修改后需要重新打包部署。如果由配置文件决定，我们仅需修改配置文件，重新运行即可，程序会更加稳定，因为它仅提供功能给配置文件使用。</p>
-<html><head></head><body><h2 id="Request-Response-Body" class="article-heading"><a href="#Request-Response-Body" class="headerlink" title="Request/Response Body"></a>Request/Response Body<a class="article-anchor" href="#Request-Response-Body" aria-hidden="true"></a></h2></body></html><blockquote>
+</pre><h1 id="Others" class="article-heading"><a href="#Others" class="headerlink" title="Others"></a>Others<a class="article-anchor" href="#Others" aria-hidden="true"></a></h1><h2 id="Fluent-Java-Routes-API" class="article-heading"><a href="#Fluent-Java-Routes-API" class="headerlink" title="Fluent Java Routes API"></a>Fluent Java Routes API<a class="article-anchor" href="#Fluent-Java-Routes-API" aria-hidden="true"></a></h2><p>关于Java DSL，个人是极度不推荐使用。由于修改后需要重新打包部署。如果由配置文件决定，我们仅需修改配置文件，重新运行即可，程序会更加稳定，因为它仅提供功能给配置文件使用。</p>
+<h2 id="Request-Response-Body" class="article-heading"><a href="#Request-Response-Body" class="headerlink" title="Request/Response Body"></a>Request/Response Body<a class="article-anchor" href="#Request-Response-Body" aria-hidden="true"></a></h2><blockquote>
 <p>IllegalStateException 问题范围为 Spring Cloud Gateway 2.0.0 至 2.1.1，1.x 理论上正常但未测试，2.1.2已修复。</p>
 </blockquote>
 <p>关于Body，Spring对于其的操作是，在最初始化阶段，读取Body内容放入Flux流中。之后都是对其操作。详细可以看下<code>AdaptCachedBodyGlobalFilter</code>全局过滤器的源码。</p>
@@ -858,7 +858,7 @@
 <blockquote>
 <p>在下方 issues:946 提了简化操作的建议，然后官方添加了相关Cache方法，然后发现不使用这个方法也不出问题。。。问题原因就是<code>AdaptCachedBodyGlobalFilter</code>对body解码器的封装，默认情况下2.1.2中不做处理，所以好了。。。</p>
 </blockquote>
-<html><head></head><body><h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1></body></html><ul>
+<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ul>
 <li><a href="https://github.com/jiangtj-lab/spring-cloud-gateway-example">项目源码</a></li>
 <li><a href="https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.1.0.RELEASE/single/spring-cloud-gateway.html#_modify_request_body_gatewayfilter_factory">官方文档</a></li>
 <li><a href="https://github.com/spring-cloud/spring-cloud-gateway/issues/946">issues:946 关于Body流操作需要简化的建议</a></li>

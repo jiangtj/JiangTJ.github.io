@@ -359,7 +359,7 @@
 </blockquote>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="设置配置属性" class="article-heading"><a href="#设置配置属性" class="headerlink" title="设置配置属性"></a>设置配置属性<a class="article-anchor" href="#设置配置属性" aria-hidden="true"></a></h1></body></html><html><head></head><body><h2 id="简单的类型" class="article-heading"><a href="#简单的类型" class="headerlink" title="简单的类型"></a>简单的类型<a class="article-anchor" href="#简单的类型" aria-hidden="true"></a></h2></body></html><p>配置文件中的简单类型，都会被移除特殊字符并转为小写后，进行绑定。例如下面的几个配置都等价于<code>spring.jpa.databaseplatform=mysql</code>:</p>
+<h1 id="设置配置属性" class="article-heading"><a href="#设置配置属性" class="headerlink" title="设置配置属性"></a>设置配置属性<a class="article-anchor" href="#设置配置属性" aria-hidden="true"></a></h1><h2 id="简单的类型" class="article-heading"><a href="#简单的类型" class="headerlink" title="简单的类型"></a>简单的类型<a class="article-anchor" href="#简单的类型" aria-hidden="true"></a></h2><p>配置文件中的简单类型，都会被移除特殊字符并转为小写后，进行绑定。例如下面的几个配置都等价于<code>spring.jpa.databaseplatform=mysql</code>:</p>
 <pre>
 <code class="properties"><span class="hljs-meta">spring.jpa.database-platform</span>=<span class="hljs-string">mysql</span>
 <span class="hljs-meta">spring.jpa.databasePlatform</span>=<span class="hljs-string">mysql</span>
@@ -367,7 +367,7 @@
 </pre><blockquote>
 <p>当然，推荐的是kebab-case命名，也是上面例子中的<code>spring.jpa.database-platform=mysql</code></p>
 </blockquote>
-<html><head></head><body><h2 id="List类型" class="article-heading"><a href="#List类型" class="headerlink" title="List类型"></a>List类型<a class="article-anchor" href="#List类型" aria-hidden="true"></a></h2></body></html><p>List类型的属性，在配置文件中需要使用<code>[ ]</code>标记符:</p>
+<h2 id="List类型" class="article-heading"><a href="#List类型" class="headerlink" title="List类型"></a>List类型<a class="article-anchor" href="#List类型" aria-hidden="true"></a></h2><p>List类型的属性，在配置文件中需要使用<code>[ ]</code>标记符:</p>
 <pre>
 <code class="properties"><span class="hljs-meta">spring.my-example.url[0]</span>=<span class="hljs-string">http://example.com</span>
 <span class="hljs-meta">spring.my-example.url[1]</span>=<span class="hljs-string">http://spring.io</span></code>
@@ -385,7 +385,7 @@
 <pre>
 <code class="properties"><span class="hljs-meta">foo[0]</span> = <span class="hljs-string">a</span>
 <span class="hljs-meta">foo[2]</span> = <span class="hljs-string">b</span></code>
-</pre><html><head></head><body><h2 id="Map-类型" class="article-heading"><a href="#Map-类型" class="headerlink" title="Map 类型"></a>Map 类型<a class="article-anchor" href="#Map-类型" aria-hidden="true"></a></h2></body></html><p>Map类型标准格式很简单<code>my-example.key=value</code>，yml类似的，但当遇到特殊字符时，就需要特别处理，但官方文档上讲的，不是很清楚，所以写了几个例子做实验   </p>
+</pre><h2 id="Map-类型" class="article-heading"><a href="#Map-类型" class="headerlink" title="Map 类型"></a>Map 类型<a class="article-anchor" href="#Map-类型" aria-hidden="true"></a></h2><p>Map类型标准格式很简单<code>my-example.key=value</code>，yml类似的，但当遇到特殊字符时，就需要特别处理，但官方文档上讲的，不是很清楚，所以写了几个例子做实验   </p>
 <pre>
 <code class="properties"><span class="hljs-meta">jwt.test.xx</span>=<span class="hljs-string">1</span>
 <span class="hljs-meta">jwt.test.xx-xx</span>=<span class="hljs-string">2</span>
@@ -402,12 +402,12 @@
     <span class="hljs-string">'[csf-te]'</span><span class="hljs-string">:</span> <span class="hljs-number">4</span>
     <span class="hljs-string">'[csf/e]'</span><span class="hljs-string">:</span> <span class="hljs-number">5</span></code>
 </pre><p>结果如下图所示：<br><img data-src="/images/md/others/spring-test-map.png">    </p>
-<html><head></head><body><h2 id="环境变量" class="article-heading"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量<a class="article-anchor" href="#环境变量" aria-hidden="true"></a></h2></body></html><p>在环境变量中，使用<code>_</code>代替<code>.</code>或者<code>[]</code>，如果<code>_</code>包围的是一数字，就替换为<code>[]</code>，其余情况为<code>.</code>，例如：   </p>
+<h2 id="环境变量" class="article-heading"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量<a class="article-anchor" href="#环境变量" aria-hidden="true"></a></h2><p>在环境变量中，使用<code>_</code>代替<code>.</code>或者<code>[]</code>，如果<code>_</code>包围的是一数字，就替换为<code>[]</code>，其余情况为<code>.</code>，例如：   </p>
 <pre>
 <code class="">MY_FOO_1_ = my.foo[1]
 MY_FOO_1_BAR = my.foo[1].bar
 MY_FOO_1_2_ = my.foo[1][2]</code>
-</pre><html><head></head><body><h1 id="读取配置属性" class="article-heading"><a href="#读取配置属性" class="headerlink" title="读取配置属性"></a>读取配置属性<a class="article-anchor" href="#读取配置属性" aria-hidden="true"></a></h1></body></html><p>如果，你需要从环境中读出属性值到你的app中，你需要使用与配置文件一样规则的名称</p>
+</pre><h1 id="读取配置属性" class="article-heading"><a href="#读取配置属性" class="headerlink" title="读取配置属性"></a>读取配置属性<a class="article-anchor" href="#读取配置属性" aria-hidden="true"></a></h1><p>如果，你需要从环境中读出属性值到你的app中，你需要使用与配置文件一样规则的名称</p>
 <ul>
 <li>相同的名称</li>
 <li>必须是 (a-z,0-9)字母</li>

@@ -371,7 +371,7 @@
 </ul>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="初始化项目" class="article-heading"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目<a class="article-anchor" href="#初始化项目" aria-hidden="true"></a></h1></body></html><p>首先我们创建一个新的hexo项目，命令行运行以下命令</p>
+<h1 id="初始化项目" class="article-heading"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目<a class="article-anchor" href="#初始化项目" aria-hidden="true"></a></h1><p>首先我们创建一个新的hexo项目，命令行运行以下命令</p>
 <pre>
 <code class="bash"><span class="hljs-comment"># Create a new hexo project</span>
 hexo init &lt;dir&gt;
@@ -385,14 +385,14 @@ hexo init &lt;dir&gt;
 <code class="bash">git submodule add https://github.com/JiangTJ/hexo-theme-cake themes/cake</code>
 </pre><p>修改Hexo中的配置文件<code>theme</code>为<code>cake</code></p>
 <p>一个基本的项目通过上面的步骤可以创建，如果你看到这篇文章前已经有自己的博客项目，定位到未完成的步骤起，跟着走完。</p>
-<html><head></head><body><h1 id="更新主题版本" class="article-heading"><a href="#更新主题版本" class="headerlink" title="更新主题版本"></a>更新主题版本<a class="article-anchor" href="#更新主题版本" aria-hidden="true"></a></h1></body></html><p>如果你使用的主题仍在被维护，那么你能从远程获取更新。这部操作很简单，像下面这样：</p>
+<h1 id="更新主题版本" class="article-heading"><a href="#更新主题版本" class="headerlink" title="更新主题版本"></a>更新主题版本<a class="article-anchor" href="#更新主题版本" aria-hidden="true"></a></h1><p>如果你使用的主题仍在被维护，那么你能从远程获取更新。这部操作很简单，像下面这样：</p>
 <pre>
 <code class="bash">git submodule update --remote</code>
 </pre><p>它会从远程拉取最新master上的代码至你的子模块（也就是你的主题）中</p>
 <blockquote>
 <p>如果你想修改拉取的分支通过<code>git config -f .gitmodules submodule.themes/cake.branch stable</code>，一般情况下，master分支足够好，不需要修改</p>
 </blockquote>
-<html><head></head><body><h1 id="使用npm脚本替换" class="article-heading"><a href="#使用npm脚本替换" class="headerlink" title="使用npm脚本替换"></a>使用npm脚本替换<a class="article-anchor" href="#使用npm脚本替换" aria-hidden="true"></a></h1></body></html><p>git submodule的命令不好记，另一种方式是使用npm脚本替换。编辑<code>package.json</code>文件，添加以下内容：</p>
+<h1 id="使用npm脚本替换" class="article-heading"><a href="#使用npm脚本替换" class="headerlink" title="使用npm脚本替换"></a>使用npm脚本替换<a class="article-anchor" href="#使用npm脚本替换" aria-hidden="true"></a></h1><p>git submodule的命令不好记，另一种方式是使用npm脚本替换。编辑<code>package.json</code>文件，添加以下内容：</p>
 <pre>
 <code class="json">{
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"mrtt-hexo-blog"</span>,
@@ -409,10 +409,10 @@ hexo init &lt;dir&gt;
   }
 }</code>
 </pre><p>之后每次更新都只需要运行<code>npm run update-theme</code></p>
-<html><head></head><body><h1 id="自定义主题" class="article-heading"><a href="#自定义主题" class="headerlink" title="自定义主题"></a>自定义主题<a class="article-anchor" href="#自定义主题" aria-hidden="true"></a></h1></body></html><p>这个问题经常被提到，想要从官方的远程仓库获取更新，但又希望能修改主题的文件，添加自己的代码，也就是传说中的魔改，怎么处理呢</p>
+<h1 id="自定义主题" class="article-heading"><a href="#自定义主题" class="headerlink" title="自定义主题"></a>自定义主题<a class="article-anchor" href="#自定义主题" aria-hidden="true"></a></h1><p>这个问题经常被提到，想要从官方的远程仓库获取更新，但又希望能修改主题的文件，添加自己的代码，也就是传说中的魔改，怎么处理呢</p>
 <p>一种方式是fork，然后将自己fork的主题作为子模块，但每次更新需要先将官方的更新同步至你fork的主题（有点麻烦）</p>
 <p>另一种是这里介绍的：替换。我不对主题文件做修改，但我能在外面创文件。思路是将外面与主题的文件路径一致替换掉对应的主题的文件</p>
-<html><head></head><body><h2 id="替换" class="article-heading"><a href="#替换" class="headerlink" title="替换"></a>替换<a class="article-anchor" href="#替换" aria-hidden="true"></a></h2></body></html><p>首先，安装一个hexo插件<a href="https://github.com/jiangtj/hexo-theme-plus">hexo-theme-plus</a></p>
+<h2 id="替换" class="article-heading"><a href="#替换" class="headerlink" title="替换"></a>替换<a class="article-anchor" href="#替换" aria-hidden="true"></a></h2><p>首先，安装一个hexo插件<a href="https://github.com/jiangtj/hexo-theme-plus">hexo-theme-plus</a></p>
 <pre>
 <code class="bash">npm i --save @jiangtj/hexo-theme-plus</code>
 </pre><p>默认情况下，已经配置好了替换路径，如果你需要修改，在hexo中修改以下配置</p>
@@ -426,8 +426,8 @@ hexo init &lt;dir&gt;
 <blockquote>
 <p>Replace存在一点缺陷，首先只支持<code>layout</code>下的文件，其次需要主题支持（使用partial，不能用模版的特定的语法比如include），Cake除了<code>layout</code>根目录下外，其余都支持替换，但NexT需要你替换<code>include</code> <code>macro</code>等语法</p>
 </blockquote>
-<html><head></head><body><h2 id="注入" class="article-heading"><a href="#注入" class="headerlink" title="注入"></a>注入<a class="article-anchor" href="#注入" aria-hidden="true"></a></h2></body></html><p>除了替换，还可以在注入点注入任何你希望的代码，详细见我上篇文章<a href="/articles/beechnut/hexo-next-injects/">Hexo NexT 高阶教程之 Injects</a></p>
-<html><head></head><body><h1 id="另一台电脑上编辑" class="article-heading"><a href="#另一台电脑上编辑" class="headerlink" title="另一台电脑上编辑"></a>另一台电脑上编辑<a class="article-anchor" href="#另一台电脑上编辑" aria-hidden="true"></a></h1></body></html><p>使用Git仓库同步的情况下，如果你需要在另一台电脑上工作，你唯一需要做的事是在<code>git clone</code>命令上加上<code>--recursive</code></p>
+<h2 id="注入" class="article-heading"><a href="#注入" class="headerlink" title="注入"></a>注入<a class="article-anchor" href="#注入" aria-hidden="true"></a></h2><p>除了替换，还可以在注入点注入任何你希望的代码，详细见我上篇文章<a href="/articles/beechnut/hexo-next-injects/">Hexo NexT 高阶教程之 Injects</a></p>
+<h1 id="另一台电脑上编辑" class="article-heading"><a href="#另一台电脑上编辑" class="headerlink" title="另一台电脑上编辑"></a>另一台电脑上编辑<a class="article-anchor" href="#另一台电脑上编辑" aria-hidden="true"></a></h1><p>使用Git仓库同步的情况下，如果你需要在另一台电脑上工作，你唯一需要做的事是在<code>git clone</code>命令上加上<code>--recursive</code></p>
 <pre>
 <code class="bash">git <span class="hljs-built_in">clone</span> --recursive https://github.com/your-name/your-blog</code>
 </pre><p>如果是GUI工具，那么什么都不用改变，它们默认都是加<code>--recursive</code>的</p>
@@ -435,7 +435,7 @@ hexo init &lt;dir&gt;
 <pre>
 <code class="bash">git submodule init
 git submodule update</code>
-</pre><html><head></head><body><h1 id="总结" class="article-heading"><a href="#总结" class="headerlink" title="总结"></a>总结<a class="article-anchor" href="#总结" aria-hidden="true"></a></h1></body></html><ol>
+</pre><h1 id="总结" class="article-heading"><a href="#总结" class="headerlink" title="总结"></a>总结<a class="article-anchor" href="#总结" aria-hidden="true"></a></h1><ol>
 <li>不要修改任何主题文件，我相信替换与注入配合，你已经能修改任何的主题代码了，这能保证你的主题仓库可以直接设置为官方的仓库，且更新无冲突</li>
 <li>需要记住的命令很少，就两个<code>git submodule update --remote</code>和<code>git clone --recursive repo</code></li>
 </ol>

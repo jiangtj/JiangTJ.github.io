@@ -366,13 +366,13 @@
 <p>Okay， 结束吐槽，让我来看看 JUnit5 到底带来了哪些变化吧</p>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="JUnit-5-是什么？" class="article-heading"><a href="#JUnit-5-是什么？" class="headerlink" title="JUnit 5 是什么？"></a>JUnit 5 是什么？<a class="article-anchor" href="#JUnit-5-是什么？" aria-hidden="true"></a></h1></body></html><p>与以往的版本不同，JUnit5 由三个模块模版组成  JUnit Platform + JUnit Jupiter + JUnit Vintage</p>
+<h1 id="JUnit-5-是什么？" class="article-heading"><a href="#JUnit-5-是什么？" class="headerlink" title="JUnit 5 是什么？"></a>JUnit 5 是什么？<a class="article-anchor" href="#JUnit-5-是什么？" aria-hidden="true"></a></h1><p>与以往的版本不同，JUnit5 由三个模块模版组成  JUnit Platform + JUnit Jupiter + JUnit Vintage</p>
 <ul>
 <li>JUnit Platform：运行测试框架的基础服务，定义了一套API，任何实现这套API的测试引擎，都能运行在这之上</li>
 <li>JUnit Jupiter：一系列用于编写JUnit5测试或者扩展的组合，同时他的子项目提供了JUnit5测试引擎</li>
 <li>JUnit Vintage：提供 JUnit3 和 JUnit4 的测试引擎</li>
 </ul>
-<html><head></head><body><h1 id="三分钟教程" class="article-heading"><a href="#三分钟教程" class="headerlink" title="三分钟教程"></a>三分钟教程<a class="article-anchor" href="#三分钟教程" aria-hidden="true"></a></h1></body></html><html><head></head><body><h2 id="环境搭建" class="article-heading"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建<a class="article-anchor" href="#环境搭建" aria-hidden="true"></a></h2></body></html><ol>
+<h1 id="三分钟教程" class="article-heading"><a href="#三分钟教程" class="headerlink" title="三分钟教程"></a>三分钟教程<a class="article-anchor" href="#三分钟教程" aria-hidden="true"></a></h1><h2 id="环境搭建" class="article-heading"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建<a class="article-anchor" href="#环境搭建" aria-hidden="true"></a></h2><ol>
 <li><p>创建你的项目（建议Spring Boot），简单的勾选几个依赖
 <img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116131303.png"></p>
 </li>
@@ -388,7 +388,7 @@
 <img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116133004.png"></p>
 </li>
 </ol>
-<html><head></head><body><h2 id="第一个测试用例" class="article-heading"><a href="#第一个测试用例" class="headerlink" title="第一个测试用例"></a>第一个测试用例<a class="article-anchor" href="#第一个测试用例" aria-hidden="true"></a></h2></body></html><ol>
+<h2 id="第一个测试用例" class="article-heading"><a href="#第一个测试用例" class="headerlink" title="第一个测试用例"></a>第一个测试用例<a class="article-anchor" href="#第一个测试用例" aria-hidden="true"></a></h2><ol>
 <li><p>创建一个待测试的工具类</p>
 <pre>
 <code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtils</span> </span>{
@@ -411,7 +411,7 @@
 <li><p>运行测试用例，如果你使用idea，那么直接点旁边的运行按钮，或者使用其它编辑器的功能测试，当然，你还可以选择通过命令行，下载<a href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/">junit-platform-console-standalone</a>，并运行它(不懂)，另一种是<code>mvn test</code>运行测试</p>
 </li>
 </ol>
-<html><head></head><body><h1 id="更多食用方案" class="article-heading"><a href="#更多食用方案" class="headerlink" title="更多食用方案"></a>更多食用方案<a class="article-anchor" href="#更多食用方案" aria-hidden="true"></a></h1></body></html><html><head></head><body><h2 id="别名" class="article-heading"><a href="#别名" class="headerlink" title="别名"></a>别名<a class="article-anchor" href="#别名" aria-hidden="true"></a></h2></body></html><p>测试的Class可以通过添加@DisplayName()，添加别名</p>
+<h1 id="更多食用方案" class="article-heading"><a href="#更多食用方案" class="headerlink" title="更多食用方案"></a>更多食用方案<a class="article-anchor" href="#更多食用方案" aria-hidden="true"></a></h1><h2 id="别名" class="article-heading"><a href="#别名" class="headerlink" title="别名"></a>别名<a class="article-anchor" href="#别名" aria-hidden="true"></a></h2><p>测试的Class可以通过添加@DisplayName()，添加别名</p>
 <pre>
 <code class="java"><span class="hljs-meta">@DisplayName("时间工具类测试")</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsTest</span> </span>{}</code>
@@ -432,7 +432,7 @@
         }
     }
 }</code>
-</pre><html><head></head><body><h2 id="断言、假设" class="article-heading"><a href="#断言、假设" class="headerlink" title="断言、假设"></a>断言、假设<a class="article-anchor" href="#断言、假设" aria-hidden="true"></a></h2></body></html><p>测试中核心之一，用于判断是否执行成功，在JUnit5中增加了些对lambdas的支持，例如：</p>
+</pre><h2 id="断言、假设" class="article-heading"><a href="#断言、假设" class="headerlink" title="断言、假设"></a>断言、假设<a class="article-anchor" href="#断言、假设" aria-hidden="true"></a></h2><p>测试中核心之一，用于判断是否执行成功，在JUnit5中增加了些对lambdas的支持，例如：</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Test</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">asserts</span><span class="hljs-params">()</span> </span>{
@@ -452,11 +452,11 @@
             () -&gt; <span class="hljs-string">"Aborting test: not on developer workstation"</span>);
     <span class="hljs-comment">// 如果不为true这里将不执行</span>
 }</code>
-</pre><html><head></head><body><h2 id="禁用" class="article-heading"><a href="#禁用" class="headerlink" title="禁用"></a>禁用<a class="article-anchor" href="#禁用" aria-hidden="true"></a></h2></body></html><p>添加@Disabled()可以禁用测试，这个意义在于某一测试用例遇到问题，临时不执行，等待问题修复后再次使用的</p>
+</pre><h2 id="禁用" class="article-heading"><a href="#禁用" class="headerlink" title="禁用"></a>禁用<a class="article-anchor" href="#禁用" aria-hidden="true"></a></h2><p>添加@Disabled()可以禁用测试，这个意义在于某一测试用例遇到问题，临时不执行，等待问题修复后再次使用的</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Disabled("Disabled 因为重复")</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsCopyTest</span> </span>{}</code>
-</pre><html><head></head><body><h2 id="测试执行条件" class="article-heading"><a href="#测试执行条件" class="headerlink" title="测试执行条件"></a>测试执行条件<a class="article-anchor" href="#测试执行条件" aria-hidden="true"></a></h2></body></html><p>通过添加 @EnabledOnOs 或者 @DisabledOnOs 来决定在某一操作系统上执行.</p>
+</pre><h2 id="测试执行条件" class="article-heading"><a href="#测试执行条件" class="headerlink" title="测试执行条件"></a>测试执行条件<a class="article-anchor" href="#测试执行条件" aria-hidden="true"></a></h2><p>通过添加 @EnabledOnOs 或者 @DisabledOnOs 来决定在某一操作系统上执行.</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Test</span>
 <span class="hljs-meta">@EnabledOnOs(MAC)</span>
@@ -482,7 +482,7 @@
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notOnDeveloperWorkstation</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-comment">// ...</span>
 }</code>
-</pre><html><head></head><body><h2 id="标签-分组" class="article-heading"><a href="#标签-分组" class="headerlink" title="标签/分组"></a>标签/分组<a class="article-anchor" href="#标签-分组" aria-hidden="true"></a></h2></body></html><p>JUnit5 中支持通过 @Tag() 对测试用例进行分组，例如</p>
+</pre><h2 id="标签-分组" class="article-heading"><a href="#标签-分组" class="headerlink" title="标签/分组"></a>标签/分组<a class="article-anchor" href="#标签-分组" aria-hidden="true"></a></h2><p>JUnit5 中支持通过 @Tag() 对测试用例进行分组，例如</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Tag("conditional")</span>
 <span class="hljs-meta">@Test</span>
@@ -503,7 +503,7 @@
 <li>不能包含ISO控制符</li>
 <li>不能包含保留字符(<code>,</code>,<code>(</code>,<code>)</code>,<code>&amp;</code>,<code>|</code>,<code>!</code>)</li>
 </ul>
-<html><head></head><body><h2 id="顺序" class="article-heading"><a href="#顺序" class="headerlink" title="顺序"></a>顺序<a class="article-anchor" href="#顺序" aria-hidden="true"></a></h2></body></html><p>添加@TestMethodOrder(MethodOrderer.OrderAnnotation.class)与@Order()，定义测试用例的执行顺序</p>
+<h2 id="顺序" class="article-heading"><a href="#顺序" class="headerlink" title="顺序"></a>顺序<a class="article-anchor" href="#顺序" aria-hidden="true"></a></h2><p>添加@TestMethodOrder(MethodOrderer.OrderAnnotation.class)与@Order()，定义测试用例的执行顺序</p>
 <pre>
 <code class="java"><span class="hljs-meta">@TestMethodOrder(MethodOrderer.OrderAnnotation.class)</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderedTest</span> </span>{
@@ -523,7 +523,7 @@
         <span class="hljs-comment">// perform assertions against valid values</span>
     }
 }</code>
-</pre><html><head></head><body><h2 id="生命周期" class="article-heading"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期<a class="article-anchor" href="#生命周期" aria-hidden="true"></a></h2></body></html><p>JUnit5 提供了4个生命周期注解 @BeforeAll @AfterAll @BeforeEach @AfterEach</p>
+</pre><h2 id="生命周期" class="article-heading"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期<a class="article-anchor" href="#生命周期" aria-hidden="true"></a></h2><p>JUnit5 提供了4个生命周期注解 @BeforeAll @AfterAll @BeforeEach @AfterEach</p>
 <ul>
 <li>@BeforeAll：在所有的 @Test @RepeatedTest @ParameterizedTest @TestFactory 之前执行</li>
 <li>@BeforeEach：在每个测试用例前执行</li>
@@ -574,7 +574,7 @@
 13:58:03.495 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - num is 1
 13:58:03.495 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - doTest1</code>
 </pre><p><code>doTest1()</code> 的执行，影响到num属性的值，而默认模式下则不会</p>
-<html><head></head><body><h2 id="嵌套" class="article-heading"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套<a class="article-anchor" href="#嵌套" aria-hidden="true"></a></h2></body></html><p>@Nested() 可以更好的表达测试用例间的关系，例如官方的例子</p>
+<h2 id="嵌套" class="article-heading"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套<a class="article-anchor" href="#嵌套" aria-hidden="true"></a></h2><p>@Nested() 可以更好的表达测试用例间的关系，例如官方的例子</p>
 <pre>
 <code class="java"><span class="hljs-meta">@DisplayName("A stack")</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestingAStackDemo</span> </span>{
@@ -649,7 +649,7 @@
 }</code>
 </pre><p>我们可以清晰的看到他们之间的关系</p>
 <p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200117141500.png"></p>
-<html><head></head><body><h2 id="重复测试" class="article-heading"><a href="#重复测试" class="headerlink" title="重复测试"></a>重复测试<a class="article-anchor" href="#重复测试" aria-hidden="true"></a></h2></body></html><p>@RepeatedTest() 执行多次测试，支持name修改名称（具体见官网，觉得没多大意义），另外可以在方法中获取repetitionInfo参数，用于判断当前的执行情况（JUnit5支持注入参数，后续详说）</p>
+<h2 id="重复测试" class="article-heading"><a href="#重复测试" class="headerlink" title="重复测试"></a>重复测试<a class="article-anchor" href="#重复测试" aria-hidden="true"></a></h2><p>@RepeatedTest() 执行多次测试，支持name修改名称（具体见官网，觉得没多大意义），另外可以在方法中获取repetitionInfo参数，用于判断当前的执行情况（JUnit5支持注入参数，后续详说）</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Slf4j</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RepeatedTestsDemo</span> </span>{
@@ -665,9 +665,9 @@
                 currentRepetition, totalRepetitions));
     }
 }</code>
-</pre><html><head></head><body><h2 id="参数测试" class="article-heading"><a href="#参数测试" class="headerlink" title="参数测试"></a>参数测试<a class="article-anchor" href="#参数测试" aria-hidden="true"></a></h2></body></html><p>@ParameterizedTest 很实用的注解，需要<code>junit-jupiter-params</code>依赖（我们已经添加了）</p>
+</pre><h2 id="参数测试" class="article-heading"><a href="#参数测试" class="headerlink" title="参数测试"></a>参数测试<a class="article-anchor" href="#参数测试" aria-hidden="true"></a></h2><p>@ParameterizedTest 很实用的注解，需要<code>junit-jupiter-params</code>依赖（我们已经添加了）</p>
 <p>它主要是配置@xxxSource，注入参数，以完成测试，参数的注入方式有多种</p>
-<html><head></head><body><h3 id="数据源" class="article-heading"><a href="#数据源" class="headerlink" title="数据源"></a>数据源<a class="article-anchor" href="#数据源" aria-hidden="true"></a></h3></body></html><p>@ValueSource 注入String内容，这是最常用的</p>
+<h3 id="数据源" class="article-heading"><a href="#数据源" class="headerlink" title="数据源"></a>数据源<a class="article-anchor" href="#数据源" aria-hidden="true"></a></h3><p>@ValueSource 注入String内容，这是最常用的</p>
 <pre>
 <code class="java"><span class="hljs-meta">@ParameterizedTest</span>
 <span class="hljs-meta">@ValueSource(strings = { "racecar", "radar", "able was I ere I saw elba" })</span>
@@ -735,7 +735,7 @@
         <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>).map(Arguments::of);
     }
 }</code>
-</pre><html><head></head><body><h3 id="参数转换" class="article-heading"><a href="#参数转换" class="headerlink" title="参数转换"></a>参数转换<a class="article-anchor" href="#参数转换" aria-hidden="true"></a></h3></body></html><p>为了支持csv，JUnit支持了些内建的转换，详细见文档<a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-argument-conversion">writing-tests-parameterized-tests-argument-conversion</a>，如果转换失败，会寻找构造器或者静态构造方法（非私有）中，单String的方法，来转换对应的对象</p>
+</pre><h3 id="参数转换" class="article-heading"><a href="#参数转换" class="headerlink" title="参数转换"></a>参数转换<a class="article-anchor" href="#参数转换" aria-hidden="true"></a></h3><p>为了支持csv，JUnit支持了些内建的转换，详细见文档<a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-argument-conversion">writing-tests-parameterized-tests-argument-conversion</a>，如果转换失败，会寻找构造器或者静态构造方法（非私有）中，单String的方法，来转换对应的对象</p>
 <blockquote>
 <p>内建的转换有必要，但后一种，我宁愿得到报错，而不是转换，隐形的转换往往会导致莫名的问题出现</p>
 </blockquote>
@@ -756,7 +756,7 @@
 }</code>
 </pre><p>JUnit中也内置了些转换，如@JavaTimeConversionPattern等</p>
 <p>除外，还可以通过@AggregateWith转换或者接收ArgumentsAccessor对象</p>
-<html><head></head><body><h2 id="Dynamic测试" class="article-heading"><a href="#Dynamic测试" class="headerlink" title="Dynamic测试"></a>Dynamic测试<a class="article-anchor" href="#Dynamic测试" aria-hidden="true"></a></h2></body></html><p>除了常规的@Test,我们还可以通过@TestFactory来构建整个测试树</p>
+<h2 id="Dynamic测试" class="article-heading"><a href="#Dynamic测试" class="headerlink" title="Dynamic测试"></a>Dynamic测试<a class="article-anchor" href="#Dynamic测试" aria-hidden="true"></a></h2><p>除了常规的@Test,我们还可以通过@TestFactory来构建整个测试树</p>
 <pre>
 <code class="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicTestsDemo</span> </span>{
 
@@ -872,8 +872,8 @@
 
 }</code>
 </pre><p>还未看过源码，但目测@Test是由内建的转换器，转换成DynamicNode，然后再执行。使用@TestFactory，tree型的代码也是种选择，再维护上，不差于@Test的常规方案</p>
-<html><head></head><body><h1 id="扩展" class="article-heading"><a href="#扩展" class="headerlink" title="扩展"></a>扩展<a class="article-anchor" href="#扩展" aria-hidden="true"></a></h1></body></html><p>与 Junit4 不同，Junit5 提供了一个统一的一个扩展API。不过在之前，先看下另一个 Junit5 的重要特性–组合注解</p>
-<html><head></head><body><h2 id="组合注解" class="article-heading"><a href="#组合注解" class="headerlink" title="组合注解"></a>组合注解<a class="article-anchor" href="#组合注解" aria-hidden="true"></a></h2></body></html><p>在官方文档中，这部分与注解部分一同讲的，但我将它移到此处，因为绝大多数情况下，他都是与扩展API一同使用。</p>
+<h1 id="扩展" class="article-heading"><a href="#扩展" class="headerlink" title="扩展"></a>扩展<a class="article-anchor" href="#扩展" aria-hidden="true"></a></h1><p>与 Junit4 不同，Junit5 提供了一个统一的一个扩展API。不过在之前，先看下另一个 Junit5 的重要特性–组合注解</p>
+<h2 id="组合注解" class="article-heading"><a href="#组合注解" class="headerlink" title="组合注解"></a>组合注解<a class="article-anchor" href="#组合注解" aria-hidden="true"></a></h2><p>在官方文档中，这部分与注解部分一同讲的，但我将它移到此处，因为绝大多数情况下，他都是与扩展API一同使用。</p>
 <p>组合注解，顾名思义，当一个注解上存在其他的Junit注解时，同时也继承这些注解的语义</p>
 <p>例如：组合Tag与Test注解</p>
 <pre>
@@ -888,7 +888,7 @@
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">asserts</span><span class="hljs-params">()</span> </span>{
     assertTrue(<span class="hljs-keyword">true</span>);
 }</code>
-</pre><html><head></head><body><h2 id="Extend-API" class="article-heading"><a href="#Extend-API" class="headerlink" title="Extend API"></a>Extend API<a class="article-anchor" href="#Extend-API" aria-hidden="true"></a></h2></body></html><p>在 Junit5 中通过 <code>@ExtendWith</code> 注解实现添加扩展。</p>
+</pre><h2 id="Extend-API" class="article-heading"><a href="#Extend-API" class="headerlink" title="Extend API"></a>Extend API<a class="article-anchor" href="#Extend-API" aria-hidden="true"></a></h2><p>在 Junit5 中通过 <code>@ExtendWith</code> 注解实现添加扩展。</p>
 <pre>
 <code class="java"><span class="hljs-meta">@ExtendWith(DatabaseExtension.class)</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleTest</span> </span>{
@@ -908,7 +908,7 @@
 }</code>
 </pre><p><code>@ExtendWith</code> 提供了扩展的入口，具体的实现通过实现对应的接口，例如上面的 <code>DatabaseExtension</code> 实现 <code>BeforeAllCallback</code>，<code>AfterAllCallback</code></p>
 <p>在Junit中，存在许多扩展接口</p>
-<html><head></head><body><h3 id="ExecutionCondition" class="article-heading"><a href="#ExecutionCondition" class="headerlink" title="ExecutionCondition"></a>ExecutionCondition<a class="article-anchor" href="#ExecutionCondition" aria-hidden="true"></a></h3></body></html><p>定义执行条件，满足条件时才能执行，下面是一个例子</p>
+<h3 id="ExecutionCondition" class="article-heading"><a href="#ExecutionCondition" class="headerlink" title="ExecutionCondition"></a>ExecutionCondition<a class="article-anchor" href="#ExecutionCondition" aria-hidden="true"></a></h3><p>定义执行条件，满足条件时才能执行，下面是一个例子</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Target({ ElementType.TYPE, ElementType.METHOD })</span>
 <span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span>
@@ -939,10 +939,10 @@
         <span class="hljs-comment">// code...</span>
     }
 }</code>
-</pre><html><head></head><body><h3 id="TestInstanceFactory" class="article-heading"><a href="#TestInstanceFactory" class="headerlink" title="TestInstanceFactory"></a>TestInstanceFactory<a class="article-anchor" href="#TestInstanceFactory" aria-hidden="true"></a></h3></body></html><p>定义测试实例，只能用于class上，暂时想不到例子，跳过~~</p>
-<html><head></head><body><h3 id="TestInstancePostProcessor" class="article-heading"><a href="#TestInstancePostProcessor" class="headerlink" title="TestInstancePostProcessor"></a>TestInstancePostProcessor<a class="article-anchor" href="#TestInstancePostProcessor" aria-hidden="true"></a></h3></body></html><p>对测试实例处理，通常用于注入依赖，暂时想不到例子，跳过~~</p>
-<html><head></head><body><h3 id="TestInstancePreDestroyCallback" class="article-heading"><a href="#TestInstancePreDestroyCallback" class="headerlink" title="TestInstancePreDestroyCallback"></a>TestInstancePreDestroyCallback<a class="article-anchor" href="#TestInstancePreDestroyCallback" aria-hidden="true"></a></h3></body></html><p>当测试实例销毁前调用，暂时想不到例子，跳过~~</p>
-<html><head></head><body><h3 id="ParameterResolver" class="article-heading"><a href="#ParameterResolver" class="headerlink" title="ParameterResolver"></a>ParameterResolver<a class="article-anchor" href="#ParameterResolver" aria-hidden="true"></a></h3></body></html><p>处理参数，见下面例子</p>
+</pre><h3 id="TestInstanceFactory" class="article-heading"><a href="#TestInstanceFactory" class="headerlink" title="TestInstanceFactory"></a>TestInstanceFactory<a class="article-anchor" href="#TestInstanceFactory" aria-hidden="true"></a></h3><p>定义测试实例，只能用于class上，暂时想不到例子，跳过~~</p>
+<h3 id="TestInstancePostProcessor" class="article-heading"><a href="#TestInstancePostProcessor" class="headerlink" title="TestInstancePostProcessor"></a>TestInstancePostProcessor<a class="article-anchor" href="#TestInstancePostProcessor" aria-hidden="true"></a></h3><p>对测试实例处理，通常用于注入依赖，暂时想不到例子，跳过~~</p>
+<h3 id="TestInstancePreDestroyCallback" class="article-heading"><a href="#TestInstancePreDestroyCallback" class="headerlink" title="TestInstancePreDestroyCallback"></a>TestInstancePreDestroyCallback<a class="article-anchor" href="#TestInstancePreDestroyCallback" aria-hidden="true"></a></h3><p>当测试实例销毁前调用，暂时想不到例子，跳过~~</p>
+<h3 id="ParameterResolver" class="article-heading"><a href="#ParameterResolver" class="headerlink" title="ParameterResolver"></a>ParameterResolver<a class="article-anchor" href="#ParameterResolver" aria-hidden="true"></a></h3><p>处理参数，见下面例子</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Target(ElementType.PARAMETER)</span>
 <span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span>
@@ -972,7 +972,7 @@
         log.info(book.toString());
     }
 }</code>
-</pre><html><head></head><body><h3 id="TestWatcher" class="article-heading"><a href="#TestWatcher" class="headerlink" title="TestWatcher"></a>TestWatcher<a class="article-anchor" href="#TestWatcher" aria-hidden="true"></a></h3></body></html><p>监听测试用例的执行结果</p>
+</pre><h3 id="TestWatcher" class="article-heading"><a href="#TestWatcher" class="headerlink" title="TestWatcher"></a>TestWatcher<a class="article-anchor" href="#TestWatcher" aria-hidden="true"></a></h3><p>监听测试用例的执行结果</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Slf4j</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogTestWatcher</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestWatcher</span> </span>{
@@ -993,7 +993,7 @@
         <span class="hljs-comment">// 失败</span>
     }
 }</code>
-</pre><html><head></head><body><h3 id="生命周期回调" class="article-heading"><a href="#生命周期回调" class="headerlink" title="生命周期回调"></a>生命周期回调<a class="article-anchor" href="#生命周期回调" aria-hidden="true"></a></h3></body></html><p>在一开始的例子中就是生命周期的回调，这里不写例子拉，他们执行的先后顺序如下</p>
+</pre><h3 id="生命周期回调" class="article-heading"><a href="#生命周期回调" class="headerlink" title="生命周期回调"></a>生命周期回调<a class="article-anchor" href="#生命周期回调" aria-hidden="true"></a></h3><p>在一开始的例子中就是生命周期的回调，这里不写例子拉，他们执行的先后顺序如下</p>
 <ul>
 <li>BeforeAllCallback<ul>
 <li>BeforeEachCallback<ul>
@@ -1006,7 +1006,7 @@
 </li>
 <li>AfterAllCallback</li>
 </ul>
-<html><head></head><body><h3 id="TestExecutionExceptionHandler" class="article-heading"><a href="#TestExecutionExceptionHandler" class="headerlink" title="TestExecutionExceptionHandler"></a>TestExecutionExceptionHandler<a class="article-anchor" href="#TestExecutionExceptionHandler" aria-hidden="true"></a></h3></body></html><p>处理异常，如果存在一些自定义的运行时异常，这是很有用的，可以做些处理</p>
+<h3 id="TestExecutionExceptionHandler" class="article-heading"><a href="#TestExecutionExceptionHandler" class="headerlink" title="TestExecutionExceptionHandler"></a>TestExecutionExceptionHandler<a class="article-anchor" href="#TestExecutionExceptionHandler" aria-hidden="true"></a></h3><p>处理异常，如果存在一些自定义的运行时异常，这是很有用的，可以做些处理</p>
 <pre>
 <code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IgnoreExceptionExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestExecutionExceptionHandler</span> </span>{
     <span class="hljs-meta">@Override</span>
@@ -1033,10 +1033,10 @@
 </pre><blockquote>
 <p>未完待续（一次写不完）</p>
 </blockquote>
-<html><head></head><body><h1 id="在-Spring-中的使用" class="article-heading"><a href="#在-Spring-中的使用" class="headerlink" title="在 Spring 中的使用"></a>在 Spring 中的使用<a class="article-anchor" href="#在-Spring-中的使用" aria-hidden="true"></a></h1></body></html><blockquote>
+<h1 id="在-Spring-中的使用" class="article-heading"><a href="#在-Spring-中的使用" class="headerlink" title="在 Spring 中的使用"></a>在 Spring 中的使用<a class="article-anchor" href="#在-Spring-中的使用" aria-hidden="true"></a></h1><blockquote>
 <p>未完待续</p>
 </blockquote>
-<html><head></head><body><h1 id="最后" class="article-heading"><a href="#最后" class="headerlink" title="最后"></a>最后<a class="article-anchor" href="#最后" aria-hidden="true"></a></h1></body></html><p>一个疑问，JUnit5 的注解风格和 Spring 为何如此接近。。。</p>
+<h1 id="最后" class="article-heading"><a href="#最后" class="headerlink" title="最后"></a>最后<a class="article-anchor" href="#最后" aria-hidden="true"></a></h1><p>一个疑问，JUnit5 的注解风格和 Spring 为何如此接近。。。</p>
 <ul>
 <li>例子源码：<a href="https://github.com/jiangtj-lab/junit5-demo">https://github.com/jiangtj-lab/junit5-demo</a></li>
 </ul>

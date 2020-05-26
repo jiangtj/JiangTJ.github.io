@@ -357,7 +357,7 @@
 <p>这次带来的是Create的原理解析。</p>
 <a id="more"></a>
 
-<html><head></head><body><h1 id="Package" class="article-heading"><a href="#Package" class="headerlink" title="Package"></a>Package<a class="article-anchor" href="#Package" aria-hidden="true"></a></h1></body></html><p>怎么看的呢？第一步是寻找package.json文件，它定义了项目所需的依赖以及项目的名称等信息，所以都存这样的文件。CLI的脚本放在<a href="https://yarnpkg.com/zh-Hant/docs/package-json/#toc-bin">bin属性</a>下，它会随着安装放入系统的环境变量中，所以我们可以在任意的位置使用它。</p>
+<h1 id="Package" class="article-heading"><a href="#Package" class="headerlink" title="Package"></a>Package<a class="article-anchor" href="#Package" aria-hidden="true"></a></h1><p>怎么看的呢？第一步是寻找package.json文件，它定义了项目所需的依赖以及项目的名称等信息，所以都存这样的文件。CLI的脚本放在<a href="https://yarnpkg.com/zh-Hant/docs/package-json/#toc-bin">bin属性</a>下，它会随着安装放入系统的环境变量中，所以我们可以在任意的位置使用它。</p>
 <p>在Vue CLI的项目中，目录结构是奇怪的。一般情况下，最外面的是项目本身，也就是CLI工程，然而它是文档。他的CLI项目放在<a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue">packages/@vue</a>目录下。</p>
 <p>这里做个备注，此时的hash值是<code>7375b12c8e75bd4ddc5f04a475512971e1f2bd04</code>，你们可以看这个位置的源码。</p>
 <p>里面的CLI项目很多，不过我这次找的算简单的，在cli的这个项目里，他的package.json如下。</p>
@@ -372,7 +372,7 @@
   <span class="hljs-comment">//...</span>
 }</code>
 </pre><p><code>bin/vue.js</code>这是所执行的脚本。</p>
-<html><head></head><body><h1 id="vue-js" class="article-heading"><a href="#vue-js" class="headerlink" title="vue.js"></a>vue.js<a class="article-anchor" href="#vue-js" aria-hidden="true"></a></h1></body></html><p>接下来看一下第一个脚本。</p>
+<h1 id="vue-js" class="article-heading"><a href="#vue-js" class="headerlink" title="vue.js"></a>vue.js<a class="article-anchor" href="#vue-js" aria-hidden="true"></a></h1><p>接下来看一下第一个脚本。</p>
 <pre>
 <code class="js"><span class="hljs-meta">#!/usr/bin/env node</span>
 <span class="hljs-comment">// 定义使用node环境</span>
@@ -421,7 +421,7 @@ program
 <p>其中<a href="https://nodejs.org/api/process.html">process</a>是node的线程也是就是这次命令的线程，它可以用来获取当前目录以及变量等，当然也可以通过它异常结束。比如<code>process.argv.slice(3)</code>这因为在命令行中，第一个变量是自己本身，而vue create分别占据第二第三变量，所需从第四个起。</p>
 <p><code>minimist</code>也是同样，起到格式化的作用，详见<a href="https://www.npmjs.com/package/minimist">它的文档</a>。</p>
 <p>接下来，它调用<code>../lib/create</code>脚本。</p>
-<html><head></head><body><h1 id="create" class="article-heading"><a href="#create" class="headerlink" title="create"></a>create<a class="article-anchor" href="#create" aria-hidden="true"></a></h1></body></html><p>第二个脚本</p>
+<h1 id="create" class="article-heading"><a href="#create" class="headerlink" title="create"></a>create<a class="article-anchor" href="#create" aria-hidden="true"></a></h1><p>第二个脚本</p>
 <pre>
 <code class="js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs-extra'</span>)
 <span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)
@@ -510,7 +510,7 @@ program
 </pre><p><code>module.exports = (...args) </code>接受不定参，然后，不管是传入也好调用也好，都是固定的两个参数，不明白这里的目的，偷懒？</p>
 <p>这里的代码大部分都是对命令行参数的校验与解析，不存在难点。</p>
 <p>最后，通过<code>new Creator(name, targetDir, getPromptModules())</code>创建创建者对象，以及执行<code>create</code>。所以重点在Creator对象中。</p>
-<html><head></head><body><h1 id="Creator" class="article-heading"><a href="#Creator" class="headerlink" title="Creator"></a>Creator<a class="article-anchor" href="#Creator" aria-hidden="true"></a></h1></body></html><p>太长了！😖所以这部分不细说了，大体上与之前一致，只不过复杂点。值得一提的是Creator继承了<code>EventEmitter</code>，所以它在创建过程的不同阶段发布事件，根据这个，我们可以拆分着看。</p>
+<h1 id="Creator" class="article-heading"><a href="#Creator" class="headerlink" title="Creator"></a>Creator<a class="article-anchor" href="#Creator" aria-hidden="true"></a></h1><p>太长了！😖所以这部分不细说了，大体上与之前一致，只不过复杂点。值得一提的是Creator继承了<code>EventEmitter</code>，所以它在创建过程的不同阶段发布事件，根据这个，我们可以拆分着看。</p>
 <pre>
 <code class="js"><span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'fetch-remote-preset'</span> })
 <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'creating'</span> })
