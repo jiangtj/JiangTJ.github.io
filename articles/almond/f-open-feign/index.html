@@ -299,7 +299,10 @@
       <meta itemprop="image" content="/images/avatar.jpg" />
     </span>
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dnocm ☀" />
+      <meta itemprop="name" content="Mr.J" />
+      <span hidden itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+        <meta itemprop="url" content="/images/avatar.jpg" />
+      </span>
     </span>
 
     
@@ -307,7 +310,7 @@
     <header class="post-header">
 
       
-      <h1 class="post-title" itemprop="name headline">
+      <h1 class="post-title" itemprop="headline">
         
         Spring Cloud 之 Feign （Finchley版）
         
@@ -481,8 +484,8 @@ public class CurlControllerTest {
     }
 }</code>
 </pre><html><head></head><body><h2 id="测试接口" class="article-heading"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口<a class="article-anchor" href="#测试接口" aria-hidden="true"></a></h2></body></html><pre>
-<code class=""><span class="hljs-selector-attr">[ERROR]</span> <span class="hljs-selector-tag">Tests</span> <span class="hljs-selector-tag">run</span>: 4, <span class="hljs-selector-tag">Failures</span>: 1, <span class="hljs-selector-tag">Errors</span>: 0, <span class="hljs-selector-tag">Skipped</span>: 0, <span class="hljs-selector-tag">Time</span> <span class="hljs-selector-tag">elapsed</span>: 0<span class="hljs-selector-class">.204</span> <span class="hljs-selector-tag">s</span> &lt;&lt;&lt; <span class="hljs-selector-tag">FAILURE</span>! <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">in</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jtj</span><span class="hljs-selector-class">.cloud</span><span class="hljs-selector-class">.baseclient</span><span class="hljs-selector-class">.CurlControllerTest</span>
-<span class="hljs-selector-attr">[ERROR]</span> <span class="hljs-selector-tag">delete</span>(<span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jtj</span><span class="hljs-selector-class">.cloud</span><span class="hljs-selector-class">.baseclient</span><span class="hljs-selector-class">.CurlControllerTest</span>)  <span class="hljs-selector-tag">Time</span> <span class="hljs-selector-tag">elapsed</span>: 0<span class="hljs-selector-class">.077</span> <span class="hljs-selector-tag">s</span>  &lt;&lt;&lt; <span class="hljs-selector-tag">FAILURE</span>!</code>
+<code class="">[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.204 s <<< FAILURE! - in com.jtj.cloud.baseclient.CurlControllerTest
+[ERROR] delete(com.jtj.cloud.baseclient.CurlControllerTest)  Time elapsed: 0.077 s  <<< FAILURE!</code>
 </pre><p>测试接口如预期，成功3个，失败1个（删除接口）    </p>
 <html><head></head><body><h1 id="Feign服务" class="article-heading"><a href="#Feign服务" class="headerlink" title="Feign服务"></a>Feign服务<a class="article-anchor" href="#Feign服务" aria-hidden="true"></a></h1></body></html><html><head></head><body><h2 id="相对于基础的客户端，多引入Feign依赖，并启用Feign" class="article-heading"><a href="#相对于基础的客户端，多引入Feign依赖，并启用Feign" class="headerlink" title="相对于基础的客户端，多引入Feign依赖，并启用Feign"></a>相对于基础的客户端，多引入Feign依赖，并启用Feign<a class="article-anchor" href="#相对于基础的客户端，多引入Feign依赖，并启用Feign" aria-hidden="true"></a></h2></body></html><pre>
 <code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
@@ -716,7 +719,7 @@ if ('serviceWorker' in navigator) {
       <div class="moon-menu-text"></div>
     </div>
   </div>
-</div><script src="/js/injector.a64d651aa52ab25616949b3fdf9c70c0.js"></script><div class="popup search-popup">
+</div><script src="/js/injector.fc27a00db3a419c61602a32d64c8ea8c.js"></script><div class="popup search-popup">
   <div class="search-header">
     <span class="search-icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span>
     <div class="search-input-container">

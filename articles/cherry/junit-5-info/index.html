@@ -306,7 +306,10 @@
       <meta itemprop="image" content="/images/avatar.jpg" />
     </span>
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dnocm ☀" />
+      <meta itemprop="name" content="Mr.J" />
+      <span hidden itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+        <meta itemprop="url" content="/images/avatar.jpg" />
+      </span>
     </span>
 
     
@@ -314,7 +317,7 @@
     <header class="post-header">
 
       
-      <h1 class="post-title" itemprop="name headline">
+      <h1 class="post-title" itemprop="headline">
         
         JUnit 5 教程
         
@@ -563,13 +566,13 @@
 </ul>
 <p>上面的例子中，得到的log为：</p>
 <pre>
-<code class="log">13<span class="hljs-selector-pseudo">:58</span><span class="hljs-selector-pseudo">:03.477</span> <span class="hljs-selector-attr">[main]</span> <span class="hljs-selector-tag">ERROR</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jiangtj</span><span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.junit5</span><span class="hljs-selector-class">.LifecycleTest</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">initAll</span>
-13<span class="hljs-selector-pseudo">:58</span><span class="hljs-selector-pseudo">:03.485</span> <span class="hljs-selector-attr">[main]</span> <span class="hljs-selector-tag">ERROR</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jiangtj</span><span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.junit5</span><span class="hljs-selector-class">.LifecycleTest</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">init</span>
-13<span class="hljs-selector-pseudo">:58</span><span class="hljs-selector-pseudo">:03.487</span> <span class="hljs-selector-attr">[main]</span> <span class="hljs-selector-tag">ERROR</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jiangtj</span><span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.junit5</span><span class="hljs-selector-class">.LifecycleTest</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">num</span> <span class="hljs-selector-tag">is</span> 0
-13<span class="hljs-selector-pseudo">:58</span><span class="hljs-selector-pseudo">:03.487</span> <span class="hljs-selector-attr">[main]</span> <span class="hljs-selector-tag">ERROR</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jiangtj</span><span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.junit5</span><span class="hljs-selector-class">.LifecycleTest</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">doTest1</span>
-13<span class="hljs-selector-pseudo">:58</span><span class="hljs-selector-pseudo">:03.494</span> <span class="hljs-selector-attr">[main]</span> <span class="hljs-selector-tag">ERROR</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jiangtj</span><span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.junit5</span><span class="hljs-selector-class">.LifecycleTest</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">init</span>
-13<span class="hljs-selector-pseudo">:58</span><span class="hljs-selector-pseudo">:03.495</span> <span class="hljs-selector-attr">[main]</span> <span class="hljs-selector-tag">ERROR</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jiangtj</span><span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.junit5</span><span class="hljs-selector-class">.LifecycleTest</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">num</span> <span class="hljs-selector-tag">is</span> 1
-13<span class="hljs-selector-pseudo">:58</span><span class="hljs-selector-pseudo">:03.495</span> <span class="hljs-selector-attr">[main]</span> <span class="hljs-selector-tag">ERROR</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.jiangtj</span><span class="hljs-selector-class">.example</span><span class="hljs-selector-class">.junit5</span><span class="hljs-selector-class">.LifecycleTest</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">doTest1</span></code>
+<code class="log">13:58:03.477 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - initAll
+13:58:03.485 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - init
+13:58:03.487 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - num is 0
+13:58:03.487 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - doTest1
+13:58:03.494 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - init
+13:58:03.495 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - num is 1
+13:58:03.495 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - doTest1</code>
 </pre><p><code>doTest1()</code> 的执行，影响到num属性的值，而默认模式下则不会</p>
 <html><head></head><body><h2 id="嵌套" class="article-heading"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套<a class="article-anchor" href="#嵌套" aria-hidden="true"></a></h2></body></html><p>@Nested() 可以更好的表达测试用例间的关系，例如官方的例子</p>
 <pre>
@@ -1194,7 +1197,7 @@ if ('serviceWorker' in navigator) {
       <div class="moon-menu-text"></div>
     </div>
   </div>
-</div><script src="/js/injector.a64d651aa52ab25616949b3fdf9c70c0.js"></script><div class="popup search-popup">
+</div><script src="/js/injector.fc27a00db3a419c61602a32d64c8ea8c.js"></script><div class="popup search-popup">
   <div class="search-header">
     <span class="search-icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span>
     <div class="search-input-container">

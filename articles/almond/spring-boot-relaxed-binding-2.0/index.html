@@ -301,7 +301,10 @@
       <meta itemprop="image" content="/images/avatar.jpg" />
     </span>
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dnocm ☀" />
+      <meta itemprop="name" content="Mr.J" />
+      <span hidden itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+        <meta itemprop="url" content="/images/avatar.jpg" />
+      </span>
     </span>
 
     
@@ -309,7 +312,7 @@
     <header class="post-header">
 
       
-      <h1 class="post-title" itemprop="name headline">
+      <h1 class="post-title" itemprop="headline">
         
         Spring Boot Relaxed Binding 2.0
         
@@ -401,9 +404,9 @@
 </pre><p>结果如下图所示：<br><img data-src="/images/md/others/spring-test-map.png">    </p>
 <html><head></head><body><h2 id="环境变量" class="article-heading"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量<a class="article-anchor" href="#环境变量" aria-hidden="true"></a></h2></body></html><p>在环境变量中，使用<code>_</code>代替<code>.</code>或者<code>[]</code>，如果<code>_</code>包围的是一数字，就替换为<code>[]</code>，其余情况为<code>.</code>，例如：   </p>
 <pre>
-<code class="">MY<span class="hljs-emphasis">_FOO_</span>1<span class="hljs-emphasis">_ = my.foo[1]
-MY_</span>FOO<span class="hljs-emphasis">_1_</span>BAR = my.foo[1].bar
-MY<span class="hljs-emphasis">_FOO_</span>1<span class="hljs-emphasis">_2_</span> = my.foo[<span class="hljs-string">1</span>][<span class="hljs-symbol">2</span>]</code>
+<code class="">MY_FOO_1_ = my.foo[1]
+MY_FOO_1_BAR = my.foo[1].bar
+MY_FOO_1_2_ = my.foo[1][2]</code>
 </pre><html><head></head><body><h1 id="读取配置属性" class="article-heading"><a href="#读取配置属性" class="headerlink" title="读取配置属性"></a>读取配置属性<a class="article-anchor" href="#读取配置属性" aria-hidden="true"></a></h1></body></html><p>如果，你需要从环境中读出属性值到你的app中，你需要使用与配置文件一样规则的名称</p>
 <ul>
 <li>相同的名称</li>
@@ -572,7 +575,7 @@ if ('serviceWorker' in navigator) {
       <div class="moon-menu-text"></div>
     </div>
   </div>
-</div><script src="/js/injector.a64d651aa52ab25616949b3fdf9c70c0.js"></script><div class="popup search-popup">
+</div><script src="/js/injector.fc27a00db3a419c61602a32d64c8ea8c.js"></script><div class="popup search-popup">
   <div class="search-header">
     <span class="search-icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span>
     <div class="search-input-container">

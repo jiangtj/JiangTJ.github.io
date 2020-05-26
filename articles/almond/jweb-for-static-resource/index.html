@@ -301,7 +301,10 @@
       <meta itemprop="image" content="/images/avatar.jpg" />
     </span>
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dnocm ☀" />
+      <meta itemprop="name" content="Mr.J" />
+      <span hidden itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+        <meta itemprop="url" content="/images/avatar.jpg" />
+      </span>
     </span>
 
     
@@ -309,7 +312,7 @@
     <header class="post-header">
 
       
-      <h1 class="post-title" itemprop="name headline">
+      <h1 class="post-title" itemprop="headline">
         
         JWeb 简单的方式部署静态资源
         
@@ -358,10 +361,10 @@
 <html><head></head><body><h1 id="Java服务" class="article-heading"><a href="#Java服务" class="headerlink" title="Java服务"></a>Java服务<a class="article-anchor" href="#Java服务" aria-hidden="true"></a></h1></body></html><p>java随着spring boot的出现，开发变得越来越简单，而spring boot正好提供了命令行的方式运行web服务。通过翻阅相关的文档，也发现spring boot中配置文件可以设置本地路径，例如<code>file:/mnt/c/111/</code>设置为c盘111文件夹（win10 bash）。所以java服务是基于spring boot的简单的服务      </p>
 <html><head></head><body><h2 id="创建项目" class="article-heading"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目<a class="article-anchor" href="#创建项目" aria-hidden="true"></a></h2></body></html><p>您可以在<a href="https://start.spring.io/">Spring官网</a>上下载基本的骨架，当然也可以通过idea等工具下载。一般来说添加以下依赖就够了，但如果您还有其他需求，例如和spring cloud配合，请引入相关的依赖     </p>
 <pre>
-<code class="maven"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code>
+<code class="maven"><dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency></code>
 </pre><html><head></head><body><h2 id="添加路由" class="article-heading"><a href="#添加路由" class="headerlink" title="添加路由"></a>添加路由<a class="article-anchor" href="#添加路由" aria-hidden="true"></a></h2></body></html><p>由于spring boot默认需要<code>index.html</code>才能访问静态资源首页，这是我们不希望的，添加一个路径，将<code>/</code>跳转至index.html。如下修改<code>JwebApplication.class</code>     </p>
 <pre>
 <code class="java"><span class="hljs-meta">@Controller</span>
@@ -594,7 +597,7 @@ if ('serviceWorker' in navigator) {
       <div class="moon-menu-text"></div>
     </div>
   </div>
-</div><script src="/js/injector.a64d651aa52ab25616949b3fdf9c70c0.js"></script><div class="popup search-popup">
+</div><script src="/js/injector.fc27a00db3a419c61602a32d64c8ea8c.js"></script><div class="popup search-popup">
   <div class="search-header">
     <span class="search-icon"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span>
     <div class="search-input-container">
