@@ -99,7 +99,7 @@
 &lt;li&gt;&lt;del&gt;不能使用yarn安装（这个已经修复了）&lt;/del&gt;&lt;/li&gt;
 &lt;li&gt;必须认证授权才能使用，即便你的包是开源的，很不方便&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&quot;https://jiangtj-lab.github.io/pic-repo/img-apricot/20200422094211.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&quot;https://jiangtj-lab.github.io/pic-repo/img-apricot/20200422094211.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;但不管怎样，GitHub Packages始终是个不错的备选方案&lt;/p&gt;
       
       </description>
@@ -187,7 +187,8 @@
       <pubDate>Fri, 06 Sep 2019 03:51:17 GMT</pubDate>
       <description>
       
-        &lt;h1 id=&quot;使用&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;a class=&quot;article-anchor&quot; href=&quot;#使用&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;pre&gt;
+        &lt;h1 id=&quot;使用&quot; class=&quot;article-heading&quot;&gt;使用&lt;a class=&quot;article-anchor&quot; href=&quot;#使用&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;pre&gt;
 &lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 同步返回Optional&amp;lt;T&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; repos = RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&quot;octocat&quot;&lt;/span&gt;)).orElse(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;());
 &lt;span class=&quot;hljs-comment&quot;&gt;// 异步&lt;/span&gt;
@@ -318,7 +319,7 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
             &lt;p&gt;目前使用的NexT主题，也是NexT成员。但果然还是希望自己的站点能够与众不同点，所以想写个自己的主题。整理下一些资源&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;参考主题&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a
+&lt;li&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot;
           
         
       
@@ -372,7 +373,8 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       <description>
       
         &lt;p&gt;Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。&lt;/p&gt;
-&lt;h1 id=&quot;什么是契约测试？&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#什么是契约测试？&quot; class=&quot;headerlink&quot; title=&quot;什么是契约测试？&quot;&gt;&lt;/a&gt;什么是契约测试？&lt;a class=&quot;article-anchor&quot; href=&quot;#什么是契约测试？&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：&lt;/p&gt;
+&lt;h1 id=&quot;什么是契约测试？&quot; class=&quot;article-heading&quot;&gt;什么是契约测试？&lt;a class=&quot;article-anchor&quot; href=&quot;#什么是契约测试？&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;验证提供方是否履约&lt;/li&gt;
 &lt;li&gt;验证消费方在提供方履约下是否正常工作&lt;/li&gt;

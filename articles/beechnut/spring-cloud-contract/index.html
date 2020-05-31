@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
 
 <link rel="stylesheet" href="/css/main.css?v=2.2.1.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。 什么是契约测试？首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：  验证提供方是">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。 什么是契约测试？ 首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：  验证提供方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Cloud Contract 契约测试">
 <meta property="og:url" content="https://jiangtj.com/articles/beechnut/spring-cloud-contract/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。 什么是契约测试？首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：  验证提供方是">
+<meta property="og:description" content="Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。 什么是契约测试？ 首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：  验证提供方">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2019-03-28T15:18:51.000Z">
 <meta property="article:modified_time" content="2019-03-28T15:18:51.000Z">
@@ -34,7 +34,7 @@
       }
     </script>
   
-  <link rel="manifest" href="/manifest.json" /><!-- 
+  <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/beechnut/spring-cloud-contract/"},"headline":"Spring Cloud Contract 契约测试","image":[],"datePublished":"2019-03-28T15:18:51.000Z","dateModified":"2019-03-28T15:18:51.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- 
 <script>
   ((window.gitter = {}).chat = {}).options = {
     room: 'jiangtj/Lobby'
@@ -74,7 +74,7 @@
 <script>CONFIG.localsearch = {"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false};CONFIG.path='search.json';</script><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body>
 
   <div class="pin-top-msg">
   <a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
@@ -101,7 +101,7 @@
   }
 </script>
   
-  <header class="main-header" itemscope itemtype="http://schema.org/WPHeader">
+  <header class="main-header">
     <div class="header-inner card"><div class="brand">
   <div class="site-meta">
     <div class="custom-logo-site-title">
@@ -122,36 +122,7 @@
 </div>
 <nav class="site-nav">
   <ul class="menu">
-
-    
-    
-<li class="menu-item menu-item-home">
-  <a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a>
-</li>
-    
-    
-<li class="menu-item menu-item-archives">
-  <a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a>
-</li>
-    
-    
-<li class="menu-item menu-item-tags">
-  <a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a>
-</li>
-    
-    
-<li class="menu-item menu-item-categories">
-  <a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a>
-</li>
-    
-    
-<li class="menu-item menu-item-more">
-  <a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a>
-</li>
-    
-
-    <li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>
-  </ul>
+    <li class="menu-item menu-item-home"><a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a></li><li class="menu-item menu-item-more"><a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>  </ul>
 </nav>
 </div>
   </header>
@@ -183,36 +154,7 @@
 </div>
 <nav class="site-nav">
   <ul class="menu">
-
-    
-    
-<li class="menu-item menu-item-home">
-  <a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a>
-</li>
-    
-    
-<li class="menu-item menu-item-archives">
-  <a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a>
-</li>
-    
-    
-<li class="menu-item menu-item-tags">
-  <a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a>
-</li>
-    
-    
-<li class="menu-item menu-item-categories">
-  <a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a>
-</li>
-    
-    
-<li class="menu-item menu-item-more">
-  <a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a>
-</li>
-    
-
-    <li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>
-  </ul>
+    <li class="menu-item menu-item-home"><a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a></li><li class="menu-item menu-item-more"><a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>  </ul>
 </nav>
   </div>
 
@@ -229,17 +171,17 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是契约测试？"><span class="nav-number">1.</span> <span class="nav-text">什么是契约测试？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Verifier"><span class="nav-number">3.1.</span> <span class="nav-text">Verifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stub-Runner"><span class="nav-number">3.2.</span> <span class="nav-text">Stub Runner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单元测试"><span class="nav-number">3.2.1.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立部署"><span class="nav-number">3.2.2.</span> <span class="nav-text">独立部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是契约测试？"><span class="nav-number">1.</span> <span class="nav-text">什么是契约测试？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#verifier"><span class="nav-number">3.1.</span> <span class="nav-text">Verifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stub-runner"><span class="nav-number">3.2.</span> <span class="nav-text">Stub Runner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单元测试"><span class="nav-number">3.2.1.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立部署"><span class="nav-number">3.2.2.</span> <span class="nav-text">独立部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
-  <div class="site-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <div class="site-author">
     
-    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg"
+    <img class="site-author-image" src="/images/avatar.jpg"
       alt="Mr.J" />
     
-    <p class="site-author-name" itemprop="name">Mr.J</p>
-    <div class="site-description" itemprop="description">一个两个三个小朋友 四个五个...</div>
+    <p class="site-author-name">Mr.J</p>
+    <div class="site-description">一个两个三个小朋友 四个五个...</div>
   </div>
 
   <nav class="site-state">
@@ -288,30 +230,15 @@
           <div>
   
 
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+<article class="post post-type-normal">
   <div class="card post-block">
-
-    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/beechnut/spring-cloud-contract/" />
-    <meta itemprop="dateCreated datePublished" content="2019-03-28T15:18:51+00:00" />
-    <meta itemprop="dateModified" content="2019-03-28T15:18:51+00:00" />
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr.J" />
-      <meta itemprop="description" content="一个两个三个小朋友 四个五个..." />
-      <meta itemprop="image" content="/images/avatar.jpg" />
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr.J" />
-      <span hidden itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-        <meta itemprop="url" content="/images/avatar.jpg" />
-      </span>
-    </span>
 
     
 
     <header class="post-header">
 
       
-      <h1 class="post-title" itemprop="headline">
+      <h1 class="post-title">
         
         Spring Cloud Contract 契约测试
         
@@ -340,7 +267,7 @@
       <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="folder" class="svg-inline--fa fa-folder fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"></path></svg>
     </span>
     <span class="post-meta-item-text">分类于</span>
-    <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>  </span>
+    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
   
 
   
@@ -350,10 +277,11 @@
 
     </header>
 
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body">
       
       <p>Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。</p>
-<h1 id="什么是契约测试？" class="article-heading"><a href="#什么是契约测试？" class="headerlink" title="什么是契约测试？"></a>什么是契约测试？<a class="article-anchor" href="#什么是契约测试？" aria-hidden="true"></a></h1><p>首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：</p>
+<h1 id="什么是契约测试？" class="article-heading">什么是契约测试？<a class="article-anchor" href="#什么是契约测试？" aria-hidden="true"></a></h1>
+<p>首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：</p>
 <ul>
 <li>验证提供方是否履约</li>
 <li>验证消费方在提供方履约下是否正常工作</li>
@@ -361,12 +289,15 @@
 <p>由于一般都只考虑提供方的履约验证，所以误解为消费者驱动。事实呢，提供方与消费方是唯一的么？你的契约不会变么？一旦发生改变，那么契约测试也会对消费方进行验证。</p>
 <a id="more"></a>
 
-<h1 id="为什么要使用" class="article-heading"><a href="#为什么要使用" class="headerlink" title="为什么要使用"></a>为什么要使用<a class="article-anchor" href="#为什么要使用" aria-hidden="true"></a></h1><p>随着服务拆分，服务间的调用变得更加频繁。原本的测试方案（单元测试与集成测试）变得力不从心</p>
+<h1 id="为什么要使用" class="article-heading">为什么要使用<a class="article-anchor" href="#为什么要使用" aria-hidden="true"></a></h1>
+<p>随着服务拆分，服务间的调用变得更加频繁。原本的测试方案（单元测试与集成测试）变得力不从心</p>
 <p>单元测试，我们会mock服务间的调用，确保我们对很小的原本测试。但是，一旦提供方提供的服务发生改变，这不会及时的响应在单元测试中，这种疏漏会导致单元测试失效。</p>
 <p>集成测试，每次我们都需要运行多个服务，以配合完成。其中涉及到服务的配置等等各种问题。</p>
 <p>这就好比是场舞台戏，如果每个人都练自己的，那么很可能配合失败。如果一直一起排练，又很占时间。所以需要一份实时都是最新的剧本，每个人都依据它，练习自己的部分。</p>
-<h1 id="实现" class="article-heading"><a href="#实现" class="headerlink" title="实现"></a>实现<a class="article-anchor" href="#实现" aria-hidden="true"></a></h1><p>Spring Cloud Contract 提供不错的实现，它分为验证服务（Verifier）和对契约内容Mock服务（Stub Runner）两部分。</p>
-<h2 id="Verifier" class="article-heading"><a href="#Verifier" class="headerlink" title="Verifier"></a>Verifier<a class="article-anchor" href="#Verifier" aria-hidden="true"></a></h2><p>通过groovy脚本或者yaml定义接口，由Spring Cloud Contract帮助我们生成测试用例并验证。</p>
+<h1 id="实现" class="article-heading">实现<a class="article-anchor" href="#实现" aria-hidden="true"></a></h1>
+<p>Spring Cloud Contract 提供不错的实现，它分为验证服务（Verifier）和对契约内容Mock服务（Stub Runner）两部分。</p>
+<h2 id="verifier" class="article-heading">Verifier<a class="article-anchor" href="#verifier" aria-hidden="true"></a></h2>
+<p>通过groovy脚本或者yaml定义接口，由Spring Cloud Contract帮助我们生成测试用例并验证。</p>
 <p><strong>Step 1：环境配置</strong></p>
 <p>需要引入依赖</p>
 <pre>
@@ -465,7 +396,7 @@ Contract.make {
 <p><strong>Step 4：发布</strong></p>
 <p>时效性对于契约来说十分重要，若无法保证，那单元测试中的问题就等于没解决，所以需要及时的发布生成的-stubs jar包</p>
 <ol>
-<li>配置nexus oss，并发布至上面，与一般的上传一致<code>mvn deploy</code>，在例子，我使用的是<a href="https://bintray.com/jiangtj/maven">jfrog bintray</a>发布</li>
+<li>配置nexus oss，并发布至上面，与一般的上传一致<code>mvn deploy</code>，在例子，我使用的是<a rel="noopener" target="_blank" href="https://bintray.com/jiangtj/maven">jfrog bintray</a>发布</li>
 <li>如果没有二进制存储库，可以选择Git进行发布</li>
 <li>还可以通过Pack，但是，在pack上需要先由前端定义好契约</li>
 </ol>
@@ -473,14 +404,16 @@ Contract.make {
 <p>第一个方案，利用maven来处理是非常合理的，maven本身就是用于二进制文件管理，但如果你无法做到独立升级部署（多个微服务一同修改），那么你可能需要依赖于SNAPSHOT jar，不稳定的版本需要你多次上传，而且maven的快照机制也造成每次都需要检测获取最新版本</p>
 <p>第二个方案，对于契约的存储独立存放在git仓库，它的工作原理是clone整个存储库至本地，解析版本以及一些其他的定义，获取契约数据。问题在于clone，本身契约内容是不多的，也就是clone并不会浪费太多时间。但假如多年后呢，如果契约定义不规范频繁改动的情况出现（在企业内，这是很常见的现象），可能造成存储库变得庞大</p>
 <p>第三个方案，这是有别于前两个，由消费方定义契约。所以使用场景也更加明确，那就是前端人员充足时。Pact提供了图形化的界面展示契约的验证情况，这是挺好的特性。但是对于后端微服务来说，提供契约需要通过其它方式（未很好的集成），这无疑造成了学习成本增加</p>
-<h2 id="Stub-Runner" class="article-heading"><a href="#Stub-Runner" class="headerlink" title="Stub Runner"></a>Stub Runner<a class="article-anchor" href="#Stub-Runner" aria-hidden="true"></a></h2><p>由于服务提供方对契约是校验的，所以我们可以认为这个mock数据是基本准确的。mock方式有多种</p>
+<h2 id="stub-runner" class="article-heading">Stub Runner<a class="article-anchor" href="#stub-runner" aria-hidden="true"></a></h2>
+<p>由于服务提供方对契约是校验的，所以我们可以认为这个mock数据是基本准确的。mock方式有多种</p>
 <p>方案一：下载提供方源码，编译并运行<code>mvn spring-cloud-contract:convert &amp;&amp; mvn spring-cloud-contract:run</code></p>
 <p>方案二：在单元测试中使用，可以配合spring cloud替换一些注册中心的服务，在运行时，不再需要启动多个外部服务</p>
 <p>方案三：独立部署契约进行mock，一个很好的前后端分离方案是，前端依据契约mock数据开发，后端依据契约校验提供数据</p>
 <p>方案四：使用spring cloud cli运行，
-安装spring boot cli<a href="https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#getting-started-installing-the-cli">文档</a>，
+安装spring boot cli<a rel="noopener" target="_blank" href="https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#getting-started-installing-the-cli">文档</a>，
 安装spring cloud cli（待再次实践 按文档教程操作失败路过）</p>
-<h3 id="单元测试" class="article-heading"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试<a class="article-anchor" href="#单元测试" aria-hidden="true"></a></h3><p>需要的依赖</p>
+<h3 id="单元测试" class="article-heading">单元测试<a class="article-anchor" href="#单元测试" aria-hidden="true"></a></h3>
+<p>需要的依赖</p>
 <pre>
 <code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
@@ -505,7 +438,8 @@ Contract.make {
     <span class="hljs-attr">spring-contract-example:</span> <span class="hljs-string">none-service</span>
   <span class="hljs-comment"># 该模式下会从远程maven仓库缓存到本地</span>
   <span class="hljs-attr">stubs-mode:</span> <span class="hljs-string">local</span></code>
-</pre><h3 id="独立部署" class="article-heading"><a href="#独立部署" class="headerlink" title="独立部署"></a>独立部署<a class="article-anchor" href="#独立部署" aria-hidden="true"></a></h3><p>首先下载<code>stub-runner.jar</code> </p>
+</pre><h3 id="独立部署" class="article-heading">独立部署<a class="article-anchor" href="#独立部署" aria-hidden="true"></a></h3>
+<p>首先下载<code>stub-runner.jar</code> </p>
 <pre>
 <code class="bash">wget -O stub-runner.jar <span class="hljs-string">'https://search.maven.org/remotecontent?filepath=org/springframework/cloud/spring-cloud-contract-stub-runner-boot/2.1.1.RELEASE/spring-cloud-contract-stub-runner-boot-2.1.1.RELEASE.jar'</span></code>
 </pre><p>在同路径创建配置文件<code>application.yml</code>，并添加stubrunner的配置，如下</p>
@@ -518,10 +452,11 @@ Contract.make {
   <span class="hljs-comment"># 该模式下会从远程maven仓库缓存到本地</span>
   <span class="hljs-attr">stubs-mode:</span> <span class="hljs-string">local</span></code>
 </pre><p>通过<code>java -jar stub-runner.jar</code>运行。即可访问<code>com.jtj.cloud:spring-contract-example</code>的mock数据啦！</p>
-<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ul>
-<li><a href="https://github.com/JiangTJ/spring-contract-example">上面所提到的例子工程-mockmvc</a></li>
-<li><a href="https://github.com/JiangTJ/spring-contract-example/tree/webflux">上面所提到的例子工程-webflux</a></li>
-<li><a href="https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.1.0.RELEASE/single/spring-cloud-contract.html">spring-cloud-contract doc</a></li>
+<h1 id="参考" class="article-heading">参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://github.com/JiangTJ/spring-contract-example">上面所提到的例子工程-mockmvc</a></li>
+<li><a rel="noopener" target="_blank" href="https://github.com/JiangTJ/spring-contract-example/tree/webflux">上面所提到的例子工程-webflux</a></li>
+<li><a rel="noopener" target="_blank" href="https://cloud.spring.io/spring-cloud-static/spring-cloud-contract/2.1.0.RELEASE/single/spring-cloud-contract.html">spring-cloud-contract doc</a></li>
 </ul>
       
     </div>
@@ -613,12 +548,12 @@ Contract.make {
           <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span>2020</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Mr.J</span>
+  <span class="author">Mr.J</span>
 </div>
 
 <div class="powered-by">

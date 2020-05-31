@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
 
 <link rel="stylesheet" href="/css/main.css?v=2.2.1.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="在微服务架构中，服务发现是最重要的一环。Spring Cloud提供多个服务注册中心作为选择，如Eureka、Consul、Zookeeper等，当然最常用的是Eureka 简介Eureka由Eureka Server与Eureka Client两部分组成Eureka Server是高可用的（可同时作为客户端向其他注册中心注册）服务发现的注册中心，为每个客户端（Eureka Client）提供注册">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="在微服务架构中，服务发现是最重要的一环。Spring Cloud提供多个服务注册中心作为选择，如Eureka、Consul、Zookeeper等，当然最常用的是Eureka 简介 Eureka由Eureka Server与Eureka Client两部分组成Eureka Server是高可用的（可同时作为客户端向其他注册中心注册）服务发现的注册中心，为每个客户端（Eureka Client）提供注">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Cloud 之 Eureka （Finchley版）">
 <meta property="og:url" content="https://jiangtj.com/articles/almond/f-eureka-server/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="在微服务架构中，服务发现是最重要的一环。Spring Cloud提供多个服务注册中心作为选择，如Eureka、Consul、Zookeeper等，当然最常用的是Eureka 简介Eureka由Eureka Server与Eureka Client两部分组成Eureka Server是高可用的（可同时作为客户端向其他注册中心注册）服务发现的注册中心，为每个客户端（Eureka Client）提供注册">
+<meta property="og:description" content="在微服务架构中，服务发现是最重要的一环。Spring Cloud提供多个服务注册中心作为选择，如Eureka、Consul、Zookeeper等，当然最常用的是Eureka 简介 Eureka由Eureka Server与Eureka Client两部分组成Eureka Server是高可用的（可同时作为客户端向其他注册中心注册）服务发现的注册中心，为每个客户端（Eureka Client）提供注">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2018-07-24T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-07-24T16:00:00.000Z">
@@ -33,7 +33,7 @@
       }
     </script>
   
-  <link rel="manifest" href="/manifest.json" /><!-- 
+  <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/f-eureka-server/"},"headline":"Spring Cloud 之 Eureka （Finchley版）","image":[],"datePublished":"2018-07-24T16:00:00.000Z","dateModified":"2018-07-24T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- 
 <script>
   ((window.gitter = {}).chat = {}).options = {
     room: 'jiangtj/Lobby'
@@ -73,7 +73,7 @@
 <script>CONFIG.localsearch = {"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false};CONFIG.path='search.json';</script><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body>
 
   <div class="pin-top-msg">
   <a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
@@ -100,7 +100,7 @@
   }
 </script>
   
-  <header class="main-header" itemscope itemtype="http://schema.org/WPHeader">
+  <header class="main-header">
     <div class="header-inner card"><div class="brand">
   <div class="site-meta">
     <div class="custom-logo-site-title">
@@ -121,36 +121,7 @@
 </div>
 <nav class="site-nav">
   <ul class="menu">
-
-    
-    
-<li class="menu-item menu-item-home">
-  <a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a>
-</li>
-    
-    
-<li class="menu-item menu-item-archives">
-  <a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a>
-</li>
-    
-    
-<li class="menu-item menu-item-tags">
-  <a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a>
-</li>
-    
-    
-<li class="menu-item menu-item-categories">
-  <a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a>
-</li>
-    
-    
-<li class="menu-item menu-item-more">
-  <a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a>
-</li>
-    
-
-    <li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>
-  </ul>
+    <li class="menu-item menu-item-home"><a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a></li><li class="menu-item menu-item-more"><a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>  </ul>
 </nav>
 </div>
   </header>
@@ -182,36 +153,7 @@
 </div>
 <nav class="site-nav">
   <ul class="menu">
-
-    
-    
-<li class="menu-item menu-item-home">
-  <a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a>
-</li>
-    
-    
-<li class="menu-item menu-item-archives">
-  <a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a>
-</li>
-    
-    
-<li class="menu-item menu-item-tags">
-  <a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a>
-</li>
-    
-    
-<li class="menu-item menu-item-categories">
-  <a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a>
-</li>
-    
-    
-<li class="menu-item menu-item-more">
-  <a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a>
-</li>
-    
-
-    <li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>
-  </ul>
+    <li class="menu-item menu-item-home"><a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a></li><li class="menu-item menu-item-more"><a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>  </ul>
 </nav>
   </div>
 
@@ -228,17 +170,17 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的Eureka-Server"><span class="nav-number">2.</span> <span class="nav-text">简单的Eureka Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式的Eureka-Server"><span class="nav-number">3.</span> <span class="nav-text">分布式的Eureka Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eureka-Client"><span class="nav-number">4.</span> <span class="nav-text">Eureka Client</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的eureka-server"><span class="nav-number">2.</span> <span class="nav-text">简单的Eureka Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式的eureka-server"><span class="nav-number">3.</span> <span class="nav-text">分布式的Eureka Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eureka-client"><span class="nav-number">4.</span> <span class="nav-text">Eureka Client</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
-  <div class="site-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <div class="site-author">
     
-    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg"
+    <img class="site-author-image" src="/images/avatar.jpg"
       alt="Mr.J" />
     
-    <p class="site-author-name" itemprop="name">Mr.J</p>
-    <div class="site-description" itemprop="description">一个两个三个小朋友 四个五个...</div>
+    <p class="site-author-name">Mr.J</p>
+    <div class="site-description">一个两个三个小朋友 四个五个...</div>
   </div>
 
   <nav class="site-state">
@@ -287,30 +229,15 @@
           <div>
   
 
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+<article class="post post-type-normal">
   <div class="card post-block">
-
-    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/f-eureka-server/" />
-    <meta itemprop="dateCreated datePublished" content="2018-07-24T16:00:00+00:00" />
-    <meta itemprop="dateModified" content="2018-07-24T16:00:00+00:00" />
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr.J" />
-      <meta itemprop="description" content="一个两个三个小朋友 四个五个..." />
-      <meta itemprop="image" content="/images/avatar.jpg" />
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr.J" />
-      <span hidden itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-        <meta itemprop="url" content="/images/avatar.jpg" />
-      </span>
-    </span>
 
     
 
     <header class="post-header">
 
       
-      <h1 class="post-title" itemprop="headline">
+      <h1 class="post-title">
         
         Spring Cloud 之 Eureka （Finchley版）
         
@@ -339,7 +266,7 @@
       <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="folder" class="svg-inline--fa fa-folder fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"></path></svg>
     </span>
     <span class="post-meta-item-text">分类于</span>
-    <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a></span>  </span>
+    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
   
 
   
@@ -349,13 +276,15 @@
 
     </header>
 
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body">
       
       <p>在微服务架构中，服务发现是最重要的一环。Spring Cloud提供多个服务注册中心作为选择，如Eureka、Consul、Zookeeper等，当然最常用的是Eureka</p>
-<h1 id="简介" class="article-heading"><a href="#简介" class="headerlink" title="简介"></a>简介<a class="article-anchor" href="#简介" aria-hidden="true"></a></h1><p>Eureka由Eureka Server与Eureka Client两部分组成<br>Eureka Server是高可用的（可同时作为客户端向其他注册中心注册）服务发现的注册中心，为每个客户端（Eureka Client）提供注册服务，并提供已注册服务信息<br>Eureka Client向服务注册中心注册，并提供断路、负载均衡等功能    </p>
+<h1 id="简介" class="article-heading">简介<a class="article-anchor" href="#简介" aria-hidden="true"></a></h1>
+<p>Eureka由Eureka Server与Eureka Client两部分组成<br>Eureka Server是高可用的（可同时作为客户端向其他注册中心注册）服务发现的注册中心，为每个客户端（Eureka Client）提供注册服务，并提供已注册服务信息<br>Eureka Client向服务注册中心注册，并提供断路、负载均衡等功能    </p>
 <a id="more"></a>
 
-<h1 id="简单的Eureka-Server" class="article-heading"><a href="#简单的Eureka-Server" class="headerlink" title="简单的Eureka Server"></a>简单的Eureka Server<a class="article-anchor" href="#简单的Eureka-Server" aria-hidden="true"></a></h1><p>启动一个Eureka Server，首先需要添加依赖</p>
+<h1 id="简单的eureka-server" class="article-heading">简单的Eureka Server<a class="article-anchor" href="#简单的eureka-server" aria-hidden="true"></a></h1>
+<p>启动一个Eureka Server，首先需要添加依赖</p>
 <pre>
 <code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
@@ -387,7 +316,8 @@
   <span class="hljs-attr">server:</span>
     <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span></code>
 </pre><p><code>enable-self-preservation: false</code>是关闭自我保护，自我保护是为了保障微服务（实际可用）与Eureka Server之间由于网络因数无法通信时，在一段时间内保留微服务，避免微服务被注销而无法提供服务的情况，由于测试环境实例过少，开启会导致难以测试，一般线上需要开启（默认）<br><code>registerWithEureka</code>与<code>fetchRegistry</code>，用于禁用客户端行为，Eureka Server作为单个独立应用运行    </p>
-<h1 id="分布式的Eureka-Server" class="article-heading"><a href="#分布式的Eureka-Server" class="headerlink" title="分布式的Eureka Server"></a>分布式的Eureka Server<a class="article-anchor" href="#分布式的Eureka-Server" aria-hidden="true"></a></h1><p>单个Eureka Server，在大部分场景下是足够的，但当企业微服务规模扩大，单个服务难以支撑时，分布式是不可避免的，Eureka Server作为高可用的注册中心，在最初设计时就考虑了相关问题，即它作为服务注册中心的同时，它也能作为客户端，向其他注册中心发起注册<br>官方以及许多其他地方的文档基本都是两个对等Eureka Server配置，但事实上，也有需要多个对等的配置。<br>多个对等配置如下   </p>
+<h1 id="分布式的eureka-server" class="article-heading">分布式的Eureka Server<a class="article-anchor" href="#分布式的eureka-server" aria-hidden="true"></a></h1>
+<p>单个Eureka Server，在大部分场景下是足够的，但当企业微服务规模扩大，单个服务难以支撑时，分布式是不可避免的，Eureka Server作为高可用的注册中心，在最初设计时就考虑了相关问题，即它作为服务注册中心的同时，它也能作为客户端，向其他注册中心发起注册<br>官方以及许多其他地方的文档基本都是两个对等Eureka Server配置，但事实上，也有需要多个对等的配置。<br>多个对等配置如下   </p>
 <ol>
 <li><p>实例一    </p>
 <pre>
@@ -430,7 +360,8 @@
 </pre><p>这里有一点需要注意，就是将<strong>所有的Eureka Server填写在<code>defaultZone</code>中</strong>，并以逗号隔开，自身的地址可填，也可不填，<code>registerWithEureka</code>配置了自我注册，默认是开启的。因为服务注册中心同步注册服务，需要彼此之间相互注册，例如A与B相互注册，B与C相互注册，如果一个客户端在A上注册，那么它能在B中发现，而不会在C中发现，如果需要在C中同样发现，那么必须A与C相互注册    </p>
 </li>
 </ol>
-<h1 id="Eureka-Client" class="article-heading"><a href="#Eureka-Client" class="headerlink" title="Eureka Client"></a>Eureka Client<a class="article-anchor" href="#Eureka-Client" aria-hidden="true"></a></h1><p>客户端是微服务的一个基础，用于向服务注册中心发起注册，当然如果存在多个注册中心的情况，填写一个就好，注册中心之间会相互同步注册的服务信息<br>首先需要引入依赖    </p>
+<h1 id="eureka-client" class="article-heading">Eureka Client<a class="article-anchor" href="#eureka-client" aria-hidden="true"></a></h1>
+<p>客户端是微服务的一个基础，用于向服务注册中心发起注册，当然如果存在多个注册中心的情况，填写一个就好，注册中心之间会相互同步注册的服务信息<br>首先需要引入依赖    </p>
 <pre>
 <code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
@@ -544,12 +475,12 @@
           <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span>2020</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Mr.J</span>
+  <span class="author">Mr.J</span>
 </div>
 
 <div class="powered-by">

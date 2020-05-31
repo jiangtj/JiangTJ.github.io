@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
 
 <link rel="stylesheet" href="/css/main.css?v=2.2.1.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="背景在微服务中，单个服务的升级改善是不可避免的，虽然改动最终引起Rest接口变动并不多，但仍然会出现。在《微服务设计》中，提供了两种处理方案：  不同的接口共存 同时运行多个版本服务  这本书的作者Sam Newman，他认为这两种方案都是可行的，但更倾向于不同接口共存。也提出了三点主要原因  当出现问题时，不同的接口共存可以更快的修改新老版本的代码并一同部署，而另一种就比较麻烦了 方案二维护困难">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="背景 在微服务中，单个服务的升级改善是不可避免的，虽然改动最终引起Rest接口变动并不多，但仍然会出现。在《微服务设计》中，提供了两种处理方案：  不同的接口共存 同时运行多个版本服务  这本书的作者Sam Newman，他认为这两种方案都是可行的，但更倾向于不同接口共存。也提出了三点主要原因  当出现问题时，不同的接口共存可以更快的修改新老版本的代码并一同部署，而另一种就比较麻烦了 方案二维护困">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微服务设计 - 版本控制">
 <meta property="og:url" content="https://jiangtj.com/articles/almond/microservices-version-control/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="背景在微服务中，单个服务的升级改善是不可避免的，虽然改动最终引起Rest接口变动并不多，但仍然会出现。在《微服务设计》中，提供了两种处理方案：  不同的接口共存 同时运行多个版本服务  这本书的作者Sam Newman，他认为这两种方案都是可行的，但更倾向于不同接口共存。也提出了三点主要原因  当出现问题时，不同的接口共存可以更快的修改新老版本的代码并一同部署，而另一种就比较麻烦了 方案二维护困难">
+<meta property="og:description" content="背景 在微服务中，单个服务的升级改善是不可避免的，虽然改动最终引起Rest接口变动并不多，但仍然会出现。在《微服务设计》中，提供了两种处理方案：  不同的接口共存 同时运行多个版本服务  这本书的作者Sam Newman，他认为这两种方案都是可行的，但更倾向于不同接口共存。也提出了三点主要原因  当出现问题时，不同的接口共存可以更快的修改新老版本的代码并一同部署，而另一种就比较麻烦了 方案二维护困">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2018-11-09T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-11-09T16:00:00.000Z">
@@ -34,7 +34,7 @@
       }
     </script>
   
-  <link rel="manifest" href="/manifest.json" /><!-- 
+  <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/microservices-version-control/"},"headline":"微服务设计 - 版本控制","image":[],"datePublished":"2018-11-09T16:00:00.000Z","dateModified":"2018-11-09T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- 
 <script>
   ((window.gitter = {}).chat = {}).options = {
     room: 'jiangtj/Lobby'
@@ -74,7 +74,7 @@
 <script>CONFIG.localsearch = {"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false};CONFIG.path='search.json';</script><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
+<body>
 
   <div class="pin-top-msg">
   <a class='jump-to-dnocm'>您访问的是非正式的站点，不是最新内容哦，请点击这里前往Dnocm ヾ(=ﾟ･ﾟ=)ﾉ喵♪</a>
@@ -101,7 +101,7 @@
   }
 </script>
   
-  <header class="main-header" itemscope itemtype="http://schema.org/WPHeader">
+  <header class="main-header">
     <div class="header-inner card"><div class="brand">
   <div class="site-meta">
     <div class="custom-logo-site-title">
@@ -122,36 +122,7 @@
 </div>
 <nav class="site-nav">
   <ul class="menu">
-
-    
-    
-<li class="menu-item menu-item-home">
-  <a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a>
-</li>
-    
-    
-<li class="menu-item menu-item-archives">
-  <a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a>
-</li>
-    
-    
-<li class="menu-item menu-item-tags">
-  <a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a>
-</li>
-    
-    
-<li class="menu-item menu-item-categories">
-  <a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a>
-</li>
-    
-    
-<li class="menu-item menu-item-more">
-  <a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a>
-</li>
-    
-
-    <li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>
-  </ul>
+    <li class="menu-item menu-item-home"><a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a></li><li class="menu-item menu-item-more"><a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>  </ul>
 </nav>
 </div>
   </header>
@@ -183,36 +154,7 @@
 </div>
 <nav class="site-nav">
   <ul class="menu">
-
-    
-    
-<li class="menu-item menu-item-home">
-  <a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a>
-</li>
-    
-    
-<li class="menu-item menu-item-archives">
-  <a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a>
-</li>
-    
-    
-<li class="menu-item menu-item-tags">
-  <a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a>
-</li>
-    
-    
-<li class="menu-item menu-item-categories">
-  <a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a>
-</li>
-    
-    
-<li class="menu-item menu-item-more">
-  <a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a>
-</li>
-    
-
-    <li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>
-  </ul>
+    <li class="menu-item menu-item-home"><a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tags" class="svg-inline--fa fa-tags fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"></path></svg>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="archive" class="svg-inline--fa fa-archive fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg>归档</a></li><li class="menu-item menu-item-more"><a href="/more/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg>More</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>搜索</a></li>  </ul>
 </nav>
   </div>
 
@@ -233,13 +175,13 @@
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
-  <div class="site-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <div class="site-author">
     
-    <img class="site-author-image" itemprop="image" src="/images/avatar.jpg"
+    <img class="site-author-image" src="/images/avatar.jpg"
       alt="Mr.J" />
     
-    <p class="site-author-name" itemprop="name">Mr.J</p>
-    <div class="site-description" itemprop="description">一个两个三个小朋友 四个五个...</div>
+    <p class="site-author-name">Mr.J</p>
+    <div class="site-description">一个两个三个小朋友 四个五个...</div>
   </div>
 
   <nav class="site-state">
@@ -288,30 +230,15 @@
           <div>
   
 
-<article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+<article class="post post-type-normal">
   <div class="card post-block">
-
-    <link itemprop="mainEntityOfPage" href="https://jiangtj.com/articles/almond/microservices-version-control/" />
-    <meta itemprop="dateCreated datePublished" content="2018-11-09T16:00:00+00:00" />
-    <meta itemprop="dateModified" content="2018-11-09T16:00:00+00:00" />
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr.J" />
-      <meta itemprop="description" content="一个两个三个小朋友 四个五个..." />
-      <meta itemprop="image" content="/images/avatar.jpg" />
-    </span>
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mr.J" />
-      <span hidden itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-        <meta itemprop="url" content="/images/avatar.jpg" />
-      </span>
-    </span>
 
     
 
     <header class="post-header">
 
       
-      <h1 class="post-title" itemprop="headline">
+      <h1 class="post-title">
         
         微服务设计 - 版本控制
         
@@ -340,7 +267,7 @@
       <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="folder" class="svg-inline--fa fa-folder fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"></path></svg>
     </span>
     <span class="post-meta-item-text">分类于</span>
-    <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9E%B6%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">架构</span></a></span>  </span>
+    <span><a href="/categories/%E6%9E%B6%E6%9E%84/" rel="index"><span>架构</span></a></span>  </span>
   
 
   
@@ -350,9 +277,10 @@
 
     </header>
 
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body">
       
-      <h1 id="背景" class="article-heading"><a href="#背景" class="headerlink" title="背景"></a>背景<a class="article-anchor" href="#背景" aria-hidden="true"></a></h1><p>在微服务中，单个服务的升级改善是不可避免的，虽然改动最终引起Rest接口变动并不多，但仍然会出现。在《微服务设计》中，提供了两种处理方案：</p>
+      <h1 id="背景" class="article-heading">背景<a class="article-anchor" href="#背景" aria-hidden="true"></a></h1>
+<p>在微服务中，单个服务的升级改善是不可避免的，虽然改动最终引起Rest接口变动并不多，但仍然会出现。在《微服务设计》中，提供了两种处理方案：</p>
 <ol>
 <li>不同的接口共存</li>
 <li>同时运行多个版本服务</li>
@@ -366,14 +294,19 @@
 <p>但我更倾向于方案二，该方案的实际使用者主要是Netflix（Spring Cloud便是基于他开源的微服务框架研发的），在现阶段（2018年）相对于作者的年代（2015年），技术上已经有了较大的变化。微服务的设计已经在很多公司大规模的推行及使用，变得更加成熟。作者所提出的前两点问题已经有了比较好的方案减少影响    </p>
 <a id="more"></a>
 
-<h1 id="问题修复" class="article-heading"><a href="#问题修复" class="headerlink" title="问题修复"></a>问题修复<a class="article-anchor" href="#问题修复" aria-hidden="true"></a></h1><p>首先，同时需要修改两服务的情况应当只有问题修复，新功能迭代，应发生在新服务上，老版本不应该支持（从某种程度上来说，可以启到督促用户升级）    </p>
+<h1 id="问题修复" class="article-heading">问题修复<a class="article-anchor" href="#问题修复" aria-hidden="true"></a></h1>
+<p>首先，同时需要修改两服务的情况应当只有问题修复，新功能迭代，应发生在新服务上，老版本不应该支持（从某种程度上来说，可以启到督促用户升级）    </p>
 <p>那么问题如何修复呢？同样也存在多种情况，我们拿书中的例子（用户服务）接着讲    </p>
-<h2 id="改进" class="article-heading"><a href="#改进" class="headerlink" title="改进"></a>改进<a class="article-anchor" href="#改进" aria-hidden="true"></a></h2><p>用户服务负责的是用户相关的功能，其中一种情况是做了改进，增强部分功能。例如原本用户创建接口只是简单的用户名与单邮箱绑定（v1），改版后，需要实现的是多邮箱的绑定（v2），事情一个用户多个邮箱是比较常见的    </p>
+<h2 id="改进" class="article-heading">改进<a class="article-anchor" href="#改进" aria-hidden="true"></a></h2>
+<p>用户服务负责的是用户相关的功能，其中一种情况是做了改进，增强部分功能。例如原本用户创建接口只是简单的用户名与单邮箱绑定（v1），改版后，需要实现的是多邮箱的绑定（v2），事情一个用户多个邮箱是比较常见的    </p>
 <p>那么在这种情况下，底层的持久层已经改变了，原本应该用户表中存在邮箱字段，而新方案则为用户表与用户邮箱绑定表。我们需要在老节点拉出分支<code>release-v1</code>用于维护与兼容老版本，同时在<code>master</code>上迭代新的改进，稳定后拉出<code>release-v2</code>，不同的版本的服务与具体的分支对应，同样的可以创建<code>release-v3</code>等，但不建议同时维护多个版本，即便在不同的接口共存方案里也是一样的    </p>
 <p>有了这些分支后，我们所做的修复都只需要在<code>master</code>上修复，通过<code>git cherry-pick</code>拉取单次提交至不同版本上，这是<code>GitLab Flow</code>方案，他所提倡的上游原则，在很大程度上避免了修改问题所造成的影响</p>
-<h2 id="重构" class="article-heading"><a href="#重构" class="headerlink" title="重构"></a>重构<a class="article-anchor" href="#重构" aria-hidden="true"></a></h2><p>这里说的重构是指代码的重写，可能用了不同的技术架构或者语音，那么在这种情况下，不同的接口共存方案将无法处理，因为您的服务发生了彻底的变化</p>
-<h2 id="部署" class="article-heading"><a href="#部署" class="headerlink" title="部署"></a>部署<a class="article-anchor" href="#部署" aria-hidden="true"></a></h2><p>问题修复后的部署也是难点，如果保证准确部署呢，CI/CD在很大程度上解决了这个问题，许多CI工具都提供指定分支的脚本配置，没错，我们可以提供一样的CI配置文件，保证编译测试一致的前提下，在不同的分支中运行不同的部署脚本</p>
-<h1 id="运行" class="article-heading"><a href="#运行" class="headerlink" title="运行"></a>运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1><p>运行时，如何将用户指向不同服务，同样的可以通过uri定位如<code>/v1/*</code>，微服务中网关与注册中心特别重要，我们可以在服务名中硬编码版本，比如<code>user-v1</code>这是第一个版本，在Spring Cloud中配置可以是：</p>
+<h2 id="重构" class="article-heading">重构<a class="article-anchor" href="#重构" aria-hidden="true"></a></h2>
+<p>这里说的重构是指代码的重写，可能用了不同的技术架构或者语音，那么在这种情况下，不同的接口共存方案将无法处理，因为您的服务发生了彻底的变化</p>
+<h2 id="部署" class="article-heading">部署<a class="article-anchor" href="#部署" aria-hidden="true"></a></h2>
+<p>问题修复后的部署也是难点，如果保证准确部署呢，CI/CD在很大程度上解决了这个问题，许多CI工具都提供指定分支的脚本配置，没错，我们可以提供一样的CI配置文件，保证编译测试一致的前提下，在不同的分支中运行不同的部署脚本</p>
+<h1 id="运行" class="article-heading">运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1>
+<p>运行时，如何将用户指向不同服务，同样的可以通过uri定位如<code>/v1/*</code>，微服务中网关与注册中心特别重要，我们可以在服务名中硬编码版本，比如<code>user-v1</code>这是第一个版本，在Spring Cloud中配置可以是：</p>
 <pre>
 <code class="yml"><span class="hljs-attr">spring:</span>
   <span class="hljs-attr">cloud:</span>
@@ -387,14 +320,17 @@
             <span class="hljs-comment"># Strip first path，such v1</span>
             <span class="hljs-bullet">-</span> <span class="hljs-string">StripPrefix=1</span></code>
 </pre><p>这并不困难</p>
-<h1 id="持久化" class="article-heading"><a href="#持久化" class="headerlink" title="持久化"></a>持久化<a class="article-anchor" href="#持久化" aria-hidden="true"></a></h1><p>这个问题是唯一无法避免的，当然不同的接口共存也同样会遇到这个问题。作者认为旧接口转换处理后重新指向新接口服务，来避免持久化问题。这样的方案能解决的，在多服务中也很好解决，往往数据库中字段添加默认值就够了。其他无法兼容的，那么旧接口转换后访问新街口能不出错？唯一的措施是尽快推进升级    </p>
-<h1 id="其他" class="article-heading"><a href="#其他" class="headerlink" title="其他"></a>其他<a class="article-anchor" href="#其他" aria-hidden="true"></a></h1><p>不同的接口共存就不存在问题么，显然不是的。每次新版本的发布，需要对所有接口重写，即使接口定义没有变化。这在很大程度上导致代码的冗余，多出许多<code>xxxV1Controller</code>、<code>xxxV2Controller</code>之类的。</p>
+<h1 id="持久化" class="article-heading">持久化<a class="article-anchor" href="#持久化" aria-hidden="true"></a></h1>
+<p>这个问题是唯一无法避免的，当然不同的接口共存也同样会遇到这个问题。作者认为旧接口转换处理后重新指向新接口服务，来避免持久化问题。这样的方案能解决的，在多服务中也很好解决，往往数据库中字段添加默认值就够了。其他无法兼容的，那么旧接口转换后访问新街口能不出错？唯一的措施是尽快推进升级    </p>
+<h1 id="其他" class="article-heading">其他<a class="article-anchor" href="#其他" aria-hidden="true"></a></h1>
+<p>不同的接口共存就不存在问题么，显然不是的。每次新版本的发布，需要对所有接口重写，即使接口定义没有变化。这在很大程度上导致代码的冗余，多出许多<code>xxxV1Controller</code>、<code>xxxV2Controller</code>之类的。</p>
 <p>另外，多版本共存一般而言会在一定时间下掉老服务（惰性-&gt;升级），但接口共存方案，可能会导致老的controller长期存在（惰性-&gt;保留），可能导致微服务往“坏”的方向发展。    </p>
 <p>惰性的解释：<br>在多版本中，运行多版本是麻烦事，所以，会逼迫升级<br>在多接口中，删除旧接口是麻烦事，所以，会趋于保留    </p>
 <p>人性本就懒惰，用来维护微服务更健康，岂不更好？</p>
-<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ul>
+<h1 id="参考" class="article-heading">参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1>
+<ul>
 <li>《微服务设计》 Sam Newman 著 崔力强 张俊 译</li>
-<li><a href="https://docs.gitlab.com/ee/university/training/gitlab_flow.html">GitLab Flow</a></li>
+<li><a rel="noopener" target="_blank" href="https://docs.gitlab.com/ee/university/training/gitlab_flow.html">GitLab Flow</a></li>
 </ul>
       
     </div>
@@ -486,12 +422,12 @@
           <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span>2020</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Mr.J</span>
+  <span class="author">Mr.J</span>
 </div>
 
 <div class="powered-by">
