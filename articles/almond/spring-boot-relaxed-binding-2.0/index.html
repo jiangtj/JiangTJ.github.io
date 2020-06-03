@@ -5,12 +5,12 @@
     <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#414852"/>
+
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
 
-<link rel="stylesheet" href="/css/main.css?v=2.2.1.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="Spring Boot 中的配置绑定一直是其最主要的特性。而在Spring Boot 2.0中，该绑定方式做了大量的修改，并且借机制定一些新的规范，以减少过于宽松的绑定规则导致的一些问题  您也可以通过官方的Relaxed-Binding-2.0 wiki了解详细">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="Spring Boot 中的配置绑定一直是其最主要的特性。而在Spring Boot 2.0中，该绑定方式做了大量的修改，并且借机制定一些新的规范，以减少过于宽松的绑定规则导致的一些问题  您也可以通过官方的Relaxed-Binding-2.0 wiki了解详细">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot Relaxed Binding 2.0">
 <meta property="og:url" content="https://jiangtj.com/articles/almond/spring-boot-relaxed-binding-2.0/index.html">
@@ -113,7 +113,6 @@
     
     <p class="site-subtitle">若白驹过隙，忽然而已</p>
     
-    
   </div>
 
   <div class="site-nav-toggle">
@@ -144,7 +143,6 @@
     </div>
     
     <p class="site-subtitle">若白驹过隙，忽然而已</p>
-    
     
   </div>
 
@@ -432,8 +430,60 @@ MY_FOO_1_2_ = my.foo[1][2]</code>
         
 
 
-<div class="card">
-  <div class="comments"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></div></div>
+
+
+<div class="comment-button-group">
+  
+  <a class="btn comment-button disqus">disqus</a>
+  
+  <a class="btn comment-button utteranc">utteranc</a>
+  
+  <a class="btn comment-button livere">livere</a>
+  
+</div>
+
+
+<div class="card comment-body disqus">
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = 'https://jiangtj.com/articles/almond/spring-boot-relaxed-binding-2.0/';;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'articles/almond/spring-boot-relaxed-binding-2.0/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jiangtj.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+<div class="card comment-body utteranc"><script src="https://utteranc.es/client.js" repo="jiangtj-lab/comments-test" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script></div>
+
+<div class="card comment-body livere">
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80MzMyNi8xOTg2Nw==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+      </div>
+
+
 
 
       </main>
@@ -458,7 +508,7 @@ MY_FOO_1_2_ = my.foo[1][2]</code>
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v2.2.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.0.0
 </div>
 
         </div>
@@ -520,20 +570,7 @@ if ('serviceWorker' in navigator) {
       <div class="moon-menu-text"></div>
     </div>
   </div>
-</div><script src="/js/injector.eddaefe07bcdec7615861af3dc629890.js"></script>
-<script>
-  var disqus_config = function () {
-    this.page.url = 'https://jiangtj.com/articles/almond/spring-boot-relaxed-binding-2.0/';
-    this.page.identifier = 'articles/almond/spring-boot-relaxed-binding-2.0/';
-  };
-  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://jiangtj.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  });
-</script>
-      
+</div><script src="/js/injector.34569823bb643b5747c81b66e1e02161.js"></script>
 </body>
 
 </html>

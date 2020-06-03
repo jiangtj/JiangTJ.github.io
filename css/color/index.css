@@ -163,7 +163,7 @@ table {
     --color: #9ab;
   }
   img,
-  .comments {
+  .comments-body {
     opacity: 0.75;
   }
   img.medium-zoom-image--opened {

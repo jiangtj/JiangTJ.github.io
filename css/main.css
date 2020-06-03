@@ -217,7 +217,7 @@ table {
     --color: #9ab;
   }
   img,
-  .comments {
+  .comments-body {
     opacity: 0.75;
   }
   img.medium-zoom-image--opened {
@@ -1065,11 +1065,29 @@ img.box {
     line-height: 2;
   }
 }
-.comments {
+.comment-body {
   margin: auto;
   margin-top: 12px;
   padding: 40px;
   overflow: hidden;
+  display: none;
+}
+.comment-body.active {
+  display: block;
+}
+.comment-button-group {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  margin: 1em 0;
+}
+.comment-button-group .comment-button {
+  margin: 0.1em 0.2em;
+}
+.comment-button-group .comment-button.active {
+  border-color: var(--border-color-hover);
+  color: var(--color-hover);
+  background: var(--bg-color-hover);
 }
 .btn {
   display: inline-block;
@@ -2188,4 +2206,7 @@ img.lozad {
   line-height: 2.5em;
   color: var(--color, #fff);
   cursor: pointer;
+}
+.utterances {
+  max-width: unset;
 }

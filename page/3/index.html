@@ -5,12 +5,12 @@
     <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#414852"/>
+
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
 
-<link rel="stylesheet" href="/css/main.css?v=2.2.1.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" /><script id="hexo.configurations">var NexT = window.NexT || {};var CONFIG = {"root":"/","scheme":"Gemini","version":"2.2.1","scroll":{"save":false}}</script>  <meta name="description" content="一个两个三个小朋友 四个五个...">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="一个两个三个小朋友 四个五个...">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dnocm ☀">
 <meta property="og:url" content="https://jiangtj.com/page/3/index.html">
@@ -108,7 +108,6 @@
     
     <p class="site-subtitle">若白驹过隙，忽然而已</p>
     
-    
   </div>
 
   <div class="site-nav-toggle">
@@ -139,7 +138,6 @@
     </div>
     
     <p class="site-subtitle">若白驹过隙，忽然而已</p>
-    
     
   </div>
 
@@ -334,7 +332,7 @@
       <p>组件化、复用，这几乎是所有开发者追求的东西。Web Components就是为此而提出。可以使用来创建封装功能的定制元素，可以在你喜欢的任何地方重用，不必担心代码冲突。</p>
 <p>这样的理念和Vue十分相似，专注于组件。所以Web Components或许是未来的方向！我在这里写一些Web Components的例子，供学习与参考！</p>      
 <div class="read-more-btn">
-  <a href="/articles/beechnut/web-components/#more" rel="contents">
+  <a href="/articles/beechnut/web-components/" rel="contents">
     阅读全文 &raquo;
   </a>
 </div>
@@ -409,7 +407,7 @@
 </blockquote>
 <p>这个原则关于微服务如何确认边界，主张以业务而非技术作为划分基准。缘由我有不同的理解。在互联网涉及的业务中，很大一部分都是原来有的，互联网使它更加简单。例如仓储系统，现实中仓储不是随着互联网的出现而发展的，它拥有悠久的例子，古代的粮仓也是呀。而我们设计服务最佳的方式，将现实中映射过来，当然也需要结合网络优点适当调整。</p>      
 <div class="read-more-btn">
-  <a href="/articles/beechnut/microservices-principles/#more" rel="contents">
+  <a href="/articles/beechnut/microservices-principles/" rel="contents">
     阅读全文 &raquo;
   </a>
 </div>
@@ -485,7 +483,7 @@
 <p>1G的存储，1G的带宽是，这量实在是。。。在2月26日，Netlify宣布了流量限制100G，也宣布新的功能，图像转换功能为流量限制做铺垫，以及这个转换功能所附带的大文件存储。一半伤心一半心动。虽然转换功能也有限制，2500次每月（同一次相同转换会缓存，只消耗1次次数），所以对于大部分中小型网站来说都够用了，当然100G的带宽，也是一样。</p>
 <p>作为转换功能基础的文件存储，则没提及，可能无限制吧。所以是时候升级啦。</p>      
 <div class="read-more-btn">
-  <a href="/articles/beechnut/netlify-lm/#more" rel="contents">
+  <a href="/articles/beechnut/netlify-lm/" rel="contents">
     阅读全文 &raquo;
   </a>
 </div>
@@ -558,7 +556,7 @@
 <p>你需要购买一台境外的服务器，代理你的访问。你可以在很多地方购买，腾讯云、阿里云、vultr、Google Cloud、Digitalocean、AWS。</p>
 <p>目前，vultr最便宜但可能不稳定，你根据自己的需求选择。</p>      
 <div class="read-more-btn">
-  <a href="/articles/beechnut/vpn-white/#more" rel="contents">
+  <a href="/articles/beechnut/vpn-white/" rel="contents">
     阅读全文 &raquo;
   </a>
 </div>
@@ -695,7 +693,7 @@
 <p>但无论那种都存在安全问题，如果在本地操作，那么完全没必要管理站点，不是本地的话且使用静态托管的话（如GitHub Page），如何确保是自己修改呢？这就需要一个安全服务，但本身只是偶尔修改使用，撘一个安全服务似乎不划算，所以这件事就一直搁置着  </p>
 <p>前段时间，我将静态服务迁移到了Netlify，发现它居然提供了CMS用于管理静态资源，我体验了Gatsby的例子，能上传媒体文件，能添加与修改文章，相对的安全性（Netlify会获取你的Git仓库很多权限，但我不认为它会做恶意破坏的行为）…满足了我的要求。 </p>      
 <div class="read-more-btn">
-  <a href="/articles/beechnut/hexo-netlify-cms/#more" rel="contents">
+  <a href="/articles/beechnut/hexo-netlify-cms/" rel="contents">
     阅读全文 &raquo;
   </a>
 </div>
@@ -823,7 +821,7 @@
 <p>新的域名（dnocm.com）,我会再近期将其他站点迁移到这上面   </p>
 <p>新的博客Lofter，准备写一些其他兴趣相关的（Code外，动漫、游戏？），虽然目前还是零记录   </p>
 <p>新的CI/CD，使用Netlify做静态托管，能自动https，GitLab 3年前就开始讨论与准备集成Let’s Encrypt，但。。。    </p>
-<p>新的邮箱（有新域名自然换啊），<a href="mailto:&#105;&#64;&#x64;&#110;&#111;&#99;&#109;&#46;&#x63;&#x6f;&#109;">&#105;&#64;&#x64;&#110;&#111;&#99;&#109;&#46;&#x63;&#x6f;&#109;</a>欢迎联系   </p>
+<p>新的邮箱（有新域名自然换啊），<a href="mailto:&#105;&#64;&#x64;&#110;&#111;&#x63;&#x6d;&#x2e;&#99;&#x6f;&#109;">&#105;&#64;&#x64;&#110;&#111;&#x63;&#x6d;&#x2e;&#99;&#x6f;&#109;</a>欢迎联系   </p>
 <p>新的封页（<a rel="noopener" target="_blank" href="https://www.dnocm.com/cover">https://www.dnocm.com/cover</a>）,可能调整到根路径下，打算用Web Components重写，打算中。。。</p>
       
     </div>
@@ -892,7 +890,7 @@
 <p>但当时所搭的框架存在一些不足，当然主要是由于Asciidoctor。这是一个足够完善的标记语言，但也足够复杂。然而大多数情况下我们并不需要这些语法，Markdown正好足够。    </p>
 <p>事实上，当时我最先尝试的也是Markdown，使用Spring Restdoc中推荐的Slate方案，来解决Markdown无法包含问题。缺点是它运行使用的Ruby，与我所学的完全不同（Java、Js）。但最近看到了另一个文档工具Docsify，它也添加了包含功能，它足够简单，以至于看几遍例子就完全学会，虽然也有缺点，SEO方面，但内部接口文档，你会在乎这个么？下面是一个例子整合Restdoc与Docsify</p>      
 <div class="read-more-btn">
-  <a href="/articles/almond/restdoc-and-docsify/#more" rel="contents">
+  <a href="/articles/almond/restdoc-and-docsify/" rel="contents">
     阅读全文 &raquo;
   </a>
 </div>
@@ -938,7 +936,7 @@
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v2.2.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.0.0
 </div>
 
         </div>
@@ -1000,7 +998,7 @@ if ('serviceWorker' in navigator) {
       <div class="moon-menu-text"></div>
     </div>
   </div>
-</div><script src="/js/injector.eddaefe07bcdec7615861af3dc629890.js"></script>
+</div><script src="/js/injector.34569823bb643b5747c81b66e1e02161.js"></script>
 </body>
 
 </html>
