@@ -1889,6 +1889,12 @@ svg:not(:root).svg-inline--fa {
     opacity: 1;
   }
 }
+.font-size-ol {
+  text-align: center;
+}
+.font-size-ol-value {
+  margin: 0 5px;
+}
 /*
 
 Atom One Light by Daniel Gamage
