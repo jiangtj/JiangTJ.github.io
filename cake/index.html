@@ -272,9 +272,11 @@
 <h1 id="快速开始" class="article-heading">快速开始<a class="article-anchor" href="#快速开始" aria-hidden="true"></a></h1>
 <pre>
 <code class="bash"><span class="hljs-comment"># Install hexo-theme-cake by npm or yarn cmd</span>
-npm install hexo-theme-cake
 yarn add hexo-theme-cake</code>
-</pre><p>然后修改<code>_config.yml</code>中的<code>theme</code>为<code>cake</code>。</p>
+</pre><p>修改 <code>theme</code> 为 <code>cake</code>, 如果你是一个 linux 用户, 可以执行下面的命令行. 其他用户需要手动修改.</p>
+<pre>
+<code class="bash">sed -ri <span class="hljs-string">'s/^theme:.*/theme: cake/g'</span> _config.yml &amp;&amp; hexo check</code>
+</pre><p><strong>如果你第一次使用cake主题, 你可以执行 <code>hexo check</code> 来检测你的环境是否完整.</strong></p>
 <p><code>hexo s</code>运行，你就能本地预览啦</p>
       
     </div>

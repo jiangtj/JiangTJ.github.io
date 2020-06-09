@@ -270,9 +270,11 @@
 <h1 id="quick-start" class="article-heading">Quick Start<a class="article-anchor" href="#quick-start" aria-hidden="true"></a></h1>
 <pre>
 <code class="bash"><span class="hljs-comment"># Install hexo-theme-cake by npm or yarn cmd</span>
-npm install hexo-theme-cake
 yarn add hexo-theme-cake</code>
-</pre><p>Modify <code>theme</code> in <code>_config.yml</code> to <code>cake</code>.</p>
+</pre><p>Modify <code>theme</code> to <code>cake</code>, if you are am linux user, can exec this cmd. Others modify it manually.</p>
+<pre>
+<code class="bash">sed -ri <span class="hljs-string">'s/^theme:.*/theme: cake/g'</span> _config.yml &amp;&amp; hexo check</code>
+</pre><p><strong>If you use cake theme for the first time, you can exec <code>hexo check</code> to check whether the environment is complete.</strong></p>
 <p><code>hexo s</code> runs, you can preview it locally</p>
       
     </div>
