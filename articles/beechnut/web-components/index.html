@@ -149,7 +149,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -167,7 +167,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -254,17 +254,17 @@
 <h2 id="独立的element" class="article-heading">独立的element<a class="article-anchor" href="#独立的element" aria-hidden="true"></a></h2>
 <p>独立的element像<code>&lt;custom-element&gt;</code>这样的自定义标签。代码如下：</p>
 <pre>
-<code class="js">customElements.define(<span class="hljs-string">'custom-element'</span>,
+<code class="js">customElements.define(<span class="hljs-string">&#x27;custom-element&#x27;</span>,
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
     <span class="hljs-keyword">constructor</span>() {
-      <span class="hljs-keyword">super</span>();
+      <span class="hljs-built_in">super</span>();
 
-      <span class="hljs-comment">//创建&lt;p stype='color:red'&gt;&lt;/p&gt;</span>
-      <span class="hljs-keyword">const</span> pElem = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
-      pElem.textContent = <span class="hljs-keyword">this</span>.textContent;
-      pElem.style.color = <span class="hljs-string">'red'</span>;
+      <span class="hljs-comment">//创建&lt;p stype=&#x27;color:red&#x27;&gt;&lt;/p&gt;</span>
+      <span class="hljs-keyword">const</span> pElem = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;p&#x27;</span>);
+      pElem.textContent = <span class="hljs-built_in">this</span>.textContent;
+      pElem.style.color = <span class="hljs-string">&#x27;red&#x27;</span>;
       <span class="hljs-comment">//加入根节点</span>
-      <span class="hljs-keyword">const</span> shadowRoot = <span class="hljs-keyword">this</span>.attachShadow({<span class="hljs-attr">mode</span>: <span class="hljs-string">'closed'</span>});
+      <span class="hljs-keyword">const</span> shadowRoot = <span class="hljs-built_in">this</span>.attachShadow({<span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;closed&#x27;</span>});
       shadowRoot.appendChild(pElem);
 
     }
@@ -294,23 +294,23 @@ customElements.define('custom-element',
 <h2 id="继承自基本的html-element" class="article-heading">继承自基本的HTML element<a class="article-anchor" href="#继承自基本的html-element" aria-hidden="true"></a></h2>
 <p>通过例如<code>&lt;p is=&#39;custom-p&#39;&gt;</code>的方式调用，例如：</p>
 <pre>
-<code class="js">customElements.define(<span class="hljs-string">'custom-p'</span>,
+<code class="js">customElements.define(<span class="hljs-string">&#x27;custom-p&#x27;</span>,
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLParagraphElement</span>  </span>{
     <span class="hljs-keyword">constructor</span>() {
-      <span class="hljs-keyword">super</span>();
-      <span class="hljs-comment">//创建&lt;span stype='color:red'&gt;&lt;/span&gt;</span>
-      <span class="hljs-keyword">const</span> pElem = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'span'</span>);
-      pElem.textContent = <span class="hljs-keyword">this</span>.textContent;
-      pElem.style.color = <span class="hljs-string">'red'</span>;
+      <span class="hljs-built_in">super</span>();
+      <span class="hljs-comment">//创建&lt;span stype=&#x27;color:red&#x27;&gt;&lt;/span&gt;</span>
+      <span class="hljs-keyword">const</span> pElem = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;span&#x27;</span>);
+      pElem.textContent = <span class="hljs-built_in">this</span>.textContent;
+      pElem.style.color = <span class="hljs-string">&#x27;red&#x27;</span>;
       <span class="hljs-comment">//加入根节点</span>
-      <span class="hljs-keyword">const</span> shadowRoot = <span class="hljs-keyword">this</span>.attachShadow({<span class="hljs-attr">mode</span>: <span class="hljs-string">'closed'</span>});
+      <span class="hljs-keyword">const</span> shadowRoot = <span class="hljs-built_in">this</span>.attachShadow({<span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;closed&#x27;</span>});
       shadowRoot.appendChild(pElem);
     }
   },
-  { <span class="hljs-attr">extends</span>: <span class="hljs-string">'p'</span> }
+  { <span class="hljs-attr">extends</span>: <span class="hljs-string">&#x27;p&#x27;</span> }
 )</code>
 </pre><pre>
-<code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">is</span>=<span class="hljs-string">'custom-p'</span>&gt;</span>红色字体的段落！<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code>
+<code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">is</span>=<span class="hljs-string">&#x27;custom-p&#x27;</span>&gt;</span>红色字体的段落！<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code>
 </pre><p>实际的效果如下：</p>
 <p is='custom-p'>红色字体的段落！</p>
 
@@ -340,23 +340,23 @@ customElements.define('custom-p',
 </ul>
 <p>例如：</p>
 <pre>
-<code class="js">customElements.define(<span class="hljs-string">'other-custom-element'</span>,
+<code class="js">customElements.define(<span class="hljs-string">&#x27;other-custom-element&#x27;</span>,
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyOtherCustomElement</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span>  </span>{
     <span class="hljs-keyword">constructor</span>() {
-      <span class="hljs-keyword">super</span>();
+      <span class="hljs-built_in">super</span>();
       <span class="hljs-comment">//......</span>
     }
     connectedCallback() {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Custom square element added to page.'</span>);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Custom square element added to page.&#x27;</span>);
     }
     disconnectedCallback() {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Custom square element removed from page.'</span>);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Custom square element removed from page.&#x27;</span>);
     }
     adoptedCallback() {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Custom square element moved to new page.'</span>);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Custom square element moved to new page.&#x27;</span>);
     }
     attributeChangedCallback(name, oldValue, newValue) {
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Custom square element attributes changed.'</span>);
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Custom square element attributes changed.&#x27;</span>);
     }
   }
 )</code>
@@ -367,30 +367,30 @@ customElements.define('custom-p',
 <h1 id="html-templates" class="article-heading">HTML templates<a class="article-anchor" href="#html-templates" aria-hidden="true"></a></h1>
 <p>如果你熟悉Vue的话，这块与它很相似，是template与slot。</p>
 <pre>
-<code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"person-template"</span>&gt;</span>
+<code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;person-template&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Personal ID Card<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"person-name"</span>&gt;</span>NAME MISSING<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;person-name&quot;</span>&gt;</span>NAME MISSING<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"person-age"</span>&gt;</span>AGE MISSING<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"person-occupation"</span>&gt;</span>OCCUPATION MISSING<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;person-age&quot;</span>&gt;</span>AGE MISSING<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;person-occupation&quot;</span>&gt;</span>OCCUPATION MISSING<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">person-details</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- 官方例子p slot="person-name"，由于hexo对p的解析会出错，这里改成了&lt;span&gt; --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"person-name"</span>&gt;</span>Morgan Stanley<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"person-age"</span>&gt;</span>36<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"person-occupation"</span>&gt;</span>Accountant<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- 官方例子p slot=&quot;person-name&quot;，由于hexo对p的解析会出错，这里改成了&lt;span&gt; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;person-name&quot;</span>&gt;</span>Morgan Stanley<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;person-age&quot;</span>&gt;</span>36<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;person-occupation&quot;</span>&gt;</span>Accountant<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">person-details</span>&gt;</span></code>
 </pre><pre>
-<code class="js">customElements.define(<span class="hljs-string">'person-details'</span>,
+<code class="js">customElements.define(<span class="hljs-string">&#x27;person-details&#x27;</span>,
   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HTMLElement</span> </span>{
     <span class="hljs-keyword">constructor</span>() {
-      <span class="hljs-keyword">super</span>();
-      <span class="hljs-keyword">const</span> template = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'person-template'</span>);
+      <span class="hljs-built_in">super</span>();
+      <span class="hljs-keyword">const</span> template = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;person-template&#x27;</span>);
       <span class="hljs-keyword">const</span> templateContent = template.content;
-      <span class="hljs-keyword">const</span> shadowRoot = <span class="hljs-keyword">this</span>.attachShadow({<span class="hljs-attr">mode</span>: <span class="hljs-string">'closed'</span>});
+      <span class="hljs-keyword">const</span> shadowRoot = <span class="hljs-built_in">this</span>.attachShadow({<span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;closed&#x27;</span>});
       shadowRoot.appendChild(templateContent.cloneNode(<span class="hljs-literal">true</span>));
   }
 });</code>

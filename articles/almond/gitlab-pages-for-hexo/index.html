@@ -151,7 +151,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -169,7 +169,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -299,20 +299,20 @@ hexo s</code>
 <code class="bash">git init
 git remote add origin git@gitlab.com:&lt;your-gitlab-name&gt;/&lt;project-name&gt;.git
 git add .
-git commit -m <span class="hljs-string">"Initial commit"</span>
+git commit -m <span class="hljs-string">&quot;Initial commit&quot;</span>
 git push -u origin master</code>
 </pre><h4 id="add-ci-config" class="article-heading">Add CI config<a class="article-anchor" href="#add-ci-config" aria-hidden="true"></a></h4>
 <p>Please rename <code>&lt;*-name&gt;</code> to real name, such as <code>sed -ri &#39;s/.*(url:.*)/url: https:\/\/www.dnocm.com/g&#39; _config.yml</code>   </p>
 <pre>
 <code class="bash">wget -O .gitlab-ci.yml https://gitlab.com/JiangTJ/hexo/raw/master/.gitlab-ci.yml?inline=<span class="hljs-literal">false</span>
-sed -ri <span class="hljs-string">'s/.*(url:.*)/url: https:\/\/&lt;your-gitlab-name&gt;.gitlab.io/g'</span> _config.yml</code>
+sed -ri <span class="hljs-string">&#x27;s/.*(url:.*)/url: https:\/\/&lt;your-gitlab-name&gt;.gitlab.io/g&#x27;</span> _config.yml</code>
 </pre><p>If project-name is not your-gitlab-name.gitlab.io, update <code>root</code> var.</p>
 <pre>
-<code class="bash">sed -ri <span class="hljs-string">'s/.*(root:.*)/root: \/&lt;project-name&gt;\//g'</span> _config.yml</code>
+<code class="bash">sed -ri <span class="hljs-string">&#x27;s/.*(root:.*)/root: \/&lt;project-name&gt;\//g&#x27;</span> _config.yml</code>
 </pre><p>Push to remote</p>
 <pre>
 <code class="bash">git add .
-git commit -m <span class="hljs-string">"CI"</span>
+git commit -m <span class="hljs-string">&quot;CI&quot;</span>
 git push -u origin master</code>
 </pre><p>Wait pipeline finish running, your hexo blog is running at <a rel="noopener" target="_blank" href="https://your-gitlab-name.gitlab.io/project-name">https://your-gitlab-name.gitlab.io/project-name</a>.</p>
       

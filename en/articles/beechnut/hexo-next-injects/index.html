@@ -146,7 +146,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">posts</span>
       </a>
     </div>
@@ -164,7 +164,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">tags</span>
       </a>
     </div>
@@ -248,25 +248,25 @@
 <h2 id="injection-layout" class="article-heading">Injection layout<a class="article-anchor" href="#injection-layout" aria-hidden="true"></a></h2>
 <p>First, we create a js file (any name) in the hexo or theme <code>scripts</code>, add the following content. As long as it is a script inside, the hexo runtime will execute it.</p>
 <pre>
-<code class="js">hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
+<code class="js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
   <span class="hljs-comment">// Name path etc. can be modified at will, in order to facilitate the following are based on the definition here</span>
-  injects.head.file(<span class="hljs-string">'gitter'</span>, <span class="hljs-string">'views/gitter.swig'</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
+  injects.head.file(<span class="hljs-string">&#x27;gitter&#x27;</span>, <span class="hljs-string">&#x27;views/gitter.swig&#x27;</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
 });</code>
 </pre><p>In the second step, we create a <code>views/gitter.swig</code> file and add the following.</p>
 <pre>
 <code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
   ((<span class="hljs-built_in">window</span>.gitter = {}).chat = {}).options = {
-    <span class="hljs-attr">Room</span>: <span class="hljs-string">'your-room-name'</span>
+    <span class="hljs-attr">Room</span>: <span class="hljs-string">&#x27;your-room-name&#x27;</span>
   }});
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://sidecar.gitter.im/dist/sidecar.v1.js"</span> <span class="hljs-attr">async</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://sidecar.gitter.im/dist/sidecar.v1.js&quot;</span> <span class="hljs-attr">async</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code>
 </pre><p><code>hexo s</code> runs, you can see that the gitter has been integrated in the lower right corner.</p>
 <h2 id="injection-style" class="article-heading">Injection style<a class="article-anchor" href="#injection-style" aria-hidden="true"></a></h2>
 <p>Next step, we adjust the style. In the script, add more styles of injection.</p>
 <pre>
-<code class="js">hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
-  injects.head.file(<span class="hljs-string">'gitter'</span>, <span class="hljs-string">'views/gitter.swig'</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
-  injects.style.push(<span class="hljs-string">'views/gitter.styl'</span>);
+<code class="js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
+  injects.head.file(<span class="hljs-string">&#x27;gitter&#x27;</span>, <span class="hljs-string">&#x27;views/gitter.swig&#x27;</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
+  injects.style.push(<span class="hljs-string">&#x27;views/gitter.styl&#x27;</span>);
 });</code>
 </pre><p>Create a <code>views/gitter.styl</code> file</p>
 <pre>
@@ -340,12 +340,12 @@ hexo s</code>
 </pre><p>Link plugin</p>
 <pre>
 <code class="bash"><span class="hljs-comment"># Add dependencies</span>
-yarn add <span class="hljs-string">"@jiangtj/hexo-moon-menu"</span>
+yarn add <span class="hljs-string">&quot;@jiangtj/hexo-moon-menu&quot;</span>
 <span class="hljs-comment"># Create a reference to the plugin for debug</span>
 <span class="hljs-built_in">cd</span> ..
 yarn link
 <span class="hljs-built_in">cd</span> example
-yarn link <span class="hljs-string">"@jiangtj/hexo-moon-menu"</span>
+yarn link <span class="hljs-string">&quot;@jiangtj/hexo-moon-menu&quot;</span>
 <span class="hljs-comment">#Run preview, because nothing has been done, so nothing changes.</span>
 hexo s</code>
 </pre><h2 id="layout-and-style" class="article-heading">Layout and style<a class="article-anchor" href="#layout-and-style" aria-hidden="true"></a></h2>
@@ -360,18 +360,18 @@ hexo s</code>
 <p>The main in package.json defines the script’s entry file. The default is <code>index.js</code>, so we create it and add the following</p>
 <pre>
 <code class="js"><span class="hljs-comment">// Need to load dependencies</span>
-<span class="hljs-keyword">const</span> yaml = <span class="hljs-built_in">require</span>(<span class="hljs-string">'js-yaml'</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
-<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">const</span> yaml = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;js-yaml&#x27;</span>);
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);
 
-hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
+hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
 
   <span class="hljs-comment">// need to disable the original button</span>
   hexo.theme.config.back2top.enable = <span class="hljs-literal">false</span>;
 
   <span class="hljs-comment">// Read the default configuration file</span>
   <span class="hljs-comment">// __dirname to the absolute directory of the file, you need to pay attention to the location here. If you do not use path to get the absolute path, the file readout will be abnormal (recommended, try npm pit)</span>
-  <span class="hljs-keyword">let</span> defaultConfig = yaml.safeLoad(fs.readFileSync(path.join(__dirname, <span class="hljs-string">'default.yaml'</span>)));
+  <span class="hljs-keyword">let</span> defaultConfig = yaml.safeLoad(fs.readFileSync(path.join(__dirname, <span class="hljs-string">&#x27;default.yaml&#x27;</span>)));
   <span class="hljs-comment">// Merge default configuration with moon_menu configuration in hexo</span>
   <span class="hljs-keyword">let</span> moonMenu = <span class="hljs-built_in">Object</span>.assign(defaultConfig, hexo.config.moon_menu);
 
@@ -389,9 +389,9 @@ hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, <sp
     .sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.order - b.order);
 
   <span class="hljs-comment">// Add layout</span>
-  injects.bodyEnd.file(<span class="hljs-string">'moon-menu'</span>, path.join(__dirname, <span class="hljs-string">'moon-menu.swig'</span>), {<span class="hljs-attr">menus</span>: moonMenuArr}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">only</span>: <span class="hljs-literal">true</span>});
+  injects.bodyEnd.file(<span class="hljs-string">&#x27;moon-menu&#x27;</span>, path.join(__dirname, <span class="hljs-string">&#x27;moon-menu.swig&#x27;</span>), {<span class="hljs-attr">menus</span>: moonMenuArr}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">only</span>: <span class="hljs-literal">true</span>});
   <span class="hljs-comment">// Add style</span>
-  injects.style.push(path.join(__dirname, <span class="hljs-string">'moon-menu.styl'</span>));
+  injects.style.push(path.join(__dirname, <span class="hljs-string">&#x27;moon-menu.styl&#x27;</span>));
 
 });</code>
 </pre><p>And you need to add <code>js-yaml</code> dependency for parsing yaml</p>
@@ -407,13 +407,13 @@ hexo s</code>
 <h2 id="others" class="article-heading">Others<a class="article-anchor" href="#others" aria-hidden="true"></a></h2>
 <p>We can also load other hexo plugins in the plugin, after adding the hexo plugin (<code>yarn add plugin-name</code>). Load the script with the following code.</p>
 <pre>
-<code class="js"><span class="hljs-keyword">const</span> tagcloud = hexo.resolvePlugin(<span class="hljs-string">'plugin-name'</span>)
-hexo.loadPlugin(tagcloud).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  hexo.log.debug(<span class="hljs-string">'Plugin loaded: plugin-name'</span>);
+<code class="js"><span class="hljs-keyword">const</span> tagcloud = hexo.resolvePlugin(<span class="hljs-string">&#x27;plugin-name&#x27;</span>)
+hexo.loadPlugin(tagcloud).then(<span class="hljs-function">() =&gt;</span> {
+  hexo.log.debug(<span class="hljs-string">&#x27;Plugin loaded: plugin-name&#x27;</span>);
 }).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
-  hexo.log.error({err}, <span class="hljs-string">'Plugin load failed: plugin-name'</span>);
+  hexo.log.error({err}, <span class="hljs-string">&#x27;Plugin load failed: plugin-name&#x27;</span>);
 });
-hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, injects =&gt; {
+hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-params">injects</span> =&gt;</span> {
   <span class="hljs-comment">//...</span>
 });</code>
 </pre><blockquote>

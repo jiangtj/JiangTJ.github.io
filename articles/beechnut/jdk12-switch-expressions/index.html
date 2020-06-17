@@ -136,7 +136,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -154,7 +154,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -240,22 +240,22 @@
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AliService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">PayService</span> </span>{
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> Result <span class="hljs-title">pay</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Result.of(<span class="hljs-string">"success"</span>, <span class="hljs-string">"Paying by Ali!"</span>);
+        <span class="hljs-keyword">return</span> Result.of(<span class="hljs-string">&quot;success&quot;</span>, <span class="hljs-string">&quot;Paying by Ali!&quot;</span>);
     }
 }
 <span class="hljs-meta">@Service</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WechatService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">PayService</span> </span>{
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> Result <span class="hljs-title">pay</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Result.of(<span class="hljs-string">"success"</span>, <span class="hljs-string">"Paying by Wechat!"</span>);
+        <span class="hljs-keyword">return</span> Result.of(<span class="hljs-string">&quot;success&quot;</span>, <span class="hljs-string">&quot;Paying by Wechat!&quot;</span>);
     }
 }</code>
 </pre><p>抽象出支付对象，同时有多个实现，如果我们需要通过编号获取对应的支付服务实现，可以通过以下工厂获取</p>
 <pre>
 <code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> PayService <span class="hljs-title">get</span><span class="hljs-params">(String no)</span> </span>{
   <span class="hljs-keyword">switch</span> (no) {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"wechat"</span>: <span class="hljs-keyword">return</span> wechatService;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"ali"</span>: <span class="hljs-keyword">return</span> aliService;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;wechat&quot;</span>: <span class="hljs-keyword">return</span> wechatService;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;ali&quot;</span>: <span class="hljs-keyword">return</span> aliService;
     <span class="hljs-keyword">default</span>: <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
   }
 }</code>
@@ -263,8 +263,8 @@
 <pre>
 <code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> PayService <span class="hljs-title">get</span><span class="hljs-params">(String no)</span> </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">switch</span> (no) {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"wechat"</span> -&gt; wechatService;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"ali"</span> -&gt; aliService;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;wechat&quot;</span> -&gt; wechatService;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;ali&quot;</span> -&gt; aliService;
     <span class="hljs-keyword">default</span> -&gt; <span class="hljs-keyword">null</span>;
   };
 }</code>
@@ -272,8 +272,8 @@
 <pre>
 <code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> PayService <span class="hljs-title">get</span><span class="hljs-params">(String no)</span> </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">switch</span> (no) {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"wechat"</span> -&gt; wechatService;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"ali"</span> -&gt; {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;wechat&quot;</span> -&gt; wechatService;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;ali&quot;</span> -&gt; {
       <span class="hljs-keyword">break</span> aliService;
     }
     <span class="hljs-keyword">default</span> -&gt; <span class="hljs-keyword">null</span>;
@@ -283,8 +283,8 @@
 <pre>
 <code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> PayService <span class="hljs-title">get</span><span class="hljs-params">(String no)</span> </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-keyword">switch</span> (no) {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"wechat"</span> -&gt; wechatService;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">"ali"</span> -&gt; {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;wechat&quot;</span> -&gt; wechatService;
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;ali&quot;</span> -&gt; {
       yield aliService;
     }
     <span class="hljs-keyword">default</span>:

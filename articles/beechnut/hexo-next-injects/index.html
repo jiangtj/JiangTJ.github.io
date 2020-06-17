@@ -148,7 +148,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -263,25 +263,25 @@
 <h2 id="注入布局" class="article-heading">注入布局<a class="article-anchor" href="#注入布局" aria-hidden="true"></a></h2>
 <p>首先，我们在hexo或者theme的<code>scripts</code>创建一个js文件（名字随意），添加以下内容。只要是这里面的脚本，hexo运行时会执行它。</p>
 <pre>
-<code class="js">hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
+<code class="js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
   <span class="hljs-comment">//名字路径等都可以随意修改，为了方便下文都以这里的定义为主</span>
-  injects.head.file(<span class="hljs-string">'gitter'</span>, <span class="hljs-string">'views/gitter.swig'</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
+  injects.head.file(<span class="hljs-string">&#x27;gitter&#x27;</span>, <span class="hljs-string">&#x27;views/gitter.swig&#x27;</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
 });</code>
 </pre><p>第二步，我们创建<code>views/gitter.swig</code>文件，添加以下内容。</p>
 <pre>
 <code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
   ((<span class="hljs-built_in">window</span>.gitter = {}).chat = {}).options = {
-    <span class="hljs-attr">room</span>: <span class="hljs-string">'your-room-name'</span>
+    <span class="hljs-attr">room</span>: <span class="hljs-string">&#x27;your-room-name&#x27;</span>
   }});
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://sidecar.gitter.im/dist/sidecar.v1.js"</span> <span class="hljs-attr">async</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://sidecar.gitter.im/dist/sidecar.v1.js&quot;</span> <span class="hljs-attr">async</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code>
 </pre><p><code>hexo s</code>运行，你可以看到右下角已经集成了gitter。</p>
 <h2 id="注入样式" class="article-heading">注入样式<a class="article-anchor" href="#注入样式" aria-hidden="true"></a></h2>
 <p>接下来，我们调整下样式。在脚本中，多加样式的注入。</p>
 <pre>
-<code class="js">hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
-  injects.head.file(<span class="hljs-string">'gitter'</span>, <span class="hljs-string">'views/gitter.swig'</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
-  injects.style.push(<span class="hljs-string">'views/gitter.styl'</span>);
+<code class="js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
+  injects.head.file(<span class="hljs-string">&#x27;gitter&#x27;</span>, <span class="hljs-string">&#x27;views/gitter.swig&#x27;</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
+  injects.style.push(<span class="hljs-string">&#x27;views/gitter.styl&#x27;</span>);
 });</code>
 </pre><p>创建<code>views/gitter.styl</code>文件</p>
 <pre>
@@ -355,12 +355,12 @@ hexo s</code>
 </pre><p>关联插件</p>
 <pre>
 <code class="bash"><span class="hljs-comment"># 添加依赖</span>
-yarn add <span class="hljs-string">"@jiangtj/hexo-moon-menu"</span>
+yarn add <span class="hljs-string">&quot;@jiangtj/hexo-moon-menu&quot;</span>
 <span class="hljs-comment"># 为插件创建引用，来调试</span>
 <span class="hljs-built_in">cd</span> ..
 yarn link
 <span class="hljs-built_in">cd</span> example
-yarn link <span class="hljs-string">"@jiangtj/hexo-moon-menu"</span>
+yarn link <span class="hljs-string">&quot;@jiangtj/hexo-moon-menu&quot;</span>
 <span class="hljs-comment"># 运行预览，由于什么都没做所以没什么变话</span>
 hexo s</code>
 </pre><h2 id="布局与样式" class="article-heading">布局与样式<a class="article-anchor" href="#布局与样式" aria-hidden="true"></a></h2>
@@ -375,18 +375,18 @@ hexo s</code>
 <p>package.json 中的 main 定义了脚本的入口文件，默认是<code>index.js</code>，所以我们创建它，并添加以下内容</p>
 <pre>
 <code class="js"><span class="hljs-comment">// 需要引入的依赖</span>
-<span class="hljs-keyword">const</span> yaml = <span class="hljs-built_in">require</span>(<span class="hljs-string">'js-yaml'</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
-<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>);
+<span class="hljs-keyword">const</span> yaml = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;js-yaml&#x27;</span>);
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);
 
-hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
+hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
 
   <span class="hljs-comment">// 需要禁用原本的按钮</span>
   hexo.theme.config.back2top.enable = <span class="hljs-literal">false</span>;
 
   <span class="hljs-comment">// 读取默认配置文件</span>
   <span class="hljs-comment">// __dirname至该文件的绝对目录，需要注意这里的位置如果不使用path获取绝对路径，文件读出会异常（建议你尝试，体验npm的坑）</span>
-  <span class="hljs-keyword">let</span> defaultConfig = yaml.safeLoad(fs.readFileSync(path.join(__dirname, <span class="hljs-string">'default.yaml'</span>)));
+  <span class="hljs-keyword">let</span> defaultConfig = yaml.safeLoad(fs.readFileSync(path.join(__dirname, <span class="hljs-string">&#x27;default.yaml&#x27;</span>)));
   <span class="hljs-comment">// 合并默认配置与hexo里的moon_menu配置</span>
   <span class="hljs-keyword">let</span> moonMenu = <span class="hljs-built_in">Object</span>.assign(defaultConfig, hexo.config.moon_menu);
 
@@ -404,9 +404,9 @@ hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, <sp
     .sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.order - b.order);
 
   <span class="hljs-comment">// 添加布局</span>
-  injects.bodyEnd.file(<span class="hljs-string">'moon-menu'</span>, path.join(__dirname, <span class="hljs-string">'moon-menu.swig'</span>), {<span class="hljs-attr">menus</span>: moonMenuArr}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">only</span>: <span class="hljs-literal">true</span>});
+  injects.bodyEnd.file(<span class="hljs-string">&#x27;moon-menu&#x27;</span>, path.join(__dirname, <span class="hljs-string">&#x27;moon-menu.swig&#x27;</span>), {<span class="hljs-attr">menus</span>: moonMenuArr}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">only</span>: <span class="hljs-literal">true</span>});
   <span class="hljs-comment">// 添加样式</span>
-  injects.style.push(path.join(__dirname, <span class="hljs-string">'moon-menu.styl'</span>));
+  injects.style.push(path.join(__dirname, <span class="hljs-string">&#x27;moon-menu.styl&#x27;</span>));
 
 });</code>
 </pre><p>忘了，你需要添加<code>js-yaml</code>依赖用于解析yaml</p>
@@ -422,13 +422,13 @@ hexo s</code>
 <h2 id="其它" class="article-heading">其它<a class="article-anchor" href="#其它" aria-hidden="true"></a></h2>
 <p>我们在插件中也可以载入其他hexo的插件，在添加hexo插件（<code>yarn add plugin-name</code>）之后。通过以下代码加载脚本</p>
 <pre>
-<code class="js"><span class="hljs-keyword">const</span> tagcloud = hexo.resolvePlugin(<span class="hljs-string">'plugin-name'</span>)
-hexo.loadPlugin(tagcloud).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  hexo.log.debug(<span class="hljs-string">'Plugin loaded: plugin-name'</span>);
+<code class="js"><span class="hljs-keyword">const</span> tagcloud = hexo.resolvePlugin(<span class="hljs-string">&#x27;plugin-name&#x27;</span>)
+hexo.loadPlugin(tagcloud).then(<span class="hljs-function">() =&gt;</span> {
+  hexo.log.debug(<span class="hljs-string">&#x27;Plugin loaded: plugin-name&#x27;</span>);
 }).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
-  hexo.log.error({err}, <span class="hljs-string">'Plugin load failed: plugin-name'</span>);
+  hexo.log.error({err}, <span class="hljs-string">&#x27;Plugin load failed: plugin-name&#x27;</span>);
 });
-hexo.extend.filter.register(<span class="hljs-string">'theme_inject'</span>, injects =&gt; {
+hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-params">injects</span> =&gt;</span> {
   <span class="hljs-comment">//...</span>
 });</code>
 </pre><blockquote>

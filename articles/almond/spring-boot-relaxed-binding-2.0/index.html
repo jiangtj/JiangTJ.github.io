@@ -149,7 +149,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -167,7 +167,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -282,16 +282,16 @@
 <span class="hljs-meta">jwt.test.xx-xx</span>=<span class="hljs-string">2</span>
 <span class="hljs-meta">jwt.test.XX-xx</span>=<span class="hljs-string">3</span>
 <span class="hljs-meta">jwt.test.[ww-ww]</span>=<span class="hljs-string">4</span>
-<span class="hljs-meta">jwt.test.'[uuu/w1]'</span>=<span class="hljs-string">5</span>
+<span class="hljs-meta">jwt.test.&#x27;[uuu/w1]&#x27;</span>=<span class="hljs-string">5</span>
 <span class="hljs-meta">jwt.test.[uuu/w2]</span>=<span class="hljs-string">6</span></code>
 </pre><pre>
 <code class="yml"><span class="hljs-attr">jwt:</span>
   <span class="hljs-attr">ymltest:</span>
     <span class="hljs-attr">foo:</span> <span class="hljs-number">1</span>
     <span class="hljs-attr">ppp-vvv:</span> <span class="hljs-number">2</span>
-    <span class="hljs-string">[scfds-tgro]:</span> <span class="hljs-number">3</span>
-    <span class="hljs-string">'[csf-te]'</span><span class="hljs-string">:</span> <span class="hljs-number">4</span>
-    <span class="hljs-string">'[csf/e]'</span><span class="hljs-string">:</span> <span class="hljs-number">5</span></code>
+    [<span class="hljs-string">scfds-tgro</span>]<span class="hljs-string">:</span> <span class="hljs-number">3</span>
+    <span class="hljs-string">&#x27;[csf-te]&#x27;</span><span class="hljs-string">:</span> <span class="hljs-number">4</span>
+    <span class="hljs-string">&#x27;[csf/e]&#x27;</span><span class="hljs-string">:</span> <span class="hljs-number">5</span></code>
 </pre><p>结果如下图所示：<br><img data-src="/images/md/others/spring-test-map.png" alt="">    </p>
 <h2 id="环境变量" class="article-heading">环境变量<a class="article-anchor" href="#环境变量" aria-hidden="true"></a></h2>
 <p>在环境变量中，使用<code>_</code>代替<code>.</code>或者<code>[]</code>，如果<code>_</code>包围的是一数字，就替换为<code>[]</code>，其余情况为<code>.</code>，例如：   </p>
@@ -311,7 +311,7 @@ MY_FOO_1_2_ = my.foo[1][2]</code>
 </ul>
 <p>下面是一个从配置文件中读出属性的例子：</p>
 <pre>
-<code class="java"><span class="hljs-keyword">this</span>.environment.containsProperty(<span class="hljs-string">"spring.jpa.database-platform"</span>)</code>
+<code class="java"><span class="hljs-keyword">this</span>.environment.containsProperty(<span class="hljs-string">&quot;spring.jpa.database-platform&quot;</span>)</code>
 </pre><blockquote>
 <p>@Value 也需要遵守一样的规则</p>
 </blockquote>

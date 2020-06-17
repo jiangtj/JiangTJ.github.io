@@ -148,7 +148,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -285,16 +285,16 @@ hexo init &lt;dir&gt;
 <p>git submodule的命令不好记，另一种方式是使用npm脚本替换。编辑<code>package.json</code>文件，添加以下内容：</p>
 <pre>
 <code class="json">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"mrtt-hexo-blog"</span>,
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
-  <span class="hljs-attr">"private"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"scripts"</span>: {
-    <span class="hljs-attr">"update-theme"</span>: <span class="hljs-string">"git submodule update --remote"</span>
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;mrtt-hexo-blog&quot;</span>,
+  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,
+  <span class="hljs-attr">&quot;private&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;scripts&quot;</span>: {
+    <span class="hljs-attr">&quot;update-theme&quot;</span>: <span class="hljs-string">&quot;git submodule update --remote&quot;</span>
   },
-  <span class="hljs-attr">"hexo"</span>: {
-    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"3.9.0"</span>
+  <span class="hljs-attr">&quot;hexo&quot;</span>: {
+    <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;3.9.0&quot;</span>
   },
-  <span class="hljs-attr">"dependencies"</span>: {
+  <span class="hljs-attr">&quot;dependencies&quot;</span>: {
     <span class="hljs-comment">//...</span>
   }
 }</code>
@@ -310,10 +310,10 @@ hexo init &lt;dir&gt;
 </pre><p>默认情况下，已经配置好了替换路径，如果你需要修改，在hexo中修改以下配置</p>
 <pre>
 <code class="yml"><span class="hljs-attr">theme_plus:</span>
-  <span class="hljs-attr">custom_path:</span> <span class="hljs-string">custom/theme</span> <span class="hljs-comment"># disabled: set 'false'</span></code>
+  <span class="hljs-attr">custom_path:</span> <span class="hljs-string">custom/theme</span> <span class="hljs-comment"># disabled: set &#x27;false&#x27;</span></code>
 </pre><p>在<code>custom/theme</code>创建对应的主题文件，比如<code>${theme_dir}/layout/_partials/footer.swig</code>，将它复制到<code>${hexo_dir}/custom/theme/_partials/footer.swig</code>，然后稍微做些修改，比如我在作者信息那里加了个颜表情Ծ‸ Ծ</p>
 <pre>
-<code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"author"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"copyrightHolder"</span>&gt;</span><span class="hljs-comment">{{ theme.footer.copyright || author }}</span> Ծ‸ Ծ<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code>
+<code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;author&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;copyrightHolder&quot;</span>&gt;</span><span class="hljs-comment">{{ theme.footer.copyright || author }}</span> Ծ‸ Ծ<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code>
 </pre><p><code>hexo s</code>运行预览，我们可以看到最底下，作者的后面已经加上了Ծ‸ Ծ</p>
 <blockquote>
 <p>Replace存在一点缺陷，首先只支持<code>layout</code>下的文件，其次需要主题支持（使用partial，不能用模版的特定的语法比如include），Cake除了<code>layout</code>根目录下外，其余都支持替换，但NexT需要你替换<code>include</code> <code>macro</code>等语法</p>

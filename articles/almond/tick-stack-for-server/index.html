@@ -147,7 +147,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -165,7 +165,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -267,7 +267,7 @@ sudo dpkg -i kapacitor_1.4.1_amd64.deb</code>
 <pre>
 <code class="bash">curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 <span class="hljs-built_in">source</span> /etc/lsb-release
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"deb https://repos.influxdata.com/<span class="hljs-variable">${DISTRIB_ID,,}</span> <span class="hljs-variable">${DISTRIB_CODENAME}</span> stable"</span> | sudo tee /etc/apt/sources.list.d/influxdb.list
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb https://repos.influxdata.com/<span class="hljs-variable">${DISTRIB_ID,,}</span> <span class="hljs-variable">${DISTRIB_CODENAME}</span> stable&quot;</span> | sudo tee /etc/apt/sources.list.d/influxdb.list
 sudo apt-get update 
 sudo apt-get install influxdb
 sudo apt-get install telegraf

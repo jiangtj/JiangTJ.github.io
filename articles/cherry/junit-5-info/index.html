@@ -154,7 +154,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -172,7 +172,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -284,7 +284,7 @@
 <pre>
 <code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtils</span> </span>{
  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">hello</span><span class="hljs-params">(Instant now)</span> </span>{
-     <span class="hljs-keyword">return</span> <span class="hljs-string">"现在时间是："</span> + now.toString();
+     <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();
  }
 }</code>
 </pre></li>
@@ -294,7 +294,7 @@
  <span class="hljs-meta">@Test</span>
  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>{
      Instant now = Instant.now();
-     String expect = <span class="hljs-string">"现在时间是："</span> + now.toString();
+     String expect = <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();
      assertEquals(expect, TimeUtils.hello(now));
  }
 }</code>
@@ -306,7 +306,7 @@
 <h2 id="别名" class="article-heading">别名<a class="article-anchor" href="#别名" aria-hidden="true"></a></h2>
 <p>测试的Class可以通过添加@DisplayName()，添加别名</p>
 <pre>
-<code class="java"><span class="hljs-meta">@DisplayName("时间工具类测试")</span>
+<code class="java"><span class="hljs-meta">@DisplayName(&quot;时间工具类测试&quot;)</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsTest</span> </span>{}</code>
 </pre><p>也可以使用@DisplayNameGeneration()，进行更多的配置</p>
 <pre>
@@ -315,13 +315,13 @@
     <span class="hljs-meta">@Test</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>{
         Instant now = Instant.now();
-        String expect = <span class="hljs-string">"现在时间是："</span> + now.toString();
+        String expect = <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();
         assertEquals(expect, TimeUtils.hello(now));
     }
     <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReplaceUnderscores</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">DisplayNameGenerator</span>.<span class="hljs-title">ReplaceUnderscores</span> </span>{
         <span class="hljs-meta">@Override</span>
         <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">generateDisplayNameForClass</span><span class="hljs-params">(Class&lt;?&gt; testClass)</span> </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">"哈哈哈"</span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;哈哈哈&quot;</span>;
         }
     }
 }</code>
@@ -330,26 +330,26 @@
 <pre>
 <code class="java"><span class="hljs-meta">@Test</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">asserts</span><span class="hljs-params">()</span> </span>{
-    assertEquals(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>, () -&gt; <span class="hljs-string">"1要是1"</span>);
+    assertEquals(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>, () -&gt; <span class="hljs-string">&quot;1要是1&quot;</span>);
 }</code>
 </pre><p>另外，还增加了假设</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Test</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">assume</span><span class="hljs-params">()</span> </span>{
-    assumingThat(<span class="hljs-string">"DEV"</span>.equals(System.getenv(<span class="hljs-string">"ENV"</span>)),
+    assumingThat(<span class="hljs-string">&quot;DEV&quot;</span>.equals(System.getenv(<span class="hljs-string">&quot;ENV&quot;</span>)),
             () -&gt; {
                 <span class="hljs-comment">// 如果不为true这里将不执行</span>
                 assertEquals(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
             });
 
-    assumeTrue(<span class="hljs-string">"DEV"</span>.equals(System.getenv(<span class="hljs-string">"ENV"</span>)),
-            () -&gt; <span class="hljs-string">"Aborting test: not on developer workstation"</span>);
+    assumeTrue(<span class="hljs-string">&quot;DEV&quot;</span>.equals(System.getenv(<span class="hljs-string">&quot;ENV&quot;</span>)),
+            () -&gt; <span class="hljs-string">&quot;Aborting test: not on developer workstation&quot;</span>);
     <span class="hljs-comment">// 如果不为true这里将不执行</span>
 }</code>
 </pre><h2 id="禁用" class="article-heading">禁用<a class="article-anchor" href="#禁用" aria-hidden="true"></a></h2>
 <p>添加@Disabled()可以禁用测试，这个意义在于某一测试用例遇到问题，临时不执行，等待问题修复后再次使用的</p>
 <pre>
-<code class="java"><span class="hljs-meta">@Disabled("Disabled 因为重复")</span>
+<code class="java"><span class="hljs-meta">@Disabled(&quot;Disabled 因为重复&quot;)</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsCopyTest</span> </span>{}</code>
 </pre><h2 id="测试执行条件" class="article-heading">测试执行条件<a class="article-anchor" href="#测试执行条件" aria-hidden="true"></a></h2>
 <p>通过添加 @EnabledOnOs 或者 @DisabledOnOs 来决定在某一操作系统上执行.</p>
@@ -357,41 +357,41 @@
 <code class="java"><span class="hljs-meta">@Test</span>
 <span class="hljs-meta">@EnabledOnOs(MAC)</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnMac</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">"exec on mac"</span>);
+    log.info(<span class="hljs-string">&quot;exec on mac&quot;</span>);
 }
 <span class="hljs-meta">@Test</span>
 <span class="hljs-meta">@EnabledOnOs({ WINDOWS, LINUX })</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnOs</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">"exec on windows or linux"</span>);
+    log.info(<span class="hljs-string">&quot;exec on windows or linux&quot;</span>);
 }</code>
 </pre><p>@EnabledOnJre 和 @DisabledOnJre 可以对java环境判断</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Test</span>
 <span class="hljs-meta">@EnabledOnJre(JRE.JAVA_8)</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnJava8</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">"exec on java 8"</span>);
+    log.info(<span class="hljs-string">&quot;exec on java 8&quot;</span>);
 }</code>
 </pre><p>@EnabledIfSystemProperty/@DisabledIfSystemProperty 与  @EnabledIfEnvironmentVariable/@DisabledIfEnvironmentVariable 分别判断系统和环境变量，他们的匹配项支持正则表达式</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Test</span>
-<span class="hljs-meta">@DisabledIfEnvironmentVariable(named = "ENV", matches = ".*development.*")</span>
+<span class="hljs-meta">@DisabledIfEnvironmentVariable(named = &quot;ENV&quot;, matches = &quot;.*development.*&quot;)</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notOnDeveloperWorkstation</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-comment">// ...</span>
 }</code>
 </pre><h2 id="标签分组" class="article-heading">标签/分组<a class="article-anchor" href="#标签分组" aria-hidden="true"></a></h2>
 <p>JUnit5 中支持通过 @Tag() 对测试用例进行分组，例如</p>
 <pre>
-<code class="java"><span class="hljs-meta">@Tag("conditional")</span>
+<code class="java"><span class="hljs-meta">@Tag(&quot;conditional&quot;)</span>
 <span class="hljs-meta">@Test</span>
 <span class="hljs-meta">@EnabledOnOs(MAC)</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnMac</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">"exec on mac"</span>);
+    log.info(<span class="hljs-string">&quot;exec on mac&quot;</span>);
 }
-<span class="hljs-meta">@Tag("conditional")</span>
+<span class="hljs-meta">@Tag(&quot;conditional&quot;)</span>
 <span class="hljs-meta">@Test</span>
 <span class="hljs-meta">@EnabledOnJre(JRE.JAVA_8)</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnJava8</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">"exec on java 8"</span>);
+    log.info(<span class="hljs-string">&quot;exec on java 8&quot;</span>);
 }</code>
 </pre><p>@Tag() 有以下这些语法规则</p>
 <ul>
@@ -437,25 +437,25 @@
     <span class="hljs-keyword">int</span> num = <span class="hljs-number">0</span>;
     <span class="hljs-meta">@BeforeAll</span>
     <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initAll</span><span class="hljs-params">()</span> </span>{
-        log.error(<span class="hljs-string">"initAll"</span>);
+        log.error(<span class="hljs-string">&quot;initAll&quot;</span>);
     }
     <span class="hljs-meta">@BeforeEach</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
-        log.error(<span class="hljs-string">"init"</span>);
+        log.error(<span class="hljs-string">&quot;init&quot;</span>);
     }
     <span class="hljs-meta">@Test</span>
     <span class="hljs-meta">@Order(1)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doTest1</span><span class="hljs-params">()</span> </span>{
-        log.error(<span class="hljs-string">"num is "</span> + num);
+        log.error(<span class="hljs-string">&quot;num is &quot;</span> + num);
         num = <span class="hljs-number">1</span>;
-        log.error(<span class="hljs-string">"doTest1"</span>);
+        log.error(<span class="hljs-string">&quot;doTest1&quot;</span>);
     }
     <span class="hljs-meta">@Test</span>
     <span class="hljs-meta">@Order(2)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doTest2</span><span class="hljs-params">()</span> </span>{
-        log.error(<span class="hljs-string">"num is "</span> + num);
+        log.error(<span class="hljs-string">&quot;num is &quot;</span> + num);
         num = <span class="hljs-number">2</span>;
-        log.error(<span class="hljs-string">"doTest1"</span>);
+        log.error(<span class="hljs-string">&quot;doTest1&quot;</span>);
     }
 }</code>
 </pre><p>除此外，还有@TestInstance()配置，见上面的例子，这个存在两个模式</p>
@@ -476,19 +476,19 @@
 <h2 id="嵌套" class="article-heading">嵌套<a class="article-anchor" href="#嵌套" aria-hidden="true"></a></h2>
 <p>@Nested() 可以更好的表达测试用例间的关系，例如官方的例子</p>
 <pre>
-<code class="java"><span class="hljs-meta">@DisplayName("A stack")</span>
+<code class="java"><span class="hljs-meta">@DisplayName(&quot;A stack&quot;)</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestingAStackDemo</span> </span>{
 
     Stack&lt;Object&gt; stack;
 
     <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@DisplayName("is instantiated with new Stack()")</span>
+    <span class="hljs-meta">@DisplayName(&quot;is instantiated with new Stack()&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isInstantiatedWithNew</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">new</span> Stack&lt;&gt;();
     }
 
     <span class="hljs-meta">@Nested</span>
-    <span class="hljs-meta">@DisplayName("when new")</span>
+    <span class="hljs-meta">@DisplayName(&quot;when new&quot;)</span>
     <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhenNew</span> </span>{
 
         <span class="hljs-meta">@BeforeEach</span>
@@ -497,28 +497,28 @@
         }
 
         <span class="hljs-meta">@Test</span>
-        <span class="hljs-meta">@DisplayName("is empty")</span>
+        <span class="hljs-meta">@DisplayName(&quot;is empty&quot;)</span>
         <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isEmpty</span><span class="hljs-params">()</span> </span>{
             assertTrue(stack.isEmpty());
         }
 
         <span class="hljs-meta">@Test</span>
-        <span class="hljs-meta">@DisplayName("throws EmptyStackException when popped")</span>
+        <span class="hljs-meta">@DisplayName(&quot;throws EmptyStackException when popped&quot;)</span>
         <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">throwsExceptionWhenPopped</span><span class="hljs-params">()</span> </span>{
             assertThrows(EmptyStackException.class, stack::pop);
         }
 
         <span class="hljs-meta">@Test</span>
-        <span class="hljs-meta">@DisplayName("throws EmptyStackException when peeked")</span>
+        <span class="hljs-meta">@DisplayName(&quot;throws EmptyStackException when peeked&quot;)</span>
         <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">throwsExceptionWhenPeeked</span><span class="hljs-params">()</span> </span>{
             assertThrows(EmptyStackException.class, stack::peek);
         }
 
         <span class="hljs-meta">@Nested</span>
-        <span class="hljs-meta">@DisplayName("after pushing an element")</span>
+        <span class="hljs-meta">@DisplayName(&quot;after pushing an element&quot;)</span>
         <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AfterPushing</span> </span>{
 
-            String anElement = <span class="hljs-string">"an element"</span>;
+            String anElement = <span class="hljs-string">&quot;an element&quot;</span>;
 
             <span class="hljs-meta">@BeforeEach</span>
             <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushAnElement</span><span class="hljs-params">()</span> </span>{
@@ -526,20 +526,20 @@
             }
 
             <span class="hljs-meta">@Test</span>
-            <span class="hljs-meta">@DisplayName("it is no longer empty")</span>
+            <span class="hljs-meta">@DisplayName(&quot;it is no longer empty&quot;)</span>
             <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isNotEmpty</span><span class="hljs-params">()</span> </span>{
                 assertFalse(stack.isEmpty());
             }
 
             <span class="hljs-meta">@Test</span>
-            <span class="hljs-meta">@DisplayName("returns the element when popped and is empty")</span>
+            <span class="hljs-meta">@DisplayName(&quot;returns the element when popped and is empty&quot;)</span>
             <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">returnElementWhenPopped</span><span class="hljs-params">()</span> </span>{
                 assertEquals(anElement, stack.pop());
                 assertTrue(stack.isEmpty());
             }
 
             <span class="hljs-meta">@Test</span>
-            <span class="hljs-meta">@DisplayName("returns the element when peeked but remains not empty")</span>
+            <span class="hljs-meta">@DisplayName(&quot;returns the element when peeked but remains not empty&quot;)</span>
             <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">returnElementWhenPeeked</span><span class="hljs-params">()</span> </span>{
                 assertEquals(anElement, stack.peek());
                 assertFalse(stack.isEmpty());
@@ -556,13 +556,13 @@
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RepeatedTestsDemo</span> </span>{
     <span class="hljs-meta">@RepeatedTest(2)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">repeatedTest</span><span class="hljs-params">()</span> </span>{
-        log.info(<span class="hljs-string">"done!"</span>);
+        log.info(<span class="hljs-string">&quot;done!&quot;</span>);
     }
     <span class="hljs-meta">@RepeatedTest(2)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">repeatedTest2</span><span class="hljs-params">(RepetitionInfo repetitionInfo)</span> </span>{
         <span class="hljs-keyword">int</span> currentRepetition = repetitionInfo.getCurrentRepetition();
         <span class="hljs-keyword">int</span> totalRepetitions = repetitionInfo.getTotalRepetitions();
-        log.info(String.format(<span class="hljs-string">"About to execute repetition %d of %d"</span>, <span class="hljs-comment">//</span>
+        log.info(String.format(<span class="hljs-string">&quot;About to execute repetition %d of %d&quot;</span>, <span class="hljs-comment">//</span>
                 currentRepetition, totalRepetitions));
     }
 }</code>
@@ -573,7 +573,7 @@
 <p>@ValueSource 注入String内容，这是最常用的</p>
 <pre>
 <code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@ValueSource(strings = { "racecar", "radar", "able was I ere I saw elba" })</span>
+<span class="hljs-meta">@ValueSource(strings = { &quot;racecar&quot;, &quot;radar&quot;, &quot;able was I ere I saw elba&quot; })</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">palindromes</span><span class="hljs-params">(String candidate)</span> </span>{
     log.error(candidate);
 }</code>
@@ -585,7 +585,7 @@
     log.error(timeUnit.toString());
 }
 <span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@EnumSource(value = TimeUnit.class, names = { "DAYS", "HOURS" })</span>
+<span class="hljs-meta">@EnumSource(value = TimeUnit.class, names = { &quot;DAYS&quot;, &quot;HOURS&quot; })</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithEnumSourceInclude</span><span class="hljs-params">(TimeUnit timeUnit)</span> </span>{
     <span class="hljs-comment">// 选择部分</span>
     log.error(timeUnit.toString());
@@ -593,33 +593,33 @@
 </pre><p>@MethodSource 通过方法名注入（我更倾向于使用下面的@ArgumentsSource）</p>
 <pre>
 <code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@MethodSource("stringProvider")</span>
+<span class="hljs-meta">@MethodSource(&quot;stringProvider&quot;)</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithExplicitLocalMethodSource</span><span class="hljs-params">(String argument)</span> </span>{
     log.error(argument);
 }
 <span class="hljs-function"><span class="hljs-keyword">static</span> Stream&lt;String&gt; <span class="hljs-title">stringProvider</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>);
+    <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>);
 }
 
 <span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@MethodSource("stringIntAndListProvider")</span>
+<span class="hljs-meta">@MethodSource(&quot;stringIntAndListProvider&quot;)</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithMultiArgMethodSource</span><span class="hljs-params">(String str, <span class="hljs-keyword">int</span> num, List&lt;String&gt; list)</span> </span>{
     <span class="hljs-comment">// 多参支持</span>
-    log.error(String.format(<span class="hljs-string">"Content: %s is %d, %s"</span>, str, num, String.join(<span class="hljs-string">","</span>, list)));
+    log.error(String.format(<span class="hljs-string">&quot;Content: %s is %d, %s&quot;</span>, str, num, String.join(<span class="hljs-string">&quot;,&quot;</span>, list)));
 }
 <span class="hljs-function"><span class="hljs-keyword">static</span> Stream&lt;Arguments&gt; <span class="hljs-title">stringIntAndListProvider</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">return</span> Stream.of(
-            arguments(<span class="hljs-string">"apple"</span>, <span class="hljs-number">1</span>, Arrays.asList(<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>)),
-            arguments(<span class="hljs-string">"lemon"</span>, <span class="hljs-number">2</span>, Arrays.asList(<span class="hljs-string">"x"</span>, <span class="hljs-string">"y"</span>))
+            arguments(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-number">1</span>, Arrays.asList(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>)),
+            arguments(<span class="hljs-string">&quot;lemon&quot;</span>, <span class="hljs-number">2</span>, Arrays.asList(<span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-string">&quot;y&quot;</span>))
     );
 }</code>
 </pre><p>@CsvSource csv源支持</p>
 <pre>
 <code class="java"><span class="hljs-meta">@ParameterizedTest</span>
 <span class="hljs-meta">@CsvSource({
-        "apple,         1",
-        "banana,        2",
-        "'lemon, lime', 0xF1"
+        &quot;apple,         1&quot;,
+        &quot;banana,        2&quot;,
+        &quot;&#x27;lemon, lime&#x27;, 0xF1&quot;
 })</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithCsvSource</span><span class="hljs-params">(String fruit, <span class="hljs-keyword">int</span> rank)</span> </span>{
     log.error(fruit + rank);
@@ -635,7 +635,7 @@
 <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyArgumentsProvider</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ArgumentsProvider</span> </span>{
     <span class="hljs-meta">@Override</span>
     <span class="hljs-keyword">public</span> Stream&lt;? extends Arguments&gt; provideArguments(ExtensionContext context) {
-        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">"apple"</span>, <span class="hljs-string">"banana"</span>).map(Arguments::of);
+        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>).map(Arguments::of);
     }
 }</code>
 </pre><h3 id="参数转换" class="article-heading">参数转换<a class="article-anchor" href="#参数转换" aria-hidden="true"></a></h3>
@@ -646,7 +646,7 @@
 <p>所以推荐通过@ConvertWith实现参数类型间的转换</p>
 <pre>
 <code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@ValueSource(strings = { "Wow,12", "radar,50"})</span>
+<span class="hljs-meta">@ValueSource(strings = { &quot;Wow,12&quot;, &quot;radar,50&quot;})</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">toBook</span><span class="hljs-params">(<span class="hljs-meta">@ConvertWith(ToBookConverter.class)</span> Book book)</span> </span>{
     log.error(book.toString());
 }
@@ -654,7 +654,7 @@
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">convert</span><span class="hljs-params">(Object source, Class&lt;?&gt; targetType)</span> </span>{
         String value = String.valueOf(source);
-        String[] split = value.split(<span class="hljs-string">","</span>);
+        String[] split = value.split(<span class="hljs-string">&quot;,&quot;</span>);
         <span class="hljs-keyword">return</span> Book.of(split[<span class="hljs-number">0</span>], Integer.parseInt(split[<span class="hljs-number">1</span>]));
     }
 }</code>
@@ -670,44 +670,44 @@
     <span class="hljs-comment">// This will result in a JUnitException!</span>
     <span class="hljs-meta">@TestFactory</span>
     <span class="hljs-function">List&lt;String&gt; <span class="hljs-title">dynamicTestsWithInvalidReturnType</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Arrays.asList(<span class="hljs-string">"Hello"</span>);
+        <span class="hljs-keyword">return</span> Arrays.asList(<span class="hljs-string">&quot;Hello&quot;</span>);
     }
 
     <span class="hljs-meta">@TestFactory</span>
     <span class="hljs-function">Collection&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromCollection</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">return</span> Arrays.asList(
-            dynamicTest(<span class="hljs-string">"1st dynamic test"</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">"madam"</span>))),
-            dynamicTest(<span class="hljs-string">"2nd dynamic test"</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
+            dynamicTest(<span class="hljs-string">&quot;1st dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),
+            dynamicTest(<span class="hljs-string">&quot;2nd dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
         );
     }
 
     <span class="hljs-meta">@TestFactory</span>
     <span class="hljs-function">Iterable&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIterable</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">return</span> Arrays.asList(
-            dynamicTest(<span class="hljs-string">"3rd dynamic test"</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">"madam"</span>))),
-            dynamicTest(<span class="hljs-string">"4th dynamic test"</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
+            dynamicTest(<span class="hljs-string">&quot;3rd dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),
+            dynamicTest(<span class="hljs-string">&quot;4th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
         );
     }
 
     <span class="hljs-meta">@TestFactory</span>
     <span class="hljs-function">Iterator&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIterator</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">return</span> Arrays.asList(
-            dynamicTest(<span class="hljs-string">"5th dynamic test"</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">"madam"</span>))),
-            dynamicTest(<span class="hljs-string">"6th dynamic test"</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
+            dynamicTest(<span class="hljs-string">&quot;5th dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),
+            dynamicTest(<span class="hljs-string">&quot;6th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
         ).iterator();
     }
 
     <span class="hljs-meta">@TestFactory</span>
     DynamicTest[] dynamicTestsFromArray() {
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DynamicTest[] {
-            dynamicTest(<span class="hljs-string">"7th dynamic test"</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">"madam"</span>))),
-            dynamicTest(<span class="hljs-string">"8th dynamic test"</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
+            dynamicTest(<span class="hljs-string">&quot;7th dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),
+            dynamicTest(<span class="hljs-string">&quot;8th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
         };
     }
 
     <span class="hljs-meta">@TestFactory</span>
     <span class="hljs-function">Stream&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromStream</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">"racecar"</span>, <span class="hljs-string">"radar"</span>, <span class="hljs-string">"mom"</span>, <span class="hljs-string">"dad"</span>)
+        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;racecar&quot;</span>, <span class="hljs-string">&quot;radar&quot;</span>, <span class="hljs-string">&quot;mom&quot;</span>, <span class="hljs-string">&quot;dad&quot;</span>)
             .map(text -&gt; dynamicTest(text, () -&gt; assertTrue(isPalindrome(text))));
     }
 
@@ -715,7 +715,7 @@
     <span class="hljs-function">Stream&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIntStream</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-comment">// Generates tests for the first 10 even integers.</span>
         <span class="hljs-keyword">return</span> IntStream.iterate(<span class="hljs-number">0</span>, n -&gt; n + <span class="hljs-number">2</span>).limit(<span class="hljs-number">10</span>)
-            .mapToObj(n -&gt; dynamicTest(<span class="hljs-string">"test"</span> + n, () -&gt; assertTrue(n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)));
+            .mapToObj(n -&gt; dynamicTest(<span class="hljs-string">&quot;test&quot;</span> + n, () -&gt; assertTrue(n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)));
     }
 
     <span class="hljs-meta">@TestFactory</span>
@@ -741,7 +741,7 @@
         };
 
         <span class="hljs-comment">// Generates display names like: input:5, input:37, input:85, etc.</span>
-        Function&lt;Integer, String&gt; displayNameGenerator = (input) -&gt; <span class="hljs-string">"input:"</span> + input;
+        Function&lt;Integer, String&gt; displayNameGenerator = (input) -&gt; <span class="hljs-string">&quot;input:&quot;</span> + input;
 
         <span class="hljs-comment">// Executes tests based on the current input value.</span>
         ThrowingConsumer&lt;Integer&gt; testExecutor = (input) -&gt; assertTrue(input % <span class="hljs-number">7</span> != <span class="hljs-number">0</span>);
@@ -752,25 +752,25 @@
 
     <span class="hljs-meta">@TestFactory</span>
     <span class="hljs-function">Stream&lt;DynamicNode&gt; <span class="hljs-title">dynamicTestsWithContainers</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">"A"</span>, <span class="hljs-string">"B"</span>, <span class="hljs-string">"C"</span>)
-            .map(input -&gt; dynamicContainer(<span class="hljs-string">"Container "</span> + input, Stream.of(
-                dynamicTest(<span class="hljs-string">"not null"</span>, () -&gt; assertNotNull(input)),
-                dynamicContainer(<span class="hljs-string">"properties"</span>, Stream.of(
-                    dynamicTest(<span class="hljs-string">"length &gt; 0"</span>, () -&gt; assertTrue(input.length() &gt; <span class="hljs-number">0</span>)),
-                    dynamicTest(<span class="hljs-string">"not empty"</span>, () -&gt; assertFalse(input.isEmpty()))
+        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
+            .map(input -&gt; dynamicContainer(<span class="hljs-string">&quot;Container &quot;</span> + input, Stream.of(
+                dynamicTest(<span class="hljs-string">&quot;not null&quot;</span>, () -&gt; assertNotNull(input)),
+                dynamicContainer(<span class="hljs-string">&quot;properties&quot;</span>, Stream.of(
+                    dynamicTest(<span class="hljs-string">&quot;length &gt; 0&quot;</span>, () -&gt; assertTrue(input.length() &gt; <span class="hljs-number">0</span>)),
+                    dynamicTest(<span class="hljs-string">&quot;not empty&quot;</span>, () -&gt; assertFalse(input.isEmpty()))
                 ))
             )));
     }
 
     <span class="hljs-meta">@TestFactory</span>
     <span class="hljs-function">DynamicNode <span class="hljs-title">dynamicNodeSingleTest</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> dynamicTest(<span class="hljs-string">"'pop' is a palindrome"</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">"pop"</span>)));
+        <span class="hljs-keyword">return</span> dynamicTest(<span class="hljs-string">&quot;&#x27;pop&#x27; is a palindrome&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;pop&quot;</span>)));
     }
 
     <span class="hljs-meta">@TestFactory</span>
     <span class="hljs-function">DynamicNode <span class="hljs-title">dynamicNodeSingleContainer</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> dynamicContainer(<span class="hljs-string">"palindromes"</span>,
-            Stream.of(<span class="hljs-string">"racecar"</span>, <span class="hljs-string">"radar"</span>, <span class="hljs-string">"mom"</span>, <span class="hljs-string">"dad"</span>)
+        <span class="hljs-keyword">return</span> dynamicContainer(<span class="hljs-string">&quot;palindromes&quot;</span>,
+            Stream.of(<span class="hljs-string">&quot;racecar&quot;</span>, <span class="hljs-string">&quot;radar&quot;</span>, <span class="hljs-string">&quot;mom&quot;</span>, <span class="hljs-string">&quot;dad&quot;</span>)
                 .map(text -&gt; dynamicTest(text, () -&gt; assertTrue(isPalindrome(text)))
         ));
     }
@@ -786,7 +786,7 @@
 <pre>
 <code class="java"><span class="hljs-meta">@Target({ ElementType.TYPE, ElementType.METHOD })</span>
 <span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span>
-<span class="hljs-meta">@Tag("fast")</span>
+<span class="hljs-meta">@Tag(&quot;fast&quot;)</span>
 <span class="hljs-meta">@Test</span>
 <span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Fast {
 }</code>
@@ -807,11 +807,11 @@
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DatabaseExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BeforeAllCallback</span>, <span class="hljs-title">AfterAllCallback</span> </span>{
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAll</span><span class="hljs-params">(ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        log.info(<span class="hljs-string">"连接数据库"</span>);
+        log.info(<span class="hljs-string">&quot;连接数据库&quot;</span>);
     }
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterAll</span><span class="hljs-params">(ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        log.info(<span class="hljs-string">"关闭数据库"</span>);
+        log.info(<span class="hljs-string">&quot;关闭数据库&quot;</span>);
     }
 }</code>
 </pre><p><code>@ExtendWith</code> 提供了扩展的入口，具体的实现通过实现对应的接口，例如上面的 <code>DatabaseExtension</code> 实现 <code>BeforeAllCallback</code>，<code>AfterAllCallback</code></p>
@@ -832,18 +832,18 @@
     <span class="hljs-function"><span class="hljs-keyword">public</span> ConditionEvaluationResult <span class="hljs-title">evaluateExecutionCondition</span><span class="hljs-params">(ExtensionContext context)</span> </span>{
         <span class="hljs-keyword">return</span> AnnotationUtils.findAnnotation(context.getElement(), Pass.class)
                 .map(Pass::value)
-                .filter("我很帅"::equals)
-                .map(item -&gt; ConditionEvaluationResult.enabled("pass"))
-                .orElse(ConditionEvaluationResult.disabled("pass is not okay!"));
+                .filter(&quot;我很帅&quot;::equals)
+                .map(item -&gt; ConditionEvaluationResult.enabled(&quot;pass&quot;))
+                .orElse(ConditionEvaluationResult.disabled(&quot;pass is not okay!&quot;));
     }
 }</code>
 </pre><pre>
 <code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConditionalTest</span> </span>{
-    <span class="hljs-meta">@Pass("密码不对不执行")</span>
+    <span class="hljs-meta">@Pass(&quot;密码不对不执行&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notExec</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-comment">// code...</span>
     }
-    <span class="hljs-meta">@Pass("我很帅")</span>
+    <span class="hljs-meta">@Pass(&quot;我很帅&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-comment">// code...</span>
     }
@@ -881,7 +881,7 @@
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookParameterTest</span> </span>{
     <span class="hljs-meta">@Test</span>
     <span class="hljs-meta">@ExtendWith(BookParameterResolver.class)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec</span><span class="hljs-params">(<span class="hljs-meta">@BookInject(title = "删库")</span> Book book)</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec</span><span class="hljs-params">(<span class="hljs-meta">@BookInject(title = &quot;删库&quot;)</span> Book book)</span> </span>{
         log.info(book.toString());
     }
 }</code>
@@ -892,7 +892,7 @@
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogTestWatcher</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestWatcher</span> </span>{
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSuccessful</span><span class="hljs-params">(ExtensionContext context)</span> </span>{
-        log.info(<span class="hljs-string">"wow, 成功了！"</span>);
+        log.info(<span class="hljs-string">&quot;wow, 成功了！&quot;</span>);
     }
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testAborted</span><span class="hljs-params">(ExtensionContext context, Throwable cause)</span> </span>{
@@ -938,12 +938,12 @@
     <span class="hljs-meta">@Test</span>
     <span class="hljs-meta">@ExtendWith(IgnoreExceptionExtension.class)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">"被忽略"</span>);
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">&quot;被忽略&quot;</span>);
     }
     <span class="hljs-meta">@Test</span>
     <span class="hljs-meta">@ExtendWith(IgnoreExceptionExtension.class)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec3</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Throwable </span>{
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Throwable(<span class="hljs-string">"不被忽略"</span>);
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Throwable(<span class="hljs-string">&quot;不被忽略&quot;</span>);
     }
 }</code>
 </pre><blockquote>

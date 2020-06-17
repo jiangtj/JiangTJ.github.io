@@ -148,7 +148,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -310,21 +310,21 @@
 
 Contract.make {
   request {
-    method <span class="hljs-string">'GET'</span>
-    urlPath(<span class="hljs-string">'/groovy'</span>) {
+    method <span class="hljs-string">&#x27;GET&#x27;</span>
+    urlPath(<span class="hljs-string">&#x27;/groovy&#x27;</span>) {
       queryParameters {
-        parameter <span class="hljs-string">"name"</span>: value(consumer(regex(nonEmpty())), producer(<span class="hljs-string">"从入门到弃坑"</span>))
+        parameter <span class="hljs-string">&quot;name&quot;</span>: value(consumer(regex(nonEmpty())), producer(<span class="hljs-string">&quot;从入门到弃坑&quot;</span>))
       }
     }
   }
   response {
     status OK()
     body([
-            <span class="hljs-string">"name"</span>: fromRequest().query(<span class="hljs-string">"name"</span>),
-            <span class="hljs-string">"price"</span>: <span class="hljs-number">1000</span>
+            <span class="hljs-string">&quot;name&quot;</span>: fromRequest().query(<span class="hljs-string">&quot;name&quot;</span>),
+            <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">1000</span>
     ])
     headers {
-      contentType(<span class="hljs-string">'application/json;charset=UTF-8'</span>)
+      contentType(<span class="hljs-string">&#x27;application/json;charset=UTF-8&#x27;</span>)
     }
   }
 }</code>
@@ -333,18 +333,18 @@ Contract.make {
   <span class="hljs-attr">method:</span> <span class="hljs-string">GET</span>
   <span class="hljs-attr">url:</span> <span class="hljs-string">/yaml</span>
   <span class="hljs-attr">queryParameters:</span>
-    <span class="hljs-attr">name:</span> <span class="hljs-string">"从入库到精通"</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;从入库到精通&quot;</span>
     <span class="hljs-attr">price:</span> <span class="hljs-number">666</span>
   <span class="hljs-attr">matchers:</span>
     <span class="hljs-attr">url:</span>
     <span class="hljs-attr">queryParameters:</span>
-      <span class="hljs-bullet">-</span> <span class="hljs-string">{key:</span> <span class="hljs-string">name,</span> <span class="hljs-attr">type:</span> <span class="hljs-string">matching,</span> <span class="hljs-attr">value:</span> <span class="hljs-string">"[\\S\\s]+"</span><span class="hljs-string">}</span>
-      <span class="hljs-bullet">-</span> <span class="hljs-string">{key:</span> <span class="hljs-string">price,</span> <span class="hljs-attr">type:</span> <span class="hljs-string">matching,</span> <span class="hljs-attr">value:</span> <span class="hljs-string">'^[0-9]{1,}$'</span><span class="hljs-string">}</span>
+      <span class="hljs-bullet">-</span> {<span class="hljs-attr">key:</span> <span class="hljs-string">name</span>, <span class="hljs-attr">type:</span> <span class="hljs-string">matching</span>, <span class="hljs-attr">value:</span> <span class="hljs-string">&quot;[\\S\\s]+&quot;</span>}
+      <span class="hljs-bullet">-</span> {<span class="hljs-attr">key:</span> <span class="hljs-string">price</span>, <span class="hljs-attr">type:</span> <span class="hljs-string">matching</span>, <span class="hljs-attr">value:</span> <span class="hljs-string">&#x27;^[0-9]{1,}$&#x27;</span>}
 <span class="hljs-attr">response:</span>
   <span class="hljs-attr">status:</span> <span class="hljs-number">200</span>
   <span class="hljs-attr">body:</span>
-    <span class="hljs-attr">name:</span> <span class="hljs-string">"{{{ request.query.name.[0] }}}"</span>
-    <span class="hljs-attr">price:</span> <span class="hljs-string">"{{{ request.query.price.[0] }}}"</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;{{{ request.query.name.[0] }}}&quot;</span>
+    <span class="hljs-attr">price:</span> <span class="hljs-string">&quot;{{{ request.query.price.[0] }}}&quot;</span>
   <span class="hljs-attr">headers:</span>
     <span class="hljs-attr">Content-Type:</span> <span class="hljs-string">application/json;charset=UTF-8</span></code>
 </pre><p>注意：matchers的queryParameters部分貌似没有效果（按照文档，照理说没问题的唉），yaml可读性较强，但相对来说自定义较差，如果可能尽可能选择groovy</p>
@@ -401,7 +401,7 @@ Contract.make {
 </pre><h3 id="独立部署" class="article-heading">独立部署<a class="article-anchor" href="#独立部署" aria-hidden="true"></a></h3>
 <p>首先下载<code>stub-runner.jar</code> </p>
 <pre>
-<code class="bash">wget -O stub-runner.jar <span class="hljs-string">'https://search.maven.org/remotecontent?filepath=org/springframework/cloud/spring-cloud-contract-stub-runner-boot/2.1.1.RELEASE/spring-cloud-contract-stub-runner-boot-2.1.1.RELEASE.jar'</span></code>
+<code class="bash">wget -O stub-runner.jar <span class="hljs-string">&#x27;https://search.maven.org/remotecontent?filepath=org/springframework/cloud/spring-cloud-contract-stub-runner-boot/2.1.1.RELEASE/spring-cloud-contract-stub-runner-boot-2.1.1.RELEASE.jar&#x27;</span></code>
 </pre><p>在同路径创建配置文件<code>application.yml</code>，并添加stubrunner的配置，如下</p>
 <pre>
 <code class="yml"><span class="hljs-attr">stubrunner:</span>

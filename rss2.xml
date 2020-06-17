@@ -9,8 +9,23 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个两个三个小朋友 四个五个...</description>
-    <pubDate>Tue, 19 May 2020 05:29:58 GMT</pubDate>
+    <pubDate>Wed, 17 Jun 2020 01:46:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Gradle 初探</title>
+      <link>https://jiangtj.com/articles/cherry/gradle-start/</link>
+      <guid>https://jiangtj.com/articles/cherry/gradle-start/</guid>
+      <pubDate>Wed, 17 Jun 2020 01:46:00 GMT</pubDate>
+      <description>
+      
+        跟我一起，学透它~~~
+      
+      </description>
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/gradle-start/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>新网址！</title>
@@ -190,9 +205,9 @@
         &lt;h1 id=&quot;使用&quot; class=&quot;article-heading&quot;&gt;使用&lt;a class=&quot;article-anchor&quot; href=&quot;#使用&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
 &lt;pre&gt;
 &lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 同步返回Optional&amp;lt;T&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; repos = RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&quot;octocat&quot;&lt;/span&gt;)).orElse(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;());
+&lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; repos = RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;octocat&amp;quot;&lt;/span&gt;)).orElse(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;());
 &lt;span class=&quot;hljs-comment&quot;&gt;// 异步&lt;/span&gt;
-RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&quot;octocat&quot;&lt;/span&gt;), repos -&amp;gt; {
+RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;octocat&amp;quot;&lt;/span&gt;), repos -&amp;gt; {
   &lt;span class=&quot;hljs-comment&quot;&gt;//业务逻辑&lt;/span&gt;
 });&lt;/code&gt;
 &lt;/pre&gt;
@@ -363,28 +378,6 @@ RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&g
       
       
       <comments>https://jiangtj.com/articles/beechnut/vue-cli-create/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Spring Cloud Contract 契约测试</title>
-      <link>https://jiangtj.com/articles/beechnut/spring-cloud-contract/</link>
-      <guid>https://jiangtj.com/articles/beechnut/spring-cloud-contract/</guid>
-      <pubDate>Thu, 28 Mar 2019 15:18:51 GMT</pubDate>
-      <description>
-      
-        &lt;p&gt;Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。&lt;/p&gt;
-&lt;h1 id=&quot;什么是契约测试？&quot; class=&quot;article-heading&quot;&gt;什么是契约测试？&lt;a class=&quot;article-anchor&quot; href=&quot;#什么是契约测试？&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;验证提供方是否履约&lt;/li&gt;
-&lt;li&gt;验证消费方在提供方履约下是否正常工作&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;由于一般都只考虑提供方的履约验证，所以误解为消费者驱动。事实呢，提供方与消费方是唯一的么？你的契约不会变么？一旦发生改变，那么契约测试也会对消费方进行验证。&lt;/p&gt;
-      
-      </description>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/spring-cloud-contract/#disqus_thread</comments>
     </item>
     
   </channel>

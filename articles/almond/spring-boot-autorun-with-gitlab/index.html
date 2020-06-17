@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
 
 <link rel="stylesheet" href="/css/main.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="一个脚本，自动从GitLab上下载jar，同时重启服务。为后续的CI自动部署做准备  #!&#x2F;bin&#x2F;sh #defined echo &quot;通过GitLab-CI下载jar&quot; wget -O bill-server.jar &quot;https:&#x2F;&#x2F;gitlab.com&#x2F;dream-room&#x2F;bill-server&#x2F;-&#x2F;jobs&#x2F;artifacts&#x2F;$1&#x2F;raw&#x2F;target&#x2F;bill-server.jar?">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="一个脚本，自动从GitLab上下载jar，同时重启服务。为后续的CI自动部署做准备  #!&#x2F;bin&#x2F;sh #defined echo &quot;通过GitLab-CI下载jar&quot; wget -O bill-server.jar &quot;https:&#x2F;&#x2F;gitlab.com&#x2F;dream-room&#x2F;bill-server&#x2F;-&#x2F;jobs&#x2F;artifacts&#x2F;$1&#x2F;raw&#x2F;target&#x2F;b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot 自动重启脚本">
 <meta property="og:url" content="https://jiangtj.com/articles/almond/spring-boot-autorun-with-gitlab/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="一个脚本，自动从GitLab上下载jar，同时重启服务。为后续的CI自动部署做准备  #!&#x2F;bin&#x2F;sh #defined echo &quot;通过GitLab-CI下载jar&quot; wget -O bill-server.jar &quot;https:&#x2F;&#x2F;gitlab.com&#x2F;dream-room&#x2F;bill-server&#x2F;-&#x2F;jobs&#x2F;artifacts&#x2F;$1&#x2F;raw&#x2F;target&#x2F;bill-server.jar?">
+<meta property="og:description" content="一个脚本，自动从GitLab上下载jar，同时重启服务。为后续的CI自动部署做准备  #!&#x2F;bin&#x2F;sh #defined echo &quot;通过GitLab-CI下载jar&quot; wget -O bill-server.jar &quot;https:&#x2F;&#x2F;gitlab.com&#x2F;dream-room&#x2F;bill-server&#x2F;-&#x2F;jobs&#x2F;artifacts&#x2F;$1&#x2F;raw&#x2F;target&#x2F;b">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2018-04-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-04-19T16:00:00.000Z">
@@ -138,7 +138,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -156,7 +156,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -233,15 +233,15 @@
 <pre>
 <code class="sh"><span class="hljs-meta">#!/bin/sh</span>
 <span class="hljs-comment">#defined</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"通过GitLab-CI下载jar"</span>
-wget -O bill-server.jar <span class="hljs-string">"https://gitlab.com/dream-room/bill-server/-/jobs/artifacts/<span class="hljs-variable">$1</span>/raw/target/bill-server.jar?job=release-build"</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"查询已存在进程"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;通过GitLab-CI下载jar&quot;</span>
+wget -O bill-server.jar <span class="hljs-string">&quot;https://gitlab.com/dream-room/bill-server/-/jobs/artifacts/<span class="hljs-variable">$1</span>/raw/target/bill-server.jar?job=release-build&quot;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;查询已存在进程&quot;</span>
 pgrep -af bill-server
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"结束已存在进程"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;结束已存在进程&quot;</span>
 pkill -f bill-server
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"开始运行<span class="hljs-variable">$1</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;开始运行<span class="hljs-variable">$1</span>&quot;</span>
 nohup java -jar bill-server.jar &amp;
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"更新结束"</span></code>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;更新结束&quot;</span></code>
 </pre><p>运行</p>
 <pre>
 <code class="bash">sh bill-start.sh release-0.0.3</code>

@@ -147,7 +147,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -165,7 +165,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -275,31 +275,31 @@
 
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ObjectMapper objectMapper;
 
-    <span class="hljs-meta">@GetMapping("/curl/{id}")</span>
+    <span class="hljs-meta">@GetMapping(&quot;/curl/{id}&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> Long id)</span></span>{
-        <span class="hljs-keyword">return</span> Mono.just(id).map(item -&gt; <span class="hljs-string">"Your id is "</span> + item);
+        <span class="hljs-keyword">return</span> Mono.just(id).map(item -&gt; <span class="hljs-string">&quot;Your id is &quot;</span> + item);
     }
 
-    <span class="hljs-meta">@GetMapping("/curl")</span>
+    <span class="hljs-meta">@GetMapping(&quot;/curl&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> MultiValueMap&lt;String,String&gt; queryParams)</span></span>{
-        <span class="hljs-keyword">return</span> Mono.just(queryParams).map(item -&gt; <span class="hljs-string">"Your QueryParams is "</span> + item);
+        <span class="hljs-keyword">return</span> Mono.just(queryParams).map(item -&gt; <span class="hljs-string">&quot;Your QueryParams is &quot;</span> + item);
     }
 
-    <span class="hljs-meta">@PostMapping("/curl")</span>
+    <span class="hljs-meta">@PostMapping(&quot;/curl&quot;)</span>
     <span class="hljs-meta">@ResponseStatus(HttpStatus.CREATED)</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">post</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Mono&lt;User&gt; user)</span></span>{
-        <span class="hljs-keyword">return</span> user.map(CurlController::toJson).map(item -&gt; <span class="hljs-string">"Your Body is "</span> + item);
+        <span class="hljs-keyword">return</span> user.map(CurlController::toJson).map(item -&gt; <span class="hljs-string">&quot;Your Body is &quot;</span> + item);
     }
 
-    <span class="hljs-meta">@PutMapping("/curl")</span>
+    <span class="hljs-meta">@PutMapping(&quot;/curl&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">put</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Mono&lt;User&gt; user)</span></span>{
         <span class="hljs-keyword">return</span> post(user);
     }
 
-    <span class="hljs-meta">@DeleteMapping("/curl")</span>
+    <span class="hljs-meta">@DeleteMapping(&quot;/curl&quot;)</span>
     <span class="hljs-meta">@ResponseStatus(HttpStatus.NO_CONTENT)</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">"Fail"</span>);
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;Fail&quot;</span>);
     }
 
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ObjectMapper <span class="hljs-title">getObjectMapper</span><span class="hljs-params">()</span></span>{
@@ -337,41 +337,41 @@ public class CurlControllerTest {
     @Test
     public void get() {
 
-        client.get().uri("/curl/1")
+        client.get().uri(&quot;/curl/1&quot;)
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(String.class).isEqualTo("Your id is 1");
+                .expectBody(String.class).isEqualTo(&quot;Your id is 1&quot;);
 
-        client.get().uri("/curl?name=Jone Test")
+        client.get().uri(&quot;/curl?name=Jone Test&quot;)
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(String.class).isEqualTo("Your QueryParams is {name=[Jone Test]}");
+                .expectBody(String.class).isEqualTo(&quot;Your QueryParams is {name=[Jone Test]}&quot;);
 
     }
 
     @Test
     public void post() {
-        client.post().uri("/curl")
+        client.post().uri(&quot;/curl&quot;)
                 .contentType(MediaType.APPLICATION_JSON)
-                .syncBody(User.of("Jone Po",25,1))
+                .syncBody(User.of(&quot;Jone Po&quot;,25,1))
                 .exchange()
                 .expectStatus().isCreated()
-                .expectBody(String.class).isEqualTo("Your Body is {\"name\":\"Jone Po\",\"age\":25,\"sex\":1}");
+                .expectBody(String.class).isEqualTo(&quot;Your Body is {\&quot;name\&quot;:\&quot;Jone Po\&quot;,\&quot;age\&quot;:25,\&quot;sex\&quot;:1}&quot;);
     }
 
     @Test
     public void put() {
-        client.put().uri("/curl")
+        client.put().uri(&quot;/curl&quot;)
                 .contentType(MediaType.APPLICATION_JSON)
-                .syncBody(User.of("Jone Po",25,1))
+                .syncBody(User.of(&quot;Jone Po&quot;,25,1))
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(String.class).isEqualTo("Your Body is {\"name\":\"Jone Po\",\"age\":25,\"sex\":1}");
+                .expectBody(String.class).isEqualTo(&quot;Your Body is {\&quot;name\&quot;:\&quot;Jone Po\&quot;,\&quot;age\&quot;:25,\&quot;sex\&quot;:1}&quot;);
     }
 
     @Test
     public void delete() {
-        client.delete().uri("/curl").exchange().expectStatus().isNoContent();
+        client.delete().uri(&quot;/curl&quot;).exchange().expectStatus().isNoContent();
     }
 }</code>
 </pre><h2 id="测试接口" class="article-heading">测试接口<a class="article-anchor" href="#测试接口" aria-hidden="true"></a></h2>
@@ -394,25 +394,25 @@ public class CurlControllerTest {
 }</code>
 </pre><h2 id="编写声明式的feign接口" class="article-heading">编写声明式的Feign接口<a class="article-anchor" href="#编写声明式的feign接口" aria-hidden="true"></a></h2>
 <pre>
-<code class="java"><span class="hljs-meta">@FeignClient(value = "base-client")</span>
+<code class="java"><span class="hljs-meta">@FeignClient(value = &quot;base-client&quot;)</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BaseClient</span> </span>{
 
-    <span class="hljs-meta">@GetMapping("/")</span>
+    <span class="hljs-meta">@GetMapping(&quot;/&quot;)</span>
     <span class="hljs-function">String <span class="hljs-title">getBaseClientData</span><span class="hljs-params">()</span></span>;
 
-    <span class="hljs-meta">@GetMapping("/curl/{id}")</span>
-    <span class="hljs-function">String <span class="hljs-title">getUser</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable("id")</span> Long id)</span></span>;
+    <span class="hljs-meta">@GetMapping(&quot;/curl/{id}&quot;)</span>
+    <span class="hljs-function">String <span class="hljs-title">getUser</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>;
 
-    <span class="hljs-meta">@GetMapping("/curl")</span>
+    <span class="hljs-meta">@GetMapping(&quot;/curl&quot;)</span>
     <span class="hljs-function">String <span class="hljs-title">getUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> Map&lt;String,String&gt; query)</span></span>;
 
-    <span class="hljs-meta">@PostMapping("/curl")</span>
+    <span class="hljs-meta">@PostMapping(&quot;/curl&quot;)</span>
     <span class="hljs-function">String <span class="hljs-title">postUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> User user)</span></span>;
 
-    <span class="hljs-meta">@PutMapping("/curl")</span>
+    <span class="hljs-meta">@PutMapping(&quot;/curl&quot;)</span>
     <span class="hljs-function">String <span class="hljs-title">putUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> User user)</span></span>;
 
-    <span class="hljs-meta">@DeleteMapping("/curl")</span>
+    <span class="hljs-meta">@DeleteMapping(&quot;/curl&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteUser</span><span class="hljs-params">()</span></span>;
 
 }</code>
@@ -424,24 +424,24 @@ public class CurlControllerTest {
 <span class="hljs-keyword">private</span> BaseClient baseClient;
 
 
-<span class="hljs-meta">@GetMapping("/base/curl")</span>
+<span class="hljs-meta">@GetMapping(&quot;/base/curl&quot;)</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String,String&gt; <span class="hljs-title">getBaseClientCurl</span><span class="hljs-params">()</span></span>{
     Map&lt;String,String&gt; result = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
 
-    result.put(<span class="hljs-string">"ID 1"</span>,baseClient.getUser(<span class="hljs-number">1L</span>));
+    result.put(<span class="hljs-string">&quot;ID 1&quot;</span>,baseClient.getUser(<span class="hljs-number">1L</span>));
     Map&lt;String,String&gt; query = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
 
-    query.put(<span class="hljs-string">"name"</span>,<span class="hljs-string">"Jone Taki"</span>);
-    result.put(<span class="hljs-string">"Query Jone"</span>,baseClient.getUser(query));
+    query.put(<span class="hljs-string">&quot;name&quot;</span>,<span class="hljs-string">&quot;Jone Taki&quot;</span>);
+    result.put(<span class="hljs-string">&quot;Query Jone&quot;</span>,baseClient.getUser(query));
 
-    result.put(<span class="hljs-string">"Post"</span>,baseClient.postUser(User.of(<span class="hljs-string">"Jone Tiki"</span>,<span class="hljs-number">20</span>,<span class="hljs-number">1</span>)));
-    result.put(<span class="hljs-string">"Put"</span>,baseClient.postUser(User.of(<span class="hljs-string">"Jone Kolo"</span>,<span class="hljs-number">30</span>,<span class="hljs-number">1</span>)));
+    result.put(<span class="hljs-string">&quot;Post&quot;</span>,baseClient.postUser(User.of(<span class="hljs-string">&quot;Jone Tiki&quot;</span>,<span class="hljs-number">20</span>,<span class="hljs-number">1</span>)));
+    result.put(<span class="hljs-string">&quot;Put&quot;</span>,baseClient.postUser(User.of(<span class="hljs-string">&quot;Jone Kolo&quot;</span>,<span class="hljs-number">30</span>,<span class="hljs-number">1</span>)));
 
     <span class="hljs-keyword">try</span> {
         baseClient.deleteUser();
-        result.put(<span class="hljs-string">"Delete"</span>,<span class="hljs-string">"success"</span>);
+        result.put(<span class="hljs-string">&quot;Delete&quot;</span>,<span class="hljs-string">&quot;success&quot;</span>);
     } <span class="hljs-keyword">catch</span> (RuntimeException e) {
-        result.put(<span class="hljs-string">"Delete"</span>,<span class="hljs-string">"fail: "</span> + e.getMessage());
+        result.put(<span class="hljs-string">&quot;Delete&quot;</span>,<span class="hljs-string">&quot;fail: &quot;</span> + e.getMessage());
     }
 
     <span class="hljs-keyword">return</span> result;
@@ -451,11 +451,11 @@ public class CurlControllerTest {
 <p>我们能得到如下结果，其中Delete是失败的</p>
 <pre>
 <code class="json">{
-    <span class="hljs-attr">"Delete"</span>:<span class="hljs-string">"fail: BaseClient#deleteUser() failed and no fallback available."</span>,
-    <span class="hljs-attr">"Query Jone"</span>:<span class="hljs-string">"Your QueryParams is {name=[Jone Taki]}"</span>,
-    <span class="hljs-attr">"Post"</span>:<span class="hljs-string">"Your Body is {\"name\":\"Jone Tiki\",\"age\":20,\"sex\":1}"</span>,
-    <span class="hljs-attr">"ID 1"</span>:<span class="hljs-string">"Your id is 1"</span>,
-    <span class="hljs-attr">"Put"</span>:<span class="hljs-string">"Your Body is {\"name\":\"Jone Kolo\",\"age\":30,\"sex\":1}"</span>
+    <span class="hljs-attr">&quot;Delete&quot;</span>:<span class="hljs-string">&quot;fail: BaseClient#deleteUser() failed and no fallback available.&quot;</span>,
+    <span class="hljs-attr">&quot;Query Jone&quot;</span>:<span class="hljs-string">&quot;Your QueryParams is {name=[Jone Taki]}&quot;</span>,
+    <span class="hljs-attr">&quot;Post&quot;</span>:<span class="hljs-string">&quot;Your Body is {\&quot;name\&quot;:\&quot;Jone Tiki\&quot;,\&quot;age\&quot;:20,\&quot;sex\&quot;:1}&quot;</span>,
+    <span class="hljs-attr">&quot;ID 1&quot;</span>:<span class="hljs-string">&quot;Your id is 1&quot;</span>,
+    <span class="hljs-attr">&quot;Put&quot;</span>:<span class="hljs-string">&quot;Your Body is {\&quot;name\&quot;:\&quot;Jone Kolo\&quot;,\&quot;age\&quot;:30,\&quot;sex\&quot;:1}&quot;</span>
 }</code>
 </pre><p>上述这些例子包含了基本的REST操作，也就是Feign的基本使用</p>
 <h1 id="参考" class="article-heading">参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1>

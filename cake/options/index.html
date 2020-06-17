@@ -146,7 +146,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -164,7 +164,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -268,9 +268,9 @@
 <h1 id="替换布局文件" class="article-heading">替换布局文件<a class="article-anchor" href="#替换布局文件" aria-hidden="true"></a></h1>
 <p>这部分是hexo的功能，在大部分主题中都支持</p>
 <pre>
-<code class="js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
-hexo.extend.filter.register(<span class="hljs-string">'before_generate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
-  hexo.theme.setView(<span class="hljs-string">'需要替换的文件路径（相对于主题路径）'</span>, fs.readFileSync(<span class="hljs-string">'你的自定义文件'</span>).toString());
+<code class="js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);
+hexo.extend.filter.register(<span class="hljs-string">&#x27;before_generate&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+  hexo.theme.setView(<span class="hljs-string">&#x27;需要替换的文件路径（相对于主题路径）&#x27;</span>, fs.readFileSync(<span class="hljs-string">&#x27;你的自定义文件&#x27;</span>).toString());
 });</code>
 </pre><p>你也可以使用<a rel="noopener" target="_blank" href="https://github.com/JiangTJ/hexo-theme-plus">hexo-theme-plus</a>简化这部分工作</p>
       

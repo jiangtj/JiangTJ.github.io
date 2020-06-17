@@ -147,7 +147,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -165,7 +165,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -273,9 +273,9 @@
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getProduct</span><span class="hljs-params">()</span></span>{
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StringBuilder().append(part1)
-                .append(<span class="hljs-string">","</span>)
+                .append(<span class="hljs-string">&quot;,&quot;</span>)
                 .append(part2)
-                .append(<span class="hljs-string">","</span>)
+                .append(<span class="hljs-string">&quot;,&quot;</span>)
                 .append(part3)
                 .toString();
     }
@@ -316,9 +316,9 @@
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
         <span class="hljs-comment">// TODO Auto-generated method stub</span>
         Product product = <span class="hljs-keyword">new</span> Product.Builder()
-                .buildPart1(<span class="hljs-string">"qq"</span>)
-                .buildPart2(<span class="hljs-string">"2"</span>)
-                .buildPart3(<span class="hljs-string">"sa"</span>)
+                .buildPart1(<span class="hljs-string">&quot;qq&quot;</span>)
+                .buildPart2(<span class="hljs-string">&quot;2&quot;</span>)
+                .buildPart3(<span class="hljs-string">&quot;sa&quot;</span>)
                 .build();
         System.out.println(product.getProduct());
     }
@@ -356,7 +356,7 @@
     <span class="hljs-meta">@Test</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
         TestEntity entity = TestEntity.builder()
-                .name(<span class="hljs-string">"MrJ"</span>)
+                .name(<span class="hljs-string">&quot;MrJ&quot;</span>)
                 .age(<span class="hljs-number">100</span>)
                 .build();
         log.error(entity.toString());

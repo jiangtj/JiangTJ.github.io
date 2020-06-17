@@ -146,7 +146,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">posts</span>
       </a>
     </div>
@@ -164,7 +164,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">tags</span>
       </a>
     </div>
@@ -268,9 +268,9 @@
 <h1 id="replace-layout" class="article-heading">Replace layout<a class="article-anchor" href="#replace-layout" aria-hidden="true"></a></h1>
 <p>This part is the function of hexo, which is supported in most themes (you need to replace include with partial, and Cake can be replaced except for the root of layout).</p>
 <pre>
-<code class="js">Const fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
-Hexo.extend.filter.register(<span class="hljs-string">'before_generate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
-  hexo.theme.setView(<span class="hljs-string">'File path to be replaced'</span>, fs.readFileSync(<span class="hljs-string">'your custom file'</span>).toString());
+<code class="js">Const fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);
+Hexo.extend.filter.register(<span class="hljs-string">&#x27;before_generate&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+  hexo.theme.setView(<span class="hljs-string">&#x27;File path to be replaced&#x27;</span>, fs.readFileSync(<span class="hljs-string">&#x27;your custom file&#x27;</span>).toString());
 });</code>
 </pre><p>You can also simplify this part of the work with <a rel="noopener" target="_blank" href="https://github.com/JiangTJ/hexo-theme-plus">hexo-theme-plus</a></p>
       

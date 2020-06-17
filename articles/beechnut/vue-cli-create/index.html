@@ -148,7 +148,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -251,11 +251,11 @@
 <p>里面的CLI项目很多，不过我这次找的算简单的，在cli的这个项目里，他的package.json如下。</p>
 <pre>
 <code class="json">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"@vue/cli"</span>,
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"3.6.3"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Command line interface for rapid Vue.js development"</span>,
-  <span class="hljs-attr">"bin"</span>: {
-    <span class="hljs-attr">"vue"</span>: <span class="hljs-string">"bin/vue.js"</span>
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;@vue/cli&quot;</span>,
+  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;3.6.3&quot;</span>,
+  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Command line interface for rapid Vue.js development&quot;</span>,
+  <span class="hljs-attr">&quot;bin&quot;</span>: {
+    <span class="hljs-attr">&quot;vue&quot;</span>: <span class="hljs-string">&quot;bin/vue.js&quot;</span>
   },
   <span class="hljs-comment">//...</span>
 }</code>
@@ -266,28 +266,28 @@
 <code class="js"><span class="hljs-meta">#!/usr/bin/env node</span>
 <span class="hljs-comment">// 定义使用node环境</span>
 
-<span class="hljs-keyword">const</span> minimist = <span class="hljs-built_in">require</span>(<span class="hljs-string">'minimist'</span>)
-<span class="hljs-keyword">const</span> program = <span class="hljs-built_in">require</span>(<span class="hljs-string">'commander'</span>)
-<span class="hljs-keyword">const</span> loadCommand = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/util/loadCommand'</span>)
+<span class="hljs-keyword">const</span> minimist = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;minimist&#x27;</span>)
+<span class="hljs-keyword">const</span> program = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;commander&#x27;</span>)
+<span class="hljs-keyword">const</span> loadCommand = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;../lib/util/loadCommand&#x27;</span>)
 
 
 program
-  .command(<span class="hljs-string">'create &lt;app-name&gt;'</span>)
-  .description(<span class="hljs-string">'create a new project powered by vue-cli-service'</span>)
-  .option(<span class="hljs-string">'-p, --preset &lt;presetName&gt;'</span>, <span class="hljs-string">'Skip prompts and use saved or remote preset'</span>)
+  .command(<span class="hljs-string">&#x27;create &lt;app-name&gt;&#x27;</span>)
+  .description(<span class="hljs-string">&#x27;create a new project powered by vue-cli-service&#x27;</span>)
+  .option(<span class="hljs-string">&#x27;-p, --preset &lt;presetName&gt;&#x27;</span>, <span class="hljs-string">&#x27;Skip prompts and use saved or remote preset&#x27;</span>)
   <span class="hljs-comment">//...more option</span>
-  .option(<span class="hljs-string">'--skipGetStarted'</span>, <span class="hljs-string">'Skip displaying "Get started" instructions'</span>)
+  .option(<span class="hljs-string">&#x27;--skipGetStarted&#x27;</span>, <span class="hljs-string">&#x27;Skip displaying &quot;Get started&quot; instructions&#x27;</span>)
   .action(<span class="hljs-function">(<span class="hljs-params">name, cmd</span>) =&gt;</span> {
     <span class="hljs-keyword">const</span> options = cleanArgs(cmd)
 
     <span class="hljs-keyword">if</span> (minimist(process.argv.slice(<span class="hljs-number">3</span>))._.length &gt; <span class="hljs-number">1</span>) {
-      <span class="hljs-built_in">console</span>.log(chalk.yellow(<span class="hljs-string">'\n Info: You provided more than one argument. The first one will be used as the app\'s name, the rest are ignored.'</span>))
+      <span class="hljs-built_in">console</span>.log(chalk.yellow(<span class="hljs-string">&#x27;\n Info: You provided more than one argument. The first one will be used as the app\&#x27;s name, the rest are ignored.&#x27;</span>))
     }
     <span class="hljs-comment">// --git makes commander to default git to true</span>
-    <span class="hljs-keyword">if</span> (process.argv.includes(<span class="hljs-string">'-g'</span>) || process.argv.includes(<span class="hljs-string">'--git'</span>)) {
+    <span class="hljs-keyword">if</span> (process.argv.includes(<span class="hljs-string">&#x27;-g&#x27;</span>) || process.argv.includes(<span class="hljs-string">&#x27;--git&#x27;</span>)) {
       options.forceGit = <span class="hljs-literal">true</span>
     }
-    <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/create'</span>)(name, options)
+    <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;../lib/create&#x27;</span>)(name, options)
   })
 
 <span class="hljs-comment">// commander passes the Command object itself as options,</span>
@@ -295,10 +295,10 @@ program
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">cleanArgs</span> (<span class="hljs-params">cmd</span>) </span>{
   <span class="hljs-keyword">const</span> args = {}
   cmd.options.forEach(<span class="hljs-function"><span class="hljs-params">o</span> =&gt;</span> {
-    <span class="hljs-keyword">const</span> key = camelize(o.long.replace(<span class="hljs-regexp">/^--/</span>, <span class="hljs-string">''</span>))
+    <span class="hljs-keyword">const</span> key = camelize(o.long.replace(<span class="hljs-regexp">/^--/</span>, <span class="hljs-string">&#x27;&#x27;</span>))
     <span class="hljs-comment">// if an option is not present and Command has a method with the same name</span>
     <span class="hljs-comment">// it should not be copied</span>
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> cmd[key] !== <span class="hljs-string">'function'</span> &amp;&amp; <span class="hljs-keyword">typeof</span> cmd[key] !== <span class="hljs-string">'undefined'</span>) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> cmd[key] !== <span class="hljs-string">&#x27;function&#x27;</span> &amp;&amp; <span class="hljs-keyword">typeof</span> cmd[key] !== <span class="hljs-string">&#x27;undefined&#x27;</span>) {
       args[key] = cmd[key]
     }
   })
@@ -313,15 +313,15 @@ program
 <h1 id="create" class="article-heading">create<a class="article-anchor" href="#create" aria-hidden="true"></a></h1>
 <p>第二个脚本</p>
 <pre>
-<code class="js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs-extra'</span>)
-<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">'path'</span>)
-<span class="hljs-keyword">const</span> chalk = <span class="hljs-built_in">require</span>(<span class="hljs-string">'chalk'</span>)
-<span class="hljs-keyword">const</span> inquirer = <span class="hljs-built_in">require</span>(<span class="hljs-string">'inquirer'</span>)
-<span class="hljs-keyword">const</span> Creator = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./Creator'</span>)
-<span class="hljs-keyword">const</span> { clearConsole } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./util/clearConsole'</span>)
-<span class="hljs-keyword">const</span> { getPromptModules } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./util/createTools'</span>)
-<span class="hljs-keyword">const</span> { error, stopSpinner, exit } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@vue/cli-shared-utils'</span>)
-<span class="hljs-keyword">const</span> validateProjectName = <span class="hljs-built_in">require</span>(<span class="hljs-string">'validate-npm-package-name'</span>)
+<code class="js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs-extra&#x27;</span>)
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)
+<span class="hljs-keyword">const</span> chalk = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;chalk&#x27;</span>)
+<span class="hljs-keyword">const</span> inquirer = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;inquirer&#x27;</span>)
+<span class="hljs-keyword">const</span> Creator = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./Creator&#x27;</span>)
+<span class="hljs-keyword">const</span> { clearConsole } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./util/clearConsole&#x27;</span>)
+<span class="hljs-keyword">const</span> { getPromptModules } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./util/createTools&#x27;</span>)
+<span class="hljs-keyword">const</span> { error, stopSpinner, exit } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@vue/cli-shared-utils&#x27;</span>)
+<span class="hljs-keyword">const</span> validateProjectName = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;validate-npm-package-name&#x27;</span>)
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span> (<span class="hljs-params">projectName, options</span>) </span>{
   <span class="hljs-keyword">if</span> (options.proxy) {
@@ -329,18 +329,18 @@ program
   }
 
   <span class="hljs-keyword">const</span> cwd = options.cwd || process.cwd()
-  <span class="hljs-keyword">const</span> inCurrent = projectName === <span class="hljs-string">'.'</span>
-  <span class="hljs-keyword">const</span> name = inCurrent ? path.relative(<span class="hljs-string">'../'</span>, cwd) : projectName
-  <span class="hljs-keyword">const</span> targetDir = path.resolve(cwd, projectName || <span class="hljs-string">'.'</span>)
+  <span class="hljs-keyword">const</span> inCurrent = projectName === <span class="hljs-string">&#x27;.&#x27;</span>
+  <span class="hljs-keyword">const</span> name = inCurrent ? path.relative(<span class="hljs-string">&#x27;../&#x27;</span>, cwd) : projectName
+  <span class="hljs-keyword">const</span> targetDir = path.resolve(cwd, projectName || <span class="hljs-string">&#x27;.&#x27;</span>)
 
   <span class="hljs-keyword">const</span> result = validateProjectName(name)
   <span class="hljs-keyword">if</span> (!result.validForNewPackages) {
-    <span class="hljs-built_in">console</span>.error(chalk.red(<span class="hljs-string">`Invalid project name: "<span class="hljs-subst">${name}</span>"`</span>))
+    <span class="hljs-built_in">console</span>.error(chalk.red(<span class="hljs-string">`Invalid project name: &quot;<span class="hljs-subst">${name}</span>&quot;`</span>))
     result.errors &amp;&amp; result.errors.forEach(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
-      <span class="hljs-built_in">console</span>.error(chalk.red.dim(<span class="hljs-string">'Error: '</span> + err))
+      <span class="hljs-built_in">console</span>.error(chalk.red.dim(<span class="hljs-string">&#x27;Error: &#x27;</span> + err))
     })
     result.warnings &amp;&amp; result.warnings.forEach(<span class="hljs-function"><span class="hljs-params">warn</span> =&gt;</span> {
-      <span class="hljs-built_in">console</span>.error(chalk.red.dim(<span class="hljs-string">'Warning: '</span> + warn))
+      <span class="hljs-built_in">console</span>.error(chalk.red.dim(<span class="hljs-string">&#x27;Warning: &#x27;</span> + warn))
     })
     exit(<span class="hljs-number">1</span>)
   }
@@ -353,8 +353,8 @@ program
       <span class="hljs-keyword">if</span> (inCurrent) {
         <span class="hljs-keyword">const</span> { ok } = <span class="hljs-keyword">await</span> inquirer.prompt([
           {
-            <span class="hljs-attr">name</span>: <span class="hljs-string">'ok'</span>,
-            <span class="hljs-attr">type</span>: <span class="hljs-string">'confirm'</span>,
+            <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;ok&#x27;</span>,
+            <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;confirm&#x27;</span>,
             <span class="hljs-attr">message</span>: <span class="hljs-string">`Generate project in current directory?`</span>
           }
         ])
@@ -364,19 +364,19 @@ program
       } <span class="hljs-keyword">else</span> {
         <span class="hljs-keyword">const</span> { action } = <span class="hljs-keyword">await</span> inquirer.prompt([
           {
-            <span class="hljs-attr">name</span>: <span class="hljs-string">'action'</span>,
-            <span class="hljs-attr">type</span>: <span class="hljs-string">'list'</span>,
+            <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;action&#x27;</span>,
+            <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;list&#x27;</span>,
             <span class="hljs-attr">message</span>: <span class="hljs-string">`Target directory <span class="hljs-subst">${chalk.cyan(targetDir)}</span> already exists. Pick an action:`</span>,
             <span class="hljs-attr">choices</span>: [
-              { <span class="hljs-attr">name</span>: <span class="hljs-string">'Overwrite'</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">'overwrite'</span> },
-              { <span class="hljs-attr">name</span>: <span class="hljs-string">'Merge'</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">'merge'</span> },
-              { <span class="hljs-attr">name</span>: <span class="hljs-string">'Cancel'</span>, <span class="hljs-attr">value</span>: <span class="hljs-literal">false</span> }
+              { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Overwrite&#x27;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;overwrite&#x27;</span> },
+              { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Merge&#x27;</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;merge&#x27;</span> },
+              { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Cancel&#x27;</span>, <span class="hljs-attr">value</span>: <span class="hljs-literal">false</span> }
             ]
           }
         ])
         <span class="hljs-keyword">if</span> (!action) {
           <span class="hljs-keyword">return</span>
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (action === <span class="hljs-string">'overwrite'</span>) {
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (action === <span class="hljs-string">&#x27;overwrite&#x27;</span>) {
           <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`\nRemoving <span class="hljs-subst">${chalk.cyan(targetDir)}</span>...`</span>)
           <span class="hljs-keyword">await</span> fs.remove(targetDir)
         }
@@ -403,14 +403,14 @@ program
 <h1 id="creator" class="article-heading">Creator<a class="article-anchor" href="#creator" aria-hidden="true"></a></h1>
 <p>太长了！😖所以这部分不细说了，大体上与之前一致，只不过复杂点。值得一提的是Creator继承了<code>EventEmitter</code>，所以它在创建过程的不同阶段发布事件，根据这个，我们可以拆分着看。</p>
 <pre>
-<code class="js"><span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'fetch-remote-preset'</span> })
-<span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'creating'</span> })
-<span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'git-init'</span> })
-<span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'plugins-install'</span> })
-<span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'invoking-generators'</span> })
-<span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'deps-install'</span> })
-<span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'completion-hooks'</span> })
-<span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'creation'</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">'done'</span> })</code>
+<code class="js"><span class="hljs-built_in">this</span>.emit(<span class="hljs-string">&#x27;creation&#x27;</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;fetch-remote-preset&#x27;</span> })
+<span class="hljs-built_in">this</span>.emit(<span class="hljs-string">&#x27;creation&#x27;</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;creating&#x27;</span> })
+<span class="hljs-built_in">this</span>.emit(<span class="hljs-string">&#x27;creation&#x27;</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;git-init&#x27;</span> })
+<span class="hljs-built_in">this</span>.emit(<span class="hljs-string">&#x27;creation&#x27;</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;plugins-install&#x27;</span> })
+<span class="hljs-built_in">this</span>.emit(<span class="hljs-string">&#x27;creation&#x27;</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;invoking-generators&#x27;</span> })
+<span class="hljs-built_in">this</span>.emit(<span class="hljs-string">&#x27;creation&#x27;</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;deps-install&#x27;</span> })
+<span class="hljs-built_in">this</span>.emit(<span class="hljs-string">&#x27;creation&#x27;</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;completion-hooks&#x27;</span> })
+<span class="hljs-built_in">this</span>.emit(<span class="hljs-string">&#x27;creation&#x27;</span>, { <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;done&#x27;</span> })</code>
 </pre><p>一共有以上几个事件，当然，也有可能由于配置原因，某些步骤会跳过。比如设置shouldInitGit为false。</p>
 <blockquote>
 <p>大体上就是这样。唉，这可能是唯一的一篇讲解Vue CLI源码的文章，太忙了（我是后端，后端，后端~~）</p>

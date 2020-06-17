@@ -147,7 +147,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -165,7 +165,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -254,14 +254,14 @@
         SpringApplication.run(RestdocDocsifyApplication.class, args);
     }
 
-    <span class="hljs-meta">@GetMapping("/")</span>
+    <span class="hljs-meta">@GetMapping(&quot;/&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">"Server is running!"</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Server is running!&quot;</span>;
     }
 
-    <span class="hljs-meta">@GetMapping("/user")</span>
+    <span class="hljs-meta">@GetMapping(&quot;/user&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">user</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(<span class="hljs-string">"Jone"</span>,<span class="hljs-number">1</span>,<span class="hljs-number">20</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(<span class="hljs-string">&quot;Jone&quot;</span>,<span class="hljs-number">1</span>,<span class="hljs-number">20</span>);
     }
 
 }</code>
@@ -278,16 +278,16 @@
 
     <span class="hljs-meta">@Test</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">"/"</span>).accept(MediaType.APPLICATION_JSON)
+        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/&quot;</span>).accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(String.class)
-                .isEqualTo("Server is running!");
+                .isEqualTo(&quot;Server is running!&quot;);
     }
 
     <span class="hljs-meta">@Test</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">"/user"</span>).accept(MediaType.APPLICATION_JSON)
+        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/user&quot;</span>).accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody();
@@ -303,7 +303,7 @@
 <code class="java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span>
 <span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span>
 <span class="hljs-meta">@AutoConfigureWebTestClient</span>
-<span class="hljs-meta">@AutoConfigureRestDocs(outputDir = "docs/snippets")</span>
+<span class="hljs-meta">@AutoConfigureRestDocs(outputDir = &quot;docs/snippets&quot;)</span>
 <span class="hljs-meta">@Import(CustomRestDocsConfiguration.class)</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestdocDocsifyApplicationTests</span> </span>{
 
@@ -312,14 +312,14 @@
 
     <span class="hljs-meta">@Test</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">"/user"</span>).accept(MediaType.APPLICATION_JSON)
+        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/user&quot;</span>).accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
-                .consumeWith(document(<span class="hljs-string">"user"</span>,responseFields(
-                        fieldWithPath(<span class="hljs-string">"name"</span>).description(<span class="hljs-string">"The user's name"</span>),
-                        fieldWithPath(<span class="hljs-string">"sex"</span>).description(<span class="hljs-string">"The user's sex"</span>),
-                        fieldWithPath(<span class="hljs-string">"age"</span>).description(<span class="hljs-string">"The user's age"</span>))
+                .consumeWith(document(<span class="hljs-string">&quot;user&quot;</span>,responseFields(
+                        fieldWithPath(<span class="hljs-string">&quot;name&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s name&quot;</span>),
+                        fieldWithPath(<span class="hljs-string">&quot;sex&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s sex&quot;</span>),
+                        fieldWithPath(<span class="hljs-string">&quot;age&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s age&quot;</span>))
                 ));
     }
 }</code>
@@ -336,34 +336,34 @@
 <p>Docsify的一些入门，可以查看<a rel="noopener" target="_blank" href="https://docsify.js.org/#/zh-cn/quickstart">官网</a>，这里已经当你会基本的操作了。首先创建一个<code>index.html</code>，您可以使用命令行生成，或者直接Copy下面的代码</p>
 <pre>
 <code class="html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Spring-Cloud Docs<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"IE=edge,chrome=1"</span> /&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"description"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"Description"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//unpkg.com/docsify/lib/themes/vue.css"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge,chrome=1&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;Description&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/themes/vue.css&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
     <span class="hljs-built_in">window</span>.$docsify = {
-        <span class="hljs-attr">name</span>: <span class="hljs-string">'Restdoc-Docsify Examples'</span>,
-        <span class="hljs-attr">repo</span>: <span class="hljs-string">'JiangTJ/restdoc-docsify'</span>,
+        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Restdoc-Docsify Examples&#x27;</span>,
+        <span class="hljs-attr">repo</span>: <span class="hljs-string">&#x27;JiangTJ/restdoc-docsify&#x27;</span>,
         <span class="hljs-attr">loadSidebar</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-attr">autoHeader</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-attr">auto2top</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-attr">subMaxLevel</span>: <span class="hljs-number">2</span>
     }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//unpkg.com/docsify/lib/docsify.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//unpkg.com/docsify/lib/plugins/search.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//unpkg.com/prismjs/components/prism-java.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//unpkg.com/prismjs/components/prism-bash.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//unpkg.com/prismjs/components/prism-http.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/docsify.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/plugins/search.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-java.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-bash.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-http.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code>
@@ -389,25 +389,25 @@ click sidebar <span class="hljs-code">`User Api`</span></code>
 <li><p>user.md</p>
 <pre>
 <code class="md"><span class="hljs-section">### curl-request</span>
-[<span class="hljs-string">curl-request</span>](<span class="hljs-link">snippets/user/curl-request.md ':include'</span>)
+[<span class="hljs-string">curl-request</span>](<span class="hljs-link">snippets/user/curl-request.md &#x27;:include&#x27;</span>)
 
 <span class="hljs-section">### http-request</span>
-[<span class="hljs-string">http-request</span>](<span class="hljs-link">snippets/user/http-request.md ':include'</span>)
+[<span class="hljs-string">http-request</span>](<span class="hljs-link">snippets/user/http-request.md &#x27;:include&#x27;</span>)
 
 <span class="hljs-section">### http-response</span>
-[<span class="hljs-string">http-response</span>](<span class="hljs-link">snippets/user/http-response.md ':include'</span>)
+[<span class="hljs-string">http-response</span>](<span class="hljs-link">snippets/user/http-response.md &#x27;:include&#x27;</span>)
 
 <span class="hljs-section">### httpie-request</span>
-[<span class="hljs-string">httpie-request</span>](<span class="hljs-link">snippets/user/httpie-request.md ':include'</span>)
+[<span class="hljs-string">httpie-request</span>](<span class="hljs-link">snippets/user/httpie-request.md &#x27;:include&#x27;</span>)
 
 <span class="hljs-section">### request-body</span>
-[<span class="hljs-string">request-body</span>](<span class="hljs-link">snippets/user/request-body.md ':include'</span>)
+[<span class="hljs-string">request-body</span>](<span class="hljs-link">snippets/user/request-body.md &#x27;:include&#x27;</span>)
 
 <span class="hljs-section">### response-body</span>
-[<span class="hljs-string">response-body</span>](<span class="hljs-link">snippets/user/response-body.md ':include'</span>)
+[<span class="hljs-string">response-body</span>](<span class="hljs-link">snippets/user/response-body.md &#x27;:include&#x27;</span>)
 
 <span class="hljs-section">### response-fields</span>
-[<span class="hljs-string">response-fields</span>](<span class="hljs-link">snippets/user/response-fields.md ':include'</span>)</code>
+[<span class="hljs-string">response-fields</span>](<span class="hljs-link">snippets/user/response-fields.md &#x27;:include&#x27;</span>)</code>
 </pre></li>
 </ul>
 <h1 id="运行" class="article-heading">运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1>

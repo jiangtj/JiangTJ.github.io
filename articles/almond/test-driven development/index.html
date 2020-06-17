@@ -148,7 +148,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -356,7 +356,7 @@
 <code class="java"><span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractAssetsTests</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractTransactionalTestNGSpringContextTests</span> </span>{
 
- <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ManualRestDocumentation restDocumentation = <span class="hljs-keyword">new</span> ManualRestDocumentation(<span class="hljs-string">"target/generated-snippets"</span>);
+ <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ManualRestDocumentation restDocumentation = <span class="hljs-keyword">new</span> ManualRestDocumentation(<span class="hljs-string">&quot;target/generated-snippets&quot;</span>);
 
  <span class="hljs-meta">@Autowired</span>
  <span class="hljs-keyword">private</span> WebApplicationContext context;
@@ -498,15 +498,15 @@ public class UserServiceTestBean implements UserService {
 <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
 
     <span class="hljs-comment">//为userController注入userService对象</span>
-    ReflectionTestUtils.setField(userController, <span class="hljs-string">"userService"</span>, <span class="hljs-keyword">new</span> UserServiceTestBean());
+    ReflectionTestUtils.setField(userController, <span class="hljs-string">&quot;userService&quot;</span>, <span class="hljs-keyword">new</span> UserServiceTestBean());
 
     User user = getMockUser();
-    <span class="hljs-keyword">super</span>.mockMvc.perform(MockMvcRequestBuilders.post(<span class="hljs-string">"/user/add"</span>)
+    <span class="hljs-keyword">super</span>.mockMvc.perform(MockMvcRequestBuilders.post(<span class="hljs-string">&quot;/user/add&quot;</span>)
             .contentType(MediaType.APPLICATION_JSON)
             .content(Objects.requireNonNull(JacksonUtils.toJson(user))))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-            .andDo(document(<span class="hljs-string">"user-add"</span>));
+            .andDo(document(<span class="hljs-string">&quot;user-add&quot;</span>));
 }</code>
 </pre></li>
 </ol>

@@ -166,7 +166,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -184,7 +184,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -285,9 +285,9 @@
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestHandler</span> </span>{
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;ServerResponse&gt; <span class="hljs-title">data</span><span class="hljs-params">(ServerRequest request)</span></span>{
-        Mono&lt;String&gt; mono =  Mono.justOrEmpty(request.queryParam(<span class="hljs-string">"data"</span>))
-                .defaultIfEmpty(<span class="hljs-string">"this is null"</span>)
-                .map(it -&gt; it.concat(<span class="hljs-string">"! from server webflux!"</span>));
+        Mono&lt;String&gt; mono =  Mono.justOrEmpty(request.queryParam(<span class="hljs-string">&quot;data&quot;</span>))
+                .defaultIfEmpty(<span class="hljs-string">&quot;this is null&quot;</span>)
+                .map(it -&gt; it.concat(<span class="hljs-string">&quot;! from server webflux!&quot;</span>));
         <span class="hljs-keyword">return</span> ServerResponse.ok().body(mono,String.class);
     }
 
@@ -302,7 +302,7 @@
 
     <span class="hljs-meta">@Bean</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> RouterFunction&lt;ServerResponse&gt; <span class="hljs-title">testRouterFunction</span><span class="hljs-params">(TestHandler handle)</span> </span>{
-        <span class="hljs-keyword">return</span> RouterFunctions.route(GET(<span class="hljs-string">"/test"</span>).and(accept(APPLICATION_JSON)), handle::data);
+        <span class="hljs-keyword">return</span> RouterFunctions.route(GET(<span class="hljs-string">&quot;/test&quot;</span>).and(accept(APPLICATION_JSON)), handle::data);
     }
 
 }</code>

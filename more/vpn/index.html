@@ -146,7 +146,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -164,7 +164,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -230,7 +230,7 @@
 <h2 id="outline-manage" class="article-heading">Outline Manage<a class="article-anchor" href="#outline-manage" aria-hidden="true"></a></h2>
 <p>最简单的方式是通过Outline Manage配置，可在<a rel="noopener" target="_blank" href="https://github.com/Jigsaw-Code/outline-server/">Outline的GitHub</a>上下载，选择<code>Set up Outline anywhere</code>，在linux上运行步骤一的脚本</p>
 <pre>
-<code class="bash">bash -c <span class="hljs-string">"<span class="hljs-subst">$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh)</span>"</span></code>
+<code class="bash">bash -c <span class="hljs-string">&quot;<span class="hljs-subst">$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh)</span>&quot;</span></code>
 </pre><p>将您linux上安装输出信息放入步骤二的输入框内，接下来添加key，复制key中的密钥<code>ss://xxxxxx?outline=1</code>至您的客户端即可
 其他方式见下面</p>
 <h2 id="shadowsocks-libev" class="article-heading">shadowsocks-libev<a class="article-anchor" href="#shadowsocks-libev" aria-hidden="true"></a></h2>
@@ -252,12 +252,12 @@ sudo vim /etc/default/shadowsocks-libev</code>
 </pre><p>参考配置</p>
 <pre>
 <code class="json">{
-    <span class="hljs-attr">"server"</span>:<span class="hljs-string">"my_server_ip"</span>,
-    <span class="hljs-attr">"server_port"</span>:<span class="hljs-number">8388</span>,
-    <span class="hljs-attr">"local_port"</span>:<span class="hljs-number">1080</span>,
-    <span class="hljs-attr">"password"</span>:<span class="hljs-string">"barfoo!"</span>,
-    <span class="hljs-attr">"timeout"</span>:<span class="hljs-number">600</span>,
-    <span class="hljs-attr">"method"</span>:<span class="hljs-string">"chacha20-ietf-poly1305"</span>
+    <span class="hljs-attr">&quot;server&quot;</span>:<span class="hljs-string">&quot;my_server_ip&quot;</span>,
+    <span class="hljs-attr">&quot;server_port&quot;</span>:<span class="hljs-number">8388</span>,
+    <span class="hljs-attr">&quot;local_port&quot;</span>:<span class="hljs-number">1080</span>,
+    <span class="hljs-attr">&quot;password&quot;</span>:<span class="hljs-string">&quot;barfoo!&quot;</span>,
+    <span class="hljs-attr">&quot;timeout&quot;</span>:<span class="hljs-number">600</span>,
+    <span class="hljs-attr">&quot;method&quot;</span>:<span class="hljs-string">&quot;chacha20-ietf-poly1305&quot;</span>
 }</code>
 </pre><p>通过命令行运行</p>
 <pre>

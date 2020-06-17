@@ -149,7 +149,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -167,7 +167,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -266,9 +266,9 @@
         SpringApplication.run(JwebApplication.class, args);
     }
 
-    <span class="hljs-meta">@RequestMapping("/")</span>
+    <span class="hljs-meta">@RequestMapping(&quot;/&quot;)</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">"index.html"</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index.html&quot;</span>;
     }
 
 }</code>
@@ -284,7 +284,7 @@
 <span class="hljs-meta">
 #</span><span class="bash"> 需要openJDK</span>
 if ! hash java 2&gt;/dev/null; then
-  echo "I require java but it's not installed. Please install openJDK.";
+  echo &quot;I require java but it&#x27;s not installed. Please install openJDK.&quot;;
   exit 1;
 fi
 <span class="hljs-meta">
@@ -292,30 +292,30 @@ fi
 script_path=`dirname $0`
 <span class="hljs-meta">
 #</span><span class="bash"> 修复环境</span>
-if [ ! -e ${script_path}"/jweb.jar" ]; then
-  echo "Downloading jar ...";
-  wget -O jweb.jar "https://gitlab.com/jiangtj/jweb/-/jobs/artifacts/release/raw/target/jweb.jar?job=build-release"
+if [ ! -e ${script_path}&quot;/jweb.jar&quot; ]; then
+  echo &quot;Downloading jar ...&quot;;
+  wget -O jweb.jar &quot;https://gitlab.com/jiangtj/jweb/-/jobs/artifacts/release/raw/target/jweb.jar?job=build-release&quot;
   mv jweb.jar ${script_path}
 fi
 <span class="hljs-meta">
 #</span><span class="bash"> java_command</span>
-java_command="java -jar "${script_path}"/jweb.jar"
+java_command=&quot;java -jar &quot;${script_path}&quot;/jweb.jar&quot;
 
-while getopts "c:p:w:" opt; do
+while getopts &quot;c:p:w:&quot; opt; do
   case ${opt} in
     c)
       config_dir=`readlink -f $OPTARG`
-      java_command=${java_command}" --spring.config.additional-location=file:"${config_dir}
+      java_command=${java_command}&quot; --spring.config.additional-location=file:&quot;${config_dir}
       ;;
     p)
-      java_command=${java_command}" --server.port="$OPTARG
+      java_command=${java_command}&quot; --server.port=&quot;$OPTARG
       ;;
     w)
       static_dir=`readlink -f $OPTARG`
-      java_command=${java_command}" --spring.resources.static-locations=file:"${static_dir}
+      java_command=${java_command}&quot; --spring.resources.static-locations=file:&quot;${static_dir}
       ;;
     \?)
-      echo "Please read docs !"
+      echo &quot;Please read docs !&quot;
       ;;
   esac
 done

@@ -148,7 +148,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -325,7 +325,7 @@
         <span class="hljs-comment"># 匹配在什么时间之前的</span>
         <span class="hljs-bullet">-</span> <span class="hljs-string">Before=2017-01-20T17:42:47.789-07:00[America/Denver]</span>
         <span class="hljs-comment"># 匹配在某段时间的</span>
-        <span class="hljs-bullet">-</span> <span class="hljs-string">Between=2017-01-20T17:42:47.789-07:00[America/Denver],</span> <span class="hljs-number">2017-01-21T17:42:47.789-07:00</span><span class="hljs-string">[America/Denver]</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">Between=2017-01-20T17:42:47.789-07:00[America/Denver],</span> <span class="hljs-number">2017-01-21T17:42:47.789-07:00</span>[<span class="hljs-string">America/Denver</span>]
         <span class="hljs-comment"># 匹配cookie名称为`chocolate`的值要符合`ch.p`正则.</span>
         <span class="hljs-bullet">-</span> <span class="hljs-string">Cookie=chocolate,</span> <span class="hljs-string">ch.p</span>
         <span class="hljs-comment"># 匹配header为`X-Request-Id`的值要符合`\d+`正则.</span>
@@ -350,8 +350,8 @@
 <pre>
 <code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HeaderRoutePredicateFactory</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractRoutePredicateFactory</span>&lt;<span class="hljs-title">HeaderRoutePredicateFactory</span>.<span class="hljs-title">Config</span>&gt; </span>{
 
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String HEADER_KEY = <span class="hljs-string">"header"</span>;
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEXP_KEY = <span class="hljs-string">"regexp"</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String HEADER_KEY = <span class="hljs-string">&quot;header&quot;</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEXP_KEY = <span class="hljs-string">&quot;regexp&quot;</span>;
 
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HeaderRoutePredicateFactory</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">super</span>(Config.class);
@@ -424,8 +424,8 @@
 <pre>
 <code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NonHeaderRoutePredicateFactory</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractRoutePredicateFactory</span>&lt;<span class="hljs-title">NonHeaderRoutePredicateFactory</span>.<span class="hljs-title">Config</span>&gt; </span>{
 
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String HEADER_KEY = <span class="hljs-string">"header"</span>;
-  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEXP_KEY = <span class="hljs-string">"regexp"</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String HEADER_KEY = <span class="hljs-string">&quot;header&quot;</span>;
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String REGEXP_KEY = <span class="hljs-string">&quot;regexp&quot;</span>;
 
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NonHeaderRoutePredicateFactory</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">super</span>(Config.class);
@@ -524,21 +524,21 @@
               <span class="hljs-attr">redis-rate-limiter.burstCapacity:</span> <span class="hljs-number">20</span>
           <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">RequestRateLimiter</span>
             <span class="hljs-attr">args:</span>
-              <span class="hljs-attr">rate-limiter:</span> <span class="hljs-string">"#{@myRateLimiter}"</span>
-              <span class="hljs-attr">key-resolver:</span> <span class="hljs-string">"#{@userKeyResolver}"</span></code>
+              <span class="hljs-attr">rate-limiter:</span> <span class="hljs-string">&quot;#{@myRateLimiter}&quot;</span>
+              <span class="hljs-attr">key-resolver:</span> <span class="hljs-string">&quot;#{@userKeyResolver}&quot;</span></code>
 </pre><p>KeyResolver的实现参考</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Bean</span>
 <span class="hljs-function">KeyResolver <span class="hljs-title">userKeyResolver</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> exchange -&gt; Mono.just(exchange.getRequest().getQueryParams().getFirst(<span class="hljs-string">"user"</span>));
+    <span class="hljs-keyword">return</span> exchange -&gt; Mono.just(exchange.getRequest().getQueryParams().getFirst(<span class="hljs-string">&quot;user&quot;</span>));
 }</code>
 </pre><p>除此外还有两个“特别”的过滤器，<code>modifyRequestBody</code> <code>modifyResponseBody</code>他们只能使用在Fluent Java Routes API中。例如：</p>
 <pre>
 <code class="java"><span class="hljs-meta">@Bean</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> RouteLocator <span class="hljs-title">routes</span><span class="hljs-params">(RouteLocatorBuilder builder)</span> </span>{
     <span class="hljs-keyword">return</span> builder.routes()
-        .route(<span class="hljs-string">"rewrite_request_obj"</span>, r -&gt; r.host(<span class="hljs-string">"*.rewriterequestobj.org"</span>)
-            .filters(f -&gt; f.prefixPath(<span class="hljs-string">"/httpbin"</span>)
+        .route(<span class="hljs-string">&quot;rewrite_request_obj&quot;</span>, r -&gt; r.host(<span class="hljs-string">&quot;*.rewriterequestobj.org&quot;</span>)
+            .filters(f -&gt; f.prefixPath(<span class="hljs-string">&quot;/httpbin&quot;</span>)
                 .modifyRequestBody(String.class, Hello.class, MediaType.APPLICATION_JSON_VALUE,
                     (exchange, s) -&gt; <span class="hljs-keyword">return</span> Mono.just(<span class="hljs-keyword">new</span> Hello(s.toUpperCase())))).uri(uri))
         .build();
@@ -561,40 +561,40 @@
 
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">name</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">"GenerateJwt"</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;GenerateJwt&quot;</span>;
     }
 
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> GatewayFilter <span class="hljs-title">apply</span><span class="hljs-params">(Config config)</span> </span>{
 
-        String[] place = config.getPlace().split(<span class="hljs-string">":"</span>);
+        String[] place = config.getPlace().split(<span class="hljs-string">&quot;:&quot;</span>);
 
         <span class="hljs-keyword">return</span> (exchange, chain) -&gt; {
             <span class="hljs-keyword">return</span> Mono
                     .defer(() -&gt; {
-                        <span class="hljs-keyword">if</span> (<span class="hljs-string">"session"</span>.equals(place[<span class="hljs-number">0</span>])) {
+                        <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;session&quot;</span>.equals(place[<span class="hljs-number">0</span>])) {
                             <span class="hljs-keyword">return</span> exchange.getSession().map(webSession -&gt; {
-                                <span class="hljs-keyword">return</span> webSession.getAttributes().getOrDefault(place[<span class="hljs-number">1</span>], <span class="hljs-string">""</span>);
+                                <span class="hljs-keyword">return</span> webSession.getAttributes().getOrDefault(place[<span class="hljs-number">1</span>], <span class="hljs-string">&quot;&quot;</span>);
                             });
                         }
-                        <span class="hljs-keyword">if</span> (<span class="hljs-string">"query"</span>.equals(place[<span class="hljs-number">0</span>])) {
+                        <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;query&quot;</span>.equals(place[<span class="hljs-number">0</span>])) {
                             String first = exchange.getRequest().getQueryParams().getFirst(place[<span class="hljs-number">1</span>]);
                             <span class="hljs-keyword">return</span> Mono.justOrEmpty(first);
                         }
-                        <span class="hljs-keyword">if</span> (<span class="hljs-string">"form"</span>.equals(place[<span class="hljs-number">0</span>])) {
+                        <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;form&quot;</span>.equals(place[<span class="hljs-number">0</span>])) {
                             <span class="hljs-comment">/*return exchange.getFormData().map(formData -&gt; {
                                 String first = formData.getFirst(place[1]);
-                                return Optional.ofNullable(first).orElse("");
+                                return Optional.ofNullable(first).orElse(&quot;&quot;);
                             });*/</span>
                             <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultServerRequest(exchange).bodyToMono(<span class="hljs-keyword">new</span> ParameterizedTypeReference&lt;MultiValueMap&lt;String, String&gt;&gt;() {}).map(formData -&gt; {
                                 String first = formData.getFirst(place[<span class="hljs-number">1</span>]);
-                                <span class="hljs-keyword">return</span> Optional.ofNullable(first).orElse(<span class="hljs-string">""</span>);
+                                <span class="hljs-keyword">return</span> Optional.ofNullable(first).orElse(<span class="hljs-string">&quot;&quot;</span>);
                             });
                         }
-                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BaimiException(<span class="hljs-string">"不支持的类型！"</span>);
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BaimiException(<span class="hljs-string">&quot;不支持的类型！&quot;</span>);
                     })
                     .filter(sub -&gt; !StringUtils.isEmpty(sub))
-                    .map(sub -&gt; jwtAuthServer.generate(config.getAudience(), config.getPrefix() + <span class="hljs-string">":"</span> + sub))
+                    .map(sub -&gt; jwtAuthServer.generate(config.getAudience(), config.getPrefix() + <span class="hljs-string">&quot;:&quot;</span> + sub))
                     .map(token -&gt; exchange.getRequest().mutate().header(properties.getHeaderName(), properties.getHeaderPrefix() + token).build())
                     .map(req -&gt; exchange.mutate().request(req).build())
                     .then(chain.filter(exchange));
@@ -603,7 +603,7 @@
 
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">shortcutFieldOrder</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Arrays.asList(<span class="hljs-string">"place"</span>, <span class="hljs-string">"audience"</span>, <span class="hljs-string">"prefix"</span>);
+        <span class="hljs-keyword">return</span> Arrays.asList(<span class="hljs-string">&quot;place&quot;</span>, <span class="hljs-string">&quot;audience&quot;</span>, <span class="hljs-string">&quot;prefix&quot;</span>);
     }
 
     <span class="hljs-meta">@Data</span>
@@ -614,18 +614,18 @@
          * - query:&lt;param&gt;
          * - form:&lt;param&gt;
          */</span>
-        <span class="hljs-keyword">private</span> String place = <span class="hljs-string">"session:user"</span>;
+        <span class="hljs-keyword">private</span> String place = <span class="hljs-string">&quot;session:user&quot;</span>;
         <span class="hljs-comment">/**
          * 授权对象
          * system: 系统用户
          * wechat: 微信用户
          * etc
          */</span>
-        <span class="hljs-keyword">private</span> String audience = <span class="hljs-string">"system"</span>;
+        <span class="hljs-keyword">private</span> String audience = <span class="hljs-string">&quot;system&quot;</span>;
         <span class="hljs-comment">/**
          * 授权主体标识
          */</span>
-        <span class="hljs-keyword">private</span> String prefix = <span class="hljs-string">"id"</span>;
+        <span class="hljs-keyword">private</span> String prefix = <span class="hljs-string">&quot;id&quot;</span>;
     }
 }</code>
 </pre><p>在配置文件中，直接使用，更多代码见下面参考中的项目源码。</p>
@@ -644,9 +644,9 @@
 <span class="hljs-meta">@Order(1)</span>
 <span class="hljs-function"><span class="hljs-keyword">public</span> GlobalFilter <span class="hljs-title">c</span><span class="hljs-params">()</span> </span>{
     <span class="hljs-keyword">return</span> (exchange, chain) -&gt; {
-        log.info(<span class="hljs-string">"third pre filter"</span>);
+        log.info(<span class="hljs-string">&quot;third pre filter&quot;</span>);
         <span class="hljs-keyword">return</span> chain.filter(exchange).then(Mono.fromRunnable(() -&gt; {
-            log.info(<span class="hljs-string">"first post filter"</span>);
+            log.info(<span class="hljs-string">&quot;first post filter&quot;</span>);
         }));
     };
 }</code>
@@ -676,7 +676,7 @@
 
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">name</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">"CacheRequest"</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;CacheRequest&quot;</span>;
     }
 
     <span class="hljs-meta">@Override</span>
@@ -695,7 +695,7 @@
 
             <span class="hljs-comment">//GET DELETE 不过滤</span>
             HttpMethod method = exchange.getRequest().getMethod();
-            <span class="hljs-keyword">if</span> (method == <span class="hljs-keyword">null</span> || method.matches(<span class="hljs-string">"GET"</span>) || method.matches(<span class="hljs-string">"DELETE"</span>)) {
+            <span class="hljs-keyword">if</span> (method == <span class="hljs-keyword">null</span> || method.matches(<span class="hljs-string">&quot;GET&quot;</span>) || method.matches(<span class="hljs-string">&quot;DELETE&quot;</span>)) {
                 <span class="hljs-keyword">return</span> chain.filter(exchange);
             }
 
@@ -725,7 +725,7 @@
 
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">shortcutFieldOrder</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Collections.singletonList(<span class="hljs-string">"order"</span>);
+        <span class="hljs-keyword">return</span> Collections.singletonList(<span class="hljs-string">&quot;order&quot;</span>);
     }
 
     <span class="hljs-meta">@Data</span>

@@ -148,7 +148,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -275,7 +275,7 @@ Contract.make {}
 <p>例如：</p>
 <pre>
 <code class="groovy">Contract.make {
-    name(<span class="hljs-string">'第一个契约呀'</span>)
+    name(<span class="hljs-string">&#x27;第一个契约呀&#x27;</span>)
 }</code>
 </pre><p>结果：测试用例</p>
 <pre>
@@ -291,9 +291,9 @@ Contract.make {}
 <p>描述用途，或者在BDD中所需要描述的角色、想要、目的、场景、限制等等，可以写在这里。它不会生成到单元测试或者存根中，仅仅做记录而已。但，请看下面的例子：</p>
 <pre>
 <code class="groovy">Contract.make {
-    description(<span class="hljs-string">"""
+    description(<span class="hljs-string">&quot;&quot;&quot;
         [运营]需要[去掉操作A]，目的是[减少流程与人工成本]，存在的问题[减少A操作，会使部分数据未记录（运营人员已知晓（见邮件‘邮件主题’））]
-    """</span>)
+    &quot;&quot;&quot;</span>)
 }</code>
 </pre><p>然而某天，由于缺少A操作的记录，导致部分问题无法解决，他们会“趾高气扬”的责备，这程序设计的怎么怎么烂。但如果有这段描述，你就淡定了，喝杯咖啡，查下邮件，转发某某，抄送领导A、领导B。。。（这样的事在业务驱动的公司十分常见）</p>
 <h2 id="ignored" class="article-heading">Ignored<a class="article-anchor" href="#ignored" aria-hidden="true"></a></h2>
@@ -308,14 +308,14 @@ Contract.make {}
 <code class="groovy"><span class="hljs-comment">//url与urlPath稍后讲，一个指定值，一个进行正则匹配</span>
 Contract.make {
     request {
-        url <span class="hljs-string">"/user/10"</span>
+        url <span class="hljs-string">&quot;/user/10&quot;</span>
         <span class="hljs-comment">//...</span>
     }
     priority(<span class="hljs-number">1</span>)
 }
 Contract.make {
     request {
-        urlPath($(c(regex(<span class="hljs-string">'^/user/.+'</span>)),p(<span class="hljs-number">1</span>)))
+        urlPath($(c(regex(<span class="hljs-string">&#x27;^/user/.+&#x27;</span>)),p(<span class="hljs-number">1</span>)))
         <span class="hljs-comment">//...</span>
     }
     priority(<span class="hljs-number">2</span>)
@@ -330,7 +330,7 @@ Contract.make {
 <pre>
 <code class="groovy">Contract.make {
     request {
-        method <span class="hljs-string">'PUT'</span>
+        method <span class="hljs-string">&#x27;PUT&#x27;</span>
     }
 }</code>
 </pre><h2 id="url" class="article-heading">Url<a class="article-anchor" href="#url" aria-hidden="true"></a></h2>
@@ -338,21 +338,21 @@ Contract.make {
 <pre>
 <code class="groovy">Contract.make {
     request {
-        url <span class="hljs-string">'/user/10'</span>
+        url <span class="hljs-string">&#x27;/user/10&#x27;</span>
     }
 }</code>
 </pre><p>或者你可以使用urlPath，一个Path组件来定义url</p>
 <pre>
 <code class="groovy">Contract.make {
     request {
-        urlPath(<span class="hljs-string">'/users'</span>) {
+        urlPath(<span class="hljs-string">&#x27;/users&#x27;</span>) {
             queryParameters {
-                parameter <span class="hljs-string">'limit'</span>: <span class="hljs-number">100</span>
-                parameter <span class="hljs-string">'filter'</span>: equalTo(<span class="hljs-string">"email"</span>)
-                parameter <span class="hljs-string">'gender'</span>: value(consumer(containing(<span class="hljs-string">"[mf]"</span>)), producer(<span class="hljs-string">'mf'</span>))
-                parameter <span class="hljs-string">'offset'</span>: value(consumer(matching(<span class="hljs-string">"[0-9]+"</span>)), producer(<span class="hljs-number">123</span>))
-                parameter <span class="hljs-string">'loginStartsWith'</span>: value(consumer(notMatching(<span class="hljs-string">".{0,2}"</span>)), producer(<span class="hljs-number">3</span>))
-                parameter <span class="hljs-string">'uuid'</span>: $(anyUuid())
+                parameter <span class="hljs-string">&#x27;limit&#x27;</span>: <span class="hljs-number">100</span>
+                parameter <span class="hljs-string">&#x27;filter&#x27;</span>: equalTo(<span class="hljs-string">&quot;email&quot;</span>)
+                parameter <span class="hljs-string">&#x27;gender&#x27;</span>: value(consumer(containing(<span class="hljs-string">&quot;[mf]&quot;</span>)), producer(<span class="hljs-string">&#x27;mf&#x27;</span>))
+                parameter <span class="hljs-string">&#x27;offset&#x27;</span>: value(consumer(matching(<span class="hljs-string">&quot;[0-9]+&quot;</span>)), producer(<span class="hljs-number">123</span>))
+                parameter <span class="hljs-string">&#x27;loginStartsWith&#x27;</span>: value(consumer(notMatching(<span class="hljs-string">&quot;.{0,2}&quot;</span>)), producer(<span class="hljs-number">3</span>))
+                parameter <span class="hljs-string">&#x27;uuid&#x27;</span>: $(anyUuid())
             }
         }
     }
@@ -373,36 +373,36 @@ producer(...) = p(...) = test(...) = server(...)</code>
 <p>其中正则匹配，Spring Cloud Contract内置了一些正则表达式，可以直接使用</p>
 <pre>
 <code class="groovy"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern TRUE_OR_FALSE = Pattern.compile(<span class="hljs-regexp">/(true|false)/</span>)
-<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern ALPHA_NUMERIC = Pattern.compile(<span class="hljs-string">'[a-zA-Z0-9]+'</span>)
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern ALPHA_NUMERIC = Pattern.compile(<span class="hljs-string">&#x27;[a-zA-Z0-9]+&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern ONLY_ALPHA_UNICODE = Pattern.compile(<span class="hljs-regexp">/[\p{L}]*/</span>)
-<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern NUMBER = Pattern.compile(<span class="hljs-string">'-?(\\d*\\.\\d+|\\d+)'</span>)
-<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern INTEGER = Pattern.compile(<span class="hljs-string">'-?(\\d+)'</span>)
-<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern POSITIVE_INT = Pattern.compile(<span class="hljs-string">'([1-9]\\d*)'</span>)
-<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern DOUBLE = Pattern.compile(<span class="hljs-string">'-?(\\d*\\.\\d+)'</span>)
-<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern HEX = Pattern.compile(<span class="hljs-string">'[a-fA-F0-9]+'</span>)
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern NUMBER = Pattern.compile(<span class="hljs-string">&#x27;-?(\\d*\\.\\d+|\\d+)&#x27;</span>)
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern INTEGER = Pattern.compile(<span class="hljs-string">&#x27;-?(\\d+)&#x27;</span>)
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern POSITIVE_INT = Pattern.compile(<span class="hljs-string">&#x27;([1-9]\\d*)&#x27;</span>)
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern DOUBLE = Pattern.compile(<span class="hljs-string">&#x27;-?(\\d*\\.\\d+)&#x27;</span>)
+<span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern HEX = Pattern.compile(<span class="hljs-string">&#x27;[a-fA-F0-9]+&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern IP_ADDRESS = Pattern.
-        compile(<span class="hljs-string">'([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])'</span>)
+        compile(<span class="hljs-string">&#x27;([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern HOSTNAME_PATTERN = Pattern.
-        compile(<span class="hljs-string">'((http[s]?|ftp):/)/?([^:/\\s]+)(:[0-9]{1,5})?'</span>)
+        compile(<span class="hljs-string">&#x27;((http[s]?|ftp):/)/?([^:/\\s]+)(:[0-9]{1,5})?&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern EMAIL = Pattern.
-        compile(<span class="hljs-string">'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}'</span>)
+        compile(<span class="hljs-string">&#x27;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern URL = UrlHelper.URL
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern HTTPS_URL = UrlHelper.HTTPS_URL
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern UUID = Pattern.
-        compile(<span class="hljs-string">'[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'</span>)
+        compile(<span class="hljs-string">&#x27;[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern ANY_DATE = Pattern.
-        compile(<span class="hljs-string">'(\\d\\d\\d\\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])'</span>)
+        compile(<span class="hljs-string">&#x27;(\\d\\d\\d\\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern ANY_DATE_TIME = Pattern.
-        compile(<span class="hljs-string">'([0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])'</span>)
+        compile(<span class="hljs-string">&#x27;([0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern ANY_TIME = Pattern.
-        compile(<span class="hljs-string">'(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])'</span>)
+        compile(<span class="hljs-string">&#x27;(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])&#x27;</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern NON_EMPTY = Pattern.compile(<span class="hljs-regexp">/[\S\s]+/</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern NON_BLANK = Pattern.compile(<span class="hljs-regexp">/^\s*\S[\S\s]*/</span>)
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern ISO8601_WITH_OFFSET = Pattern.
         compile(<span class="hljs-regexp">/([0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\.\d{3})?(Z|[+-][01]\d:[0-5]\d)/</span>)
 
 <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> Pattern anyOf(String... values) {
-    <span class="hljs-keyword">return</span> Pattern.compile(values.collect({ <span class="hljs-string">"^$it\$"</span> }).join(<span class="hljs-string">"|"</span>))
+    <span class="hljs-keyword">return</span> Pattern.compile(values.collect({ <span class="hljs-string">&quot;^$it\$&quot;</span> }).join(<span class="hljs-string">&quot;|&quot;</span>))
 }
 
 RegexProperty onlyAlphaUnicode() {
@@ -482,15 +482,15 @@ RegexProperty nonBlank() {
 }</code>
 </pre><p>还有，如果你觉得<code>value(consumer(number()), producer(&quot;1&quot;))</code>有点麻烦的话，这个框架还提供了一种简便写法，<code>anyNumber()</code>。任何一个<code>any*</code>都代表一个正则，如果使用这个简便写法，在producer不提供的情况下，会随机生成一个符合的参数，用于接口测试。</p>
 <pre>
-<code class="js">value(anyNumber()) = value(consumer(number()), producer(<span class="hljs-string">"一个随机的数字"</span>))
-value(anyNumber(), producer(<span class="hljs-string">"1"</span>)) = value(consumer(number()), producer(<span class="hljs-string">"1"</span>))</code>
+<code class="js">value(anyNumber()) = value(consumer(number()), producer(<span class="hljs-string">&quot;一个随机的数字&quot;</span>))
+value(anyNumber(), producer(<span class="hljs-string">&quot;1&quot;</span>)) = value(consumer(number()), producer(<span class="hljs-string">&quot;1&quot;</span>))</code>
 </pre><h2 id="header" class="article-heading">Header<a class="article-anchor" href="#header" aria-hidden="true"></a></h2>
 <p>用于匹配Request头部是否符合规范</p>
 <pre>
 <code class="groovy">Contract.make {
     request {
         headers {
-            header(<span class="hljs-string">'contentType'</span>: <span class="hljs-string">'application/json'</span>)
+            header(<span class="hljs-string">&#x27;contentType&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>)
             <span class="hljs-comment">//在groovy中可以使用内置的函数代替如下面</span>
             <span class="hljs-comment">//contentType(applicationJsonUtf8())</span>
         }
@@ -505,8 +505,8 @@ value(anyNumber(), producer(<span class="hljs-string">"1"</span>)) = value(consu
             contentType(applicationJson())
         }
         body([
-<span class="hljs-symbol">                name:</span> value(anyNonEmptyString(), producer(<span class="hljs-string">"从入门到弃坑"</span>)),
-<span class="hljs-symbol">                price:</span> value(anyNumber(), producer(<span class="hljs-string">"1"</span>))
+                <span class="hljs-symbol">name:</span> value(anyNonEmptyString(), producer(<span class="hljs-string">&quot;从入门到弃坑&quot;</span>)),
+                <span class="hljs-symbol">price:</span> value(anyNumber(), producer(<span class="hljs-string">&quot;1&quot;</span>))
         ])
     }
 }</code>
@@ -518,10 +518,10 @@ value(anyNumber(), producer(<span class="hljs-string">"1"</span>)) = value(consu
             contentType(applicationJson())
         }
         body ([
-            <span class="hljs-string">"name"</span>:<span class="hljs-string">"YaYaYa"</span>
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;YaYaYa&quot;</span>
         ])
         bodyMatchers {
-            jsonPath(<span class="hljs-string">'$.name'</span>, byRegex(nonBlank()))
+            jsonPath(<span class="hljs-string">&#x27;$.name&#x27;</span>, byRegex(nonBlank()))
         }
     }
 }</code>
@@ -545,8 +545,8 @@ value(anyNumber(), producer(<span class="hljs-string">"1"</span>)) = value(consu
 <code class="groovy">Contract.make {
     response {
         body([
-                <span class="hljs-string">"gender"</span>: fromRequest().query(<span class="hljs-string">'gender'</span>),
-                <span class="hljs-string">"name"</span>: fromRequest().body(<span class="hljs-string">'$.name'</span>)
+                <span class="hljs-string">&quot;gender&quot;</span>: fromRequest().query(<span class="hljs-string">&#x27;gender&#x27;</span>),
+                <span class="hljs-string">&quot;name&quot;</span>: fromRequest().body(<span class="hljs-string">&#x27;$.name&#x27;</span>)
         ])
     }
 }</code>
@@ -567,14 +567,14 @@ value(anyNumber(), producer(<span class="hljs-string">"1"</span>)) = value(consu
 <pre>
 <code class="groovy">Contract.make {
     response {
-        body <span class="hljs-string">"""{"name":"YaYaYa"}"""</span>
+        body <span class="hljs-string">&quot;&quot;&quot;{&quot;name&quot;:&quot;YaYaYa&quot;}&quot;&quot;&quot;</span>
     }
 }</code>
 </pre><p>又或者我们可以将它放在外部（如果样例非常大时，是个不错的方案）</p>
 <pre>
 <code class="groovy">Contract.make {
     response {
-        body (file(<span class="hljs-string">'文件的相对路径，例如xxxx.json'</span>))
+        body (file(<span class="hljs-string">&#x27;文件的相对路径，例如xxxx.json&#x27;</span>))
     }
 }</code>
 </pre><blockquote>
@@ -589,35 +589,35 @@ value(anyNumber(), producer(<span class="hljs-string">"1"</span>)) = value(consu
 
 Contract.make {
     priority(<span class="hljs-number">1</span>)
-    name(<span class="hljs-string">'第一个契约呀'</span>)
-    description(<span class="hljs-string">"""
+    name(<span class="hljs-string">&#x27;第一个契约呀&#x27;</span>)
+    description(<span class="hljs-string">&quot;&quot;&quot;
         [运营]需要[去掉操作A]，目的是[减少流程与人工成本]，存在的问题[减少A操作，会使部分数据未记录（运营人员已知晓（见邮件‘邮件主题’））]
-    """</span>)
+    &quot;&quot;&quot;</span>)
     request {
-        method <span class="hljs-string">'PUT'</span>
-        urlPath($(c(regex(<span class="hljs-string">'^/user/.+'</span>)),p(<span class="hljs-string">'/user/1'</span>))) {
+        method <span class="hljs-string">&#x27;PUT&#x27;</span>
+        urlPath($(c(regex(<span class="hljs-string">&#x27;^/user/.+&#x27;</span>)),p(<span class="hljs-string">&#x27;/user/1&#x27;</span>))) {
             queryParameters {
-                parameter <span class="hljs-string">'limit'</span>: <span class="hljs-number">100</span>
-                parameter <span class="hljs-string">'filter'</span>: equalTo(<span class="hljs-string">"email"</span>)
-                parameter <span class="hljs-string">'gender'</span>: value(consumer(containing(<span class="hljs-string">"[mf]"</span>)), producer(<span class="hljs-string">'mf'</span>))
-                parameter <span class="hljs-string">'offset'</span>: value(consumer(matching(<span class="hljs-string">"[0-9]+"</span>)), producer(<span class="hljs-number">123</span>))
-                parameter <span class="hljs-string">'loginStartsWith'</span>: value(consumer(notMatching(<span class="hljs-string">".{0,2}"</span>)), producer(<span class="hljs-number">3</span>))
-                parameter <span class="hljs-string">'uuid'</span>: $(anyUuid())
+                parameter <span class="hljs-string">&#x27;limit&#x27;</span>: <span class="hljs-number">100</span>
+                parameter <span class="hljs-string">&#x27;filter&#x27;</span>: equalTo(<span class="hljs-string">&quot;email&quot;</span>)
+                parameter <span class="hljs-string">&#x27;gender&#x27;</span>: value(consumer(containing(<span class="hljs-string">&quot;[mf]&quot;</span>)), producer(<span class="hljs-string">&#x27;mf&#x27;</span>))
+                parameter <span class="hljs-string">&#x27;offset&#x27;</span>: value(consumer(matching(<span class="hljs-string">&quot;[0-9]+&quot;</span>)), producer(<span class="hljs-number">123</span>))
+                parameter <span class="hljs-string">&#x27;loginStartsWith&#x27;</span>: value(consumer(notMatching(<span class="hljs-string">&quot;.{0,2}&quot;</span>)), producer(<span class="hljs-number">3</span>))
+                parameter <span class="hljs-string">&#x27;uuid&#x27;</span>: $(anyUuid())
             }
         }
         headers {
             contentType(applicationJson())
         }
         body([
-<span class="hljs-symbol">                name:</span> value(anyNonEmptyString(), producer(<span class="hljs-string">"从入门到弃坑"</span>)),
-<span class="hljs-symbol">                price:</span> value(anyNumber(), producer(<span class="hljs-string">"1"</span>))
+                <span class="hljs-symbol">name:</span> value(anyNonEmptyString(), producer(<span class="hljs-string">&quot;从入门到弃坑&quot;</span>)),
+                <span class="hljs-symbol">price:</span> value(anyNumber(), producer(<span class="hljs-string">&quot;1&quot;</span>))
         ])
     }
     response {
         status OK()
         body([
-                <span class="hljs-string">"gender"</span>: fromRequest().query(<span class="hljs-string">'gender'</span>),
-                <span class="hljs-string">"name"</span>: fromRequest().body(<span class="hljs-string">'$.name'</span>)
+                <span class="hljs-string">&quot;gender&quot;</span>: fromRequest().query(<span class="hljs-string">&#x27;gender&#x27;</span>),
+                <span class="hljs-string">&quot;name&quot;</span>: fromRequest().body(<span class="hljs-string">&#x27;$.name&#x27;</span>)
         ])
         headers {
             contentType(applicationJsonUtf8())
