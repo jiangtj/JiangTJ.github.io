@@ -2213,6 +2213,3 @@ img.lozad {
   color: var(--color, #fff);
   cursor: pointer;
 }
-.utterances {
-  max-width: unset;
-}
