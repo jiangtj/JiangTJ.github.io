@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://jiangtj.com/articles/almond/dart-get-start/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="Dart 是一种易学习、易扩展、跨平台的编程语言。     易学习：语法感觉很熟悉，语义是干净和一致的。是Java与Javascript的结合体。 易扩展：仅谷歌就有超过200万行的生产Dart代码。应用程序可以达到数十万行代码。 跨平台：Dart可以在每一个现代浏览器、命令行、服务器和移动设备上快速运行。  Google 在大型项目中部署使用 Dart。例如，下一代的AdWords (谷歌最重要">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="og:image" content="https://webdev.dartlang.org/guides/images/create-ng2-project.png">
 <meta property="og:image" content="https://webdev.dartlang.org/guides/images/run-app-in-ws.png">
 <meta property="og:image" content="https://webdev.dartlang.org/guides/images/run-app.png">
@@ -24,6 +24,17 @@
 <meta property="article:tag" content="Dart">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://webdev.dartlang.org/guides/images/create-ng2-project.png">  <title>Dart之环境搭建 | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/dart-get-start/"},"headline":"Dart之环境搭建","image":["https://webdev.dartlang.org/guides/images/create-ng2-project.png","https://webdev.dartlang.org/guides/images/run-app-in-ws.png","https://webdev.dartlang.org/guides/images/run-app.png"],"datePublished":"2017-10-07T16:00:00.000Z","dateModified":"2017-10-07T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -34,7 +45,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -132,7 +143,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个angular应用"><span class="nav-number">3.</span> <span class="nav-text">第一个Angular应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">4.</span> <span class="nav-text">运行</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AAangular%E5%BA%94%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">第一个Angular应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">运行</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -387,13 +398,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

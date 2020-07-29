@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://jiangtj.com/articles/beechnut/netlify-lm/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="Netlify提供了大文件存储以及图像转换功能，是时候升级一波啦。">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="og:image" content="https://jiangtj.com/articles/beechnut/netlify-lm/1.png">
 <meta property="article:published_time" content="2019-03-02T16:00:00.000Z">
 <meta property="article:modified_time" content="2019-03-02T16:00:00.000Z">
@@ -22,6 +22,17 @@
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jiangtj.com/articles/beechnut/netlify-lm/1.png">  <title>Git LFS使用--Netlify Large Media | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/beechnut/netlify-lm/"},"headline":"Git LFS使用--Netlify Large Media","image":[],"datePublished":"2019-03-02T16:00:00.000Z","dateModified":"2019-03-02T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -32,7 +43,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -130,7 +141,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用lfs"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用LFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何使用"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图像转换功能"><span class="nav-number">4.</span> <span class="nav-text">图像转换功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8lfs"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用LFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E8%BD%AC%E6%8D%A2%E5%8A%9F%E8%83%BD"><span class="nav-number">4.</span> <span class="nav-text">图像转换功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -254,26 +265,13 @@
 <h1 id="如何使用" class="article-heading">如何使用<a class="article-anchor" href="#如何使用" aria-hidden="true"></a></h1>
 <p>这里使用Netlify Large Media做存储库。</p>
 <ol>
-<li>安装netlify-cli，以及登录<pre>
-<code class="bash">npm install netlify-cli -g
-netlify login</code>
-</pre></li>
-<li>安装Large Media插件<pre>
-<code class="bash">netlify plugins:install netlify-lm-plugin
-netlify lm:install</code>
-</pre></li>
-<li>关联netlify实例，以及初始化Git LFS配置<pre>
-<code class="bash">netlify link
-netlify lm:setup</code>
-</pre></li>
-<li>添加需要Git LFS管理的文件<pre>
-<code class="bash">git lfs track <span class="hljs-string">&quot;source/images/**&quot;</span>
-git lfs track <span class="hljs-string">&quot;*.jpg&quot;</span></code>
-</pre></li>
-<li>想正常一样操作Git即可<pre>
-<code class="bash">git commit -m <span class="hljs-string">&quot;track&quot;</span>
-git push origin master</code>
-</pre></li>
+<li>安装netlify-cli，以及登录<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install netlify-cli -g<br>netlify login<br></code></pre></td></tr></table></figure></li>
+<li>安装Large Media插件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">netlify plugins:install netlify-lm-plugin<br>netlify lm:install<br></code></pre></td></tr></table></figure></li>
+<li>关联netlify实例，以及初始化Git LFS配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">netlify link<br>netlify lm:setup<br></code></pre></td></tr></table></figure></li>
+<li>添加需要Git LFS管理的文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git lfs track <span class="hljs-string">&quot;source/images/**&quot;</span><br>git lfs track <span class="hljs-string">&quot;*.jpg&quot;</span><br></code></pre></td></tr></table></figure></li>
+<li>想正常一样操作Git即可<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit -m <span class="hljs-string">&quot;track&quot;</span><br>git push origin master<br></code></pre></td></tr></table></figure>
+
+</li>
 </ol>
 <p>注意：在初次安装Large Media插件时，可能需要关掉命令终端，重新启动来加载脚本</p>
 <h1 id="图像转换功能" class="article-heading">图像转换功能<a class="article-anchor" href="#图像转换功能" aria-hidden="true"></a></h1>
@@ -397,13 +395,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

@@ -14,13 +14,24 @@
 <meta property="og:url" content="https://jiangtj.com/articles/beechnut/hexo-next-injects/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="一个全新的自定义主题方式，分享你的Code。">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="article:published_time" content="2019-07-11T01:54:31.000Z">
 <meta property="article:modified_time" content="2019-07-11T01:54:31.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="NexT">
 <meta name="twitter:card" content="summary">  <title>Hexo NexT 高阶教程之 Injects | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/beechnut/hexo-next-injects/"},"headline":"Hexo NexT 高阶教程之 Injects","image":[],"datePublished":"2019-07-11T01:54:31.000Z","dateModified":"2019-07-11T01:54:31.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -31,7 +42,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -129,7 +140,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前世因"><span class="nav-number">1.</span> <span class="nav-text">前世因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-injects"><span class="nav-number">2.</span> <span class="nav-text">使用 Injects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注入布局"><span class="nav-number">2.1.</span> <span class="nav-text">注入布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注入样式"><span class="nav-number">2.2.</span> <span class="nav-text">注入样式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#制作npm插件"><span class="nav-number">3.</span> <span class="nav-text">制作NPM插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化一个npm包"><span class="nav-number">3.1.</span> <span class="nav-text">初始化一个NPM包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建例子工程预览插件"><span class="nav-number">3.2.</span> <span class="nav-text">创建例子工程预览插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局与样式"><span class="nav-number">3.3.</span> <span class="nav-text">布局与样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本"><span class="nav-number">3.4.</span> <span class="nav-text">脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传与分享"><span class="nav-number">3.5.</span> <span class="nav-text">上传与分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">3.6.</span> <span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后世果"><span class="nav-number">4.</span> <span class="nav-text">后世果</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E4%B8%96%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">前世因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-injects"><span class="nav-number">2.</span> <span class="nav-text">使用 Injects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%85%A5%E5%B8%83%E5%B1%80"><span class="nav-number">2.1.</span> <span class="nav-text">注入布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%85%A5%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">注入样式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%B6%E4%BD%9Cnpm%E6%8F%92%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">制作NPM插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AAnpm%E5%8C%85"><span class="nav-number">3.1.</span> <span class="nav-text">初始化一个NPM包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%BE%8B%E5%AD%90%E5%B7%A5%E7%A8%8B%E9%A2%84%E8%A7%88%E6%8F%92%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">创建例子工程预览插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E5%B1%80%E4%B8%8E%E6%A0%B7%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">布局与样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC"><span class="nav-number">3.4.</span> <span class="nav-text">脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E4%B8%8E%E5%88%86%E4%BA%AB"><span class="nav-number">3.5.</span> <span class="nav-text">上传与分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">3.6.</span> <span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E4%B8%96%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">后世果</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -260,108 +271,44 @@
 <p>Okay，缘由讲到这，接下来来体验下如何使用<code>theme_inject</code>。当然，如果你是小白，完全可以使用配置文件中的<code>custom_file_path</code>来添加自定义内容。如果想更加定义化，那么跟着我一步步走下去。Injects具体的定义见<a rel="noopener" target="_blank" href="https://theme-next.org/docs/advanced-settings#Injects">NexT文档</a>。这里接下来是个例子，一步步集成<a rel="noopener" target="_blank" href="https://sidecar.gitter.im/">gitter</a>。</p>
 <h2 id="注入布局" class="article-heading">注入布局<a class="article-anchor" href="#注入布局" aria-hidden="true"></a></h2>
 <p>首先，我们在hexo或者theme的<code>scripts</code>创建一个js文件（名字随意），添加以下内容。只要是这里面的脚本，hexo运行时会执行它。</p>
-<pre>
-<code class="js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
-  <span class="hljs-comment">//名字路径等都可以随意修改，为了方便下文都以这里的定义为主</span>
-  injects.head.file(<span class="hljs-string">&#x27;gitter&#x27;</span>, <span class="hljs-string">&#x27;views/gitter.swig&#x27;</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
-});</code>
-</pre><p>第二步，我们创建<code>views/gitter.swig</code>文件，添加以下内容。</p>
-<pre>
-<code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-  ((<span class="hljs-built_in">window</span>.gitter = {}).chat = {}).options = {
-    <span class="hljs-attr">room</span>: <span class="hljs-string">&#x27;your-room-name&#x27;</span>
-  }});
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://sidecar.gitter.im/dist/sidecar.v1.js&quot;</span> <span class="hljs-attr">async</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code>
-</pre><p><code>hexo s</code>运行，你可以看到右下角已经集成了gitter。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>&#123;<br>  <span class="hljs-comment">//名字路径等都可以随意修改，为了方便下文都以这里的定义为主</span><br>  injects.head.file(<span class="hljs-string">&#x27;gitter&#x27;</span>, <span class="hljs-string">&#x27;views/gitter.swig&#x27;</span>, &#123;&#125;, &#123;<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>&#125;);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>第二步，我们创建<code>views/gitter.swig</code>文件，添加以下内容。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">  ((<span class="hljs-built_in">window</span>.gitter = &#123;&#125;).chat = &#123;&#125;).options = &#123;</span><br><span class="javascript">    room: <span class="hljs-string">&#x27;your-room-name&#x27;</span></span><br>  &#125;&#125;);<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://sidecar.gitter.im/dist/sidecar.v1.js&quot;</span> <span class="hljs-attr">async</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>hexo s</code>运行，你可以看到右下角已经集成了gitter。</p>
 <h2 id="注入样式" class="article-heading">注入样式<a class="article-anchor" href="#注入样式" aria-hidden="true"></a></h2>
 <p>接下来，我们调整下样式。在脚本中，多加样式的注入。</p>
-<pre>
-<code class="js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
-  injects.head.file(<span class="hljs-string">&#x27;gitter&#x27;</span>, <span class="hljs-string">&#x27;views/gitter.swig&#x27;</span>, {}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>});
-  injects.style.push(<span class="hljs-string">&#x27;views/gitter.styl&#x27;</span>);
-});</code>
-</pre><p>创建<code>views/gitter.styl</code>文件</p>
-<pre>
-<code class="css"><span class="hljs-selector-class">.gitter-open-chat-button</span> {
-  <span class="hljs-attribute">background-color</span>: slateblue;
-  <span class="hljs-attribute">margin-bottom</span>: .<span class="hljs-number">8rem</span>;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">1rem</span>;
-  <span class="hljs-attribute">padding</span>: .<span class="hljs-number">4rem</span> .<span class="hljs-number">8rem</span>;
-  <span class="hljs-attribute">border-radius</span>: .<span class="hljs-number">6rem</span>;
-  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> .<span class="hljs-number">4rem</span> <span class="hljs-number">#111</span>;
-  <span class="hljs-attribute">opacity</span>: .<span class="hljs-number">9</span>;
-}
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>&#123;<br>  injects.head.file(<span class="hljs-string">&#x27;gitter&#x27;</span>, <span class="hljs-string">&#x27;views/gitter.swig&#x27;</span>, &#123;&#125;, &#123;<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>&#125;);<br>  injects.style.push(<span class="hljs-string">&#x27;views/gitter.styl&#x27;</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-pseudo">:focus</span>,<span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-pseudo">:hover</span> {
-  <span class="hljs-attribute">background-color</span>: slateblue;
-  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">0.8rem</span> <span class="hljs-number">#111</span>;
-}
+<p>创建<code>views/gitter.styl</code>文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.gitter-open-chat-button</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: slateblue;<br>  <span class="hljs-attribute">margin-bottom</span>: .<span class="hljs-number">8rem</span>;<br>  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">1rem</span>;<br>  <span class="hljs-attribute">padding</span>: .<span class="hljs-number">4rem</span> .<span class="hljs-number">8rem</span>;<br>  <span class="hljs-attribute">border-radius</span>: .<span class="hljs-number">6rem</span>;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> .<span class="hljs-number">4rem</span> <span class="hljs-number">#111</span>;<br>  <span class="hljs-attribute">opacity</span>: .<span class="hljs-number">9</span>;<br>&#125;<br><br><span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-pseudo">:focus</span>,<span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: slateblue;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">0.8rem</span> <span class="hljs-number">#111</span>;<br>&#125;<br><br><span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-class">.is-collapsed</span> &#123;<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(<span class="hljs-number">150%</span>);<br>&#125;<br><br><span class="hljs-selector-class">.sidebar-toggle</span> &#123;<br>  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">18px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-class">.is-collapsed</span> {
-  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(<span class="hljs-number">150%</span>);
-}
-
-<span class="hljs-selector-class">.sidebar-toggle</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">18px</span>;
-}</code>
-</pre><p>再次运行，按钮的样式变咯，你觉得相对于原来是好看还是…？</p>
+<p>再次运行，按钮的样式变咯，你觉得相对于原来是好看还是…？</p>
 <h1 id="制作npm插件" class="article-heading">制作NPM插件<a class="article-anchor" href="#制作npm插件" aria-hidden="true"></a></h1>
 <p>开源的精神在于分享，当你将你的主题自定义之后，你可能会写一篇文章《如何实现在NexT中XXXX》。然后，Visitor看到后，跟着你一点点的改。虽然没什么问题。但毕竟“懒”才是原动力，如果我们能将这一切放入到一个NPM插件中，那么他们使用的时候，就只需要<code>yarn add xxxx</code>就行了。这将多方便呀！！！</p>
 <p>接下来要实现是一个集合滑动到底部/头部和阅读进度的插件，最终效果见<a rel="noopener" target="_blank" href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a>，以及右下角的那个按钮</p>
 <p>为了能上传至NPM仓库，你首先需要在它上面创建一个账户:<a rel="noopener" target="_blank" href="https://www.npmjs.com/">https://www.npmjs.com/</a>，另外为了方便，我是用的是yarn作为命令行工具</p>
 <h2 id="初始化一个npm包" class="article-heading">初始化一个NPM包<a class="article-anchor" href="#初始化一个npm包" aria-hidden="true"></a></h2>
 <p>新建一个文件夹，并在里面运行<code>yarn init</code>，会问你一系列的问题(如下面)，完成后会初始化一个package.json</p>
-<pre>
-<code class="cmd">PS C:\Users\MrTT\Desktop\hexo-moon-menu&gt; yarn init
-yarn init v1.<span class="hljs-number">16</span>.<span class="hljs-number">0</span>
-question name (hexo-moon-menu): @jiangtj/hexo-moon-menu
-question version (<span class="hljs-number">1</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>):
-question description: Hallo
-question entry point (index.js):
-question repository url: https://github.com/jiangtj/hexo-theme-cake.git
-question author: Mr.J
-question license (MIT): LGPL-<span class="hljs-number">3</span>.<span class="hljs-number">0</span>
-question private: false
-success Saved package.json
-Done <span class="hljs-keyword">in</span> <span class="hljs-number">99</span>.<span class="hljs-number">85</span>s.</code>
-</pre><ul>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cmd">PS C:\Users\MrTT\Desktop\hexo-moon-menu&gt; yarn init<br>yarn init v1.<span class="hljs-number">16</span>.<span class="hljs-number">0</span><br>question name (hexo-moon-menu): @jiangtj/hexo-moon-menu<br>question version (<span class="hljs-number">1</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>):<br>question description: Hallo<br>question entry point (index.js):<br>question repository url: https://github.com/jiangtj/hexo-theme-cake.git<br>question author: Mr.J<br>question license (MIT): LGPL-<span class="hljs-number">3</span>.<span class="hljs-number">0</span><br>question private: false<br>success Saved package.json<br>Done <span class="hljs-keyword">in</span> <span class="hljs-number">99</span>.<span class="hljs-number">85</span>s.<br></code></pre></td></tr></table></figure>
+
+<ul>
 <li>name建议添加<code>@scope</code>也就是<code>@你的用户名</code>，毕竟到时候有一样名字的包，无法上传</li>
 <li>name必须以<code>hexo-</code>或者<code>@scope/hexo-</code>开头</li>
 </ul>
 <h2 id="创建例子工程预览插件" class="article-heading">创建例子工程预览插件<a class="article-anchor" href="#创建例子工程预览插件" aria-hidden="true"></a></h2>
 <p>你需要将你的插件上传上出（这步原本是最后一步，但由于hexo会检测package.json来执行插件，所以必须先有插件），在当前项目中运行<code>yarn publish --access public</code></p>
 <p>添加一个<code>.gitignore</code>，如果默认情况下，npm也会依据它忽略不必要的文件</p>
-<pre>
-<code class="">node_modules/
-*.log
-example/</code>
-</pre><p>运行以下命令，来创建例子项目</p>
-<pre>
-<code class="bash"><span class="hljs-comment"># 在example创建hexo项目</span>
-hexo init example
-<span class="hljs-comment"># 进入到example目录下</span>
-<span class="hljs-built_in">cd</span> example
-<span class="hljs-comment"># 添加next主题</span>
-git <span class="hljs-built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next
-<span class="hljs-comment"># 切换主题配置</span>
-hexo config theme next
-<span class="hljs-comment"># 切换Gemini scheme, 这次的插件由于和展开侧边栏的冲突，所以Muse中暂时不支持，如果你感兴趣可以自行在Muse中实现</span>
-hexo config theme_config.scheme Gemini
-<span class="hljs-comment"># 运行预览</span>
-hexo s</code>
-</pre><p>关联插件</p>
-<pre>
-<code class="bash"><span class="hljs-comment"># 添加依赖</span>
-yarn add <span class="hljs-string">&quot;@jiangtj/hexo-moon-menu&quot;</span>
-<span class="hljs-comment"># 为插件创建引用，来调试</span>
-<span class="hljs-built_in">cd</span> ..
-yarn link
-<span class="hljs-built_in">cd</span> example
-yarn link <span class="hljs-string">&quot;@jiangtj/hexo-moon-menu&quot;</span>
-<span class="hljs-comment"># 运行预览，由于什么都没做所以没什么变话</span>
-hexo s</code>
-</pre><h2 id="布局与样式" class="article-heading">布局与样式<a class="article-anchor" href="#布局与样式" aria-hidden="true"></a></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">node_modules&#x2F;<br>*.log<br>example&#x2F;<br></code></pre></td></tr></table></figure>
+
+<p>运行以下命令，来创建例子项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在example创建hexo项目</span><br>hexo init example<br><span class="hljs-comment"># 进入到example目录下</span><br><span class="hljs-built_in">cd</span> example<br><span class="hljs-comment"># 添加next主题</span><br>git <span class="hljs-built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next<br><span class="hljs-comment"># 切换主题配置</span><br>hexo config theme next<br><span class="hljs-comment"># 切换Gemini scheme, 这次的插件由于和展开侧边栏的冲突，所以Muse中暂时不支持，如果你感兴趣可以自行在Muse中实现</span><br>hexo config theme_config.scheme Gemini<br><span class="hljs-comment"># 运行预览</span><br>hexo s<br></code></pre></td></tr></table></figure>
+
+<p>关联插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 添加依赖</span><br>yarn add <span class="hljs-string">&quot;@jiangtj/hexo-moon-menu&quot;</span><br><span class="hljs-comment"># 为插件创建引用，来调试</span><br><span class="hljs-built_in">cd</span> ..<br>yarn link<br><span class="hljs-built_in">cd</span> example<br>yarn link <span class="hljs-string">&quot;@jiangtj/hexo-moon-menu&quot;</span><br><span class="hljs-comment"># 运行预览，由于什么都没做所以没什么变话</span><br>hexo s<br></code></pre></td></tr></table></figure>
+
+<h2 id="布局与样式" class="article-heading">布局与样式<a class="article-anchor" href="#布局与样式" aria-hidden="true"></a></h2>
 <p>接下来将我的项目中<a rel="noopener" target="_blank" href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a>以下部分复制到你的插件项目</p>
 <ul>
 <li>default.yaml 默认配置</li>
@@ -371,65 +318,20 @@ hexo s</code>
 <p>在上面的Injects使用中，你能体会到重点在于js脚本，样式等都是通过它进行组织的，所以样式我就忽略了，如果你想研究可以查看那些</p>
 <h2 id="脚本" class="article-heading">脚本<a class="article-anchor" href="#脚本" aria-hidden="true"></a></h2>
 <p>package.json 中的 main 定义了脚本的入口文件，默认是<code>index.js</code>，所以我们创建它，并添加以下内容</p>
-<pre>
-<code class="js"><span class="hljs-comment">// 需要引入的依赖</span>
-<span class="hljs-keyword">const</span> yaml = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;js-yaml&#x27;</span>);
-<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);
-<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 需要引入的依赖</span><br><span class="hljs-keyword">const</span> yaml = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;js-yaml&#x27;</span>);<br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);<br><br>hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>&#123;<br><br>  <span class="hljs-comment">// 需要禁用原本的按钮</span><br>  hexo.theme.config.back2top.enable = <span class="hljs-literal">false</span>;<br><br>  <span class="hljs-comment">// 读取默认配置文件</span><br>  <span class="hljs-comment">// __dirname至该文件的绝对目录，需要注意这里的位置如果不使用path获取绝对路径，文件读出会异常（建议你尝试，体验npm的坑）</span><br>  <span class="hljs-keyword">let</span> defaultConfig = yaml.safeLoad(fs.readFileSync(path.join(__dirname, <span class="hljs-string">&#x27;default.yaml&#x27;</span>)));<br>  <span class="hljs-comment">// 合并默认配置与hexo里的moon_menu配置</span><br>  <span class="hljs-keyword">let</span> moonMenu = <span class="hljs-built_in">Object</span>.assign(defaultConfig, hexo.config.moon_menu);<br><br>  <span class="hljs-comment">// 重新组织菜单，排序等</span><br>  <span class="hljs-keyword">let</span> moonMenuArr = <span class="hljs-built_in">Object</span>.keys(moonMenu)<br>    .map(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> moonMenu[key])<br>    .map(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;<br>      item.order = item.order || <span class="hljs-number">0</span>;<br>      <span class="hljs-keyword">if</span> (item.enable === <span class="hljs-literal">undefined</span>) &#123;<br>        item.enable = <span class="hljs-literal">true</span>;<br>      &#125;<br>      <span class="hljs-keyword">return</span> item;<br>    &#125;)<br>    .filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.enable)<br>    .sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.order - b.order);<br><br>  <span class="hljs-comment">// 添加布局</span><br>  injects.bodyEnd.file(<span class="hljs-string">&#x27;moon-menu&#x27;</span>, path.join(__dirname, <span class="hljs-string">&#x27;moon-menu.swig&#x27;</span>), &#123;<span class="hljs-attr">menus</span>: moonMenuArr&#125;, &#123;<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">only</span>: <span class="hljs-literal">true</span>&#125;);<br>  <span class="hljs-comment">// 添加样式</span><br>  injects.style.push(path.join(__dirname, <span class="hljs-string">&#x27;moon-menu.styl&#x27;</span>));<br><br>&#125;);<br></code></pre></td></tr></table></figure>
 
-hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>{
+<p>忘了，你需要添加<code>js-yaml</code>依赖用于解析yaml</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ..<br>yarn add js-yaml<br><span class="hljs-built_in">cd</span> example<br>hexo s<br></code></pre></td></tr></table></figure>
 
-  <span class="hljs-comment">// 需要禁用原本的按钮</span>
-  hexo.theme.config.back2top.enable = <span class="hljs-literal">false</span>;
-
-  <span class="hljs-comment">// 读取默认配置文件</span>
-  <span class="hljs-comment">// __dirname至该文件的绝对目录，需要注意这里的位置如果不使用path获取绝对路径，文件读出会异常（建议你尝试，体验npm的坑）</span>
-  <span class="hljs-keyword">let</span> defaultConfig = yaml.safeLoad(fs.readFileSync(path.join(__dirname, <span class="hljs-string">&#x27;default.yaml&#x27;</span>)));
-  <span class="hljs-comment">// 合并默认配置与hexo里的moon_menu配置</span>
-  <span class="hljs-keyword">let</span> moonMenu = <span class="hljs-built_in">Object</span>.assign(defaultConfig, hexo.config.moon_menu);
-
-  <span class="hljs-comment">// 重新组织菜单，排序等</span>
-  <span class="hljs-keyword">let</span> moonMenuArr = <span class="hljs-built_in">Object</span>.keys(moonMenu)
-    .map(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> moonMenu[key])
-    .map(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> {
-      item.order = item.order || <span class="hljs-number">0</span>;
-      <span class="hljs-keyword">if</span> (item.enable === <span class="hljs-literal">undefined</span>) {
-        item.enable = <span class="hljs-literal">true</span>;
-      }
-      <span class="hljs-keyword">return</span> item;
-    })
-    .filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.enable)
-    .sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.order - b.order);
-
-  <span class="hljs-comment">// 添加布局</span>
-  injects.bodyEnd.file(<span class="hljs-string">&#x27;moon-menu&#x27;</span>, path.join(__dirname, <span class="hljs-string">&#x27;moon-menu.swig&#x27;</span>), {<span class="hljs-attr">menus</span>: moonMenuArr}, {<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">only</span>: <span class="hljs-literal">true</span>});
-  <span class="hljs-comment">// 添加样式</span>
-  injects.style.push(path.join(__dirname, <span class="hljs-string">&#x27;moon-menu.styl&#x27;</span>));
-
-});</code>
-</pre><p>忘了，你需要添加<code>js-yaml</code>依赖用于解析yaml</p>
-<pre>
-<code class="bash"><span class="hljs-built_in">cd</span> ..
-yarn add js-yaml
-<span class="hljs-built_in">cd</span> example
-hexo s</code>
-</pre><p>再次运行预览，你就可以看到按钮添加到你的例子工程中拉</p>
+<p>再次运行预览，你就可以看到按钮添加到你的例子工程中拉</p>
 <h2 id="上传与分享" class="article-heading">上传与分享<a class="article-anchor" href="#上传与分享" aria-hidden="true"></a></h2>
 <p>完成后记得别忘记上传<code>yarn publish --access public</code>，然后赶紧在自己的博客中试下把<code>yarn add @jiangtj/hexo-moon-menu</code></p>
 <p>如果你希望更多看到与使用你的插件，欢迎提交PR至 <a rel="noopener" target="_blank" href="https://github.com/theme-next/awesome-next">Awesome-NexT</a></p>
 <h2 id="其它" class="article-heading">其它<a class="article-anchor" href="#其它" aria-hidden="true"></a></h2>
 <p>我们在插件中也可以载入其他hexo的插件，在添加hexo插件（<code>yarn add plugin-name</code>）之后。通过以下代码加载脚本</p>
-<pre>
-<code class="js"><span class="hljs-keyword">const</span> tagcloud = hexo.resolvePlugin(<span class="hljs-string">&#x27;plugin-name&#x27;</span>)
-hexo.loadPlugin(tagcloud).then(<span class="hljs-function">() =&gt;</span> {
-  hexo.log.debug(<span class="hljs-string">&#x27;Plugin loaded: plugin-name&#x27;</span>);
-}).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> {
-  hexo.log.error({err}, <span class="hljs-string">&#x27;Plugin load failed: plugin-name&#x27;</span>);
-});
-hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-params">injects</span> =&gt;</span> {
-  <span class="hljs-comment">//...</span>
-});</code>
-</pre><blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> tagcloud = hexo.resolvePlugin(<span class="hljs-string">&#x27;plugin-name&#x27;</span>)<br>hexo.loadPlugin(tagcloud).then(<span class="hljs-function">() =&gt;</span> &#123;<br>  hexo.log.debug(<span class="hljs-string">&#x27;Plugin loaded: plugin-name&#x27;</span>);<br>&#125;).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>  hexo.log.error(&#123;err&#125;, <span class="hljs-string">&#x27;Plugin load failed: plugin-name&#x27;</span>);<br>&#125;);<br>hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-params">injects</span> =&gt;</span> &#123;<br>  <span class="hljs-comment">//...</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
 <p>注意：<code>hexo.loadPlugin</code>需要放在过滤器等的外边，确保其在第一时间执行，上面的代码来自一个例子：<a rel="noopener" target="_blank" href="https://github.com/jiangtj-lab/hexo-next-wapper-tag-cloud">hexo-next-wapper-tag-cloud</a></p>
 </blockquote>
 <h1 id="后世果" class="article-heading">后世果<a class="article-anchor" href="#后世果" aria-hidden="true"></a></h1>
@@ -554,13 +456,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

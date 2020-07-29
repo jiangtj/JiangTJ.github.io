@@ -14,12 +14,23 @@
 <meta property="og:url" content="https://jiangtj.com/articles/almond/f-open-feign/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="Feign是轻量级、声明式的Http请求客户端，它吸收了来自的Retrofit JAXRS-2.0和WebSocket的灵感，为了使写Http请求变得更容易而诞生     Feign一开始作为Eureka的子项目，用于简化Http请求。但由于其不断完善，目前作为一个轻量级、声明式的Http请求客户端项目，独立维护。在Spring Cloud中，其引入了Feign，并提供了一系列默认的配置与Spri">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="article:published_time" content="2018-07-31T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-07-31T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="Spring Cloud">
 <meta name="twitter:card" content="summary">  <title>Spring Cloud 之 Feign （Finchley版） | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/f-open-feign/"},"headline":"Spring Cloud 之 Feign （Finchley版）","image":[],"datePublished":"2018-07-31T16:00:00.000Z","dateModified":"2018-07-31T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -30,7 +41,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -128,7 +139,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入web相关依赖"><span class="nav-number">1.1.</span> <span class="nav-text">引入web相关依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写curl-controller"><span class="nav-number">1.2.</span> <span class="nav-text">编写Curl Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写测试用例"><span class="nav-number">1.3.</span> <span class="nav-text">编写测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试接口"><span class="nav-number">1.4.</span> <span class="nav-text">测试接口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#feign服务"><span class="nav-number">2.</span> <span class="nav-text">Feign服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相对于基础的客户端，多引入feign依赖，并启用feign"><span class="nav-number">2.1.</span> <span class="nav-text">相对于基础的客户端，多引入Feign依赖，并启用Feign</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写声明式的feign接口"><span class="nav-number">2.2.</span> <span class="nav-text">编写声明式的Feign接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用feign服务"><span class="nav-number">2.3.</span> <span class="nav-text">调用Feign服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问接口测试"><span class="nav-number">2.4.</span> <span class="nav-text">访问接口测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5web%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="nav-number">1.1.</span> <span class="nav-text">引入web相关依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99curl-controller"><span class="nav-number">1.2.</span> <span class="nav-text">编写Curl Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">编写测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.4.</span> <span class="nav-text">测试接口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#feign%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">Feign服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E4%BA%8E%E5%9F%BA%E7%A1%80%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%8C%E5%A4%9A%E5%BC%95%E5%85%A5feign%E4%BE%9D%E8%B5%96%EF%BC%8C%E5%B9%B6%E5%90%AF%E7%94%A8feign"><span class="nav-number">2.1.</span> <span class="nav-text">相对于基础的客户端，多引入Feign依赖，并启用Feign</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E5%A3%B0%E6%98%8E%E5%BC%8F%E7%9A%84feign%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.2.</span> <span class="nav-text">编写声明式的Feign接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E7%94%A8feign%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.3.</span> <span class="nav-text">调用Feign服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95"><span class="nav-number">2.4.</span> <span class="nav-text">访问接口测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -244,218 +255,29 @@
 <p>需要Eureka Server，这部分看之前的文档部署，这篇以及以后的文章不在多提</p>
 <p>搭建基础的Eureka Client，给Feign Clinet调用    </p>
 <h2 id="引入web相关依赖" class="article-heading">引入web相关依赖<a class="article-anchor" href="#引入web相关依赖" aria-hidden="true"></a></h2>
-<pre>
-<code class="xml"><span class="hljs-comment">&lt;!-- 为了方便引入了lombok --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-webflux<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.projectreactor<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>reactor-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code>
-</pre><h2 id="编写curl-controller" class="article-heading">编写Curl Controller<a class="article-anchor" href="#编写curl-controller" aria-hidden="true"></a></h2>
-<pre>
-<code class="java"><span class="hljs-meta">@Slf4j</span>
-<span class="hljs-meta">@RestController</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurlController</span> </span>{
-
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ObjectMapper objectMapper;
-
-    <span class="hljs-meta">@GetMapping(&quot;/curl/{id}&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> Long id)</span></span>{
-        <span class="hljs-keyword">return</span> Mono.just(id).map(item -&gt; <span class="hljs-string">&quot;Your id is &quot;</span> + item);
-    }
-
-    <span class="hljs-meta">@GetMapping(&quot;/curl&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> MultiValueMap&lt;String,String&gt; queryParams)</span></span>{
-        <span class="hljs-keyword">return</span> Mono.just(queryParams).map(item -&gt; <span class="hljs-string">&quot;Your QueryParams is &quot;</span> + item);
-    }
-
-    <span class="hljs-meta">@PostMapping(&quot;/curl&quot;)</span>
-    <span class="hljs-meta">@ResponseStatus(HttpStatus.CREATED)</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">post</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Mono&lt;User&gt; user)</span></span>{
-        <span class="hljs-keyword">return</span> user.map(CurlController::toJson).map(item -&gt; <span class="hljs-string">&quot;Your Body is &quot;</span> + item);
-    }
-
-    <span class="hljs-meta">@PutMapping(&quot;/curl&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">put</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Mono&lt;User&gt; user)</span></span>{
-        <span class="hljs-keyword">return</span> post(user);
-    }
-
-    <span class="hljs-meta">@DeleteMapping(&quot;/curl&quot;)</span>
-    <span class="hljs-meta">@ResponseStatus(HttpStatus.NO_CONTENT)</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;Fail&quot;</span>);
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ObjectMapper <span class="hljs-title">getObjectMapper</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">if</span> (objectMapper == <span class="hljs-keyword">null</span>) {
-            objectMapper = <span class="hljs-keyword">new</span> ObjectMapper();
-        }
-        <span class="hljs-keyword">return</span> objectMapper;
-    }
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">toJson</span><span class="hljs-params">(Object object)</span> </span>{
-        ObjectMapper mapper = getObjectMapper();
-        <span class="hljs-keyword">try</span> {
-            <span class="hljs-keyword">return</span> mapper.writeValueAsString(object);
-        } <span class="hljs-keyword">catch</span> (Exception e) {
-            log.error(e.getMessage());
-        }
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-    }
-}</code>
-</pre><h2 id="编写测试用例" class="article-heading">编写测试用例<a class="article-anchor" href="#编写测试用例" aria-hidden="true"></a></h2>
-<pre>
-<code class="java">@RunWith(SpringRunner.class)
-@SpringBootTest
-public class CurlControllerTest {
-
-    @Autowired
-    private ApplicationContext context;
-
-    private WebTestClient client;
-
-    @Before
-    public void setUp() {
-        client = WebTestClient.bindToApplicationContext(context).build();
-    }
-
-    @Test
-    public void get() {
-
-        client.get().uri(&quot;/curl/1&quot;)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(String.class).isEqualTo(&quot;Your id is 1&quot;);
-
-        client.get().uri(&quot;/curl?name=Jone Test&quot;)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(String.class).isEqualTo(&quot;Your QueryParams is {name=[Jone Test]}&quot;);
-
-    }
-
-    @Test
-    public void post() {
-        client.post().uri(&quot;/curl&quot;)
-                .contentType(MediaType.APPLICATION_JSON)
-                .syncBody(User.of(&quot;Jone Po&quot;,25,1))
-                .exchange()
-                .expectStatus().isCreated()
-                .expectBody(String.class).isEqualTo(&quot;Your Body is {\&quot;name\&quot;:\&quot;Jone Po\&quot;,\&quot;age\&quot;:25,\&quot;sex\&quot;:1}&quot;);
-    }
-
-    @Test
-    public void put() {
-        client.put().uri(&quot;/curl&quot;)
-                .contentType(MediaType.APPLICATION_JSON)
-                .syncBody(User.of(&quot;Jone Po&quot;,25,1))
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(String.class).isEqualTo(&quot;Your Body is {\&quot;name\&quot;:\&quot;Jone Po\&quot;,\&quot;age\&quot;:25,\&quot;sex\&quot;:1}&quot;);
-    }
-
-    @Test
-    public void delete() {
-        client.delete().uri(&quot;/curl&quot;).exchange().expectStatus().isNoContent();
-    }
-}</code>
-</pre><h2 id="测试接口" class="article-heading">测试接口<a class="article-anchor" href="#测试接口" aria-hidden="true"></a></h2>
-<pre>
-<code class="">[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.204 s <<< FAILURE! - in com.jtj.cloud.baseclient.CurlControllerTest
-[ERROR] delete(com.jtj.cloud.baseclient.CurlControllerTest)  Time elapsed: 0.077 s  <<< FAILURE!</code>
-</pre><p>测试接口如预期，成功3个，失败1个（删除接口）    </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 为了方便引入了lombok --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-webflux<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.projectreactor<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>reactor-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="编写curl-controller" class="article-heading">编写Curl Controller<a class="article-anchor" href="#编写curl-controller" aria-hidden="true"></a></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurlController</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ObjectMapper objectMapper;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/curl/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> Long id)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> Mono.just(id).map(item -&gt; <span class="hljs-string">&quot;Your id is &quot;</span> + item);<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/curl&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> MultiValueMap&lt;String,String&gt; queryParams)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> Mono.just(queryParams).map(item -&gt; <span class="hljs-string">&quot;Your QueryParams is &quot;</span> + item);<br>    &#125;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/curl&quot;)</span><br>    <span class="hljs-meta">@ResponseStatus(HttpStatus.CREATED)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">post</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Mono&lt;User&gt; user)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> user.map(CurlController::toJson).map(item -&gt; <span class="hljs-string">&quot;Your Body is &quot;</span> + item);<br>    &#125;<br><br>    <span class="hljs-meta">@PutMapping(&quot;/curl&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;String&gt; <span class="hljs-title">put</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Mono&lt;User&gt; user)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> post(user);<br>    &#125;<br><br>    <span class="hljs-meta">@DeleteMapping(&quot;/curl&quot;)</span><br>    <span class="hljs-meta">@ResponseStatus(HttpStatus.NO_CONTENT)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&quot;Fail&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ObjectMapper <span class="hljs-title">getObjectMapper</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">if</span> (objectMapper == <span class="hljs-keyword">null</span>) &#123;<br>            objectMapper = <span class="hljs-keyword">new</span> ObjectMapper();<br>        &#125;<br>        <span class="hljs-keyword">return</span> objectMapper;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">toJson</span><span class="hljs-params">(Object object)</span> </span>&#123;<br>        ObjectMapper mapper = getObjectMapper();<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">return</span> mapper.writeValueAsString(object);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            log.error(e.getMessage());<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="编写测试用例" class="article-heading">编写测试用例<a class="article-anchor" href="#编写测试用例" aria-hidden="true"></a></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span><br><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CurlControllerTest</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> ApplicationContext context;<br><br>    <span class="hljs-keyword">private</span> WebTestClient client;<br><br>    <span class="hljs-meta">@Before</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setUp</span><span class="hljs-params">()</span> </span>&#123;<br>        client = WebTestClient.bindToApplicationContext(context).build();<br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">get</span><span class="hljs-params">()</span> </span>&#123;<br><br>        client.get().uri(<span class="hljs-string">&quot;/curl/1&quot;</span>)<br>                .exchange()<br>                .expectStatus().isOk()<br>                .expectBody(String.class).isEqualTo(&quot;Your id is <span class="hljs-number">1</span><span class="hljs-string">&quot;);</span><br><span class="hljs-string"></span><br><span class="hljs-string">        client.get().uri(&quot;</span>/curl?name=Jone Test<span class="hljs-string">&quot;)</span><br><span class="hljs-string">                .exchange()</span><br><span class="hljs-string">                .expectStatus().isOk()</span><br><span class="hljs-string">                .expectBody(String.class).isEqualTo(&quot;</span>Your QueryParams is &#123;name=[Jone Test]&#125;<span class="hljs-string">&quot;);</span><br><span class="hljs-string"></span><br><span class="hljs-string">    &#125;</span><br><span class="hljs-string"></span><br><span class="hljs-string">    @Test</span><br><span class="hljs-string">    public void post() &#123;</span><br><span class="hljs-string">        client.post().uri(&quot;</span>/curl<span class="hljs-string">&quot;)</span><br><span class="hljs-string">                .contentType(MediaType.APPLICATION_JSON)</span><br><span class="hljs-string">                .syncBody(User.of(&quot;</span>Jone Po<span class="hljs-string">&quot;,25,1))</span><br><span class="hljs-string">                .exchange()</span><br><span class="hljs-string">                .expectStatus().isCreated()</span><br><span class="hljs-string">                .expectBody(String.class).isEqualTo(&quot;</span>Your Body is &#123;\<span class="hljs-string">&quot;name\&quot;:\&quot;Jone Po\&quot;,\&quot;age\&quot;:25,\&quot;sex\&quot;:1&#125;&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">()</span> </span>&#123;<br>        client.put().uri(<span class="hljs-string">&quot;/curl&quot;</span>)<br>                .contentType(MediaType.APPLICATION_JSON)<br>                .syncBody(User.of(<span class="hljs-string">&quot;Jone Po&quot;</span>,<span class="hljs-number">25</span>,<span class="hljs-number">1</span>))<br>                .exchange()<br>                .expectStatus().isOk()<br>                .expectBody(String.class).isEqualTo(&quot;Your Body is &#123;\&quot;name\&quot;:\&quot;Jone Po\&quot;,\&quot;age\&quot;:<span class="hljs-number">25</span>,\<span class="hljs-string">&quot;sex\&quot;:1&#125;&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">()</span> </span>&#123;<br>        client.delete().uri(<span class="hljs-string">&quot;/curl&quot;</span>).exchange().expectStatus().isNoContent();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="测试接口" class="article-heading">测试接口<a class="article-anchor" href="#测试接口" aria-hidden="true"></a></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.204 s &lt;&lt;&lt; FAILURE! - in com.jtj.cloud.baseclient.CurlControllerTest<br>[ERROR] delete(com.jtj.cloud.baseclient.CurlControllerTest)  Time elapsed: 0.077 s  &lt;&lt;&lt; FAILURE!<br></code></pre></td></tr></table></figure>
+<p>测试接口如预期，成功3个，失败1个（删除接口）    </p>
 <h1 id="feign服务" class="article-heading">Feign服务<a class="article-anchor" href="#feign服务" aria-hidden="true"></a></h1>
 <h2 id="相对于基础的客户端，多引入feign依赖，并启用feign" class="article-heading">相对于基础的客户端，多引入Feign依赖，并启用Feign<a class="article-anchor" href="#相对于基础的客户端，多引入feign依赖，并启用feign" aria-hidden="true"></a></h2>
-<pre>
-<code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code>
-</pre><pre>
-<code class="java"><span class="hljs-meta">@EnableFeignClients</span>
-<span class="hljs-meta">@SpringCloudApplication</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FeignClientApplication</span> </span>{
-    <span class="hljs-comment">//...</span>
-}</code>
-</pre><h2 id="编写声明式的feign接口" class="article-heading">编写声明式的Feign接口<a class="article-anchor" href="#编写声明式的feign接口" aria-hidden="true"></a></h2>
-<pre>
-<code class="java"><span class="hljs-meta">@FeignClient(value = &quot;base-client&quot;)</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BaseClient</span> </span>{
-
-    <span class="hljs-meta">@GetMapping(&quot;/&quot;)</span>
-    <span class="hljs-function">String <span class="hljs-title">getBaseClientData</span><span class="hljs-params">()</span></span>;
-
-    <span class="hljs-meta">@GetMapping(&quot;/curl/{id}&quot;)</span>
-    <span class="hljs-function">String <span class="hljs-title">getUser</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>;
-
-    <span class="hljs-meta">@GetMapping(&quot;/curl&quot;)</span>
-    <span class="hljs-function">String <span class="hljs-title">getUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> Map&lt;String,String&gt; query)</span></span>;
-
-    <span class="hljs-meta">@PostMapping(&quot;/curl&quot;)</span>
-    <span class="hljs-function">String <span class="hljs-title">postUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> User user)</span></span>;
-
-    <span class="hljs-meta">@PutMapping(&quot;/curl&quot;)</span>
-    <span class="hljs-function">String <span class="hljs-title">putUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> User user)</span></span>;
-
-    <span class="hljs-meta">@DeleteMapping(&quot;/curl&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteUser</span><span class="hljs-params">()</span></span>;
-
-}</code>
-</pre><p>该接口注解与Spring MVC的基本一致（@PathVariable不能省略value值）<br>其中@FeignClient定义该接口实例化为Feign服务并注入到Spring中，由Spring管理，value值为配置文件中微服务的名称（spring.application.name的值）   </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@EnableFeignClients</span><br><span class="hljs-meta">@SpringCloudApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FeignClientApplication</span> </span>&#123;<br>    <span class="hljs-comment">//...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="编写声明式的feign接口" class="article-heading">编写声明式的Feign接口<a class="article-anchor" href="#编写声明式的feign接口" aria-hidden="true"></a></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FeignClient(value = &quot;base-client&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">BaseClient</span> </span>&#123;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/&quot;)</span><br>    <span class="hljs-function">String <span class="hljs-title">getBaseClientData</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/curl/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function">String <span class="hljs-title">getUser</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/curl&quot;)</span><br>    <span class="hljs-function">String <span class="hljs-title">getUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> Map&lt;String,String&gt; query)</span></span>;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/curl&quot;)</span><br>    <span class="hljs-function">String <span class="hljs-title">postUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> User user)</span></span>;<br><br>    <span class="hljs-meta">@PutMapping(&quot;/curl&quot;)</span><br>    <span class="hljs-function">String <span class="hljs-title">putUser</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> User user)</span></span>;<br><br>    <span class="hljs-meta">@DeleteMapping(&quot;/curl&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">deleteUser</span><span class="hljs-params">()</span></span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>该接口注解与Spring MVC的基本一致（@PathVariable不能省略value值）<br>其中@FeignClient定义该接口实例化为Feign服务并注入到Spring中，由Spring管理，value值为配置文件中微服务的名称（spring.application.name的值）   </p>
 <h2 id="调用feign服务" class="article-heading">调用Feign服务<a class="article-anchor" href="#调用feign服务" aria-hidden="true"></a></h2>
-<pre>
-<code class="java">
-<span class="hljs-meta">@Resource</span>
-<span class="hljs-keyword">private</span> BaseClient baseClient;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@Resource</span><br><span class="hljs-keyword">private</span> BaseClient baseClient;<br><br>   <br><span class="hljs-meta">@GetMapping(&quot;/base/curl&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String,String&gt; <span class="hljs-title">getBaseClientCurl</span><span class="hljs-params">()</span></span>&#123;<br>    Map&lt;String,String&gt; result = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br><br>    result.put(<span class="hljs-string">&quot;ID 1&quot;</span>,baseClient.getUser(<span class="hljs-number">1L</span>));<br>    Map&lt;String,String&gt; query = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br><br>    query.put(<span class="hljs-string">&quot;name&quot;</span>,<span class="hljs-string">&quot;Jone Taki&quot;</span>);<br>    result.put(<span class="hljs-string">&quot;Query Jone&quot;</span>,baseClient.getUser(query));<br><br>    result.put(<span class="hljs-string">&quot;Post&quot;</span>,baseClient.postUser(User.of(<span class="hljs-string">&quot;Jone Tiki&quot;</span>,<span class="hljs-number">20</span>,<span class="hljs-number">1</span>)));<br>    result.put(<span class="hljs-string">&quot;Put&quot;</span>,baseClient.postUser(User.of(<span class="hljs-string">&quot;Jone Kolo&quot;</span>,<span class="hljs-number">30</span>,<span class="hljs-number">1</span>)));<br><br>    <span class="hljs-keyword">try</span> &#123;<br>        baseClient.deleteUser();<br>        result.put(<span class="hljs-string">&quot;Delete&quot;</span>,<span class="hljs-string">&quot;success&quot;</span>);<br>    &#125; <span class="hljs-keyword">catch</span> (RuntimeException e) &#123;<br>        result.put(<span class="hljs-string">&quot;Delete&quot;</span>,<span class="hljs-string">&quot;fail: &quot;</span> + e.getMessage());<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-
-<span class="hljs-meta">@GetMapping(&quot;/base/curl&quot;)</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String,String&gt; <span class="hljs-title">getBaseClientCurl</span><span class="hljs-params">()</span></span>{
-    Map&lt;String,String&gt; result = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
-
-    result.put(<span class="hljs-string">&quot;ID 1&quot;</span>,baseClient.getUser(<span class="hljs-number">1L</span>));
-    Map&lt;String,String&gt; query = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
-
-    query.put(<span class="hljs-string">&quot;name&quot;</span>,<span class="hljs-string">&quot;Jone Taki&quot;</span>);
-    result.put(<span class="hljs-string">&quot;Query Jone&quot;</span>,baseClient.getUser(query));
-
-    result.put(<span class="hljs-string">&quot;Post&quot;</span>,baseClient.postUser(User.of(<span class="hljs-string">&quot;Jone Tiki&quot;</span>,<span class="hljs-number">20</span>,<span class="hljs-number">1</span>)));
-    result.put(<span class="hljs-string">&quot;Put&quot;</span>,baseClient.postUser(User.of(<span class="hljs-string">&quot;Jone Kolo&quot;</span>,<span class="hljs-number">30</span>,<span class="hljs-number">1</span>)));
-
-    <span class="hljs-keyword">try</span> {
-        baseClient.deleteUser();
-        result.put(<span class="hljs-string">&quot;Delete&quot;</span>,<span class="hljs-string">&quot;success&quot;</span>);
-    } <span class="hljs-keyword">catch</span> (RuntimeException e) {
-        result.put(<span class="hljs-string">&quot;Delete&quot;</span>,<span class="hljs-string">&quot;fail: &quot;</span> + e.getMessage());
-    }
-
-    <span class="hljs-keyword">return</span> result;
-}
-</code>
-</pre><h2 id="访问接口测试" class="article-heading">访问接口测试<a class="article-anchor" href="#访问接口测试" aria-hidden="true"></a></h2>
+<h2 id="访问接口测试" class="article-heading">访问接口测试<a class="article-anchor" href="#访问接口测试" aria-hidden="true"></a></h2>
 <p>我们能得到如下结果，其中Delete是失败的</p>
-<pre>
-<code class="json">{
-    <span class="hljs-attr">&quot;Delete&quot;</span>:<span class="hljs-string">&quot;fail: BaseClient#deleteUser() failed and no fallback available.&quot;</span>,
-    <span class="hljs-attr">&quot;Query Jone&quot;</span>:<span class="hljs-string">&quot;Your QueryParams is {name=[Jone Taki]}&quot;</span>,
-    <span class="hljs-attr">&quot;Post&quot;</span>:<span class="hljs-string">&quot;Your Body is {\&quot;name\&quot;:\&quot;Jone Tiki\&quot;,\&quot;age\&quot;:20,\&quot;sex\&quot;:1}&quot;</span>,
-    <span class="hljs-attr">&quot;ID 1&quot;</span>:<span class="hljs-string">&quot;Your id is 1&quot;</span>,
-    <span class="hljs-attr">&quot;Put&quot;</span>:<span class="hljs-string">&quot;Your Body is {\&quot;name\&quot;:\&quot;Jone Kolo\&quot;,\&quot;age\&quot;:30,\&quot;sex\&quot;:1}&quot;</span>
-}</code>
-</pre><p>上述这些例子包含了基本的REST操作，也就是Feign的基本使用</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;Delete&quot;</span>:<span class="hljs-string">&quot;fail: BaseClient#deleteUser() failed and no fallback available.&quot;</span>,<br>    <span class="hljs-attr">&quot;Query Jone&quot;</span>:<span class="hljs-string">&quot;Your QueryParams is &#123;name=[Jone Taki]&#125;&quot;</span>,<br>    <span class="hljs-attr">&quot;Post&quot;</span>:<span class="hljs-string">&quot;Your Body is &#123;\&quot;name\&quot;:\&quot;Jone Tiki\&quot;,\&quot;age\&quot;:20,\&quot;sex\&quot;:1&#125;&quot;</span>,<br>    <span class="hljs-attr">&quot;ID 1&quot;</span>:<span class="hljs-string">&quot;Your id is 1&quot;</span>,<br>    <span class="hljs-attr">&quot;Put&quot;</span>:<span class="hljs-string">&quot;Your Body is &#123;\&quot;name\&quot;:\&quot;Jone Kolo\&quot;,\&quot;age\&quot;:30,\&quot;sex\&quot;:1&#125;&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>上述这些例子包含了基本的REST操作，也就是Feign的基本使用</p>
 <h1 id="参考" class="article-heading">参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1>
 <ul>
 <li><a rel="noopener" target="_blank" href="https://github.com/OpenFeign/feign">Feign源码地址</a></li>
@@ -576,13 +398,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

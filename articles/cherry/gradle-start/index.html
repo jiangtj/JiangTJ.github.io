@@ -14,13 +14,24 @@
 <meta property="og:url" content="https://jiangtj.com/articles/cherry/gradle-start/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="跟我一起，学透它~~~">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="article:published_time" content="2020-06-17T01:46:00.000Z">
 <meta property="article:modified_time" content="2020-06-17T01:46:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Gradle">
 <meta name="twitter:card" content="summary">  <title>Gradle 初探 | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/cherry/gradle-start/"},"headline":"Gradle 初探","image":[],"datePublished":"2020-06-17T01:46:00.000Z","dateModified":"2020-06-17T01:46:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -31,7 +42,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -129,7 +140,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#why"><span class="nav-number">1.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建-basic-项目"><span class="nav-number">2.</span> <span class="nav-text">创建 Basic 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建第一个任务"><span class="nav-number">2.1.</span> <span class="nav-text">创建第一个任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在任务中写代码"><span class="nav-number">2.2.</span> <span class="nav-text">在任务中写代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务间依赖"><span class="nav-number">2.3.</span> <span class="nav-text">任务间依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态添加任务"><span class="nav-number">2.4.</span> <span class="nav-text">动态添加任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改已有的任务"><span class="nav-number">2.5.</span> <span class="nav-text">修改已有的任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置默认任务"><span class="nav-number">2.6.</span> <span class="nav-text">配置默认任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">2.7.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加外部依赖"><span class="nav-number">2.8.</span> <span class="nav-text">添加外部依赖</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tasks-高级教程"><span class="nav-number">3.</span> <span class="nav-text">Tasks 高级教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件的使用"><span class="nav-number">4.</span> <span class="nav-text">插件的使用</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#why"><span class="nav-number">1.</span> <span class="nav-text">Why</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-basic-%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">创建 Basic 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1"><span class="nav-number">2.1.</span> <span class="nav-text">创建第一个任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E4%BB%BB%E5%8A%A1%E4%B8%AD%E5%86%99%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">在任务中写代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E9%97%B4%E4%BE%9D%E8%B5%96"><span class="nav-number">2.3.</span> <span class="nav-text">任务间依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0%E4%BB%BB%E5%8A%A1"><span class="nav-number">2.4.</span> <span class="nav-text">动态添加任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%B7%B2%E6%9C%89%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">2.5.</span> <span class="nav-text">修改已有的任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E4%BB%BB%E5%8A%A1"><span class="nav-number">2.6.</span> <span class="nav-text">配置默认任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">2.7.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%A4%96%E9%83%A8%E4%BE%9D%E8%B5%96"><span class="nav-number">2.8.</span> <span class="nav-text">添加外部依赖</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tasks-%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">Tasks 高级教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">插件的使用</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -249,256 +260,70 @@
 
 <h1 id="创建-basic-项目" class="article-heading">创建 Basic 项目<a class="article-anchor" href="#创建-basic-项目" aria-hidden="true"></a></h1>
 <p>Gradle 是通用的构建工具，所以没必要从 Java Web 项目学起，相反，我们可以先创一个空的项目（运行<code>gradle init</code>命令可以快速创建）</p>
-<pre>
-<code class="">PS C:\Users\MrTT\Desktop\2513\g1> gradle init
-Select type of project to generate:
-  1: basic
-  2: application
-  3: library
-  4: Gradle plugin
-Enter selection (default: basic) [1..4] 1
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs plain">PS C:\Users\MrTT\Desktop\2513\g1&gt; gradle init<br>Select type of project to generate:<br>  1: basic<br>  2: application<br>  3: library<br>  4: Gradle plugin<br>Enter selection (default: basic) [1..4] 1<br><br>Select build script DSL:<br>  1: Groovy<br>  2: Kotlin<br>Enter selection (default: Groovy) [1..2] 2<br><br>Project name (default: g1):<br><br><br>&gt; Task :init<br>Get more help with your project: https:&#x2F;&#x2F;guides.gradle.org&#x2F;creating-new-gradle-builds<br><br>BUILD SUCCESSFUL in 11s<br>2 actionable tasks: 2 executed<br></code></pre></td></tr></table></figure>
 
-Select build script DSL:
-  1: Groovy
-  2: Kotlin
-Enter selection (default: Groovy) [1..2] 2
+<p>我们可以得到下面这样的一个项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs plain">.<br>├── .gitattributes<br>├── .gitignore<br>├── .gradle<br>│   ├── ...<br>├── build.gradle.kts<br>├── gradle<br>│   └── wrapper<br>│       ├── gradle-wrapper.jar<br>│       └── gradle-wrapper.properties<br>├── gradlew<br>├── gradlew.bat<br>└── settings.gradle.kts<br></code></pre></td></tr></table></figure>
 
-Project name (default: g1):
-
-
-> Task :init
-Get more help with your project: https://guides.gradle.org/creating-new-gradle-builds
-
-BUILD SUCCESSFUL in 11s
-2 actionable tasks: 2 executed</code>
-</pre><p>我们可以得到下面这样的一个项目</p>
-<pre>
-<code class="">.
-├── .gitattributes
-├── .gitignore
-├── .gradle
-│   ├── ...
-├── build.gradle.kts
-├── gradle
-│   └── wrapper
-│       ├── gradle-wrapper.jar
-│       └── gradle-wrapper.properties
-├── gradlew
-├── gradlew.bat
-└── settings.gradle.kts</code>
-</pre><p><code>build.gradle.kts</code>与<code>settings.gradle.kts</code>是主要的两个文件，其它<code>.gitattributes</code> <code>.gitignore</code>是Git的，<code>.gradle</code>是 Gradle 构建的缓存，<code>gradle/wrapper</code> <code>gradlew</code> <code>gradlew.bat</code>是为了保证不同的用户使用相同的 Gradle 版本</p>
+<p><code>build.gradle.kts</code>与<code>settings.gradle.kts</code>是主要的两个文件，其它<code>.gitattributes</code> <code>.gitignore</code>是Git的，<code>.gradle</code>是 Gradle 构建的缓存，<code>gradle/wrapper</code> <code>gradlew</code> <code>gradlew.bat</code>是为了保证不同的用户使用相同的 Gradle 版本</p>
 <p>接下来运行<code>gradle</code>命令（实际与<code>gradle help</code>一样）</p>
-<pre>
-<code class="">PS C:\Users\MrTT\Desktop\2513\g1> gradle
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs plain">PS C:\Users\MrTT\Desktop\2513\g1&gt; gradle<br><br>&gt; Task :help<br><br>Welcome to Gradle 6.5.<br><br>To run a build, run gradle &lt;task&gt; ...<br><br>To see a list of available tasks, run gradle tasks<br><br>To see a list of command-line options, run gradle --help<br><br>To see more detail about a task, run gradle help --task &lt;task&gt;<br><br>For troubleshooting, visit https:&#x2F;&#x2F;help.gradle.org<br><br>BUILD SUCCESSFUL in 1s<br>1 actionable task: 1 executed<br></code></pre></td></tr></table></figure>
 
-> Task :help
+<p>从帮助信息中，了解到运行<code>gradle tasks</code>查看所有任务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs plain">PS C:\Users\MrTT\Desktop\2513\g1&gt; gradle tasks<br><br>&gt; Task :tasks<br><br>------------------------------------------------------------<br>Tasks runnable from root project<br>------------------------------------------------------------<br><br>Build Setup tasks<br>-----------------<br>init - Initializes a new Gradle build.<br>wrapper - Generates Gradle wrapper files.<br><br>Help tasks<br>----------<br>buildEnvironment - Displays all buildscript dependencies declared in root project &#39;g1&#39;.<br>components - Displays the components produced by root project &#39;g1&#39;. [incubating]<br>dependencies - Displays all dependencies declared in root project &#39;g1&#39;.<br>dependencyInsight - Displays the insight into a specific dependency in root project &#39;g1&#39;.<br>dependentComponents - Displays the dependent components of components in root project &#39;g1&#39;. [incubating]<br>help - Displays a help message.<br>kotlinDslAccessorsReport - Prints the Kotlin code for accessing the currently available project extensions and conventions.<br>model - Displays the configuration model of root project &#39;g1&#39;. [incubating]<br>outgoingVariants - Displays the outgoing variants of root project &#39;g1&#39;.<br>projects - Displays the sub-projects of root project &#39;g1&#39;.<br>properties - Displays the properties of root project &#39;g1&#39;.<br>tasks - Displays the tasks runnable from root project &#39;g1&#39;.<br><br>To see all tasks and more detail, run gradle tasks --all<br><br>To see more detail about a task, run gradle help --task &lt;task&gt;<br><br>BUILD SUCCESSFUL in 1s<br>1 actionable task: 1 executed<br></code></pre></td></tr></table></figure>
 
-Welcome to Gradle 6.5.
+<p>默认情况下，已经存在了任务（辅助任务？），可以随便执行个看看，比如<code>buildEnvironment</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs plain">PS C:\Users\MrTT\Desktop\2513\g1&gt; gradle buildEnvironment<br><br>&gt; Task :buildEnvironment<br><br>------------------------------------------------------------<br>Root project<br>------------------------------------------------------------<br><br>classpath<br>No dependencies<br><br>A web-based, searchable dependency report is available by adding the --scan option.<br><br>BUILD SUCCESSFUL in 1s<br>1 actionable task: 1 executed<br></code></pre></td></tr></table></figure>
 
-To run a build, run gradle <task> ...
-
-To see a list of available tasks, run gradle tasks
-
-To see a list of command-line options, run gradle --help
-
-To see more detail about a task, run gradle help --task <task>
-
-For troubleshooting, visit https://help.gradle.org
-
-BUILD SUCCESSFUL in 1s
-1 actionable task: 1 executed</code>
-</pre><p>从帮助信息中，了解到运行<code>gradle tasks</code>查看所有任务</p>
-<pre>
-<code class="">PS C:\Users\MrTT\Desktop\2513\g1> gradle tasks
-
-> Task :tasks
-
-------------------------------------------------------------
-Tasks runnable from root project
-------------------------------------------------------------
-
-Build Setup tasks
------------------
-init - Initializes a new Gradle build.
-wrapper - Generates Gradle wrapper files.
-
-Help tasks
-----------
-buildEnvironment - Displays all buildscript dependencies declared in root project 'g1'.
-components - Displays the components produced by root project 'g1'. [incubating]
-dependencies - Displays all dependencies declared in root project 'g1'.
-dependencyInsight - Displays the insight into a specific dependency in root project 'g1'.
-dependentComponents - Displays the dependent components of components in root project 'g1'. [incubating]
-help - Displays a help message.
-kotlinDslAccessorsReport - Prints the Kotlin code for accessing the currently available project extensions and conventions.
-model - Displays the configuration model of root project 'g1'. [incubating]
-outgoingVariants - Displays the outgoing variants of root project 'g1'.
-projects - Displays the sub-projects of root project 'g1'.
-properties - Displays the properties of root project 'g1'.
-tasks - Displays the tasks runnable from root project 'g1'.
-
-To see all tasks and more detail, run gradle tasks --all
-
-To see more detail about a task, run gradle help --task <task>
-
-BUILD SUCCESSFUL in 1s
-1 actionable task: 1 executed</code>
-</pre><p>默认情况下，已经存在了任务（辅助任务？），可以随便执行个看看，比如<code>buildEnvironment</code></p>
-<pre>
-<code class="">PS C:\Users\MrTT\Desktop\2513\g1> gradle buildEnvironment
-
-> Task :buildEnvironment
-
-------------------------------------------------------------
-Root project
-------------------------------------------------------------
-
-classpath
-No dependencies
-
-A web-based, searchable dependency report is available by adding the --scan option.
-
-BUILD SUCCESSFUL in 1s
-1 actionable task: 1 executed</code>
-</pre><p>这就是一个空项目，相信你已经了解了</p>
+<p>这就是一个空项目，相信你已经了解了</p>
 <h2 id="创建第一个任务" class="article-heading">创建第一个任务<a class="article-anchor" href="#创建第一个任务" aria-hidden="true"></a></h2>
 <p>程序猿的第一个任务，必然是打印<code>Hello world!</code>，打开<code>build.gradle.kts</code>，在里面添加以下代码</p>
-<pre>
-<code class="kotlin">tasks.register(<span class="hljs-string">&quot;hello&quot;</span>) {
-    doLast {
-        println(<span class="hljs-string">&quot;Hello world!&quot;</span>)
-    }
-}</code>
-</pre><p><code>gradle</code> 会在<code>build.gradle.kts</code>中寻找任务，至于为什么这么写，doLast什么鬼，别问，我也不懂。等学完后应该能理解把</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">tasks.register(<span class="hljs-string">&quot;hello&quot;</span>) &#123;<br>    doLast &#123;<br>        println(<span class="hljs-string">&quot;Hello world!&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>gradle</code> 会在<code>build.gradle.kts</code>中寻找任务，至于为什么这么写，doLast什么鬼，别问，我也不懂。等学完后应该能理解把</p>
 <p>运行<code>gradle tasks --all</code>我们可以在Other里看到我们定义的<code>hello</code>任务，执行它<code>gradle -q hello</code>（<code>-q</code> 影藏任务以外的输出），控制台就输出<code>Hello world!</code>啦</p>
 <p>第一个任务到此完成</p>
 <h2 id="在任务中写代码" class="article-heading">在任务中写代码<a class="article-anchor" href="#在任务中写代码" aria-hidden="true"></a></h2>
-<pre>
-<code class="kotlin">tasks.register(<span class="hljs-string">&quot;upper&quot;</span>) {
-    doLast {
-        <span class="hljs-keyword">val</span> someString = <span class="hljs-string">&quot;mY_nAmE&quot;</span>
-        println(<span class="hljs-string">&quot;Original: <span class="hljs-variable">$someString</span>&quot;</span>)
-        println(<span class="hljs-string">&quot;Upper case: <span class="hljs-subst">${someString.toUpperCase()}</span>&quot;</span>)
-    }
-}</code>
-</pre><p>可以用 kotlin 或者 groovy 直接写脚本代码</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">tasks.register(<span class="hljs-string">&quot;upper&quot;</span>) &#123;<br>    doLast &#123;<br>        <span class="hljs-keyword">val</span> someString = <span class="hljs-string">&quot;mY_nAmE&quot;</span><br>        println(<span class="hljs-string">&quot;Original: <span class="hljs-variable">$someString</span>&quot;</span>)<br>        println(<span class="hljs-string">&quot;Upper case: <span class="hljs-subst">$&#123;someString.toUpperCase()&#125;</span>&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以用 kotlin 或者 groovy 直接写脚本代码</p>
 <h2 id="任务间依赖" class="article-heading">任务间依赖<a class="article-anchor" href="#任务间依赖" aria-hidden="true"></a></h2>
-<pre>
-<code class="kotlin">tasks.register(<span class="hljs-string">&quot;intro&quot;</span>) {
-    dependsOn(<span class="hljs-string">&quot;hello&quot;</span>)
-    doLast {
-        println(<span class="hljs-string">&quot;I&#x27;m Gradle&quot;</span>)
-    }
-}</code>
-</pre><p><em>任务间依赖是懒加载的，在依赖时不需要提前定义</em></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">tasks.register(<span class="hljs-string">&quot;intro&quot;</span>) &#123;<br>    dependsOn(<span class="hljs-string">&quot;hello&quot;</span>)<br>    doLast &#123;<br>        println(<span class="hljs-string">&quot;I&#x27;m Gradle&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><em>任务间依赖是懒加载的，在依赖时不需要提前定义</em></p>
 <p>执行结果为</p>
-<pre>
-<code class="">PS C:\Users\MrTT\Desktop\2513\g1> gradle intro
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">PS C:\Users\MrTT\Desktop\2513\g1&gt; gradle intro<br><br>&gt; Task :hello<br>Hello world!<br><br>&gt; Task :intro<br>I&#39;m Gradle<br><br>BUILD SUCCESSFUL in 1s<br></code></pre></td></tr></table></figure>
 
-> Task :hello
-Hello world!
+<h2 id="动态添加任务" class="article-heading">动态添加任务<a class="article-anchor" href="#动态添加任务" aria-hidden="true"></a></h2>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">repeat(<span class="hljs-number">4</span>) &#123; counter -&gt;<br>    tasks.register(<span class="hljs-string">&quot;task<span class="hljs-variable">$counter</span>&quot;</span>) &#123;<br>        doLast &#123;<br>            println(<span class="hljs-string">&quot;I&#x27;m task number <span class="hljs-variable">$counter</span>&quot;</span>)<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-> Task :intro
-I'm Gradle
-
-BUILD SUCCESSFUL in 1s</code>
-</pre><h2 id="动态添加任务" class="article-heading">动态添加任务<a class="article-anchor" href="#动态添加任务" aria-hidden="true"></a></h2>
-<pre>
-<code class="kotlin">repeat(<span class="hljs-number">4</span>) { counter -&gt;
-    tasks.register(<span class="hljs-string">&quot;task<span class="hljs-variable">$counter</span>&quot;</span>) {
-        doLast {
-            println(<span class="hljs-string">&quot;I&#x27;m task number <span class="hljs-variable">$counter</span>&quot;</span>)
-        }
-    }
-}</code>
-</pre><p>几乎可以在<code>build.gradle.kts</code>中任意位置写任何代码，<em>repeat(4)是kotlin的语法</em></p>
+<p>几乎可以在<code>build.gradle.kts</code>中任意位置写任何代码，<em>repeat(4)是kotlin的语法</em></p>
 <h2 id="修改已有的任务" class="article-heading">修改已有的任务<a class="article-anchor" href="#修改已有的任务" aria-hidden="true"></a></h2>
-<pre>
-<code class="kotlin">tasks.named(<span class="hljs-string">&quot;task0&quot;</span>) { dependsOn(<span class="hljs-string">&quot;task2&quot;</span>, <span class="hljs-string">&quot;task3&quot;</span>) }</code>
-</pre><p><code>named()</code>应该是通过任务名查询已经的任务</p>
-<pre>
-<code class="kotlin"><span class="hljs-keyword">val</span> hello1 <span class="hljs-keyword">by</span> tasks.registering {
-    doLast {
-        println(<span class="hljs-string">&quot;Hello Earth&quot;</span>)
-    }
-}
-hello1 {
-    doFirst {
-        println(<span class="hljs-string">&quot;Hello Venus&quot;</span>)
-    }
-}
-hello1 {
-    doFirst {
-        println(<span class="hljs-string">&quot;Hello Venus2&quot;</span>)
-    }
-}
-hello1 {
-    doLast {
-        println(<span class="hljs-string">&quot;Hello Mars&quot;</span>)
-    }
-}
-hello1 {
-    doLast {
-        println(<span class="hljs-string">&quot;Hello Jupiter&quot;</span>)
-    }
-}</code>
-</pre><p>结果为：</p>
-<pre>
-<code class="">Hello Venus2
-Hello Venus
-Hello Earth
-Hello Mars
-Hello Jupiter</code>
-</pre><p><code>doFirst</code> <code>doLast</code> 分别在任务的开头与结尾添加，可以多次执行，按添加顺序排序。之前<code>doLast</code>的问题解决了，但是这kotlin的语法真是怪（对习惯Java的我来说）</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">tasks.named(<span class="hljs-string">&quot;task0&quot;</span>) &#123; dependsOn(<span class="hljs-string">&quot;task2&quot;</span>, <span class="hljs-string">&quot;task3&quot;</span>) &#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>named()</code>应该是通过任务名查询已经的任务</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> hello1 <span class="hljs-keyword">by</span> tasks.registering &#123;<br>    doLast &#123;<br>        println(<span class="hljs-string">&quot;Hello Earth&quot;</span>)<br>    &#125;<br>&#125;<br>hello1 &#123;<br>    doFirst &#123;<br>        println(<span class="hljs-string">&quot;Hello Venus&quot;</span>)<br>    &#125;<br>&#125;<br>hello1 &#123;<br>    doFirst &#123;<br>        println(<span class="hljs-string">&quot;Hello Venus2&quot;</span>)<br>    &#125;<br>&#125;<br>hello1 &#123;<br>    doLast &#123;<br>        println(<span class="hljs-string">&quot;Hello Mars&quot;</span>)<br>    &#125;<br>&#125;<br>hello1 &#123;<br>    doLast &#123;<br>        println(<span class="hljs-string">&quot;Hello Jupiter&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">Hello Venus2<br>Hello Venus<br>Hello Earth<br>Hello Mars<br>Hello Jupiter<br></code></pre></td></tr></table></figure>
+
+<p><code>doFirst</code> <code>doLast</code> 分别在任务的开头与结尾添加，可以多次执行，按添加顺序排序。之前<code>doLast</code>的问题解决了，但是这kotlin的语法真是怪（对习惯Java的我来说）</p>
 <ul>
 <li><a rel="noopener" target="_blank" href="https://kotlinlang.org/docs/reference/delegated-properties.html">https://kotlinlang.org/docs/reference/delegated-properties.html</a></li>
 </ul>
-<p>上面是我能找的<code>by</code>的语法，至于<code>val a by b{}; a{}; a{}</code>这语法，翻遍了文档都没找到，以后再说吧</p>
+<p>上面是我能找的<code>by</code>的语法，至于<code>val a by b&#123;&#125;; a&#123;&#125;; a&#123;&#125;</code>这语法，翻遍了文档都没找到，以后再说吧</p>
 <h2 id="配置默认任务" class="article-heading">配置默认任务<a class="article-anchor" href="#配置默认任务" aria-hidden="true"></a></h2>
-<pre>
-<code class="kotlin">defaultTasks(<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;task0&quot;</span>)</code>
-</pre><p>设置<code>gradle</code>执行的任务，默认是<code>help</code></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">defaultTasks(<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;task0&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>设置<code>gradle</code>执行的任务，默认是<code>help</code></p>
 <h2 id="生命周期" class="article-heading">生命周期<a class="article-anchor" href="#生命周期" aria-hidden="true"></a></h2>
-<pre>
-<code class="kotlin">tasks.register(<span class="hljs-string">&quot;distribution&quot;</span>) {
-    doLast {
-        println(<span class="hljs-string">&quot;We build the zip with version=<span class="hljs-variable">$version</span>&quot;</span>)
-    }
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">tasks.register(<span class="hljs-string">&quot;distribution&quot;</span>) &#123;<br>    doLast &#123;<br>        println(<span class="hljs-string">&quot;We build the zip with version=<span class="hljs-variable">$version</span>&quot;</span>)<br>    &#125;<br>&#125;<br><br>tasks.register(<span class="hljs-string">&quot;release&quot;</span>) &#123;<br>    dependsOn(<span class="hljs-string">&quot;distribution&quot;</span>)<br>    doLast &#123;<br>        println(<span class="hljs-string">&quot;We release now&quot;</span>)<br>    &#125;<br>&#125;<br><br>gradle.taskGraph.whenReady &#123;<br>    version =<br>        <span class="hljs-keyword">if</span> (hasTask(<span class="hljs-string">&quot;:release&quot;</span>)) <span class="hljs-string">&quot;1.0&quot;</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;1.0-SNAPSHOT&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-tasks.register(<span class="hljs-string">&quot;release&quot;</span>) {
-    dependsOn(<span class="hljs-string">&quot;distribution&quot;</span>)
-    doLast {
-        println(<span class="hljs-string">&quot;We release now&quot;</span>)
-    }
-}
-
-gradle.taskGraph.whenReady {
-    version =
-        <span class="hljs-keyword">if</span> (hasTask(<span class="hljs-string">&quot;:release&quot;</span>)) <span class="hljs-string">&quot;1.0&quot;</span>
-        <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;1.0-SNAPSHOT&quot;</span>
-}</code>
-</pre><p>whenReady在任务全部加载后触发（未开始执行），所以执行<code>distribution</code>与<code>release</code>时，得到不同的<code>version</code></p>
+<p>whenReady在任务全部加载后触发（未开始执行），所以执行<code>distribution</code>与<code>release</code>时，得到不同的<code>version</code></p>
 <h2 id="添加外部依赖" class="article-heading">添加外部依赖<a class="article-anchor" href="#添加外部依赖" aria-hidden="true"></a></h2>
-<pre>
-<code class="kotlin"><span class="hljs-keyword">import</span> org.apache.commons.codec.binary.Base64
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">import</span> org.apache.commons.codec.binary.Base64<br><br>buildscript &#123;<br>    repositories &#123;<br>        mavenCentral()<br>    &#125;<br>    dependencies &#123;<br>        <span class="hljs-string">&quot;classpath&quot;</span>(group = <span class="hljs-string">&quot;commons-codec&quot;</span>, name = <span class="hljs-string">&quot;commons-codec&quot;</span>, version = <span class="hljs-string">&quot;1.2&quot;</span>)<br>    &#125;<br>&#125;<br><br>tasks.register(<span class="hljs-string">&quot;encode&quot;</span>) &#123;<br>    doLast &#123;<br>        <span class="hljs-keyword">val</span> encodedString = Base64().encode(<span class="hljs-string">&quot;hello world\n&quot;</span>.toByteArray())<br>        println(String(encodedString))<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        <span class="hljs-string">&quot;classpath&quot;</span>(group = <span class="hljs-string">&quot;commons-codec&quot;</span>, name = <span class="hljs-string">&quot;commons-codec&quot;</span>, version = <span class="hljs-string">&quot;1.2&quot;</span>)
-    }
-}
-
-tasks.register(<span class="hljs-string">&quot;encode&quot;</span>) {
-    doLast {
-        <span class="hljs-keyword">val</span> encodedString = Base64().encode(<span class="hljs-string">&quot;hello world\n&quot;</span>.toByteArray())
-        println(String(encodedString))
-    }
-}</code>
-</pre><p>使用<code>commons-codec</code>的<code>Base64</code></p>
+<p>使用<code>commons-codec</code>的<code>Base64</code></p>
 <h1 id="tasks-高级教程" class="article-heading">Tasks 高级教程<a class="article-anchor" href="#tasks-高级教程" aria-hidden="true"></a></h1>
 <h1 id="插件的使用" class="article-heading">插件的使用<a class="article-anchor" href="#插件的使用" aria-hidden="true"></a></h1>
       
@@ -613,13 +438,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

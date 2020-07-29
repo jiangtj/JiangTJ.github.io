@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://jiangtj.com/articles/cherry/junit-5-info/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="欢迎欣赏新的一年第一篇博文😁">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="og:image" content="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116113048.png">
 <meta property="og:image" content="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116131303.png">
 <meta property="og:image" content="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116133004.png">
@@ -27,6 +27,17 @@
 <meta property="article:tag" content="JUnit">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116113048.png">  <title>JUnit 5 教程 | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/cherry/junit-5-info/"},"headline":"JUnit 5 教程","image":["https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116113048.png","https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116131303.png","https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116133004.png","https://jiangtj-lab.github.io/pic-repo/img-apricot/20200117141500.png"],"datePublished":"2020-01-16T03:02:30.000Z","dateModified":"2020-01-16T03:02:30.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -37,7 +48,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -135,7 +146,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#junit-5-是什么？"><span class="nav-number">1.</span> <span class="nav-text">JUnit 5 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三分钟教程"><span class="nav-number">2.</span> <span class="nav-text">三分钟教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一个测试用例"><span class="nav-number">2.2.</span> <span class="nav-text">第一个测试用例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更多食用方案"><span class="nav-number">3.</span> <span class="nav-text">更多食用方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#别名"><span class="nav-number">3.1.</span> <span class="nav-text">别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断言、假设"><span class="nav-number">3.2.</span> <span class="nav-text">断言、假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁用"><span class="nav-number">3.3.</span> <span class="nav-text">禁用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试执行条件"><span class="nav-number">3.4.</span> <span class="nav-text">测试执行条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签分组"><span class="nav-number">3.5.</span> <span class="nav-text">标签&#x2F;分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顺序"><span class="nav-number">3.6.</span> <span class="nav-text">顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">3.7.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌套"><span class="nav-number">3.8.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重复测试"><span class="nav-number">3.9.</span> <span class="nav-text">重复测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数测试"><span class="nav-number">3.10.</span> <span class="nav-text">参数测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据源"><span class="nav-number">3.10.1.</span> <span class="nav-text">数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数转换"><span class="nav-number">3.10.2.</span> <span class="nav-text">参数转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dynamic测试"><span class="nav-number">3.11.</span> <span class="nav-text">Dynamic测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展"><span class="nav-number">4.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组合注解"><span class="nav-number">4.1.</span> <span class="nav-text">组合注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extend-api"><span class="nav-number">4.2.</span> <span class="nav-text">Extend API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#executioncondition"><span class="nav-number">4.2.1.</span> <span class="nav-text">ExecutionCondition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testinstancefactory"><span class="nav-number">4.2.2.</span> <span class="nav-text">TestInstanceFactory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testinstancepostprocessor"><span class="nav-number">4.2.3.</span> <span class="nav-text">TestInstancePostProcessor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testinstancepredestroycallback"><span class="nav-number">4.2.4.</span> <span class="nav-text">TestInstancePreDestroyCallback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameterresolver"><span class="nav-number">4.2.5.</span> <span class="nav-text">ParameterResolver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testwatcher"><span class="nav-number">4.2.6.</span> <span class="nav-text">TestWatcher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期回调"><span class="nav-number">4.2.7.</span> <span class="nav-text">生命周期回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testexecutionexceptionhandler"><span class="nav-number">4.2.8.</span> <span class="nav-text">TestExecutionExceptionHandler</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-spring-中的使用"><span class="nav-number">5.</span> <span class="nav-text">在 Spring 中的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#junit-5-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">JUnit 5 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E5%88%86%E9%92%9F%E6%95%99%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">三分钟教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">第一个测试用例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E9%A3%9F%E7%94%A8%E6%96%B9%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">更多食用方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%AB%E5%90%8D"><span class="nav-number">3.1.</span> <span class="nav-text">别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%AD%E8%A8%80%E3%80%81%E5%81%87%E8%AE%BE"><span class="nav-number">3.2.</span> <span class="nav-text">断言、假设</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%81%E7%94%A8"><span class="nav-number">3.3.</span> <span class="nav-text">禁用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%89%A7%E8%A1%8C%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">测试执行条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E5%88%86%E7%BB%84"><span class="nav-number">3.5.</span> <span class="nav-text">标签&#x2F;分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F"><span class="nav-number">3.6.</span> <span class="nav-text">顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">3.7.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97"><span class="nav-number">3.8.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%A4%8D%E6%B5%8B%E8%AF%95"><span class="nav-number">3.9.</span> <span class="nav-text">重复测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E6%B5%8B%E8%AF%95"><span class="nav-number">3.10.</span> <span class="nav-text">参数测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="nav-number">3.10.1.</span> <span class="nav-text">数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.10.2.</span> <span class="nav-text">参数转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dynamic%E6%B5%8B%E8%AF%95"><span class="nav-number">3.11.</span> <span class="nav-text">Dynamic测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number">4.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E6%B3%A8%E8%A7%A3"><span class="nav-number">4.1.</span> <span class="nav-text">组合注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extend-api"><span class="nav-number">4.2.</span> <span class="nav-text">Extend API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#executioncondition"><span class="nav-number">4.2.1.</span> <span class="nav-text">ExecutionCondition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testinstancefactory"><span class="nav-number">4.2.2.</span> <span class="nav-text">TestInstanceFactory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testinstancepostprocessor"><span class="nav-number">4.2.3.</span> <span class="nav-text">TestInstancePostProcessor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testinstancepredestroycallback"><span class="nav-number">4.2.4.</span> <span class="nav-text">TestInstancePreDestroyCallback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameterresolver"><span class="nav-number">4.2.5.</span> <span class="nav-text">ParameterResolver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testwatcher"><span class="nav-number">4.2.6.</span> <span class="nav-text">TestWatcher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%9E%E8%B0%83"><span class="nav-number">4.2.7.</span> <span class="nav-text">生命周期回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#testexecutionexceptionhandler"><span class="nav-number">4.2.8.</span> <span class="nav-text">TestExecutionExceptionHandler</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8-spring-%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">在 Spring 中的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">6.</span> <span class="nav-text">最后</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -265,133 +276,56 @@
 <img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116131303.png" alt=""></p>
 </li>
 <li><p>添加 JUnit5 的依赖（spring boot 2.2 中已默认是Junit5，不需要额外加，详见<a rel="noopener" target="_blank" href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.2-Release-Notes#junit-5">WIKI</a>），</p>
-<pre>
-<code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.junit.jupiter<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit-jupiter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${latest-version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code>
-</pre><p><code>org.junit.jupiter:junit-jupiter</code>已包含了 JUnit Platform，不需要额外声明依赖，一个就够了
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.junit.jupiter<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit-jupiter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;latest-version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><code>org.junit.jupiter:junit-jupiter</code>已包含了 JUnit Platform，不需要额外声明依赖，一个就够了
 <img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200116133004.png" alt=""></p>
 </li>
 </ol>
 <h2 id="第一个测试用例" class="article-heading">第一个测试用例<a class="article-anchor" href="#第一个测试用例" aria-hidden="true"></a></h2>
 <ol>
 <li><p>创建一个待测试的工具类</p>
-<pre>
-<code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtils</span> </span>{
- <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">hello</span><span class="hljs-params">(Instant now)</span> </span>{
-     <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();
- }
-}</code>
-</pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtils</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">hello</span><span class="hljs-params">(Instant now)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>创建测试用例</p>
-<pre>
-<code class="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsTest</span> </span>{
- <span class="hljs-meta">@Test</span>
- <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>{
-     Instant now = Instant.now();
-     String expect = <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();
-     assertEquals(expect, TimeUtils.hello(now));
- }
-}</code>
-</pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>&#123;<br>        Instant now = Instant.now();<br>        String expect = <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();<br>        assertEquals(expect, TimeUtils.hello(now));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
 <li><p>运行测试用例，如果你使用idea，那么直接点旁边的运行按钮，或者使用其它编辑器的功能测试，当然，你还可以选择通过命令行，下载<a rel="noopener" target="_blank" href="https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/">junit-platform-console-standalone</a>，并运行它(不懂)，另一种是<code>mvn test</code>运行测试</p>
 </li>
 </ol>
 <h1 id="更多食用方案" class="article-heading">更多食用方案<a class="article-anchor" href="#更多食用方案" aria-hidden="true"></a></h1>
 <h2 id="别名" class="article-heading">别名<a class="article-anchor" href="#别名" aria-hidden="true"></a></h2>
 <p>测试的Class可以通过添加@DisplayName()，添加别名</p>
-<pre>
-<code class="java"><span class="hljs-meta">@DisplayName(&quot;时间工具类测试&quot;)</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsTest</span> </span>{}</code>
-</pre><p>也可以使用@DisplayNameGeneration()，进行更多的配置</p>
-<pre>
-<code class="java"><span class="hljs-meta">@DisplayNameGeneration(TimeUtils2Test.ReplaceUnderscores.class)</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtils2Test</span> </span>{
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>{
-        Instant now = Instant.now();
-        String expect = <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();
-        assertEquals(expect, TimeUtils.hello(now));
-    }
-    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReplaceUnderscores</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">DisplayNameGenerator</span>.<span class="hljs-title">ReplaceUnderscores</span> </span>{
-        <span class="hljs-meta">@Override</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">generateDisplayNameForClass</span><span class="hljs-params">(Class&lt;?&gt; testClass)</span> </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;哈哈哈&quot;</span>;
-        }
-    }
-}</code>
-</pre><h2 id="断言、假设" class="article-heading">断言、假设<a class="article-anchor" href="#断言、假设" aria-hidden="true"></a></h2>
-<p>测试中核心之一，用于判断是否执行成功，在JUnit5中增加了些对lambdas的支持，例如：</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Test</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">asserts</span><span class="hljs-params">()</span> </span>{
-    assertEquals(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>, () -&gt; <span class="hljs-string">&quot;1要是1&quot;</span>);
-}</code>
-</pre><p>另外，还增加了假设</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Test</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">assume</span><span class="hljs-params">()</span> </span>{
-    assumingThat(<span class="hljs-string">&quot;DEV&quot;</span>.equals(System.getenv(<span class="hljs-string">&quot;ENV&quot;</span>)),
-            () -&gt; {
-                <span class="hljs-comment">// 如果不为true这里将不执行</span>
-                assertEquals(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
-            });
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@DisplayName(&quot;时间工具类测试&quot;)</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsTest</span> </span>&#123;&#125;<br></code></pre></td></tr></table></figure>
 
-    assumeTrue(<span class="hljs-string">&quot;DEV&quot;</span>.equals(System.getenv(<span class="hljs-string">&quot;ENV&quot;</span>)),
-            () -&gt; <span class="hljs-string">&quot;Aborting test: not on developer workstation&quot;</span>);
-    <span class="hljs-comment">// 如果不为true这里将不执行</span>
-}</code>
-</pre><h2 id="禁用" class="article-heading">禁用<a class="article-anchor" href="#禁用" aria-hidden="true"></a></h2>
+<p>也可以使用@DisplayNameGeneration()，进行更多的配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@DisplayNameGeneration(TimeUtils2Test.ReplaceUnderscores.class)</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtils2Test</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>&#123;<br>        Instant now = Instant.now();<br>        String expect = <span class="hljs-string">&quot;现在时间是：&quot;</span> + now.toString();<br>        assertEquals(expect, TimeUtils.hello(now));<br>    &#125;<br>    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ReplaceUnderscores</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">DisplayNameGenerator</span>.<span class="hljs-title">ReplaceUnderscores</span> </span>&#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">generateDisplayNameForClass</span><span class="hljs-params">(Class&lt;?&gt; testClass)</span> </span>&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;哈哈哈&quot;</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="断言、假设" class="article-heading">断言、假设<a class="article-anchor" href="#断言、假设" aria-hidden="true"></a></h2>
+<p>测试中核心之一，用于判断是否执行成功，在JUnit5中增加了些对lambdas的支持，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">asserts</span><span class="hljs-params">()</span> </span>&#123;<br>    assertEquals(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>, () -&gt; <span class="hljs-string">&quot;1要是1&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>另外，还增加了假设</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">assume</span><span class="hljs-params">()</span> </span>&#123;<br>    assumingThat(<span class="hljs-string">&quot;DEV&quot;</span>.equals(System.getenv(<span class="hljs-string">&quot;ENV&quot;</span>)),<br>            () -&gt; &#123;<br>                <span class="hljs-comment">// 如果不为true这里将不执行</span><br>                assertEquals(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);<br>            &#125;);<br><br>    assumeTrue(<span class="hljs-string">&quot;DEV&quot;</span>.equals(System.getenv(<span class="hljs-string">&quot;ENV&quot;</span>)),<br>            () -&gt; <span class="hljs-string">&quot;Aborting test: not on developer workstation&quot;</span>);<br>    <span class="hljs-comment">// 如果不为true这里将不执行</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="禁用" class="article-heading">禁用<a class="article-anchor" href="#禁用" aria-hidden="true"></a></h2>
 <p>添加@Disabled()可以禁用测试，这个意义在于某一测试用例遇到问题，临时不执行，等待问题修复后再次使用的</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Disabled(&quot;Disabled 因为重复&quot;)</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsCopyTest</span> </span>{}</code>
-</pre><h2 id="测试执行条件" class="article-heading">测试执行条件<a class="article-anchor" href="#测试执行条件" aria-hidden="true"></a></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Disabled(&quot;Disabled 因为重复&quot;)</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeUtilsCopyTest</span> </span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="测试执行条件" class="article-heading">测试执行条件<a class="article-anchor" href="#测试执行条件" aria-hidden="true"></a></h2>
 <p>通过添加 @EnabledOnOs 或者 @DisabledOnOs 来决定在某一操作系统上执行.</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Test</span>
-<span class="hljs-meta">@EnabledOnOs(MAC)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnMac</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">&quot;exec on mac&quot;</span>);
-}
-<span class="hljs-meta">@Test</span>
-<span class="hljs-meta">@EnabledOnOs({ WINDOWS, LINUX })</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnOs</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">&quot;exec on windows or linux&quot;</span>);
-}</code>
-</pre><p>@EnabledOnJre 和 @DisabledOnJre 可以对java环境判断</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Test</span>
-<span class="hljs-meta">@EnabledOnJre(JRE.JAVA_8)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnJava8</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">&quot;exec on java 8&quot;</span>);
-}</code>
-</pre><p>@EnabledIfSystemProperty/@DisabledIfSystemProperty 与  @EnabledIfEnvironmentVariable/@DisabledIfEnvironmentVariable 分别判断系统和环境变量，他们的匹配项支持正则表达式</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Test</span>
-<span class="hljs-meta">@DisabledIfEnvironmentVariable(named = &quot;ENV&quot;, matches = &quot;.*development.*&quot;)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notOnDeveloperWorkstation</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-comment">// ...</span>
-}</code>
-</pre><h2 id="标签分组" class="article-heading">标签/分组<a class="article-anchor" href="#标签分组" aria-hidden="true"></a></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-meta">@EnabledOnOs(MAC)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnMac</span><span class="hljs-params">()</span> </span>&#123;<br>    log.info(<span class="hljs-string">&quot;exec on mac&quot;</span>);<br>&#125;<br><span class="hljs-meta">@Test</span><br><span class="hljs-meta">@EnabledOnOs(&#123; WINDOWS, LINUX &#125;)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnOs</span><span class="hljs-params">()</span> </span>&#123;<br>    log.info(<span class="hljs-string">&quot;exec on windows or linux&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>@EnabledOnJre 和 @DisabledOnJre 可以对java环境判断</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-meta">@EnabledOnJre(JRE.JAVA_8)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnJava8</span><span class="hljs-params">()</span> </span>&#123;<br>    log.info(<span class="hljs-string">&quot;exec on java 8&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>@EnabledIfSystemProperty/@DisabledIfSystemProperty 与  @EnabledIfEnvironmentVariable/@DisabledIfEnvironmentVariable 分别判断系统和环境变量，他们的匹配项支持正则表达式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-meta">@DisabledIfEnvironmentVariable(named = &quot;ENV&quot;, matches = &quot;.*development.*&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notOnDeveloperWorkstation</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="标签分组" class="article-heading">标签/分组<a class="article-anchor" href="#标签分组" aria-hidden="true"></a></h2>
 <p>JUnit5 中支持通过 @Tag() 对测试用例进行分组，例如</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Tag(&quot;conditional&quot;)</span>
-<span class="hljs-meta">@Test</span>
-<span class="hljs-meta">@EnabledOnOs(MAC)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnMac</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">&quot;exec on mac&quot;</span>);
-}
-<span class="hljs-meta">@Tag(&quot;conditional&quot;)</span>
-<span class="hljs-meta">@Test</span>
-<span class="hljs-meta">@EnabledOnJre(JRE.JAVA_8)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnJava8</span><span class="hljs-params">()</span> </span>{
-    log.info(<span class="hljs-string">&quot;exec on java 8&quot;</span>);
-}</code>
-</pre><p>@Tag() 有以下这些语法规则</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Tag(&quot;conditional&quot;)</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-meta">@EnabledOnOs(MAC)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnMac</span><span class="hljs-params">()</span> </span>&#123;<br>    log.info(<span class="hljs-string">&quot;exec on mac&quot;</span>);<br>&#125;<br><span class="hljs-meta">@Tag(&quot;conditional&quot;)</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-meta">@EnabledOnJre(JRE.JAVA_8)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testOnJava8</span><span class="hljs-params">()</span> </span>&#123;<br>    log.info(<span class="hljs-string">&quot;exec on java 8&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>@Tag() 有以下这些语法规则</p>
 <ul>
 <li>不能为null或者空字符串</li>
 <li>不能有空格</li>
@@ -400,26 +334,9 @@
 </ul>
 <h2 id="顺序" class="article-heading">顺序<a class="article-anchor" href="#顺序" aria-hidden="true"></a></h2>
 <p>添加@TestMethodOrder(MethodOrderer.OrderAnnotation.class)与@Order()，定义测试用例的执行顺序</p>
-<pre>
-<code class="java"><span class="hljs-meta">@TestMethodOrder(MethodOrderer.OrderAnnotation.class)</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderedTest</span> </span>{
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@Order(2)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">emptyValues</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">// perform assertions against empty values</span>
-    }
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@Order(1)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">nullValues</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">// perform assertions against null values</span>
-    }
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@Order(3)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">validValues</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">// perform assertions against valid values</span>
-    }
-}</code>
-</pre><h2 id="生命周期" class="article-heading">生命周期<a class="article-anchor" href="#生命周期" aria-hidden="true"></a></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@TestMethodOrder(MethodOrderer.OrderAnnotation.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderedTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@Order(2)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">emptyValues</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// perform assertions against empty values</span><br>    &#125;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@Order(1)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">nullValues</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// perform assertions against null values</span><br>    &#125;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@Order(3)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">validValues</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// perform assertions against valid values</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="生命周期" class="article-heading">生命周期<a class="article-anchor" href="#生命周期" aria-hidden="true"></a></h2>
 <p>JUnit5 提供了4个生命周期注解 @BeforeAll @AfterAll @BeforeEach @AfterEach</p>
 <ul>
 <li>@BeforeAll：在所有的 @Test @RepeatedTest @ParameterizedTest @TestFactory 之前执行</li>
@@ -427,426 +344,89 @@
 <li>@AfterAll @AfterEach：与before类似，在测试用例之后执行</li>
 </ul>
 <p>例如：</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Slf4j</span>
-<span class="hljs-meta">@TestMethodOrder(MethodOrderer.OrderAnnotation.class)</span>
-<span class="hljs-meta">@TestInstance(TestInstance.Lifecycle.PER_CLASS)</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LifecycleTest</span> </span>{
-    <span class="hljs-keyword">int</span> num = <span class="hljs-number">0</span>;
-    <span class="hljs-meta">@BeforeAll</span>
-    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initAll</span><span class="hljs-params">()</span> </span>{
-        log.error(<span class="hljs-string">&quot;initAll&quot;</span>);
-    }
-    <span class="hljs-meta">@BeforeEach</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
-        log.error(<span class="hljs-string">&quot;init&quot;</span>);
-    }
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@Order(1)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doTest1</span><span class="hljs-params">()</span> </span>{
-        log.error(<span class="hljs-string">&quot;num is &quot;</span> + num);
-        num = <span class="hljs-number">1</span>;
-        log.error(<span class="hljs-string">&quot;doTest1&quot;</span>);
-    }
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@Order(2)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doTest2</span><span class="hljs-params">()</span> </span>{
-        log.error(<span class="hljs-string">&quot;num is &quot;</span> + num);
-        num = <span class="hljs-number">2</span>;
-        log.error(<span class="hljs-string">&quot;doTest1&quot;</span>);
-    }
-}</code>
-</pre><p>除此外，还有@TestInstance()配置，见上面的例子，这个存在两个模式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@TestMethodOrder(MethodOrderer.OrderAnnotation.class)</span><br><span class="hljs-meta">@TestInstance(TestInstance.Lifecycle.PER_CLASS)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LifecycleTest</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> num = <span class="hljs-number">0</span>;<br>    <span class="hljs-meta">@BeforeAll</span><br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initAll</span><span class="hljs-params">()</span> </span>&#123;<br>        log.error(<span class="hljs-string">&quot;initAll&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@BeforeEach</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>        log.error(<span class="hljs-string">&quot;init&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@Order(1)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doTest1</span><span class="hljs-params">()</span> </span>&#123;<br>        log.error(<span class="hljs-string">&quot;num is &quot;</span> + num);<br>        num = <span class="hljs-number">1</span>;<br>        log.error(<span class="hljs-string">&quot;doTest1&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@Order(2)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doTest2</span><span class="hljs-params">()</span> </span>&#123;<br>        log.error(<span class="hljs-string">&quot;num is &quot;</span> + num);<br>        num = <span class="hljs-number">2</span>;<br>        log.error(<span class="hljs-string">&quot;doTest1&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>除此外，还有@TestInstance()配置，见上面的例子，这个存在两个模式</p>
 <ul>
 <li>PER_METHOD：每个测试用例执行前，都会创建一个实例（默认，与junit4一致）</li>
 <li>PER_CLASS：每个类的测试用例执行前，创建统一的实例</li>
 </ul>
 <p>上面的例子中，得到的log为：</p>
-<pre>
-<code class="log">13:58:03.477 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - initAll
-13:58:03.485 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - init
-13:58:03.487 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - num is 0
-13:58:03.487 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - doTest1
-13:58:03.494 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - init
-13:58:03.495 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - num is 1
-13:58:03.495 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - doTest1</code>
-</pre><p><code>doTest1()</code> 的执行，影响到num属性的值，而默认模式下则不会</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs log">13:58:03.477 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - initAll<br>13:58:03.485 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - init<br>13:58:03.487 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - num is 0<br>13:58:03.487 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - doTest1<br>13:58:03.494 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - init<br>13:58:03.495 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - num is 1<br>13:58:03.495 [main] ERROR com.jiangtj.example.junit5.LifecycleTest - doTest1<br></code></pre></td></tr></table></figure>
+
+<p><code>doTest1()</code> 的执行，影响到num属性的值，而默认模式下则不会</p>
 <h2 id="嵌套" class="article-heading">嵌套<a class="article-anchor" href="#嵌套" aria-hidden="true"></a></h2>
 <p>@Nested() 可以更好的表达测试用例间的关系，例如官方的例子</p>
-<pre>
-<code class="java"><span class="hljs-meta">@DisplayName(&quot;A stack&quot;)</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestingAStackDemo</span> </span>{
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@DisplayName(&quot;A stack&quot;)</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestingAStackDemo</span> </span>&#123;<br><br>    Stack&lt;Object&gt; stack;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@DisplayName(&quot;is instantiated with new Stack()&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isInstantiatedWithNew</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>    &#125;<br><br>    <span class="hljs-meta">@Nested</span><br>    <span class="hljs-meta">@DisplayName(&quot;when new&quot;)</span><br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhenNew</span> </span>&#123;<br><br>        <span class="hljs-meta">@BeforeEach</span><br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">createNewStack</span><span class="hljs-params">()</span> </span>&#123;<br>            stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>        &#125;<br><br>        <span class="hljs-meta">@Test</span><br>        <span class="hljs-meta">@DisplayName(&quot;is empty&quot;)</span><br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isEmpty</span><span class="hljs-params">()</span> </span>&#123;<br>            assertTrue(stack.isEmpty());<br>        &#125;<br><br>        <span class="hljs-meta">@Test</span><br>        <span class="hljs-meta">@DisplayName(&quot;throws EmptyStackException when popped&quot;)</span><br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">throwsExceptionWhenPopped</span><span class="hljs-params">()</span> </span>&#123;<br>            assertThrows(EmptyStackException.class, stack::pop);<br>        &#125;<br><br>        <span class="hljs-meta">@Test</span><br>        <span class="hljs-meta">@DisplayName(&quot;throws EmptyStackException when peeked&quot;)</span><br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">throwsExceptionWhenPeeked</span><span class="hljs-params">()</span> </span>&#123;<br>            assertThrows(EmptyStackException.class, stack::peek);<br>        &#125;<br><br>        <span class="hljs-meta">@Nested</span><br>        <span class="hljs-meta">@DisplayName(&quot;after pushing an element&quot;)</span><br>        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AfterPushing</span> </span>&#123;<br><br>            String anElement = <span class="hljs-string">&quot;an element&quot;</span>;<br><br>            <span class="hljs-meta">@BeforeEach</span><br>            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushAnElement</span><span class="hljs-params">()</span> </span>&#123;<br>                stack.push(anElement);<br>            &#125;<br><br>            <span class="hljs-meta">@Test</span><br>            <span class="hljs-meta">@DisplayName(&quot;it is no longer empty&quot;)</span><br>            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isNotEmpty</span><span class="hljs-params">()</span> </span>&#123;<br>                assertFalse(stack.isEmpty());<br>            &#125;<br><br>            <span class="hljs-meta">@Test</span><br>            <span class="hljs-meta">@DisplayName(&quot;returns the element when popped and is empty&quot;)</span><br>            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">returnElementWhenPopped</span><span class="hljs-params">()</span> </span>&#123;<br>                assertEquals(anElement, stack.pop());<br>                assertTrue(stack.isEmpty());<br>            &#125;<br><br>            <span class="hljs-meta">@Test</span><br>            <span class="hljs-meta">@DisplayName(&quot;returns the element when peeked but remains not empty&quot;)</span><br>            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">returnElementWhenPeeked</span><span class="hljs-params">()</span> </span>&#123;<br>                assertEquals(anElement, stack.peek());<br>                assertFalse(stack.isEmpty());<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-    Stack&lt;Object&gt; stack;
-
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@DisplayName(&quot;is instantiated with new Stack()&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isInstantiatedWithNew</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">new</span> Stack&lt;&gt;();
-    }
-
-    <span class="hljs-meta">@Nested</span>
-    <span class="hljs-meta">@DisplayName(&quot;when new&quot;)</span>
-    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhenNew</span> </span>{
-
-        <span class="hljs-meta">@BeforeEach</span>
-        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">createNewStack</span><span class="hljs-params">()</span> </span>{
-            stack = <span class="hljs-keyword">new</span> Stack&lt;&gt;();
-        }
-
-        <span class="hljs-meta">@Test</span>
-        <span class="hljs-meta">@DisplayName(&quot;is empty&quot;)</span>
-        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isEmpty</span><span class="hljs-params">()</span> </span>{
-            assertTrue(stack.isEmpty());
-        }
-
-        <span class="hljs-meta">@Test</span>
-        <span class="hljs-meta">@DisplayName(&quot;throws EmptyStackException when popped&quot;)</span>
-        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">throwsExceptionWhenPopped</span><span class="hljs-params">()</span> </span>{
-            assertThrows(EmptyStackException.class, stack::pop);
-        }
-
-        <span class="hljs-meta">@Test</span>
-        <span class="hljs-meta">@DisplayName(&quot;throws EmptyStackException when peeked&quot;)</span>
-        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">throwsExceptionWhenPeeked</span><span class="hljs-params">()</span> </span>{
-            assertThrows(EmptyStackException.class, stack::peek);
-        }
-
-        <span class="hljs-meta">@Nested</span>
-        <span class="hljs-meta">@DisplayName(&quot;after pushing an element&quot;)</span>
-        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AfterPushing</span> </span>{
-
-            String anElement = <span class="hljs-string">&quot;an element&quot;</span>;
-
-            <span class="hljs-meta">@BeforeEach</span>
-            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushAnElement</span><span class="hljs-params">()</span> </span>{
-                stack.push(anElement);
-            }
-
-            <span class="hljs-meta">@Test</span>
-            <span class="hljs-meta">@DisplayName(&quot;it is no longer empty&quot;)</span>
-            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">isNotEmpty</span><span class="hljs-params">()</span> </span>{
-                assertFalse(stack.isEmpty());
-            }
-
-            <span class="hljs-meta">@Test</span>
-            <span class="hljs-meta">@DisplayName(&quot;returns the element when popped and is empty&quot;)</span>
-            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">returnElementWhenPopped</span><span class="hljs-params">()</span> </span>{
-                assertEquals(anElement, stack.pop());
-                assertTrue(stack.isEmpty());
-            }
-
-            <span class="hljs-meta">@Test</span>
-            <span class="hljs-meta">@DisplayName(&quot;returns the element when peeked but remains not empty&quot;)</span>
-            <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">returnElementWhenPeeked</span><span class="hljs-params">()</span> </span>{
-                assertEquals(anElement, stack.peek());
-                assertFalse(stack.isEmpty());
-            }
-        }
-    }
-}</code>
-</pre><p>我们可以清晰的看到他们之间的关系</p>
+<p>我们可以清晰的看到他们之间的关系</p>
 <p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200117141500.png" alt=""></p>
 <h2 id="重复测试" class="article-heading">重复测试<a class="article-anchor" href="#重复测试" aria-hidden="true"></a></h2>
 <p>@RepeatedTest() 执行多次测试，支持name修改名称（具体见官网，觉得没多大意义），另外可以在方法中获取repetitionInfo参数，用于判断当前的执行情况（JUnit5支持注入参数，后续详说）</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Slf4j</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RepeatedTestsDemo</span> </span>{
-    <span class="hljs-meta">@RepeatedTest(2)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">repeatedTest</span><span class="hljs-params">()</span> </span>{
-        log.info(<span class="hljs-string">&quot;done!&quot;</span>);
-    }
-    <span class="hljs-meta">@RepeatedTest(2)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">repeatedTest2</span><span class="hljs-params">(RepetitionInfo repetitionInfo)</span> </span>{
-        <span class="hljs-keyword">int</span> currentRepetition = repetitionInfo.getCurrentRepetition();
-        <span class="hljs-keyword">int</span> totalRepetitions = repetitionInfo.getTotalRepetitions();
-        log.info(String.format(<span class="hljs-string">&quot;About to execute repetition %d of %d&quot;</span>, <span class="hljs-comment">//</span>
-                currentRepetition, totalRepetitions));
-    }
-}</code>
-</pre><h2 id="参数测试" class="article-heading">参数测试<a class="article-anchor" href="#参数测试" aria-hidden="true"></a></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RepeatedTestsDemo</span> </span>&#123;<br>    <span class="hljs-meta">@RepeatedTest(2)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">repeatedTest</span><span class="hljs-params">()</span> </span>&#123;<br>        log.info(<span class="hljs-string">&quot;done!&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@RepeatedTest(2)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">repeatedTest2</span><span class="hljs-params">(RepetitionInfo repetitionInfo)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> currentRepetition = repetitionInfo.getCurrentRepetition();<br>        <span class="hljs-keyword">int</span> totalRepetitions = repetitionInfo.getTotalRepetitions();<br>        log.info(String.format(<span class="hljs-string">&quot;About to execute repetition %d of %d&quot;</span>, <span class="hljs-comment">//</span><br>                currentRepetition, totalRepetitions));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="参数测试" class="article-heading">参数测试<a class="article-anchor" href="#参数测试" aria-hidden="true"></a></h2>
 <p>@ParameterizedTest 很实用的注解，需要<code>junit-jupiter-params</code>依赖（我们已经添加了）</p>
 <p>它主要是配置@xxxSource，注入参数，以完成测试，参数的注入方式有多种</p>
 <h3 id="数据源" class="article-heading">数据源<a class="article-anchor" href="#数据源" aria-hidden="true"></a></h3>
 <p>@ValueSource 注入String内容，这是最常用的</p>
-<pre>
-<code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@ValueSource(strings = { &quot;racecar&quot;, &quot;radar&quot;, &quot;able was I ere I saw elba&quot; })</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">palindromes</span><span class="hljs-params">(String candidate)</span> </span>{
-    log.error(candidate);
-}</code>
-</pre><p>@EnumSource 注入枚举类</p>
-<pre>
-<code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@EnumSource(TimeUnit.class)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithEnumSource</span><span class="hljs-params">(TimeUnit timeUnit)</span> </span>{
-    log.error(timeUnit.toString());
-}
-<span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@EnumSource(value = TimeUnit.class, names = { &quot;DAYS&quot;, &quot;HOURS&quot; })</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithEnumSourceInclude</span><span class="hljs-params">(TimeUnit timeUnit)</span> </span>{
-    <span class="hljs-comment">// 选择部分</span>
-    log.error(timeUnit.toString());
-}</code>
-</pre><p>@MethodSource 通过方法名注入（我更倾向于使用下面的@ArgumentsSource）</p>
-<pre>
-<code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@MethodSource(&quot;stringProvider&quot;)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithExplicitLocalMethodSource</span><span class="hljs-params">(String argument)</span> </span>{
-    log.error(argument);
-}
-<span class="hljs-function"><span class="hljs-keyword">static</span> Stream&lt;String&gt; <span class="hljs-title">stringProvider</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>);
-}
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ParameterizedTest</span><br><span class="hljs-meta">@ValueSource(strings = &#123; &quot;racecar&quot;, &quot;radar&quot;, &quot;able was I ere I saw elba&quot; &#125;)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">palindromes</span><span class="hljs-params">(String candidate)</span> </span>&#123;<br>    log.error(candidate);<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@MethodSource(&quot;stringIntAndListProvider&quot;)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithMultiArgMethodSource</span><span class="hljs-params">(String str, <span class="hljs-keyword">int</span> num, List&lt;String&gt; list)</span> </span>{
-    <span class="hljs-comment">// 多参支持</span>
-    log.error(String.format(<span class="hljs-string">&quot;Content: %s is %d, %s&quot;</span>, str, num, String.join(<span class="hljs-string">&quot;,&quot;</span>, list)));
-}
-<span class="hljs-function"><span class="hljs-keyword">static</span> Stream&lt;Arguments&gt; <span class="hljs-title">stringIntAndListProvider</span><span class="hljs-params">()</span> </span>{
-    <span class="hljs-keyword">return</span> Stream.of(
-            arguments(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-number">1</span>, Arrays.asList(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>)),
-            arguments(<span class="hljs-string">&quot;lemon&quot;</span>, <span class="hljs-number">2</span>, Arrays.asList(<span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-string">&quot;y&quot;</span>))
-    );
-}</code>
-</pre><p>@CsvSource csv源支持</p>
-<pre>
-<code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@CsvSource({
-        &quot;apple,         1&quot;,
-        &quot;banana,        2&quot;,
-        &quot;&#x27;lemon, lime&#x27;, 0xF1&quot;
-})</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithCsvSource</span><span class="hljs-params">(String fruit, <span class="hljs-keyword">int</span> rank)</span> </span>{
-    log.error(fruit + rank);
-}</code>
-</pre><p>它也支持从文件导入，例如<code>@CsvFileSource(resources = &quot;/two-column.csv&quot;, numLinesToSkip = 1)</code></p>
+<p>@EnumSource 注入枚举类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ParameterizedTest</span><br><span class="hljs-meta">@EnumSource(TimeUnit.class)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithEnumSource</span><span class="hljs-params">(TimeUnit timeUnit)</span> </span>&#123;<br>    log.error(timeUnit.toString());<br>&#125;<br><span class="hljs-meta">@ParameterizedTest</span><br><span class="hljs-meta">@EnumSource(value = TimeUnit.class, names = &#123; &quot;DAYS&quot;, &quot;HOURS&quot; &#125;)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithEnumSourceInclude</span><span class="hljs-params">(TimeUnit timeUnit)</span> </span>&#123;<br>    <span class="hljs-comment">// 选择部分</span><br>    log.error(timeUnit.toString());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>@MethodSource 通过方法名注入（我更倾向于使用下面的@ArgumentsSource）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ParameterizedTest</span><br><span class="hljs-meta">@MethodSource(&quot;stringProvider&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithExplicitLocalMethodSource</span><span class="hljs-params">(String argument)</span> </span>&#123;<br>    log.error(argument);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">static</span> Stream&lt;String&gt; <span class="hljs-title">stringProvider</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>);<br>&#125;<br><br><span class="hljs-meta">@ParameterizedTest</span><br><span class="hljs-meta">@MethodSource(&quot;stringIntAndListProvider&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithMultiArgMethodSource</span><span class="hljs-params">(String str, <span class="hljs-keyword">int</span> num, List&lt;String&gt; list)</span> </span>&#123;<br>    <span class="hljs-comment">// 多参支持</span><br>    log.error(String.format(<span class="hljs-string">&quot;Content: %s is %d, %s&quot;</span>, str, num, String.join(<span class="hljs-string">&quot;,&quot;</span>, list)));<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">static</span> Stream&lt;Arguments&gt; <span class="hljs-title">stringIntAndListProvider</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> Stream.of(<br>            arguments(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-number">1</span>, Arrays.asList(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>)),<br>            arguments(<span class="hljs-string">&quot;lemon&quot;</span>, <span class="hljs-number">2</span>, Arrays.asList(<span class="hljs-string">&quot;x&quot;</span>, <span class="hljs-string">&quot;y&quot;</span>))<br>    );<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>@CsvSource csv源支持</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ParameterizedTest</span><br><span class="hljs-meta">@CsvSource(&#123;</span><br><span class="hljs-meta">        &quot;apple,         1&quot;,</span><br><span class="hljs-meta">        &quot;banana,        2&quot;,</span><br><span class="hljs-meta">        &quot;&#x27;lemon, lime&#x27;, 0xF1&quot;</span><br><span class="hljs-meta">&#125;)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithCsvSource</span><span class="hljs-params">(String fruit, <span class="hljs-keyword">int</span> rank)</span> </span>&#123;<br>    log.error(fruit + rank);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>它也支持从文件导入，例如<code>@CsvFileSource(resources = &quot;/two-column.csv&quot;, numLinesToSkip = 1)</code></p>
 <p>@ArgumentsSource 通过自定义的参数提供器导入</p>
-<pre>
-<code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@ArgumentsSource(MyArgumentsProvider.class)</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithArgumentsSource</span><span class="hljs-params">(String argument)</span> </span>{
-    log.error(argument);
-}
-<span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyArgumentsProvider</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ArgumentsProvider</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-keyword">public</span> Stream&lt;? extends Arguments&gt; provideArguments(ExtensionContext context) {
-        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>).map(Arguments::of);
-    }
-}</code>
-</pre><h3 id="参数转换" class="article-heading">参数转换<a class="article-anchor" href="#参数转换" aria-hidden="true"></a></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ParameterizedTest</span><br><span class="hljs-meta">@ArgumentsSource(MyArgumentsProvider.class)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testWithArgumentsSource</span><span class="hljs-params">(String argument)</span> </span>&#123;<br>    log.error(argument);<br>&#125;<br><span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyArgumentsProvider</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ArgumentsProvider</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Stream&lt;? extends Arguments&gt; provideArguments(ExtensionContext context) &#123;<br>        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>).map(Arguments::of);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="参数转换" class="article-heading">参数转换<a class="article-anchor" href="#参数转换" aria-hidden="true"></a></h3>
 <p>为了支持csv，JUnit支持了些内建的转换，详细见文档<a rel="noopener" target="_blank" href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-argument-conversion">writing-tests-parameterized-tests-argument-conversion</a>，如果转换失败，会寻找构造器或者静态构造方法（非私有）中，单String的方法，来转换对应的对象</p>
 <blockquote>
 <p>内建的转换有必要，但后一种，我宁愿得到报错，而不是转换，隐形的转换往往会导致莫名的问题出现</p>
 </blockquote>
 <p>所以推荐通过@ConvertWith实现参数类型间的转换</p>
-<pre>
-<code class="java"><span class="hljs-meta">@ParameterizedTest</span>
-<span class="hljs-meta">@ValueSource(strings = { &quot;Wow,12&quot;, &quot;radar,50&quot;})</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">toBook</span><span class="hljs-params">(<span class="hljs-meta">@ConvertWith(ToBookConverter.class)</span> Book book)</span> </span>{
-    log.error(book.toString());
-}
-<span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ToBookConverter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SimpleArgumentConverter</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">convert</span><span class="hljs-params">(Object source, Class&lt;?&gt; targetType)</span> </span>{
-        String value = String.valueOf(source);
-        String[] split = value.split(<span class="hljs-string">&quot;,&quot;</span>);
-        <span class="hljs-keyword">return</span> Book.of(split[<span class="hljs-number">0</span>], Integer.parseInt(split[<span class="hljs-number">1</span>]));
-    }
-}</code>
-</pre><p>JUnit中也内置了些转换，如@JavaTimeConversionPattern等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ParameterizedTest</span><br><span class="hljs-meta">@ValueSource(strings = &#123; &quot;Wow,12&quot;, &quot;radar,50&quot;&#125;)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">toBook</span><span class="hljs-params">(<span class="hljs-meta">@ConvertWith(ToBookConverter.class)</span> Book book)</span> </span>&#123;<br>    log.error(book.toString());<br>&#125;<br><span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ToBookConverter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SimpleArgumentConverter</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">convert</span><span class="hljs-params">(Object source, Class&lt;?&gt; targetType)</span> </span>&#123;<br>        String value = String.valueOf(source);<br>        String[] split = value.split(<span class="hljs-string">&quot;,&quot;</span>);<br>        <span class="hljs-keyword">return</span> Book.of(split[<span class="hljs-number">0</span>], Integer.parseInt(split[<span class="hljs-number">1</span>]));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>JUnit中也内置了些转换，如@JavaTimeConversionPattern等</p>
 <p>除外，还可以通过@AggregateWith转换或者接收ArgumentsAccessor对象</p>
 <h2 id="dynamic测试" class="article-heading">Dynamic测试<a class="article-anchor" href="#dynamic测试" aria-hidden="true"></a></h2>
 <p>除了常规的@Test,我们还可以通过@TestFactory来构建整个测试树</p>
-<pre>
-<code class="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicTestsDemo</span> </span>{
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DynamicTestsDemo</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Calculator calculator = <span class="hljs-keyword">new</span> Calculator();<br><br>    <span class="hljs-comment">// This will result in a JUnitException!</span><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">List&lt;String&gt; <span class="hljs-title">dynamicTestsWithInvalidReturnType</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Arrays.asList(<span class="hljs-string">&quot;Hello&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">Collection&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromCollection</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Arrays.asList(<br>            dynamicTest(<span class="hljs-string">&quot;1st dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),<br>            dynamicTest(<span class="hljs-string">&quot;2nd dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>        );<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">Iterable&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIterable</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Arrays.asList(<br>            dynamicTest(<span class="hljs-string">&quot;3rd dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),<br>            dynamicTest(<span class="hljs-string">&quot;4th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>        );<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">Iterator&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIterator</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Arrays.asList(<br>            dynamicTest(<span class="hljs-string">&quot;5th dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),<br>            dynamicTest(<span class="hljs-string">&quot;6th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>        ).iterator();<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    DynamicTest[] dynamicTestsFromArray() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DynamicTest[] &#123;<br>            dynamicTest(<span class="hljs-string">&quot;7th dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),<br>            dynamicTest(<span class="hljs-string">&quot;8th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))<br>        &#125;;<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">Stream&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromStream</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;racecar&quot;</span>, <span class="hljs-string">&quot;radar&quot;</span>, <span class="hljs-string">&quot;mom&quot;</span>, <span class="hljs-string">&quot;dad&quot;</span>)<br>            .map(text -&gt; dynamicTest(text, () -&gt; assertTrue(isPalindrome(text))));<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">Stream&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIntStream</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// Generates tests for the first 10 even integers.</span><br>        <span class="hljs-keyword">return</span> IntStream.iterate(<span class="hljs-number">0</span>, n -&gt; n + <span class="hljs-number">2</span>).limit(<span class="hljs-number">10</span>)<br>            .mapToObj(n -&gt; dynamicTest(<span class="hljs-string">&quot;test&quot;</span> + n, () -&gt; assertTrue(n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)));<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">Stream&lt;DynamicTest&gt; <span class="hljs-title">generateRandomNumberOfTests</span><span class="hljs-params">()</span> </span>&#123;<br><br>        <span class="hljs-comment">// Generates random positive integers between 0 and 100 until</span><br>        <span class="hljs-comment">// a number evenly divisible by 7 is encountered.</span><br>        Iterator&lt;Integer&gt; inputGenerator = <span class="hljs-keyword">new</span> Iterator&lt;Integer&gt;() &#123;<br><br>            Random random = <span class="hljs-keyword">new</span> Random();<br>            <span class="hljs-keyword">int</span> current;<br><br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>                current = random.nextInt(<span class="hljs-number">100</span>);<br>                <span class="hljs-keyword">return</span> current % <span class="hljs-number">7</span> != <span class="hljs-number">0</span>;<br>            &#125;<br><br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>                <span class="hljs-keyword">return</span> current;<br>            &#125;<br>        &#125;;<br><br>        <span class="hljs-comment">// Generates display names like: input:5, input:37, input:85, etc.</span><br>        Function&lt;Integer, String&gt; displayNameGenerator = (input) -&gt; <span class="hljs-string">&quot;input:&quot;</span> + input;<br><br>        <span class="hljs-comment">// Executes tests based on the current input value.</span><br>        ThrowingConsumer&lt;Integer&gt; testExecutor = (input) -&gt; assertTrue(input % <span class="hljs-number">7</span> != <span class="hljs-number">0</span>);<br><br>        <span class="hljs-comment">// Returns a stream of dynamic tests.</span><br>        <span class="hljs-keyword">return</span> DynamicTest.stream(inputGenerator, displayNameGenerator, testExecutor);<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">Stream&lt;DynamicNode&gt; <span class="hljs-title">dynamicTestsWithContainers</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)<br>            .map(input -&gt; dynamicContainer(<span class="hljs-string">&quot;Container &quot;</span> + input, Stream.of(<br>                dynamicTest(<span class="hljs-string">&quot;not null&quot;</span>, () -&gt; assertNotNull(input)),<br>                dynamicContainer(<span class="hljs-string">&quot;properties&quot;</span>, Stream.of(<br>                    dynamicTest(<span class="hljs-string">&quot;length &gt; 0&quot;</span>, () -&gt; assertTrue(input.length() &gt; <span class="hljs-number">0</span>)),<br>                    dynamicTest(<span class="hljs-string">&quot;not empty&quot;</span>, () -&gt; assertFalse(input.isEmpty()))<br>                ))<br>            )));<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">DynamicNode <span class="hljs-title">dynamicNodeSingleTest</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> dynamicTest(<span class="hljs-string">&quot;&#x27;pop&#x27; is a palindrome&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;pop&quot;</span>)));<br>    &#125;<br><br>    <span class="hljs-meta">@TestFactory</span><br>    <span class="hljs-function">DynamicNode <span class="hljs-title">dynamicNodeSingleContainer</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> dynamicContainer(<span class="hljs-string">&quot;palindromes&quot;</span>,<br>            Stream.of(<span class="hljs-string">&quot;racecar&quot;</span>, <span class="hljs-string">&quot;radar&quot;</span>, <span class="hljs-string">&quot;mom&quot;</span>, <span class="hljs-string">&quot;dad&quot;</span>)<br>                .map(text -&gt; dynamicTest(text, () -&gt; assertTrue(isPalindrome(text)))<br>        ));<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Calculator calculator = <span class="hljs-keyword">new</span> Calculator();
-
-    <span class="hljs-comment">// This will result in a JUnitException!</span>
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">List&lt;String&gt; <span class="hljs-title">dynamicTestsWithInvalidReturnType</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Arrays.asList(<span class="hljs-string">&quot;Hello&quot;</span>);
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">Collection&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromCollection</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Arrays.asList(
-            dynamicTest(<span class="hljs-string">&quot;1st dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),
-            dynamicTest(<span class="hljs-string">&quot;2nd dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
-        );
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">Iterable&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIterable</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Arrays.asList(
-            dynamicTest(<span class="hljs-string">&quot;3rd dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),
-            dynamicTest(<span class="hljs-string">&quot;4th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
-        );
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">Iterator&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIterator</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Arrays.asList(
-            dynamicTest(<span class="hljs-string">&quot;5th dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),
-            dynamicTest(<span class="hljs-string">&quot;6th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
-        ).iterator();
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    DynamicTest[] dynamicTestsFromArray() {
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DynamicTest[] {
-            dynamicTest(<span class="hljs-string">&quot;7th dynamic test&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;madam&quot;</span>))),
-            dynamicTest(<span class="hljs-string">&quot;8th dynamic test&quot;</span>, () -&gt; assertEquals(<span class="hljs-number">4</span>, calculator.multiply(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))
-        };
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">Stream&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromStream</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;racecar&quot;</span>, <span class="hljs-string">&quot;radar&quot;</span>, <span class="hljs-string">&quot;mom&quot;</span>, <span class="hljs-string">&quot;dad&quot;</span>)
-            .map(text -&gt; dynamicTest(text, () -&gt; assertTrue(isPalindrome(text))));
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">Stream&lt;DynamicTest&gt; <span class="hljs-title">dynamicTestsFromIntStream</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">// Generates tests for the first 10 even integers.</span>
-        <span class="hljs-keyword">return</span> IntStream.iterate(<span class="hljs-number">0</span>, n -&gt; n + <span class="hljs-number">2</span>).limit(<span class="hljs-number">10</span>)
-            .mapToObj(n -&gt; dynamicTest(<span class="hljs-string">&quot;test&quot;</span> + n, () -&gt; assertTrue(n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)));
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">Stream&lt;DynamicTest&gt; <span class="hljs-title">generateRandomNumberOfTests</span><span class="hljs-params">()</span> </span>{
-
-        <span class="hljs-comment">// Generates random positive integers between 0 and 100 until</span>
-        <span class="hljs-comment">// a number evenly divisible by 7 is encountered.</span>
-        Iterator&lt;Integer&gt; inputGenerator = <span class="hljs-keyword">new</span> Iterator&lt;Integer&gt;() {
-
-            Random random = <span class="hljs-keyword">new</span> Random();
-            <span class="hljs-keyword">int</span> current;
-
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>{
-                current = random.nextInt(<span class="hljs-number">100</span>);
-                <span class="hljs-keyword">return</span> current % <span class="hljs-number">7</span> != <span class="hljs-number">0</span>;
-            }
-
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>{
-                <span class="hljs-keyword">return</span> current;
-            }
-        };
-
-        <span class="hljs-comment">// Generates display names like: input:5, input:37, input:85, etc.</span>
-        Function&lt;Integer, String&gt; displayNameGenerator = (input) -&gt; <span class="hljs-string">&quot;input:&quot;</span> + input;
-
-        <span class="hljs-comment">// Executes tests based on the current input value.</span>
-        ThrowingConsumer&lt;Integer&gt; testExecutor = (input) -&gt; assertTrue(input % <span class="hljs-number">7</span> != <span class="hljs-number">0</span>);
-
-        <span class="hljs-comment">// Returns a stream of dynamic tests.</span>
-        <span class="hljs-keyword">return</span> DynamicTest.stream(inputGenerator, displayNameGenerator, testExecutor);
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">Stream&lt;DynamicNode&gt; <span class="hljs-title">dynamicTestsWithContainers</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> Stream.of(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>)
-            .map(input -&gt; dynamicContainer(<span class="hljs-string">&quot;Container &quot;</span> + input, Stream.of(
-                dynamicTest(<span class="hljs-string">&quot;not null&quot;</span>, () -&gt; assertNotNull(input)),
-                dynamicContainer(<span class="hljs-string">&quot;properties&quot;</span>, Stream.of(
-                    dynamicTest(<span class="hljs-string">&quot;length &gt; 0&quot;</span>, () -&gt; assertTrue(input.length() &gt; <span class="hljs-number">0</span>)),
-                    dynamicTest(<span class="hljs-string">&quot;not empty&quot;</span>, () -&gt; assertFalse(input.isEmpty()))
-                ))
-            )));
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">DynamicNode <span class="hljs-title">dynamicNodeSingleTest</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> dynamicTest(<span class="hljs-string">&quot;&#x27;pop&#x27; is a palindrome&quot;</span>, () -&gt; assertTrue(isPalindrome(<span class="hljs-string">&quot;pop&quot;</span>)));
-    }
-
-    <span class="hljs-meta">@TestFactory</span>
-    <span class="hljs-function">DynamicNode <span class="hljs-title">dynamicNodeSingleContainer</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> dynamicContainer(<span class="hljs-string">&quot;palindromes&quot;</span>,
-            Stream.of(<span class="hljs-string">&quot;racecar&quot;</span>, <span class="hljs-string">&quot;radar&quot;</span>, <span class="hljs-string">&quot;mom&quot;</span>, <span class="hljs-string">&quot;dad&quot;</span>)
-                .map(text -&gt; dynamicTest(text, () -&gt; assertTrue(isPalindrome(text)))
-        ));
-    }
-
-}</code>
-</pre><p>还未看过源码，但目测@Test是由内建的转换器，转换成DynamicNode，然后再执行。使用@TestFactory，tree型的代码也是种选择，再维护上，不差于@Test的常规方案</p>
+<p>还未看过源码，但目测@Test是由内建的转换器，转换成DynamicNode，然后再执行。使用@TestFactory，tree型的代码也是种选择，再维护上，不差于@Test的常规方案</p>
 <h1 id="扩展" class="article-heading">扩展<a class="article-anchor" href="#扩展" aria-hidden="true"></a></h1>
 <p>与 Junit4 不同，Junit5 提供了一个统一的一个扩展API。不过在之前，先看下另一个 Junit5 的重要特性–组合注解</p>
 <h2 id="组合注解" class="article-heading">组合注解<a class="article-anchor" href="#组合注解" aria-hidden="true"></a></h2>
 <p>在官方文档中，这部分与注解部分一同讲的，但我将它移到此处，因为绝大多数情况下，他都是与扩展API一同使用。</p>
 <p>组合注解，顾名思义，当一个注解上存在其他的Junit注解时，同时也继承这些注解的语义</p>
 <p>例如：组合Tag与Test注解</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Target({ ElementType.TYPE, ElementType.METHOD })</span>
-<span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span>
-<span class="hljs-meta">@Tag(&quot;fast&quot;)</span>
-<span class="hljs-meta">@Test</span>
-<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Fast {
-}</code>
-</pre><pre>
-<code class="java"><span class="hljs-meta">@Fast</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">asserts</span><span class="hljs-params">()</span> </span>{
-    assertTrue(<span class="hljs-keyword">true</span>);
-}</code>
-</pre><h2 id="extend-api" class="article-heading">Extend API<a class="article-anchor" href="#extend-api" aria-hidden="true"></a></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Target(&#123; ElementType.TYPE, ElementType.METHOD &#125;)</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-meta">@Tag(&quot;fast&quot;)</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Fast &#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Fast</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">asserts</span><span class="hljs-params">()</span> </span>&#123;<br>    assertTrue(<span class="hljs-keyword">true</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="extend-api" class="article-heading">Extend API<a class="article-anchor" href="#extend-api" aria-hidden="true"></a></h2>
 <p>在 Junit5 中通过 <code>@ExtendWith</code> 注解实现添加扩展。</p>
-<pre>
-<code class="java"><span class="hljs-meta">@ExtendWith(DatabaseExtension.class)</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleTest</span> </span>{
-  <span class="hljs-comment">// code</span>
-}</code>
-</pre><pre>
-<code class="java"><span class="hljs-meta">@Slf4j</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DatabaseExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BeforeAllCallback</span>, <span class="hljs-title">AfterAllCallback</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAll</span><span class="hljs-params">(ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        log.info(<span class="hljs-string">&quot;连接数据库&quot;</span>);
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterAll</span><span class="hljs-params">(ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        log.info(<span class="hljs-string">&quot;关闭数据库&quot;</span>);
-    }
-}</code>
-</pre><p><code>@ExtendWith</code> 提供了扩展的入口，具体的实现通过实现对应的接口，例如上面的 <code>DatabaseExtension</code> 实现 <code>BeforeAllCallback</code>，<code>AfterAllCallback</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ExtendWith(DatabaseExtension.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleTest</span> </span>&#123;<br>  <span class="hljs-comment">// code</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DatabaseExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BeforeAllCallback</span>, <span class="hljs-title">AfterAllCallback</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAll</span><span class="hljs-params">(ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        log.info(<span class="hljs-string">&quot;连接数据库&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterAll</span><span class="hljs-params">(ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        log.info(<span class="hljs-string">&quot;关闭数据库&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>@ExtendWith</code> 提供了扩展的入口，具体的实现通过实现对应的接口，例如上面的 <code>DatabaseExtension</code> 实现 <code>BeforeAllCallback</code>，<code>AfterAllCallback</code></p>
 <p>在Junit中，存在许多扩展接口</p>
 <h3 id="executioncondition" class="article-heading">ExecutionCondition<a class="article-anchor" href="#executioncondition" aria-hidden="true"></a></h3>
 <p>定义执行条件，满足条件时才能执行，下面是一个例子</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Target({ ElementType.TYPE, ElementType.METHOD })</span>
-<span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span>
-<span class="hljs-meta">@ExtendWith(PassConditionalExtension.class)</span>
-<span class="hljs-meta">@Test</span>
-<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Pass {
-    <span class="hljs-function">String <span class="hljs-title">value</span><span class="hljs-params">()</span></span>;
-}</code>
-</pre><pre>
-<code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PassConditionalExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ExecutionCondition</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> ConditionEvaluationResult <span class="hljs-title">evaluateExecutionCondition</span><span class="hljs-params">(ExtensionContext context)</span> </span>{
-        <span class="hljs-keyword">return</span> AnnotationUtils.findAnnotation(context.getElement(), Pass.class)
-                .map(Pass::value)
-                .filter(&quot;我很帅&quot;::equals)
-                .map(item -&gt; ConditionEvaluationResult.enabled(&quot;pass&quot;))
-                .orElse(ConditionEvaluationResult.disabled(&quot;pass is not okay!&quot;));
-    }
-}</code>
-</pre><pre>
-<code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConditionalTest</span> </span>{
-    <span class="hljs-meta">@Pass(&quot;密码不对不执行&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notExec</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">// code...</span>
-    }
-    <span class="hljs-meta">@Pass(&quot;我很帅&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-comment">// code...</span>
-    }
-}</code>
-</pre><h3 id="testinstancefactory" class="article-heading">TestInstanceFactory<a class="article-anchor" href="#testinstancefactory" aria-hidden="true"></a></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Target(&#123; ElementType.TYPE, ElementType.METHOD &#125;)</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-meta">@ExtendWith(PassConditionalExtension.class)</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Pass &#123;<br>    <span class="hljs-function">String <span class="hljs-title">value</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PassConditionalExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ExecutionCondition</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ConditionEvaluationResult <span class="hljs-title">evaluateExecutionCondition</span><span class="hljs-params">(ExtensionContext context)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> AnnotationUtils.findAnnotation(context.getElement(), Pass.class)<br>                .map(Pass::value)<br>                .filter(<span class="hljs-string">&quot;我很帅&quot;</span>::equals)<br>                .map(item -&gt; ConditionEvaluationResult.enabled(<span class="hljs-string">&quot;pass&quot;</span>))<br>                .orElse(ConditionEvaluationResult.disabled(<span class="hljs-string">&quot;pass is not okay!&quot;</span>));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConditionalTest</span> </span>&#123;<br>    <span class="hljs-meta">@Pass(&quot;密码不对不执行&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">notExec</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// code...</span><br>    &#125;<br>    <span class="hljs-meta">@Pass(&quot;我很帅&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// code...</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="testinstancefactory" class="article-heading">TestInstanceFactory<a class="article-anchor" href="#testinstancefactory" aria-hidden="true"></a></h3>
 <p>定义测试实例，只能用于class上，暂时想不到例子，跳过~~</p>
 <h3 id="testinstancepostprocessor" class="article-heading">TestInstancePostProcessor<a class="article-anchor" href="#testinstancepostprocessor" aria-hidden="true"></a></h3>
 <p>对测试实例处理，通常用于注入依赖，暂时想不到例子，跳过~~</p>
@@ -854,58 +434,17 @@
 <p>当测试实例销毁前调用，暂时想不到例子，跳过~~</p>
 <h3 id="parameterresolver" class="article-heading">ParameterResolver<a class="article-anchor" href="#parameterresolver" aria-hidden="true"></a></h3>
 <p>处理参数，见下面例子</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Target(ElementType.PARAMETER)</span>
-<span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span>
-<span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> BookInject {
-    <span class="hljs-function">String <span class="hljs-title">title</span><span class="hljs-params">()</span></span>;
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">price</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> 0</span>;
-}</code>
-</pre><pre>
-<code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookParameterResolver</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ParameterResolver</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">supportsParameter</span><span class="hljs-params">(ParameterContext parameterContext, ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> ParameterResolutionException </span>{
-        <span class="hljs-keyword">return</span> parameterContext.isAnnotated(BookInject.class);
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">resolveParameter</span><span class="hljs-params">(ParameterContext parameterContext, ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> ParameterResolutionException </span>{
-        <span class="hljs-keyword">return</span> parameterContext.findAnnotation(BookInject.class)
-                .map(book -&gt; Book.of(book.title(), book.price()))
-                .orElse(<span class="hljs-keyword">null</span>);
-    }
-}</code>
-</pre><pre>
-<code class="java"><span class="hljs-meta">@Slf4j</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookParameterTest</span> </span>{
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@ExtendWith(BookParameterResolver.class)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec</span><span class="hljs-params">(<span class="hljs-meta">@BookInject(title = &quot;删库&quot;)</span> Book book)</span> </span>{
-        log.info(book.toString());
-    }
-}</code>
-</pre><h3 id="testwatcher" class="article-heading">TestWatcher<a class="article-anchor" href="#testwatcher" aria-hidden="true"></a></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Target(ElementType.PARAMETER)</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> BookInject &#123;<br>    <span class="hljs-function">String <span class="hljs-title">title</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">price</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> 0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookParameterResolver</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ParameterResolver</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">supportsParameter</span><span class="hljs-params">(ParameterContext parameterContext, ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> ParameterResolutionException </span>&#123;<br>        <span class="hljs-keyword">return</span> parameterContext.isAnnotated(BookInject.class);<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">resolveParameter</span><span class="hljs-params">(ParameterContext parameterContext, ExtensionContext extensionContext)</span> <span class="hljs-keyword">throws</span> ParameterResolutionException </span>&#123;<br>        <span class="hljs-keyword">return</span> parameterContext.findAnnotation(BookInject.class)<br>                .map(book -&gt; Book.of(book.title(), book.price()))<br>                .orElse(<span class="hljs-keyword">null</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookParameterTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@ExtendWith(BookParameterResolver.class)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec</span><span class="hljs-params">(<span class="hljs-meta">@BookInject(title = &quot;删库&quot;)</span> Book book)</span> </span>&#123;<br>        log.info(book.toString());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="testwatcher" class="article-heading">TestWatcher<a class="article-anchor" href="#testwatcher" aria-hidden="true"></a></h3>
 <p>监听测试用例的执行结果</p>
-<pre>
-<code class="java"><span class="hljs-meta">@Slf4j</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogTestWatcher</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestWatcher</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSuccessful</span><span class="hljs-params">(ExtensionContext context)</span> </span>{
-        log.info(<span class="hljs-string">&quot;wow, 成功了！&quot;</span>);
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testAborted</span><span class="hljs-params">(ExtensionContext context, Throwable cause)</span> </span>{
-        <span class="hljs-comment">// 终止</span>
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDisabled</span><span class="hljs-params">(ExtensionContext context, Optional&lt;String&gt; reason)</span> </span>{
-        <span class="hljs-comment">// 取消（跳过）</span>
-    }
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFailed</span><span class="hljs-params">(ExtensionContext context, Throwable cause)</span> </span>{
-        <span class="hljs-comment">// 失败</span>
-    }
-}</code>
-</pre><h3 id="生命周期回调" class="article-heading">生命周期回调<a class="article-anchor" href="#生命周期回调" aria-hidden="true"></a></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogTestWatcher</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestWatcher</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSuccessful</span><span class="hljs-params">(ExtensionContext context)</span> </span>&#123;<br>        log.info(<span class="hljs-string">&quot;wow, 成功了！&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testAborted</span><span class="hljs-params">(ExtensionContext context, Throwable cause)</span> </span>&#123;<br>        <span class="hljs-comment">// 终止</span><br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDisabled</span><span class="hljs-params">(ExtensionContext context, Optional&lt;String&gt; reason)</span> </span>&#123;<br>        <span class="hljs-comment">// 取消（跳过）</span><br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFailed</span><span class="hljs-params">(ExtensionContext context, Throwable cause)</span> </span>&#123;<br>        <span class="hljs-comment">// 失败</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="生命周期回调" class="article-heading">生命周期回调<a class="article-anchor" href="#生命周期回调" aria-hidden="true"></a></h3>
 <p>在一开始的例子中就是生命周期的回调，这里不写例子拉，他们执行的先后顺序如下</p>
 <ul>
 <li>BeforeAllCallback<ul>
@@ -921,30 +460,11 @@
 </ul>
 <h3 id="testexecutionexceptionhandler" class="article-heading">TestExecutionExceptionHandler<a class="article-anchor" href="#testexecutionexceptionhandler" aria-hidden="true"></a></h3>
 <p>处理异常，如果存在一些自定义的运行时异常，这是很有用的，可以做些处理</p>
-<pre>
-<code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IgnoreExceptionExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestExecutionExceptionHandler</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleTestExecutionException</span><span class="hljs-params">(ExtensionContext context, Throwable throwable)</span> <span class="hljs-keyword">throws</span> Throwable </span>{
-        <span class="hljs-keyword">if</span> (throwable <span class="hljs-keyword">instanceof</span> Exception) {
-            <span class="hljs-keyword">return</span>;
-        }
-        <span class="hljs-keyword">throw</span> throwable;
-    }
-}</code>
-</pre><pre>
-<code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleTest</span> </span>{
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@ExtendWith(IgnoreExceptionExtension.class)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">&quot;被忽略&quot;</span>);
-    }
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-meta">@ExtendWith(IgnoreExceptionExtension.class)</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec3</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Throwable </span>{
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Throwable(<span class="hljs-string">&quot;不被忽略&quot;</span>);
-    }
-}</code>
-</pre><blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IgnoreExceptionExtension</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">TestExecutionExceptionHandler</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleTestExecutionException</span><span class="hljs-params">(ExtensionContext context, Throwable throwable)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;<br>        <span class="hljs-keyword">if</span> (throwable <span class="hljs-keyword">instanceof</span> Exception) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">throw</span> throwable;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SimpleTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@ExtendWith(IgnoreExceptionExtension.class)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">&quot;被忽略&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-meta">@ExtendWith(IgnoreExceptionExtension.class)</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">exec3</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Throwable(<span class="hljs-string">&quot;不被忽略&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
 <p>未完待续（一次写不完）</p>
 </blockquote>
 <h1 id="在-spring-中的使用" class="article-heading">在 Spring 中的使用<a class="article-anchor" href="#在-spring-中的使用" aria-hidden="true"></a></h1>
@@ -1074,13 +594,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

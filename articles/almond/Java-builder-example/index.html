@@ -14,12 +14,23 @@
 <meta property="og:url" content="https://jiangtj.com/articles/almond/Java-builder-example/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="初看java设计模式-建造者模式时，肯定有和我一样有疑惑的。网上的例子几乎都一样，但是却没new xxx.Builder().buildxx().buildxx()…这样的。那么我今天来讲讲这种建造者模式的实现。 首先按照我的惯例，先给例子后解说 例子 Product.java">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="article:published_time" content="2016-07-18T16:00:00.000Z">
 <meta property="article:modified_time" content="2016-07-18T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">  <title>Java设计模式之建筑者模式. | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/Java-builder-example/"},"headline":"Java设计模式之建筑者模式.","image":[],"datePublished":"2016-07-18T16:00:00.000Z","dateModified":"2016-07-18T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -30,7 +41,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -128,7 +139,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">1.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lombok"><span class="nav-number">4.</span> <span class="nav-text">Lombok</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lombok"><span class="nav-number">4.</span> <span class="nav-text">Lombok</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -241,91 +252,14 @@
 <h3 id="例子" class="article-heading">例子<a class="article-anchor" href="#例子" aria-hidden="true"></a></h3>
 <p>Product.java</p>
 <a id="more"></a>
-<pre>
-<code class="java"><span class="hljs-keyword">package</span> com.jtj.builder;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.jtj.builder;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> String part1;<br>    <span class="hljs-keyword">private</span> String part2;<br>    <span class="hljs-keyword">private</span> String part3;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPart1</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> part1;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPart1</span><span class="hljs-params">(String part1)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.part1 = part1;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPart2</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> part2;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPart2</span><span class="hljs-params">(String part2)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.part2 = part2;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPart3</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> part3;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPart3</span><span class="hljs-params">(String part3)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.part3 = part3;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getProduct</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StringBuilder().append(part1)<br>                .append(<span class="hljs-string">&quot;,&quot;</span>)<br>                .append(part2)<br>                .append(<span class="hljs-string">&quot;,&quot;</span>)<br>                .append(part3)<br>                .toString();<br>    &#125;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Builder</span></span>&#123;<br>        <br>        <span class="hljs-keyword">private</span> Product product;<br>        <br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Builder</span><span class="hljs-params">()</span></span>&#123;<br>            product=<span class="hljs-keyword">new</span> Product();<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">buildPart1</span><span class="hljs-params">(String part1)</span></span>&#123;<br>            product.setPart1(part1);<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">buildPart2</span><span class="hljs-params">(String part2)</span></span>&#123;<br>            product.setPart2(part2);<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">buildPart3</span><span class="hljs-params">(String part3)</span></span>&#123;<br>            product.setPart3(part3);<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">build</span><span class="hljs-params">()</span></span>&#123;<br>            <span class="hljs-keyword">return</span> product;<br>        &#125;<br>        <br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Main.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.jtj.builder;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">// TODO Auto-generated method stub</span><br>        Product product = <span class="hljs-keyword">new</span> Product.Builder()<br>                .buildPart1(<span class="hljs-string">&quot;qq&quot;</span>)<br>                .buildPart2(<span class="hljs-string">&quot;2&quot;</span>)<br>                .buildPart3(<span class="hljs-string">&quot;sa&quot;</span>)<br>                .build();<br>        System.out.println(product.getProduct());<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span> </span>{
+<h3 id="结果" class="article-heading">结果<a class="article-anchor" href="#结果" aria-hidden="true"></a></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">qq,<span class="hljs-number">2</span>,sa<br></code></pre></td></tr></table></figure>
 
-    <span class="hljs-keyword">private</span> String part1;
-    <span class="hljs-keyword">private</span> String part2;
-    <span class="hljs-keyword">private</span> String part3;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPart1</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> part1;
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPart1</span><span class="hljs-params">(String part1)</span> </span>{
-        <span class="hljs-keyword">this</span>.part1 = part1;
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPart2</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> part2;
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPart2</span><span class="hljs-params">(String part2)</span> </span>{
-        <span class="hljs-keyword">this</span>.part2 = part2;
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPart3</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">return</span> part3;
-    }
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPart3</span><span class="hljs-params">(String part3)</span> </span>{
-        <span class="hljs-keyword">this</span>.part3 = part3;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getProduct</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StringBuilder().append(part1)
-                .append(<span class="hljs-string">&quot;,&quot;</span>)
-                .append(part2)
-                .append(<span class="hljs-string">&quot;,&quot;</span>)
-                .append(part3)
-                .toString();
-    }
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Builder</span></span>{
-
-        <span class="hljs-keyword">private</span> Product product;
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Builder</span><span class="hljs-params">()</span></span>{
-            product=<span class="hljs-keyword">new</span> Product();
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">buildPart1</span><span class="hljs-params">(String part1)</span></span>{
-            product.setPart1(part1);
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
-        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">buildPart2</span><span class="hljs-params">(String part2)</span></span>{
-            product.setPart2(part2);
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
-        <span class="hljs-function"><span class="hljs-keyword">public</span> Builder <span class="hljs-title">buildPart3</span><span class="hljs-params">(String part3)</span></span>{
-            product.setPart3(part3);
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-        }
-        <span class="hljs-function"><span class="hljs-keyword">public</span> Product <span class="hljs-title">build</span><span class="hljs-params">()</span></span>{
-            <span class="hljs-keyword">return</span> product;
-        }
-
-    }
-
-}</code>
-</pre><p>Main.java</p>
-<pre>
-<code class="java"><span class="hljs-keyword">package</span> com.jtj.builder;
-
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>{
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        <span class="hljs-comment">// TODO Auto-generated method stub</span>
-        Product product = <span class="hljs-keyword">new</span> Product.Builder()
-                .buildPart1(<span class="hljs-string">&quot;qq&quot;</span>)
-                .buildPart2(<span class="hljs-string">&quot;2&quot;</span>)
-                .buildPart3(<span class="hljs-string">&quot;sa&quot;</span>)
-                .build();
-        System.out.println(product.getProduct());
-    }
-
-}</code>
-</pre><h3 id="结果" class="article-heading">结果<a class="article-anchor" href="#结果" aria-hidden="true"></a></h3>
-<pre>
-<code class="java">qq,<span class="hljs-number">2</span>,sa</code>
-</pre><h3 id="说明" class="article-heading">说明<a class="article-anchor" href="#说明" aria-hidden="true"></a></h3>
+<h3 id="说明" class="article-heading">说明<a class="article-anchor" href="#说明" aria-hidden="true"></a></h3>
 <p>product是产品，是我们需要构建的对象，里面有静态的构造器Builder，由于是静态类，里面构造方法在使用的时候最开始便会构造，也就是里面的product每次使用时都会先实例化一个。
 之后每次buildxxx后，我们可以看到返回的都是this,也就是这个静态类，就是这个原因，我们便可以在后面不断的连续buildxxx。
 最后通过一个build返回所实例化的product。  </p>
@@ -334,33 +268,10 @@
 <p>Lombok更优雅的方式实现建造者模式（17-10-25更新）</p>
 </blockquote>
 <p>Lombok,可以通过注解方式，减少大量的臃肿的代码。比如getter和setter，看着就头疼。使用Lombok，你可以直接@Getter和@Setter来代替这部分，当然一般都是@Data，把一些列常用的注解都加上。<br>除了这些，它还提供了一些其他的不常用到的注解，来消除特定场合的臃肿的代码。比如@Cleanup减少try…catch，@Log减少写获取log实例的代码。这些都很实用。<br>当然，这里要讲的是与建造者相关的@Builder，还是看代码把    </p>
-<pre>
-<code class="java"><span class="hljs-meta">@Data</span><span class="hljs-comment">//=@Setter @Getter @ToString @EqualsAndHashCode</span>
-<span class="hljs-comment">//这个@Builder就是用来生成建造者模式的，只需要小小的一个注解，就能实现了</span>
-<span class="hljs-meta">@Builder</span>
-<span class="hljs-comment">//下面两个注解，因为@Builder必须要全属性构造方法，才能使用。</span>
-<span class="hljs-comment">//虽然默认会生成全属性构造方法，但使用@NoArgsConstructor会覆盖掉这个默认，因此需要添加@AllArgsConstructor</span>
-<span class="hljs-meta">@NoArgsConstructor</span>
-<span class="hljs-meta">@AllArgsConstructor</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestEntity</span> </span>{
-    <span class="hljs-keyword">private</span> String name;
-    <span class="hljs-keyword">private</span> Integer age;
-}</code>
-</pre><p>实现过程相当简单，为它我也编写了一个测试类    </p>
-<pre>
-<code class="java"><span class="hljs-comment">//这个也是Lombok的一个注解</span>
-<span class="hljs-meta">@Slf4j</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestEntityTest</span> </span>{
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{
-        TestEntity entity = TestEntity.builder()
-                .name(<span class="hljs-string">&quot;MrJ&quot;</span>)
-                .age(<span class="hljs-number">100</span>)
-                .build();
-        log.error(entity.toString());
-    }
-}</code>
-</pre><p>在控制台中看到有<code>TestEntity(name=MrJ, age=100)</code>的输出，证明是成功的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><span class="hljs-comment">//=@Setter @Getter @ToString @EqualsAndHashCode</span><br><span class="hljs-comment">//这个@Builder就是用来生成建造者模式的，只需要小小的一个注解，就能实现了</span><br><span class="hljs-meta">@Builder</span><br><span class="hljs-comment">//下面两个注解，因为@Builder必须要全属性构造方法，才能使用。</span><br><span class="hljs-comment">//虽然默认会生成全属性构造方法，但使用@NoArgsConstructor会覆盖掉这个默认，因此需要添加@AllArgsConstructor</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestEntity</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> Integer age;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>实现过程相当简单，为它我也编写了一个测试类    </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//这个也是Lombok的一个注解</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestEntityTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>&#123;<br>        TestEntity entity = TestEntity.builder()<br>                .name(<span class="hljs-string">&quot;MrJ&quot;</span>)<br>                .age(<span class="hljs-number">100</span>)<br>                .build();<br>        log.error(entity.toString());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在控制台中看到有<code>TestEntity(name=MrJ, age=100)</code>的输出，证明是成功的。</p>
       
     </div>
 
@@ -475,13 +386,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

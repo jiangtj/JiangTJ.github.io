@@ -14,11 +14,22 @@
 <meta property="og:url" content="https://jiangtj.com/articles/cherry/mine-promise/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="39行代码，走过路过不要错过哦~">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="article:published_time" content="2020-04-22T08:39:45.000Z">
 <meta property="article:modified_time" content="2020-04-22T08:39:45.000Z">
 <meta property="article:author" content="Mr.J">
 <meta name="twitter:card" content="summary">  <title>造了套自己的 Promise | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/cherry/mine-promise/"},"headline":"造了套自己的 Promise","image":[],"datePublished":"2020-04-22T08:39:45.000Z","dateModified":"2020-04-22T08:39:45.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -29,7 +40,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -227,65 +238,12 @@
     <div class="post-body">
       
       <p>Promise 很火，没看源码，仅参考平时的使用，造了一个小轮子（有时间再去看源码把）</p>
-<pre>
-<code class="js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PromiseT</span> </span>{
-  <span class="hljs-keyword">constructor</span>() {
-    <span class="hljs-built_in">this</span>.status = <span class="hljs-string">&#x27;running&#x27;</span>;
-    <span class="hljs-built_in">this</span>.val = <span class="hljs-literal">null</span>;
-    <span class="hljs-built_in">this</span>.pendingList = [];
-  }
-  then(...list) {
-    <span class="hljs-built_in">this</span>.pendingList.push(...list);
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.run();
-  }
-  resolve(val) {
-    <span class="hljs-built_in">this</span>.status = <span class="hljs-string">&#x27;running&#x27;</span>;
-    <span class="hljs-keyword">if</span> (val !== <span class="hljs-literal">undefined</span>) {
-      <span class="hljs-built_in">this</span>.val = val;
-    }
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.run();
-  }
-  pending() {
-    <span class="hljs-built_in">this</span>.status = <span class="hljs-string">&#x27;pending&#x27;</span>;
-  }
-  run() {
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.status === <span class="hljs-string">&#x27;pending&#x27;</span>) {
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
-    }
-    <span class="hljs-keyword">const</span> cal = <span class="hljs-built_in">this</span>.pendingList.shift();
-    <span class="hljs-keyword">if</span> (cal === <span class="hljs-literal">undefined</span>) {
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
-    }
-    <span class="hljs-keyword">const</span> result = cal(<span class="hljs-built_in">this</span>.val, <span class="hljs-built_in">this</span>);
-    <span class="hljs-keyword">if</span> (result === <span class="hljs-literal">undefined</span>) {
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.run();
-    }
-    <span class="hljs-keyword">if</span> (result.constructor === PromiseT) {
-      <span class="hljs-keyword">return</span> result.then(...this.pendingList);
-    }
-    <span class="hljs-built_in">this</span>.val = result;
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.run();
-  }
-}</code>
-</pre><p>测试：</p>
-<pre>
-<code class="js"><span class="hljs-keyword">new</span> PromiseT()
-  .resolve(<span class="hljs-number">5</span>)
-  .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">1</span>)
-  .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-keyword">new</span> PromiseT().resolve(<span class="hljs-number">2</span>).then(<span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> x / a))
-  .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(x))
-  .then(<span class="hljs-function">(<span class="hljs-params">x, p</span>) =&gt;</span> {
-    p.pending();
-    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
-      p.resolve(x - <span class="hljs-number">3</span>);
-    }, <span class="hljs-number">2000</span>);
-  })
-  .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(x));
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PromiseT</span> </span>&#123;<br>  <span class="hljs-keyword">constructor</span>() &#123;<br>    <span class="hljs-built_in">this</span>.status = <span class="hljs-string">&#x27;running&#x27;</span>;<br>    <span class="hljs-built_in">this</span>.val = <span class="hljs-literal">null</span>;<br>    <span class="hljs-built_in">this</span>.pendingList = [];<br>  &#125;<br>  then(...list) &#123;<br>    <span class="hljs-built_in">this</span>.pendingList.push(...list);<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.run();<br>  &#125;<br>  resolve(val) &#123;<br>    <span class="hljs-built_in">this</span>.status = <span class="hljs-string">&#x27;running&#x27;</span>;<br>    <span class="hljs-keyword">if</span> (val !== <span class="hljs-literal">undefined</span>) &#123;<br>      <span class="hljs-built_in">this</span>.val = val;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.run();<br>  &#125;<br>  pending() &#123;<br>    <span class="hljs-built_in">this</span>.status = <span class="hljs-string">&#x27;pending&#x27;</span>;<br>  &#125;<br>  run() &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.status === <span class="hljs-string">&#x27;pending&#x27;</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;<br>    &#125;<br>    <span class="hljs-keyword">const</span> cal = <span class="hljs-built_in">this</span>.pendingList.shift();<br>    <span class="hljs-keyword">if</span> (cal === <span class="hljs-literal">undefined</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;<br>    &#125;<br>    <span class="hljs-keyword">const</span> result = cal(<span class="hljs-built_in">this</span>.val, <span class="hljs-built_in">this</span>);<br>    <span class="hljs-keyword">if</span> (result === <span class="hljs-literal">undefined</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.run();<br>    &#125;<br>    <span class="hljs-keyword">if</span> (result.constructor === PromiseT) &#123;<br>      <span class="hljs-keyword">return</span> result.then(...this.pendingList);<br>    &#125;<br>    <span class="hljs-built_in">this</span>.val = result;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.run();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-comment">// 输出 3</span>
-<span class="hljs-comment">// 等待 2s</span>
-<span class="hljs-comment">// 输出 0</span></code>
-</pre><p>毕竟是小轮子，<code>catch()</code> <code>finally()</code> 这些没写。。。</p>
+<p>测试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">new</span> PromiseT()<br>  .resolve(<span class="hljs-number">5</span>)<br>  .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">1</span>)<br>  .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-keyword">new</span> PromiseT().resolve(<span class="hljs-number">2</span>).then(<span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> x / a))<br>  .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(x))<br>  .then(<span class="hljs-function">(<span class="hljs-params">x, p</span>) =&gt;</span> &#123;<br>    p.pending();<br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      p.resolve(x - <span class="hljs-number">3</span>);<br>    &#125;, <span class="hljs-number">2000</span>);<br>  &#125;)<br>  .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(x));<br><br><span class="hljs-comment">// 输出 3</span><br><span class="hljs-comment">// 等待 2s</span><br><span class="hljs-comment">// 输出 0</span><br></code></pre></td></tr></table></figure>
+
+<p>毕竟是小轮子，<code>catch()</code> <code>finally()</code> 这些没写。。。</p>
       
     </div>
 
@@ -394,13 +352,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

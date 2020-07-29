@@ -8,18 +8,29 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="文章中的表参考这里的创建http:&#x2F;&#x2F;blog.csdn.net&#x2F;stevendbaguo&#x2F;article&#x2F;details&#x2F;73467649  数据表的创建  制造数据 DROP TABLE IF EXISTS test;  CREATE TABLE test(    ID INT(10) NOT NULL,    &#96;Name&#96; VARCHAR(20) DEFAULT &amp;#x27;&amp;#x27;">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="文章中的表参考这里的创建http:&#x2F;&#x2F;blog.csdn.net&#x2F;stevendbaguo&#x2F;article&#x2F;details&#x2F;73467649  数据表的创建  制造数据123456DROP TABLE IF EXISTS test; CREATE TABLE test(     ID INT(10) NOT NULL,     &#96;Name&#96; VARCHAR(20) DEFAULT &amp;#x27;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL5.7 IN与EXISTS">
 <meta property="og:url" content="https://jiangtj.com/articles/almond/mysql-in-and-exists/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="文章中的表参考这里的创建http:&#x2F;&#x2F;blog.csdn.net&#x2F;stevendbaguo&#x2F;article&#x2F;details&#x2F;73467649  数据表的创建  制造数据 DROP TABLE IF EXISTS test;  CREATE TABLE test(    ID INT(10) NOT NULL,    &#96;Name&#96; VARCHAR(20) DEFAULT &amp;#x27;&amp;#x27;">
-<meta property="og:locale" content="zh">
+<meta property="og:description" content="文章中的表参考这里的创建http:&#x2F;&#x2F;blog.csdn.net&#x2F;stevendbaguo&#x2F;article&#x2F;details&#x2F;73467649  数据表的创建  制造数据123456DROP TABLE IF EXISTS test; CREATE TABLE test(     ID INT(10) NOT NULL,     &#96;Name&#96; VARCHAR(20) DEFAULT &amp;#x27;&amp;">
+<meta property="og:locale">
 <meta property="article:published_time" content="2017-11-30T16:00:00.000Z">
 <meta property="article:modified_time" content="2017-11-30T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">  <title>MySQL5.7 IN与EXISTS | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/mysql-in-and-exists/"},"headline":"MySQL5.7 IN与EXISTS","image":[],"datePublished":"2017-11-30T16:00:00.000Z","dateModified":"2017-11-30T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -30,7 +41,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -128,7 +139,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表的创建"><span class="nav-number">1.</span> <span class="nav-text">数据表的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql测试"><span class="nav-number">2.</span> <span class="nav-text">SQL测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原因"><span class="nav-number">3.</span> <span class="nav-text">原因</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">数据表的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql%E6%B5%8B%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">SQL测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">3.</span> <span class="nav-text">原因</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -241,41 +252,18 @@
 </blockquote>
 <h3 id="数据表的创建" class="article-heading">数据表的创建<a class="article-anchor" href="#数据表的创建" aria-hidden="true"></a></h3>
 <ul>
-<li>制造数据<pre>
-<code class="sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-keyword">test</span>; 
-<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">test</span>( 
-  <span class="hljs-keyword">ID</span> <span class="hljs-built_in">INT</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>, 
-  <span class="hljs-string">`Name`</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>, 
-  PRIMARY <span class="hljs-keyword">KEY</span>( <span class="hljs-keyword">ID</span> ) 
-)<span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">INNODB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> utf8; </code>
-</pre></li>
+<li>制造数据<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-keyword">test</span>; <br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">test</span>( <br>    <span class="hljs-keyword">ID</span> <span class="hljs-built_in">INT</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>, <br>    <span class="hljs-string">`Name`</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>, <br>    PRIMARY <span class="hljs-keyword">KEY</span>( <span class="hljs-keyword">ID</span> ) <br>)<span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">INNODB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> utf8; <br></code></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <a id="more"></a>
 
 <ul>
-<li>创建生成测试数据的存储过程<pre>
-<code class="sql">DROP PROCEDURE IF EXISTS pre_test; 
-DELIMITER //
-CREATE PROCEDURE pre_test() 
-BEGIN 
-DECLARE i INT DEFAULT 0; 
-SET autocommit = 0; 
-WHILE i&lt;4000000 DO 
-INSERT INTO test ( ID,`Name` ) VALUES( i, CONCAT( &#x27;Carl&#x27;, i ) ); 
-SET i = i+1; 
-IF i%10000 = 0 THEN 
-COMMIT; 
-END IF; 
-END WHILE; 
-END; //
-DELIMITER ;</code>
-</pre>运行存储过程</li>
-<li>创建子表<pre>
-<code class="sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_bak <span class="hljs-keyword">AS</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">test</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">1000</span>;
-<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> ind_t_id <span class="hljs-keyword">ON</span> <span class="hljs-keyword">test</span>(<span class="hljs-keyword">id</span>);
-<span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">test</span>;
-<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> ind_t1_id <span class="hljs-keyword">ON</span> test_bak(<span class="hljs-keyword">id</span>);</code>
-</pre></li>
+<li>创建生成测试数据的存储过程<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">PROCEDURE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> pre_test; <br>DELIMITER //<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">PROCEDURE</span> pre_test() <br><span class="hljs-keyword">BEGIN</span> <br><span class="hljs-keyword">DECLARE</span> i <span class="hljs-built_in">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span>; <br><span class="hljs-keyword">SET</span> autocommit = <span class="hljs-number">0</span>; <br>WHILE i&lt;4000000 DO <br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">test</span> ( <span class="hljs-keyword">ID</span>,<span class="hljs-string">`Name`</span> ) <span class="hljs-keyword">VALUES</span>( i, <span class="hljs-keyword">CONCAT</span>( <span class="hljs-string">&#x27;Carl&#x27;</span>, i ) ); <br><span class="hljs-keyword">SET</span> i = i+<span class="hljs-number">1</span>; <br>IF i%10000 = 0 THEN <br><span class="hljs-keyword">COMMIT</span>; <br><span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>; <br><span class="hljs-keyword">END</span> <span class="hljs-keyword">WHILE</span>; <br><span class="hljs-keyword">END</span>; //<br>DELIMITER ;<br></code></pre></td></tr></table></figure>
+运行存储过程</li>
+<li>创建子表<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test_bak <span class="hljs-keyword">AS</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">test</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">1000</span>;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> ind_t_id <span class="hljs-keyword">ON</span> <span class="hljs-keyword">test</span>(<span class="hljs-keyword">id</span>);<br><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">test</span>;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">INDEX</span> ind_t1_id <span class="hljs-keyword">ON</span> test_bak(<span class="hljs-keyword">id</span>);<br></code></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <h3 id="sql测试" class="article-heading">SQL测试<a class="article-anchor" href="#sql测试" aria-hidden="true"></a></h3>
 <p>[SQL]<br>SELECT * FROM test a LEFT JOIN test_bak b ON a.id = b.id LIMIT 5000;<br>时间: 0.017s   </p>
@@ -403,13 +391,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

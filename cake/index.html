@@ -14,13 +14,24 @@
 <meta property="og:url" content="https://jiangtj.com/cake/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="一些事  Hexo Theme Cake是个lovely主题，基于7.1.0版本的NexT。就像蛋糕Cake，非常非常好吃，而且做起来也简单。 Cake取消了大量NexT上已有的功能，其中大部分能以插件形式，快速集成到该主题。如果你发现NexT有，而Cake没有的，你可以在GitHub上提交issue，我会尽快支持这些功能。 缘由 为什么要单独独立出一个主题？这主要包含以下几点原因  实践一些新特">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="og:image" content="https://jiangtj.com/cake/images/t1.png">
 <meta property="article:published_time" content="2020-05-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-05-19T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jiangtj.com/cake/images/t1.png">  <title>Hexo Theme Cake | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/cake/index.html"},"headline":"Hexo Theme Cake","image":["/cake/images/t1.png"],"datePublished":"2020-05-19T16:00:00.000Z","dateModified":"2020-05-19T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -31,7 +42,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -129,7 +140,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些事"><span class="nav-number">1.</span> <span class="nav-text">一些事</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由"><span class="nav-number">2.</span> <span class="nav-text">缘由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速开始"><span class="nav-number">3.</span> <span class="nav-text">快速开始</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BA%8B"><span class="nav-number">1.</span> <span class="nav-text">一些事</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%98%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">缘由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="nav-number">3.</span> <span class="nav-text">快速开始</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -268,13 +279,12 @@
 <p>所以如果你喜欢我的样式，可以尝试使用，如果更喜欢更多内置功能，<a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT</a>可能更适合你</p>
 </blockquote>
 <h1 id="快速开始" class="article-heading">快速开始<a class="article-anchor" href="#快速开始" aria-hidden="true"></a></h1>
-<pre>
-<code class="bash"><span class="hljs-comment"># Install hexo-theme-cake by npm or yarn cmd</span>
-yarn add hexo-theme-cake</code>
-</pre><p>修改 <code>theme</code> 为 <code>cake</code>, 如果你是一个 linux 用户, 可以执行下面的命令行. 其他用户需要手动修改.</p>
-<pre>
-<code class="bash">sed -ri <span class="hljs-string">&#x27;s/^theme:.*/theme: cake/g&#x27;</span> _config.yml &amp;&amp; hexo check</code>
-</pre><p><strong>如果你第一次使用cake主题, 你可以执行 <code>hexo check</code> 来检测你的环境是否完整.</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Install hexo-theme-cake by npm or yarn cmd</span><br>yarn add hexo-theme-cake<br></code></pre></td></tr></table></figure>
+
+<p>修改 <code>theme</code> 为 <code>cake</code>, 如果你是一个 linux 用户, 可以执行下面的命令行. 其他用户需要手动修改.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sed -ri <span class="hljs-string">&#x27;s/^theme:.*/theme: cake/g&#x27;</span> _config.yml &amp;&amp; hexo check<br></code></pre></td></tr></table></figure>
+
+<p><strong>如果你第一次使用cake主题, 你可以执行 <code>hexo check</code> 来检测你的环境是否完整.</strong></p>
 <p><code>hexo s</code>运行，你就能本地预览啦</p>
       
     </div>
@@ -353,13 +363,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://jiangtj.com/articles/almond/spring-boot-relaxed-binding-2.0/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="Spring Boot 中的配置绑定一直是其最主要的特性。而在Spring Boot 2.0中，该绑定方式做了大量的修改，并且借机制定一些新的规范，以减少过于宽松的绑定规则导致的一些问题  您也可以通过官方的Relaxed-Binding-2.0 wiki了解详细">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="og:image" content="https://jiangtj.com/images/md/others/spring-test-map.png">
 <meta property="article:published_time" content="2018-07-11T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-07-11T16:00:00.000Z">
@@ -22,6 +22,17 @@
 <meta property="article:tag" content="Spring Boot">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jiangtj.com/images/md/others/spring-test-map.png">  <title>Spring Boot Relaxed Binding 2.0 | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/spring-boot-relaxed-binding-2.0/"},"headline":"Spring Boot Relaxed Binding 2.0","image":["/images/md/others/spring-test-map.png"],"datePublished":"2018-07-11T16:00:00.000Z","dateModified":"2018-07-11T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -32,7 +43,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -130,7 +141,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设置配置属性"><span class="nav-number">1.</span> <span class="nav-text">设置配置属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的类型"><span class="nav-number">1.1.</span> <span class="nav-text">简单的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list类型"><span class="nav-number">1.2.</span> <span class="nav-text">List类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-类型"><span class="nav-number">1.3.</span> <span class="nav-text">Map 类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量"><span class="nav-number">1.4.</span> <span class="nav-text">环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读取配置属性"><span class="nav-number">2.</span> <span class="nav-text">读取配置属性</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">设置配置属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简单的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">List类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">Map 类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.4.</span> <span class="nav-text">环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">读取配置属性</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -247,57 +258,32 @@
 <h1 id="设置配置属性" class="article-heading">设置配置属性<a class="article-anchor" href="#设置配置属性" aria-hidden="true"></a></h1>
 <h2 id="简单的类型" class="article-heading">简单的类型<a class="article-anchor" href="#简单的类型" aria-hidden="true"></a></h2>
 <p>配置文件中的简单类型，都会被移除特殊字符并转为小写后，进行绑定。例如下面的几个配置都等价于<code>spring.jpa.databaseplatform=mysql</code>:</p>
-<pre>
-<code class="properties"><span class="hljs-meta">spring.jpa.database-platform</span>=<span class="hljs-string">mysql</span>
-<span class="hljs-meta">spring.jpa.databasePlatform</span>=<span class="hljs-string">mysql</span>
-<span class="hljs-meta">spring.JPA.database_platform</span>=<span class="hljs-string">mysql</span></code>
-</pre><blockquote>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.jpa.database-platform</span>=<span class="hljs-string">mysql</span><br><span class="hljs-meta">spring.jpa.databasePlatform</span>=<span class="hljs-string">mysql</span><br><span class="hljs-meta">spring.JPA.database_platform</span>=<span class="hljs-string">mysql</span><br></code></pre></td></tr></table></figure>
+<blockquote>
 <p>当然，推荐的是kebab-case命名，也是上面例子中的<code>spring.jpa.database-platform=mysql</code></p>
 </blockquote>
 <h2 id="list类型" class="article-heading">List类型<a class="article-anchor" href="#list类型" aria-hidden="true"></a></h2>
 <p>List类型的属性，在配置文件中需要使用<code>[ ]</code>标记符:</p>
-<pre>
-<code class="properties"><span class="hljs-meta">spring.my-example.url[0]</span>=<span class="hljs-string">http://example.com</span>
-<span class="hljs-meta">spring.my-example.url[1]</span>=<span class="hljs-string">http://spring.io</span></code>
-</pre><p>或者yml的标准写法</p>
-<pre>
-<code class="yml"><span class="hljs-attr">spring:</span>
-  <span class="hljs-attr">my-example:</span>
-    <span class="hljs-attr">url:</span>
-      <span class="hljs-bullet">-</span> <span class="hljs-string">http://example.com</span>
-      <span class="hljs-bullet">-</span> <span class="hljs-string">http://spring.io</span></code>
-</pre><p>同时，还支持使用逗号分割成数组，例如：</p>
-<pre>
-<code class="properties"><span class="hljs-meta">spring.my-example.urls</span>=<span class="hljs-string">http://example.com,http://spring.io</span></code>
-</pre><p>注意：在properties，如果遗漏中间的索引，会导致无法绑定异常，下面是不被允许的：</p>
-<pre>
-<code class="properties"><span class="hljs-meta">foo[0]</span> = <span class="hljs-string">a</span>
-<span class="hljs-meta">foo[2]</span> = <span class="hljs-string">b</span></code>
-</pre><h2 id="map-类型" class="article-heading">Map 类型<a class="article-anchor" href="#map-类型" aria-hidden="true"></a></h2>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.my-example.url[0]</span>=<span class="hljs-string">http://example.com</span><br><span class="hljs-meta">spring.my-example.url[1]</span>=<span class="hljs-string">http://spring.io</span><br></code></pre></td></tr></table></figure>
+<p>或者yml的标准写法</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">my-example:</span><br>    <span class="hljs-attr">url:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">http://example.com</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">http://spring.io</span><br></code></pre></td></tr></table></figure>
+<p>同时，还支持使用逗号分割成数组，例如：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.my-example.urls</span>=<span class="hljs-string">http://example.com,http://spring.io</span><br></code></pre></td></tr></table></figure>
+<p>注意：在properties，如果遗漏中间的索引，会导致无法绑定异常，下面是不被允许的：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">foo[0]</span> = <span class="hljs-string">a</span><br><span class="hljs-meta">foo[2]</span> = <span class="hljs-string">b</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="map-类型" class="article-heading">Map 类型<a class="article-anchor" href="#map-类型" aria-hidden="true"></a></h2>
 <p>Map类型标准格式很简单<code>my-example.key=value</code>，yml类似的，但当遇到特殊字符时，就需要特别处理，但官方文档上讲的，不是很清楚，所以写了几个例子做实验   </p>
-<pre>
-<code class="properties"><span class="hljs-meta">jwt.test.xx</span>=<span class="hljs-string">1</span>
-<span class="hljs-meta">jwt.test.xx-xx</span>=<span class="hljs-string">2</span>
-<span class="hljs-meta">jwt.test.XX-xx</span>=<span class="hljs-string">3</span>
-<span class="hljs-meta">jwt.test.[ww-ww]</span>=<span class="hljs-string">4</span>
-<span class="hljs-meta">jwt.test.&#x27;[uuu/w1]&#x27;</span>=<span class="hljs-string">5</span>
-<span class="hljs-meta">jwt.test.[uuu/w2]</span>=<span class="hljs-string">6</span></code>
-</pre><pre>
-<code class="yml"><span class="hljs-attr">jwt:</span>
-  <span class="hljs-attr">ymltest:</span>
-    <span class="hljs-attr">foo:</span> <span class="hljs-number">1</span>
-    <span class="hljs-attr">ppp-vvv:</span> <span class="hljs-number">2</span>
-    [<span class="hljs-string">scfds-tgro</span>]<span class="hljs-string">:</span> <span class="hljs-number">3</span>
-    <span class="hljs-string">&#x27;[csf-te]&#x27;</span><span class="hljs-string">:</span> <span class="hljs-number">4</span>
-    <span class="hljs-string">&#x27;[csf/e]&#x27;</span><span class="hljs-string">:</span> <span class="hljs-number">5</span></code>
-</pre><p>结果如下图所示：<br><img data-src="/images/md/others/spring-test-map.png" alt="">    </p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">jwt.test.xx</span>=<span class="hljs-string">1</span><br><span class="hljs-meta">jwt.test.xx-xx</span>=<span class="hljs-string">2</span><br><span class="hljs-meta">jwt.test.XX-xx</span>=<span class="hljs-string">3</span><br><span class="hljs-meta">jwt.test.[ww-ww]</span>=<span class="hljs-string">4</span><br><span class="hljs-meta">jwt.test.&#x27;[uuu/w1]&#x27;</span>=<span class="hljs-string">5</span><br><span class="hljs-meta">jwt.test.[uuu/w2]</span>=<span class="hljs-string">6</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">jwt:</span><br>  <span class="hljs-attr">ymltest:</span><br>    <span class="hljs-attr">foo:</span> <span class="hljs-number">1</span><br>    <span class="hljs-attr">ppp-vvv:</span> <span class="hljs-number">2</span><br>    [<span class="hljs-string">scfds-tgro</span>]<span class="hljs-string">:</span> <span class="hljs-number">3</span><br>    <span class="hljs-string">&#x27;[csf-te]&#x27;</span><span class="hljs-string">:</span> <span class="hljs-number">4</span><br>    <span class="hljs-string">&#x27;[csf/e]&#x27;</span><span class="hljs-string">:</span> <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<p>结果如下图所示：<br><img data-src="/images/md/others/spring-test-map.png" alt="">    </p>
 <h2 id="环境变量" class="article-heading">环境变量<a class="article-anchor" href="#环境变量" aria-hidden="true"></a></h2>
 <p>在环境变量中，使用<code>_</code>代替<code>.</code>或者<code>[]</code>，如果<code>_</code>包围的是一数字，就替换为<code>[]</code>，其余情况为<code>.</code>，例如：   </p>
-<pre>
-<code class="">MY_FOO_1_ = my.foo[1]
-MY_FOO_1_BAR = my.foo[1].bar
-MY_FOO_1_2_ = my.foo[1][2]</code>
-</pre><h1 id="读取配置属性" class="article-heading">读取配置属性<a class="article-anchor" href="#读取配置属性" aria-hidden="true"></a></h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">MY_FOO_1_ &#x3D; my.foo[1]<br>MY_FOO_1_BAR &#x3D; my.foo[1].bar<br>MY_FOO_1_2_ &#x3D; my.foo[1][2]<br></code></pre></td></tr></table></figure>
+
+<h1 id="读取配置属性" class="article-heading">读取配置属性<a class="article-anchor" href="#读取配置属性" aria-hidden="true"></a></h1>
 <p>如果，你需要从环境中读出属性值到你的app中，你需要使用与配置文件一样规则的名称</p>
 <ul>
 <li>相同的名称</li>
@@ -308,9 +294,8 @@ MY_FOO_1_2_ = my.foo[1][2]</code>
 <li>不能以数字开头   </li>
 </ul>
 <p>下面是一个从配置文件中读出属性的例子：</p>
-<pre>
-<code class="java"><span class="hljs-keyword">this</span>.environment.containsProperty(<span class="hljs-string">&quot;spring.jpa.database-platform&quot;</span>)</code>
-</pre><blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">this</span>.environment.containsProperty(<span class="hljs-string">&quot;spring.jpa.database-platform&quot;</span>)<br></code></pre></td></tr></table></figure>
+<blockquote>
 <p>@Value 也需要遵守一样的规则</p>
 </blockquote>
       
@@ -427,13 +412,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

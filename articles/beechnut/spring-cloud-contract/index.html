@@ -14,13 +14,24 @@
 <meta property="og:url" content="https://jiangtj.com/articles/beechnut/spring-cloud-contract/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。 什么是契约测试？ 首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：  验证提供方">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="article:published_time" content="2019-03-28T15:18:51.000Z">
 <meta property="article:modified_time" content="2019-03-28T15:18:51.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="Spring Cloud">
 <meta property="article:tag" content="微服务">
 <meta name="twitter:card" content="summary">  <title>Spring Cloud Contract 契约测试 | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/beechnut/spring-cloud-contract/"},"headline":"Spring Cloud Contract 契约测试","image":[],"datePublished":"2019-03-28T15:18:51.000Z","dateModified":"2019-03-28T15:18:51.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -31,7 +42,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -129,7 +140,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是契约测试？"><span class="nav-number">1.</span> <span class="nav-text">什么是契约测试？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#verifier"><span class="nav-number">3.1.</span> <span class="nav-text">Verifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stub-runner"><span class="nav-number">3.2.</span> <span class="nav-text">Stub Runner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单元测试"><span class="nav-number">3.2.1.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立部署"><span class="nav-number">3.2.2.</span> <span class="nav-text">独立部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A5%91%E7%BA%A6%E6%B5%8B%E8%AF%95%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是契约测试？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#verifier"><span class="nav-number">3.1.</span> <span class="nav-text">Verifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stub-runner"><span class="nav-number">3.2.</span> <span class="nav-text">Stub Runner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8B%AC%E7%AB%8B%E9%83%A8%E7%BD%B2"><span class="nav-number">3.2.2.</span> <span class="nav-text">独立部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -258,94 +269,19 @@
 <p>通过groovy脚本或者yaml定义接口，由Spring Cloud Contract帮助我们生成测试用例并验证。</p>
 <p><strong>Step 1：环境配置</strong></p>
 <p>需要引入依赖</p>
-<pre>
-<code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-contract-verifier<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-contract-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">extensions</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">extensions</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">baseClassMappings</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">baseClassMapping</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">contractPackageRegex</span>&gt;</span>.*<span class="hljs-tag">&lt;/<span class="hljs-name">contractPackageRegex</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">baseClassFQN</span>&gt;</span>com.jtj.cloud.springcontractexample.AbstractDnocmTest<span class="hljs-tag">&lt;/<span class="hljs-name">baseClassFQN</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">baseClassMapping</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">baseClassMappings</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span></code>
-</pre><p>其中插件的baseClassFQN配置是，为了让生成的类继承指定类。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-contract-verifier<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-contract-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">extensions</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">extensions</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">baseClassMappings</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">baseClassMapping</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">contractPackageRegex</span>&gt;</span>.*<span class="hljs-tag">&lt;/<span class="hljs-name">contractPackageRegex</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">baseClassFQN</span>&gt;</span>com.jtj.cloud.springcontractexample.AbstractDnocmTest<span class="hljs-tag">&lt;/<span class="hljs-name">baseClassFQN</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">baseClassMapping</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">baseClassMappings</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>其中插件的baseClassFQN配置是，为了让生成的类继承指定类。</p>
 <p>需要配置web容器</p>
-<pre>
-<code class="java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span>
-<span class="hljs-meta">@SpringBootTest(
-        classes = SpringContractExampleApplication.class,
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
-)</span>
-<span class="hljs-meta">@AutoConfigureMockMvc</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractDnocmTest</span> </span>{
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span><br><span class="hljs-meta">@SpringBootTest(</span><br><span class="hljs-meta">        classes = SpringContractExampleApplication.class,</span><br><span class="hljs-meta">        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT</span><br><span class="hljs-meta">)</span><br><span class="hljs-meta">@AutoConfigureMockMvc</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractDnocmTest</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> WebApplicationContext context;<br><br>    <span class="hljs-meta">@Before</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span></span>&#123;<br>        RestAssuredMockMvc.webAppContextSetup(context);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-    <span class="hljs-meta">@Autowired</span>
-    <span class="hljs-keyword">private</span> WebApplicationContext context;
-
-    <span class="hljs-meta">@Before</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span></span>{
-        RestAssuredMockMvc.webAppContextSetup(context);
-    }
-
-}</code>
-</pre><p>注意：webflux没有WebApplicationContext，所以目前只能配Controller</p>
+<p>注意：webflux没有WebApplicationContext，所以目前只能配Controller</p>
 <p><strong>Step 2：编写契约，可以使用groovy，也可以yaml</strong></p>
-<pre>
-<code class="groovy"><span class="hljs-keyword">package</span> contracts
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><span class="hljs-keyword">package</span> contracts<br><br><span class="hljs-keyword">import</span> org.springframework.cloud.contract.spec.Contract<br><br>Contract.make &#123;<br>  request &#123;<br>    method <span class="hljs-string">&#x27;GET&#x27;</span><br>    urlPath(<span class="hljs-string">&#x27;/groovy&#x27;</span>) &#123;<br>      queryParameters &#123;<br>        parameter <span class="hljs-string">&quot;name&quot;</span>: value(consumer(regex(nonEmpty())), producer(<span class="hljs-string">&quot;从入门到弃坑&quot;</span>))<br>      &#125;<br>    &#125;<br>  &#125;<br>  response &#123;<br>    status OK()<br>    body([<br>            <span class="hljs-string">&quot;name&quot;</span>: fromRequest().query(<span class="hljs-string">&quot;name&quot;</span>),<br>            <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">1000</span><br>    ])<br>    headers &#123;<br>      contentType(<span class="hljs-string">&#x27;application/json;charset=UTF-8&#x27;</span>)<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-keyword">import</span> org.springframework.cloud.contract.spec.Contract
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">request:</span><br>  <span class="hljs-attr">method:</span> <span class="hljs-string">GET</span><br>  <span class="hljs-attr">url:</span> <span class="hljs-string">/yaml</span><br>  <span class="hljs-attr">queryParameters:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;从入库到精通&quot;</span><br>    <span class="hljs-attr">price:</span> <span class="hljs-number">666</span><br>  <span class="hljs-attr">matchers:</span><br>    <span class="hljs-attr">url:</span><br>    <span class="hljs-attr">queryParameters:</span><br>      <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">key:</span> <span class="hljs-string">name</span>, <span class="hljs-attr">type:</span> <span class="hljs-string">matching</span>, <span class="hljs-attr">value:</span> <span class="hljs-string">&quot;[\\S\\s]+&quot;</span>&#125;<br>      <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">key:</span> <span class="hljs-string">price</span>, <span class="hljs-attr">type:</span> <span class="hljs-string">matching</span>, <span class="hljs-attr">value:</span> <span class="hljs-string">&#x27;^[0-9]&#123;1,&#125;$&#x27;</span>&#125;<br><span class="hljs-attr">response:</span><br>  <span class="hljs-attr">status:</span> <span class="hljs-number">200</span><br>  <span class="hljs-attr">body:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">&#123;&#123;&#123; request.query.name.[0] &#125;&#125;</span>&#125;&quot;</span><br>    <span class="hljs-attr">price:</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">&#123;&#123;&#123; request.query.price.[0] &#125;&#125;</span>&#125;&quot;</span><br>  <span class="hljs-attr">headers:</span><br>    <span class="hljs-attr">Content-Type:</span> <span class="hljs-string">application/json;charset=UTF-8</span><br></code></pre></td></tr></table></figure>
 
-Contract.make {
-  request {
-    method <span class="hljs-string">&#x27;GET&#x27;</span>
-    urlPath(<span class="hljs-string">&#x27;/groovy&#x27;</span>) {
-      queryParameters {
-        parameter <span class="hljs-string">&quot;name&quot;</span>: value(consumer(regex(nonEmpty())), producer(<span class="hljs-string">&quot;从入门到弃坑&quot;</span>))
-      }
-    }
-  }
-  response {
-    status OK()
-    body([
-            <span class="hljs-string">&quot;name&quot;</span>: fromRequest().query(<span class="hljs-string">&quot;name&quot;</span>),
-            <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-number">1000</span>
-    ])
-    headers {
-      contentType(<span class="hljs-string">&#x27;application/json;charset=UTF-8&#x27;</span>)
-    }
-  }
-}</code>
-</pre><pre>
-<code class="yml"><span class="hljs-attr">request:</span>
-  <span class="hljs-attr">method:</span> <span class="hljs-string">GET</span>
-  <span class="hljs-attr">url:</span> <span class="hljs-string">/yaml</span>
-  <span class="hljs-attr">queryParameters:</span>
-    <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;从入库到精通&quot;</span>
-    <span class="hljs-attr">price:</span> <span class="hljs-number">666</span>
-  <span class="hljs-attr">matchers:</span>
-    <span class="hljs-attr">url:</span>
-    <span class="hljs-attr">queryParameters:</span>
-      <span class="hljs-bullet">-</span> {<span class="hljs-attr">key:</span> <span class="hljs-string">name</span>, <span class="hljs-attr">type:</span> <span class="hljs-string">matching</span>, <span class="hljs-attr">value:</span> <span class="hljs-string">&quot;[\\S\\s]+&quot;</span>}
-      <span class="hljs-bullet">-</span> {<span class="hljs-attr">key:</span> <span class="hljs-string">price</span>, <span class="hljs-attr">type:</span> <span class="hljs-string">matching</span>, <span class="hljs-attr">value:</span> <span class="hljs-string">&#x27;^[0-9]{1,}$&#x27;</span>}
-<span class="hljs-attr">response:</span>
-  <span class="hljs-attr">status:</span> <span class="hljs-number">200</span>
-  <span class="hljs-attr">body:</span>
-    <span class="hljs-attr">name:</span> <span class="hljs-string">&quot;{{{ request.query.name.[0] }}}&quot;</span>
-    <span class="hljs-attr">price:</span> <span class="hljs-string">&quot;{{{ request.query.price.[0] }}}&quot;</span>
-  <span class="hljs-attr">headers:</span>
-    <span class="hljs-attr">Content-Type:</span> <span class="hljs-string">application/json;charset=UTF-8</span></code>
-</pre><p>注意：matchers的queryParameters部分貌似没有效果（按照文档，照理说没问题的唉），yaml可读性较强，但相对来说自定义较差，如果可能尽可能选择groovy</p>
+<p>注意：matchers的queryParameters部分貌似没有效果（按照文档，照理说没问题的唉），yaml可读性较强，但相对来说自定义较差，如果可能尽可能选择groovy</p>
 <p><strong>Step 3：运行</strong></p>
 <ol>
 <li>使用命令<code>mvn spring-cloud-contract:generateTests</code>生成测试用例（在target\generated-test-sources\contracts目录下），并执行单条测试</li>
@@ -372,44 +308,22 @@ Contract.make {
 安装spring cloud cli（待再次实践 按文档教程操作失败路过）</p>
 <h3 id="单元测试" class="article-heading">单元测试<a class="article-anchor" href="#单元测试" aria-hidden="true"></a></h3>
 <p>需要的依赖</p>
-<pre>
-<code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-contract-stub-runner<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code>
-</pre><p>需要添加自动配置注解</p>
-<pre>
-<code class="">@AutoConfigureStubRunner</code>
-</pre><p>没然后了，接下来都是些契约配置</p>
-<pre>
-<code class="yml"><span class="hljs-comment"># 关闭为了能替换ribbon服务</span>
-<span class="hljs-attr">eureka:</span>
-  <span class="hljs-attr">client:</span>
-    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">stubrunner:</span>
-  <span class="hljs-attr">ids:</span>
-    <span class="hljs-comment"># - [groupId]:artifactId:[version]:[classify]:[port]</span>
-    <span class="hljs-bullet">-</span> <span class="hljs-string">com.jtj.cloud:spring-contract-example:1.0.0</span>
-  <span class="hljs-attr">ids-to-service-ids:</span>
-    <span class="hljs-comment"># 映射服务</span>
-    <span class="hljs-attr">spring-contract-example:</span> <span class="hljs-string">none-service</span>
-  <span class="hljs-comment"># 该模式下会从远程maven仓库缓存到本地</span>
-  <span class="hljs-attr">stubs-mode:</span> <span class="hljs-string">local</span></code>
-</pre><h3 id="独立部署" class="article-heading">独立部署<a class="article-anchor" href="#独立部署" aria-hidden="true"></a></h3>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-contract-stub-runner<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>需要添加自动配置注解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">@AutoConfigureStubRunner<br></code></pre></td></tr></table></figure>
+
+<p>没然后了，接下来都是些契约配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># 关闭为了能替换ribbon服务</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">false</span><br><span class="hljs-attr">stubrunner:</span><br>  <span class="hljs-attr">ids:</span><br>    <span class="hljs-comment"># - [groupId]:artifactId:[version]:[classify]:[port]</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">com.jtj.cloud:spring-contract-example:1.0.0</span><br>  <span class="hljs-attr">ids-to-service-ids:</span><br>    <span class="hljs-comment"># 映射服务</span><br>    <span class="hljs-attr">spring-contract-example:</span> <span class="hljs-string">none-service</span><br>  <span class="hljs-comment"># 该模式下会从远程maven仓库缓存到本地</span><br>  <span class="hljs-attr">stubs-mode:</span> <span class="hljs-string">local</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="独立部署" class="article-heading">独立部署<a class="article-anchor" href="#独立部署" aria-hidden="true"></a></h3>
 <p>首先下载<code>stub-runner.jar</code> </p>
-<pre>
-<code class="bash">wget -O stub-runner.jar <span class="hljs-string">&#x27;https://search.maven.org/remotecontent?filepath=org/springframework/cloud/spring-cloud-contract-stub-runner-boot/2.1.1.RELEASE/spring-cloud-contract-stub-runner-boot-2.1.1.RELEASE.jar&#x27;</span></code>
-</pre><p>在同路径创建配置文件<code>application.yml</code>，并添加stubrunner的配置，如下</p>
-<pre>
-<code class="yml"><span class="hljs-attr">stubrunner:</span>
-  <span class="hljs-attr">ids:</span>
-    <span class="hljs-comment"># - [groupId]:artifactId:[version]:[classify]:[port]</span>
-    <span class="hljs-comment"># 指定运行在8081端口</span>
-    <span class="hljs-bullet">-</span> <span class="hljs-string">com.jtj.cloud:spring-contract-example:1.0.0:+:8081</span>
-  <span class="hljs-comment"># 该模式下会从远程maven仓库缓存到本地</span>
-  <span class="hljs-attr">stubs-mode:</span> <span class="hljs-string">local</span></code>
-</pre><p>通过<code>java -jar stub-runner.jar</code>运行。即可访问<code>com.jtj.cloud:spring-contract-example</code>的mock数据啦！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget -O stub-runner.jar <span class="hljs-string">&#x27;https://search.maven.org/remotecontent?filepath=org/springframework/cloud/spring-cloud-contract-stub-runner-boot/2.1.1.RELEASE/spring-cloud-contract-stub-runner-boot-2.1.1.RELEASE.jar&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>在同路径创建配置文件<code>application.yml</code>，并添加stubrunner的配置，如下</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">stubrunner:</span><br>  <span class="hljs-attr">ids:</span><br>    <span class="hljs-comment"># - [groupId]:artifactId:[version]:[classify]:[port]</span><br>    <span class="hljs-comment"># 指定运行在8081端口</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">com.jtj.cloud:spring-contract-example:1.0.0:+:8081</span><br>  <span class="hljs-comment"># 该模式下会从远程maven仓库缓存到本地</span><br>  <span class="hljs-attr">stubs-mode:</span> <span class="hljs-string">local</span><br></code></pre></td></tr></table></figure>
+
+<p>通过<code>java -jar stub-runner.jar</code>运行。即可访问<code>com.jtj.cloud:spring-contract-example</code>的mock数据啦！</p>
 <h1 id="参考" class="article-heading">参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1>
 <ul>
 <li><a rel="noopener" target="_blank" href="https://github.com/JiangTJ/spring-contract-example">上面所提到的例子工程-mockmvc</a></li>
@@ -532,13 +446,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

@@ -19,6 +19,17 @@
 <meta property="article:modified_time" content="2020-05-19T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta name="twitter:card" content="summary">  <title>Use git submodule manage hexo theme | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/en/articles/beechnut/hexo-git-submodule/index.html"},"headline":"Use git submodule manage hexo theme","image":[],"datePublished":"2019-08-07T15:23:25.000Z","dateModified":"2020-05-19T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -29,7 +40,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -235,61 +246,44 @@
 </ul>
 <h1 id="initialization-project" class="article-heading">Initialization project<a class="article-anchor" href="#initialization-project" aria-hidden="true"></a></h1>
 <p>First we create a new hexo project, the command line runs the following command</p>
-<pre>
-<code class="bash"><span class="hljs-comment"># Create a new hexo project</span>
-hexo init &lt;dir&gt;
-Cd &lt;dir&gt;</code>
-</pre><p>Use the Git management for this project</p>
-<pre>
-<code class="bash">Git init
-<span class="hljs-comment"># do something by yourself, if you want to push it to GitHub.</span></code>
-</pre><p>Add the Cake theme as the Git submodule for the project</p>
-<pre>
-<code class="bash">git submodule add https://github.com/JiangTJ/hexo-theme-cake themes/cake</code>
-</pre><p>Modify the configuration file in Hexo <code>theme</code> to <code>cake</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Create a new hexo project</span><br>hexo init &lt;dir&gt;<br>Cd &lt;dir&gt;<br></code></pre></td></tr></table></figure>
+
+<p>Use the Git management for this project</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">Git init<br><span class="hljs-comment"># do something by yourself, if you want to push it to GitHub.</span><br></code></pre></td></tr></table></figure>
+
+<p>Add the Cake theme as the Git submodule for the project</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git submodule add https://github.com/JiangTJ/hexo-theme-cake themes/cake<br></code></pre></td></tr></table></figure>
+
+<p>Modify the configuration file in Hexo <code>theme</code> to <code>cake</code></p>
 <p>A basic project can be created through the above steps. If you have already had your own blog project before this article, locate the unfinished steps and follow the instructions.</p>
 <h1 id="update-theme-version" class="article-heading">Update theme version<a class="article-anchor" href="#update-theme-version" aria-hidden="true"></a></h1>
 <p>If the theme you are using is still being maintained, then you can get updates from remote. This operation is very simple, like this:</p>
-<pre>
-<code class="bash">git submodule update --remote</code>
-</pre><p>It will pull the code from the latest master to your submodule from the remote.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git submodule update --remote<br></code></pre></td></tr></table></figure>
+
+<p>It will pull the code from the latest master to your submodule from the remote.</p>
 <blockquote>
 <p>If you want to modify the pull branch by <code>git config -f .gitmodules submodule.themes/cake.branch stable</code>, in general, the master branch is good enough, no need to modify</p>
 </blockquote>
 <h1 id="replace-with-npm-script" class="article-heading">Replace with npm script<a class="article-anchor" href="#replace-with-npm-script" aria-hidden="true"></a></h1>
 <p>The git submodule command is not easy to remember, another way is to use the npm script to replace. Edit the <code>package.json</code> file and add the following:</p>
-<pre>
-<code class="json">{
-  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;mrtt-hexo-blog&quot;</span>,
-  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,
-  <span class="hljs-attr">&quot;private&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">&quot;scripts&quot;</span>: {
-    <span class="hljs-attr">&quot;update-theme&quot;</span>: <span class="hljs-string">&quot;git submodule update --remote&quot;</span>
-  },
-  <span class="hljs-attr">&quot;hexo&quot;</span>: {
-    <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;3.9.0&quot;</span>
-  },
-  <span class="hljs-attr">&quot;dependencies&quot;</span>: {
-    <span class="hljs-comment">//...</span>
-  }
-}</code>
-</pre><p>For each update, you only need to run <code>npm run update-theme</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;mrtt-hexo-blog&quot;</span>,<br>  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,<br>  <span class="hljs-attr">&quot;private&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;update-theme&quot;</span>: <span class="hljs-string">&quot;git submodule update --remote&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;hexo&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;3.9.0&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;dependencies&quot;</span>: &#123;<br>    <span class="hljs-comment">//...</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>For each update, you only need to run <code>npm run update-theme</code></p>
 <h1 id="custom-theme" class="article-heading">Custom Theme<a class="article-anchor" href="#custom-theme" aria-hidden="true"></a></h1>
 <p>This problem is often mentioned, I want to get updates from the official remote repository, but I want to be able to modify the file of the theme, add my own code, how to deal with it?</p>
 <p>One way is to fork, and then use the theme of your fork as a submodule, but each update needs to synchronize the official update to the theme of your fork (somewhat troublesome)</p>
 <p>The other one is introduced here: replacement. I don’t make changes to the theme file, but I can create a file outside. The idea is to replace the file in the same way as the file path of the theme.</p>
 <h2 id="replacement" class="article-heading">Replacement<a class="article-anchor" href="#replacement" aria-hidden="true"></a></h2>
 <p>First, install a hexo plugin <a rel="noopener" target="_blank" href="https://github.com/jiangtj/hexo-theme-plus">hexo-theme-plus</a></p>
-<pre>
-<code class="bash">npm i --save @jiangtj/hexo-theme-plus</code>
-</pre><p>By default, the replacement path is already configured. If you need to modify it, modify the following configuration in hexo.</p>
-<pre>
-<code class="yml"><span class="hljs-attr">theme_plus:</span>
-  <span class="hljs-attr">custom_path:</span> <span class="hljs-string">custom/theme</span> <span class="hljs-comment"># disabled: set &#x27;false&#x27;</span></code>
-</pre><p>Create a corresponding theme file in <code>custom/theme</code>, such as <code>${theme_dir}/layout/_partials/footer.swig</code>, copy it to <code>${hexo_dir}/custom/theme/_partials/footer.swig</code>, then Make some changes, for example, I added a Ծ‸ Ծ to the author information.</p>
-<pre>
-<code class="html">  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;author&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;copyrightHolder&quot;</span>&gt;</span><span class="hljs-comment">{{ theme.footer.copyright || author }}</span> Ծ‸ Ծ<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code>
-</pre><p><code>hexo s</code> run preview, we can see the bottom, the author has added Ծ‸ Ծ</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm i --save @jiangtj/hexo-theme-plus<br></code></pre></td></tr></table></figure>
+
+<p>By default, the replacement path is already configured. If you need to modify it, modify the following configuration in hexo.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">theme_plus:</span><br>  <span class="hljs-attr">custom_path:</span> <span class="hljs-string">custom/theme</span> <span class="hljs-comment"># disabled: set &#x27;false&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>Create a corresponding theme file in <code>custom/theme</code>, such as <code>$&#123;theme_dir&#125;/layout/_partials/footer.swig</code>, copy it to <code>$&#123;hexo_dir&#125;/custom/theme/_partials/footer.swig</code>, then Make some changes, for example, I added a Ծ‸ Ծ to the author information.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;author&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;copyrightHolder&quot;</span>&gt;</span>&#123;&#123; theme.footer.copyright || author &#125;&#125; Ծ‸ Ծ<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>hexo s</code> run preview, we can see the bottom, the author has added Ծ‸ Ծ</p>
 <blockquote>
 <p>Replace has a bit of defects. First, it only supports files under <code>layout</code>. Secondly, it needs theme support (using partial, you can’t use the specific syntax of the template, such as include). Cake except for the <code>layout</code> root directory, all support replacement. But NexT requires you to replace the syntax of <code>include</code> <code>macro</code> etc.</p>
 </blockquote>
@@ -297,14 +291,13 @@ Cd &lt;dir&gt;</code>
 <p>Another way, you can also inject any code you want at the injection point. See my previous article <a href="/articles/beechnut/hexo-next-injects/">Hexo NexT Advanced Tutorial Injects</a></p>
 <h1 id="editing-on-another-computer" class="article-heading">Editing on another computer<a class="article-anchor" href="#editing-on-another-computer" aria-hidden="true"></a></h1>
 <p>In the case of Git repository synchronization, if you need to work on another computer, the only thing you need to do is add <code>--recursive</code> to the <code>git clone</code> command.</p>
-<pre>
-<code class="bash">git <span class="hljs-built_in">clone</span> --recursive https://github.com/your-name/your-blog</code>
-</pre><p>If it’s a GUI tool, then nothing needs to be changed. They default to adding <code>--recursive</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> --recursive https://github.com/your-name/your-blog<br></code></pre></td></tr></table></figure>
+
+<p>If it’s a GUI tool, then nothing needs to be changed. They default to adding <code>--recursive</code></p>
 <p>If you forget to add <code>--recursive</code>, you can execute the following command. Of course, you can also add it to your npm scripts, so you can remember it.</p>
-<pre>
-<code class="bash">git submodule init
-git submodule update</code>
-</pre><h1 id="summary" class="article-heading">Summary<a class="article-anchor" href="#summary" aria-hidden="true"></a></h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git submodule init<br>git submodule update<br></code></pre></td></tr></table></figure>
+
+<h1 id="summary" class="article-heading">Summary<a class="article-anchor" href="#summary" aria-hidden="true"></a></h1>
 <ol>
 <li>Don’t modify any theme files. I believe that replacing and injecting, you can modify any theme code, which ensures that your theme repository can be set directly to the official repository, and the update has no conflicts.</li>
 <li>There are very few commands to remember, just two <code>git submodule update --remote</code> and <code>git clone --recursive repo</code></li>
@@ -386,13 +379,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

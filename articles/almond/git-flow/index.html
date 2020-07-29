@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://jiangtj.com/articles/almond/git-flow/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="选择Git工作流，和如何配合工作流工作，这是软件行业经常碰到的问题。不同的Leader会有不同方案，有好有坏。当然能应用进实际开发中的流程，只要实际操作人员足够的仔细便不会出现问题，例如最常用的Vincent Driessen提出的Git工作流。      接下来，将介绍这个Git工作流，以及它所衍生出来的其它不错的工作流（GitHub Flow与GitLab Flow）">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="og:image" content="https://nvie.com/img/git-model@2x.png">
 <meta property="og:image" content="https://nvie.com/img/fb@2x.png">
 <meta property="og:image" content="https://nvie.com/img/main-branches@2x.png">
@@ -29,6 +29,17 @@
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://nvie.com/img/git-model@2x.png">  <title>Git工作流 | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/git-flow/"},"headline":"Git工作流","image":["https://nvie.com/img/git-model@2x.png","https://nvie.com/img/fb@2x.png","https://nvie.com/img/main-branches@2x.png","https://nvie.com/img/hotfix-branches@2x.png","https://jiangtj.github.io/assets/img/others/github-flow.png","https://docs.gitlab.com/ee/workflow/production_branch.png","https://docs.gitlab.com/ee/workflow/environment_branches.png","https://docs.gitlab.com/ee/workflow/release_branches.png"],"datePublished":"2018-05-01T16:00:00.000Z","dateModified":"2018-05-01T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -39,7 +50,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -137,7 +148,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-flow-by-vincent-driessen"><span class="nav-number">1.</span> <span class="nav-text">Git Flow By Vincent Driessen</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简化：github-flow"><span class="nav-number">2.</span> <span class="nav-text">简化：GitHub Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#演进：gitlab-flow"><span class="nav-number">3.</span> <span class="nav-text">演进：GitLab Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#production-branch"><span class="nav-number">3.1.</span> <span class="nav-text">Production branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#environment-branches"><span class="nav-number">3.2.</span> <span class="nav-text">Environment branches</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#release-branches"><span class="nav-number">3.3.</span> <span class="nav-text">Release branches</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧"><span class="nav-number">3.4.</span> <span class="nav-text">技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-flow-by-vincent-driessen"><span class="nav-number">1.</span> <span class="nav-text">Git Flow By Vincent Driessen</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E5%8C%96%EF%BC%9Agithub-flow"><span class="nav-number">2.</span> <span class="nav-text">简化：GitHub Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BC%94%E8%BF%9B%EF%BC%9Agitlab-flow"><span class="nav-number">3.</span> <span class="nav-text">演进：GitLab Flow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#production-branch"><span class="nav-number">3.1.</span> <span class="nav-text">Production branch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#environment-branches"><span class="nav-number">3.2.</span> <span class="nav-text">Environment branches</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#release-branches"><span class="nav-number">3.3.</span> <span class="nav-text">Release branches</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E5%B7%A7"><span class="nav-number">3.4.</span> <span class="nav-text">技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -387,13 +398,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

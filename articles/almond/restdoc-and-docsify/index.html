@@ -14,12 +14,23 @@
 <meta property="og:url" content="https://jiangtj.com/articles/almond/restdoc-and-docsify/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="大半年前就写过一篇文章[《测试驱动开发(TDD)的实践》](https:&#x2F;&#x2F;www.dnocm.com&#x2F;articles&#x2F;almond&#x2F;test-driven development&#x2F;)，关于测试的。时至今日，我仍然坚信测试是软件开发一重要环节，它在绝大多数情况下，保障了系统的质量与稳定性。    但当时所搭的框架存在一些不足，当然主要是由于Asciidoctor。这是一个足够完善的标记语言，但也">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="article:published_time" content="2018-12-09T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-12-09T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="Test">
 <meta name="twitter:card" content="summary">  <title>Restdoc与Docsify,更简单的生成Api文档 | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/restdoc-and-docsify/"},"headline":"Restdoc与Docsify,更简单的生成Api文档","image":[],"datePublished":"2018-12-09T16:00:00.000Z","dateModified":"2018-12-09T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -30,7 +41,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -128,7 +139,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建服务"><span class="nav-number">1.</span> <span class="nav-text">创建服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建测试用例"><span class="nav-number">2.</span> <span class="nav-text">创建测试用例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整合restdoc"><span class="nav-number">3.</span> <span class="nav-text">整合Restdoc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建docsify文件"><span class="nav-number">4.</span> <span class="nav-text">创建Docsify文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行"><span class="nav-number">5.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不足"><span class="nav-number">6.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">创建服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">创建测试用例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E5%90%88restdoc"><span class="nav-number">3.</span> <span class="nav-text">整合Restdoc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAdocsify%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">创建Docsify文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">5.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E8%B6%B3"><span class="nav-number">6.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -243,170 +254,38 @@
 
 <h1 id="创建服务" class="article-heading">创建服务<a class="article-anchor" href="#创建服务" aria-hidden="true"></a></h1>
 <p>首先，创建一个简单的Spring Boot服务，以及暴露一个用户接口</p>
-<pre>
-<code class="java"><span class="hljs-meta">@RestController</span>
-<span class="hljs-meta">@SpringBootApplication</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestdocDocsifyApplication</span> </span>{
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        SpringApplication.run(RestdocDocsifyApplication.class, args);
-    }
-
-    <span class="hljs-meta">@GetMapping(&quot;/&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Server is running!&quot;</span>;
-    }
-
-    <span class="hljs-meta">@GetMapping(&quot;/user&quot;)</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">user</span><span class="hljs-params">()</span></span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(<span class="hljs-string">&quot;Jone&quot;</span>,<span class="hljs-number">1</span>,<span class="hljs-number">20</span>);
-    }
-
-}</code>
-</pre><h1 id="创建测试用例" class="article-heading">创建测试用例<a class="article-anchor" href="#创建测试用例" aria-hidden="true"></a></h1>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestdocDocsifyApplication</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SpringApplication.run(RestdocDocsifyApplication.class, args);<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Server is running!&quot;</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/user&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">user</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(<span class="hljs-string">&quot;Jone&quot;</span>,<span class="hljs-number">1</span>,<span class="hljs-number">20</span>);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="创建测试用例" class="article-heading">创建测试用例<a class="article-anchor" href="#创建测试用例" aria-hidden="true"></a></h1>
 <p>这个测试用例是集成测试</p>
-<pre>
-<code class="java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span>
-<span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span>
-<span class="hljs-meta">@AutoConfigureWebTestClient</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestdocDocsifyApplicationTests</span> </span>{
-
-    <span class="hljs-meta">@Resource</span>
-    <span class="hljs-keyword">private</span> WebTestClient webTestClient;
-
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/&quot;</span>).accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody(String.class)
-                .isEqualTo(&quot;Server is running!&quot;);
-    }
-
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/user&quot;</span>).accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody();
-    }
-}</code>
-</pre><h1 id="整合restdoc" class="article-heading">整合Restdoc<a class="article-anchor" href="#整合restdoc" aria-hidden="true"></a></h1>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span><br><span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span><br><span class="hljs-meta">@AutoConfigureWebTestClient</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestdocDocsifyApplicationTests</span> </span>&#123;<br><br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> WebTestClient webTestClient;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/&quot;</span>).accept(MediaType.APPLICATION_JSON)<br>                .exchange()<br>                .expectStatus().isOk()<br>                .expectBody(String.class)<br>                .isEqualTo(<span class="hljs-string">&quot;Server is running!&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/user&quot;</span>).accept(MediaType.APPLICATION_JSON)<br>                .exchange()<br>                .expectStatus().isOk()<br>                .expectBody();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="整合restdoc" class="article-heading">整合Restdoc<a class="article-anchor" href="#整合restdoc" aria-hidden="true"></a></h1>
 <ol>
 <li>添加自动配置注解<code>@AutoConfigureRestDocs</code></li>
 <li>为每个WebTestClient添加文档参数说明<code>.consumeWith(document())</code>
 整合之后的结果如下</li>
 </ol>
-<pre>
-<code class="java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span>
-<span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span>
-<span class="hljs-meta">@AutoConfigureWebTestClient</span>
-<span class="hljs-meta">@AutoConfigureRestDocs(outputDir = &quot;docs/snippets&quot;)</span>
-<span class="hljs-meta">@Import(CustomRestDocsConfiguration.class)</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestdocDocsifyApplicationTests</span> </span>{
-
-    <span class="hljs-meta">@Resource</span>
-    <span class="hljs-keyword">private</span> WebTestClient webTestClient;
-
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>{
-        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/user&quot;</span>).accept(MediaType.APPLICATION_JSON)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody()
-                .consumeWith(document(<span class="hljs-string">&quot;user&quot;</span>,responseFields(
-                        fieldWithPath(<span class="hljs-string">&quot;name&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s name&quot;</span>),
-                        fieldWithPath(<span class="hljs-string">&quot;sex&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s sex&quot;</span>),
-                        fieldWithPath(<span class="hljs-string">&quot;age&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s age&quot;</span>))
-                ));
-    }
-}</code>
-</pre><p>其中<code>outputDir</code>定义输出目录，指向Docsify文档目录，方便部署（注意添加Git忽略配置），<code>@Import(CustomRestDocsConfiguration.class)</code>导入自定义配置，目的是修改模板为Markdown，代码如下</p>
-<pre>
-<code class="java"><span class="hljs-meta">@TestConfiguration</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomRestDocsConfiguration</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">RestDocsWebTestClientConfigurationCustomizer</span> </span>{
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">customize</span><span class="hljs-params">(WebTestClientRestDocumentationConfigurer configurer)</span> </span>{
-        configurer.snippets().withTemplateFormat(TemplateFormats.markdown());
-    }
-}</code>
-</pre><h1 id="创建docsify文件" class="article-heading">创建Docsify文件<a class="article-anchor" href="#创建docsify文件" aria-hidden="true"></a></h1>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RunWith(SpringRunner.class)</span><br><span class="hljs-meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)</span><br><span class="hljs-meta">@AutoConfigureWebTestClient</span><br><span class="hljs-meta">@AutoConfigureRestDocs(outputDir = &quot;docs/snippets&quot;)</span><br><span class="hljs-meta">@Import(CustomRestDocsConfiguration.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RestdocDocsifyApplicationTests</span> </span>&#123;<br><br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> WebTestClient webTestClient;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getUser</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.webTestClient.get().uri(<span class="hljs-string">&quot;/user&quot;</span>).accept(MediaType.APPLICATION_JSON)<br>                .exchange()<br>                .expectStatus().isOk()<br>                .expectBody()<br>                .consumeWith(document(<span class="hljs-string">&quot;user&quot;</span>,responseFields(<br>                        fieldWithPath(<span class="hljs-string">&quot;name&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s name&quot;</span>),<br>                        fieldWithPath(<span class="hljs-string">&quot;sex&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s sex&quot;</span>),<br>                        fieldWithPath(<span class="hljs-string">&quot;age&quot;</span>).description(<span class="hljs-string">&quot;The user&#x27;s age&quot;</span>))<br>                ));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>其中<code>outputDir</code>定义输出目录，指向Docsify文档目录，方便部署（注意添加Git忽略配置），<code>@Import(CustomRestDocsConfiguration.class)</code>导入自定义配置，目的是修改模板为Markdown，代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@TestConfiguration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomRestDocsConfiguration</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">RestDocsWebTestClientConfigurationCustomizer</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">customize</span><span class="hljs-params">(WebTestClientRestDocumentationConfigurer configurer)</span> </span>&#123;<br>        configurer.snippets().withTemplateFormat(TemplateFormats.markdown());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="创建docsify文件" class="article-heading">创建Docsify文件<a class="article-anchor" href="#创建docsify文件" aria-hidden="true"></a></h1>
 <p>Docsify的一些入门，可以查看<a rel="noopener" target="_blank" href="https://docsify.js.org/#/zh-cn/quickstart">官网</a>，这里已经当你会基本的操作了。首先创建一个<code>index.html</code>，您可以使用命令行生成，或者直接Copy下面的代码</p>
-<pre>
-<code class="html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Spring-Cloud Docs<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge,chrome=1&quot;</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;Description&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/themes/vue.css&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">    <span class="hljs-built_in">window</span>.$docsify = &#123;</span><br><span class="javascript">        name: <span class="hljs-string">&#x27;Restdoc-Docsify Examples&#x27;</span>,</span><br><span class="javascript">        repo: <span class="hljs-string">&#x27;JiangTJ/restdoc-docsify&#x27;</span>,</span><br><span class="javascript">        loadSidebar: <span class="hljs-literal">true</span>,</span><br><span class="javascript">        autoHeader: <span class="hljs-literal">true</span>,</span><br><span class="javascript">        auto2top: <span class="hljs-literal">true</span>,</span><br>        subMaxLevel: 2<br>    &#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/docsify.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/plugins/search.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-java.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-bash.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-http.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Spring-Cloud Docs<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge,chrome=1&quot;</span> /&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;Description&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/themes/vue.css&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-    <span class="hljs-built_in">window</span>.$docsify = {
-        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Restdoc-Docsify Examples&#x27;</span>,
-        <span class="hljs-attr">repo</span>: <span class="hljs-string">&#x27;JiangTJ/restdoc-docsify&#x27;</span>,
-        <span class="hljs-attr">loadSidebar</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">autoHeader</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">auto2top</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">subMaxLevel</span>: <span class="hljs-number">2</span>
-    }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/docsify.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/docsify/lib/plugins/search.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-java.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-bash.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//unpkg.com/prismjs/components/prism-http.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code>
-</pre><p>你可以调整<code>window.$docsify</code>参数，这里将<code>loadSidebar</code>置为了<code>true</code>，为的是每个需求服务分在不同的文件里<br>同样的需要为其添加主页<code>README.md</code>和侧边栏<code>_sidebar.md</code>  </p>
+<p>你可以调整<code>window.$docsify</code>参数，这里将<code>loadSidebar</code>置为了<code>true</code>，为的是每个需求服务分在不同的文件里<br>同样的需要为其添加主页<code>README.md</code>和侧边栏<code>_sidebar.md</code>  </p>
 <ul>
 <li><p>README.md</p>
-<pre>
-<code class="md"><span class="hljs-section"># Welcome Page</span>
-
-<span class="hljs-section">## How to use</span>
-mvn test
-docsify serve docs
-browse <span class="hljs-code">`localhost:3000`</span>   
-click sidebar <span class="hljs-code">`User Api`</span></code>
-</pre></li>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-section"># Welcome Page</span><br><br><span class="hljs-section">## How to use</span><br>mvn test<br>docsify serve docs<br>browse <span class="hljs-code">`localhost:3000`</span>   <br>click sidebar <span class="hljs-code">`User Api`</span><br></code></pre></td></tr></table></figure>
+</li>
 <li><p>_sidebar.md</p>
-<pre>
-<code class="md"><span class="hljs-bullet">*</span> [<span class="hljs-string">User Api</span>](<span class="hljs-link">user.md</span>)</code>
-</pre></li>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-bullet">*</span> [<span class="hljs-string">User Api</span>](<span class="hljs-link">user.md</span>)<br></code></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <p>编写一个用户服务，使用文档嵌入，将代码片段包括进去</p>
 <ul>
-<li><p>user.md</p>
-<pre>
-<code class="md"><span class="hljs-section">### curl-request</span>
-[<span class="hljs-string">curl-request</span>](<span class="hljs-link">snippets/user/curl-request.md &#x27;:include&#x27;</span>)
+<li>user.md<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-section">### curl-request</span><br>[<span class="hljs-string">curl-request</span>](<span class="hljs-link">snippets/user/curl-request.md &#x27;:include&#x27;</span>)<br><br><span class="hljs-section">### http-request</span><br>[<span class="hljs-string">http-request</span>](<span class="hljs-link">snippets/user/http-request.md &#x27;:include&#x27;</span>)<br><br><span class="hljs-section">### http-response</span><br>[<span class="hljs-string">http-response</span>](<span class="hljs-link">snippets/user/http-response.md &#x27;:include&#x27;</span>)<br><br><span class="hljs-section">### httpie-request</span><br>[<span class="hljs-string">httpie-request</span>](<span class="hljs-link">snippets/user/httpie-request.md &#x27;:include&#x27;</span>)<br><br><span class="hljs-section">### request-body</span><br>[<span class="hljs-string">request-body</span>](<span class="hljs-link">snippets/user/request-body.md &#x27;:include&#x27;</span>)<br><br><span class="hljs-section">### response-body</span><br>[<span class="hljs-string">response-body</span>](<span class="hljs-link">snippets/user/response-body.md &#x27;:include&#x27;</span>)<br><br><span class="hljs-section">### response-fields</span><br>[<span class="hljs-string">response-fields</span>](<span class="hljs-link">snippets/user/response-fields.md &#x27;:include&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
-<span class="hljs-section">### http-request</span>
-[<span class="hljs-string">http-request</span>](<span class="hljs-link">snippets/user/http-request.md &#x27;:include&#x27;</span>)
-
-<span class="hljs-section">### http-response</span>
-[<span class="hljs-string">http-response</span>](<span class="hljs-link">snippets/user/http-response.md &#x27;:include&#x27;</span>)
-
-<span class="hljs-section">### httpie-request</span>
-[<span class="hljs-string">httpie-request</span>](<span class="hljs-link">snippets/user/httpie-request.md &#x27;:include&#x27;</span>)
-
-<span class="hljs-section">### request-body</span>
-[<span class="hljs-string">request-body</span>](<span class="hljs-link">snippets/user/request-body.md &#x27;:include&#x27;</span>)
-
-<span class="hljs-section">### response-body</span>
-[<span class="hljs-string">response-body</span>](<span class="hljs-link">snippets/user/response-body.md &#x27;:include&#x27;</span>)
-
-<span class="hljs-section">### response-fields</span>
-[<span class="hljs-string">response-fields</span>](<span class="hljs-link">snippets/user/response-fields.md &#x27;:include&#x27;</span>)</code>
-</pre></li>
+</li>
 </ul>
 <h1 id="运行" class="article-heading">运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1>
 <ol>
@@ -541,13 +420,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>

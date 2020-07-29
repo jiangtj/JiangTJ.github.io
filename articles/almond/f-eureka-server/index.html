@@ -14,12 +14,23 @@
 <meta property="og:url" content="https://jiangtj.com/articles/almond/f-eureka-server/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
 <meta property="og:description" content="在微服务架构中，服务发现是最重要的一环。Spring Cloud提供多个服务注册中心作为选择，如Eureka、Consul、Zookeeper等，当然最常用的是Eureka 简介 Eureka由Eureka Server与Eureka Client两部分组成Eureka Server是高可用的（可同时作为客户端向其他注册中心注册）服务发现的注册中心，为每个客户端（Eureka Client）提供注">
-<meta property="og:locale" content="zh">
+<meta property="og:locale">
 <meta property="article:published_time" content="2018-07-24T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-07-24T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="Spring Cloud">
 <meta name="twitter:card" content="summary">  <title>Spring Cloud 之 Eureka （Finchley版） | Dnocm ☀</title>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132230328-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-132230328-1');
+      }
+    </script>
+  
   <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/f-eureka-server/"},"headline":"Spring Cloud 之 Eureka （Finchley版）","image":[],"datePublished":"2018-07-24T16:00:00.000Z","dateModified":"2018-07-24T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><!-- Google -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -30,7 +41,7 @@
 </script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -128,7 +139,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单的eureka-server"><span class="nav-number">2.</span> <span class="nav-text">简单的Eureka Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式的eureka-server"><span class="nav-number">3.</span> <span class="nav-text">分布式的Eureka Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eureka-client"><span class="nav-number">4.</span> <span class="nav-text">Eureka Client</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84eureka-server"><span class="nav-number">2.</span> <span class="nav-text">简单的Eureka Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%9A%84eureka-server"><span class="nav-number">3.</span> <span class="nav-text">分布式的Eureka Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eureka-client"><span class="nav-number">4.</span> <span class="nav-text">Eureka Client</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -243,108 +254,40 @@
 
 <h1 id="简单的eureka-server" class="article-heading">简单的Eureka Server<a class="article-anchor" href="#简单的eureka-server" aria-hidden="true"></a></h1>
 <p>启动一个Eureka Server，首先需要添加依赖</p>
-<pre>
-<code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code>
-</pre><p>其次，在启动类Application类中添加Eureka Server相关的注解</p>
-<pre>
-<code class="java"><span class="hljs-meta">@EnableEurekaServer</span>
-<span class="hljs-meta">@SpringBootApplication</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EurekaServer</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        SpringApplication.run(EurekaServer.class, args);
-    }
-}</code>
-</pre><p>我们启动一个简单的注册中心，需要禁用Eureka Server的客户端行为（这是默认方式，为了保证注册中心的高可用），添加以下的配置</p>
-<pre>
-<code class="yml"><span class="hljs-attr">server:</span>
-  <span class="hljs-attr">port:</span> <span class="hljs-number">8761</span>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<span class="hljs-attr">eureka:</span>
-  <span class="hljs-attr">instance:</span>
-    <span class="hljs-attr">hostname:</span> <span class="hljs-string">localhost</span>
-    <span class="hljs-attr">prefer-ip-address:</span> <span class="hljs-literal">true</span>
-  <span class="hljs-attr">client:</span>
-    <span class="hljs-attr">registerWithEureka:</span> <span class="hljs-literal">false</span>
-    <span class="hljs-attr">fetchRegistry:</span> <span class="hljs-literal">false</span>
-    <span class="hljs-attr">serviceUrl:</span>
-      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://${eureka.instance.hostname}:${server.port}/eureka/</span>
-  <span class="hljs-attr">server:</span>
-    <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span></code>
-</pre><p><code>enable-self-preservation: false</code>是关闭自我保护，自我保护是为了保障微服务（实际可用）与Eureka Server之间由于网络因数无法通信时，在一段时间内保留微服务，避免微服务被注销而无法提供服务的情况，由于测试环境实例过少，开启会导致难以测试，一般线上需要开启（默认）<br><code>registerWithEureka</code>与<code>fetchRegistry</code>，用于禁用客户端行为，Eureka Server作为单个独立应用运行    </p>
+<p>其次，在启动类Application类中添加Eureka Server相关的注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@EnableEurekaServer</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EurekaServer</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SpringApplication.run(EurekaServer.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>我们启动一个简单的注册中心，需要禁用Eureka Server的客户端行为（这是默认方式，为了保证注册中心的高可用），添加以下的配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8761</span><br><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">localhost</span><br>    <span class="hljs-attr">prefer-ip-address:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">registerWithEureka:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">fetchRegistry:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">serviceUrl:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/</span><br>  <span class="hljs-attr">server:</span><br>    <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<p><code>enable-self-preservation: false</code>是关闭自我保护，自我保护是为了保障微服务（实际可用）与Eureka Server之间由于网络因数无法通信时，在一段时间内保留微服务，避免微服务被注销而无法提供服务的情况，由于测试环境实例过少，开启会导致难以测试，一般线上需要开启（默认）<br><code>registerWithEureka</code>与<code>fetchRegistry</code>，用于禁用客户端行为，Eureka Server作为单个独立应用运行    </p>
 <h1 id="分布式的eureka-server" class="article-heading">分布式的Eureka Server<a class="article-anchor" href="#分布式的eureka-server" aria-hidden="true"></a></h1>
 <p>单个Eureka Server，在大部分场景下是足够的，但当企业微服务规模扩大，单个服务难以支撑时，分布式是不可避免的，Eureka Server作为高可用的注册中心，在最初设计时就考虑了相关问题，即它作为服务注册中心的同时，它也能作为客户端，向其他注册中心发起注册<br>官方以及许多其他地方的文档基本都是两个对等Eureka Server配置，但事实上，也有需要多个对等的配置。<br>多个对等配置如下   </p>
 <ol>
 <li><p>实例一    </p>
-<pre>
-<code class="yml"><span class="hljs-attr">server:</span>
-<span class="hljs-attr">port:</span> <span class="hljs-number">8761</span>
-<span class="hljs-attr">eureka:</span>
-<span class="hljs-attr">instance:</span>
- <span class="hljs-attr">hostname:</span> <span class="hljs-string">localhost</span>
-<span class="hljs-attr">client:</span>
- <span class="hljs-attr">serviceUrl:</span>
-   <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:9001/eureka/,http://localhost:9002/eureka/</span>
-<span class="hljs-attr">server:</span>
- <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span></code>
-</pre></li>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8761</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">localhost</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">serviceUrl:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:9001/eureka/,http://localhost:9002/eureka/</span><br>  <span class="hljs-attr">server:</span><br>    <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+</li>
 <li><p>实例二  </p>
-<pre>
-<code class="yml"><span class="hljs-attr">server:</span>
-<span class="hljs-attr">port:</span> <span class="hljs-number">9001</span>
-<span class="hljs-attr">eureka:</span>
-<span class="hljs-attr">instance:</span>
- <span class="hljs-attr">hostname:</span> <span class="hljs-string">localhost</span>
-<span class="hljs-attr">client:</span>
- <span class="hljs-attr">serviceUrl:</span>
-   <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8761/eureka/,http://localhost:9002/eureka/</span>
-<span class="hljs-attr">server:</span>
- <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span></code>
-</pre></li>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">9001</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">localhost</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">serviceUrl:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8761/eureka/,http://localhost:9002/eureka/</span><br>  <span class="hljs-attr">server:</span><br>    <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+</li>
 <li><p>实例三   </p>
-<pre>
-<code class="yml"><span class="hljs-attr">server:</span>
-<span class="hljs-attr">port:</span> <span class="hljs-number">9002</span>
-<span class="hljs-attr">eureka:</span>
-<span class="hljs-attr">instance:</span>
- <span class="hljs-attr">hostname:</span> <span class="hljs-string">localhost</span>
-<span class="hljs-attr">client:</span>
- <span class="hljs-attr">serviceUrl:</span>
-   <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:9001/eureka/,http://localhost:8761/eureka/</span>
-<span class="hljs-attr">server:</span>
- <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span></code>
-</pre><p>这里有一点需要注意，就是将<strong>所有的Eureka Server填写在<code>defaultZone</code>中</strong>，并以逗号隔开，自身的地址可填，也可不填，<code>registerWithEureka</code>配置了自我注册，默认是开启的。因为服务注册中心同步注册服务，需要彼此之间相互注册，例如A与B相互注册，B与C相互注册，如果一个客户端在A上注册，那么它能在B中发现，而不会在C中发现，如果需要在C中同样发现，那么必须A与C相互注册    </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">9002</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">instance:</span><br>    <span class="hljs-attr">hostname:</span> <span class="hljs-string">localhost</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">serviceUrl:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:9001/eureka/,http://localhost:8761/eureka/</span><br>  <span class="hljs-attr">server:</span><br>    <span class="hljs-attr">enable-self-preservation:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+<p>这里有一点需要注意，就是将<strong>所有的Eureka Server填写在<code>defaultZone</code>中</strong>，并以逗号隔开，自身的地址可填，也可不填，<code>registerWithEureka</code>配置了自我注册，默认是开启的。因为服务注册中心同步注册服务，需要彼此之间相互注册，例如A与B相互注册，B与C相互注册，如果一个客户端在A上注册，那么它能在B中发现，而不会在C中发现，如果需要在C中同样发现，那么必须A与C相互注册    </p>
 </li>
 </ol>
 <h1 id="eureka-client" class="article-heading">Eureka Client<a class="article-anchor" href="#eureka-client" aria-hidden="true"></a></h1>
 <p>客户端是微服务的一个基础，用于向服务注册中心发起注册，当然如果存在多个注册中心的情况，填写一个就好，注册中心之间会相互同步注册的服务信息<br>首先需要引入依赖    </p>
-<pre>
-<code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code>
-</pre><p>其次，在启动类Application类中添加Eureka Client相关的注解</p>
-<pre>
-<code class="java"><span class="hljs-meta">@EnableEurekaClient</span>
-<span class="hljs-comment">//或者@EnableDiscoveryClient</span>
-<span class="hljs-comment">//或者@SpringCloudApplication 需要添加断路器依赖（之后会讲这块）</span>
-<span class="hljs-meta">@SpringBootApplication</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EurekaServer</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        SpringApplication.run(EurekaServer.class, args);
-    }
-}</code>
-</pre><p>最后添加以下的配置，其实Eureka Server包含客户端的内容，这里的配置与上面一致</p>
-<pre>
-<code class="yml"><span class="hljs-attr">server:</span>
-  <span class="hljs-attr">port:</span> <span class="hljs-number">7001</span>
-<span class="hljs-attr">eureka:</span>
-  <span class="hljs-attr">client:</span>
-    <span class="hljs-attr">serviceUrl:</span>
-      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8761/eureka/</span></code>
-</pre><p><em>默认情况下<code>defaultZone</code>的值为<code>http://localhost:8761/eureka/</code></em></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>其次，在启动类Application类中添加Eureka Client相关的注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@EnableEurekaClient</span><br><span class="hljs-comment">//或者@EnableDiscoveryClient</span><br><span class="hljs-comment">//或者@SpringCloudApplication 需要添加断路器依赖（之后会讲这块）</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EurekaServer</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SpringApplication.run(EurekaServer.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>最后添加以下的配置，其实Eureka Server包含客户端的内容，这里的配置与上面一致</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">7001</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">serviceUrl:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8761/eureka/</span><br></code></pre></td></tr></table></figure>
+
+<p><em>默认情况下<code>defaultZone</code>的值为<code>http://localhost:8761/eureka/</code></em></p>
       
     </div>
 
@@ -459,13 +402,13 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.0.0
 </div>
 
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.1
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.3
 </div>
 
         </div>
