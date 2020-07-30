@@ -386,7 +386,12 @@ if ('serviceWorker' in navigator) {
   <div id="search-result"></div>
 </div>
 <div class="search-pop-overlay"></div>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script><script>
+<script>
+((window.gitter = {}).chat = {}).options = {
+  room: 'jiangtj/Lobby',
+  activationElement: false
+};
+</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script><script>
   (function () {
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
