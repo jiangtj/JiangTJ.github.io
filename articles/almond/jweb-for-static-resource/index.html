@@ -239,7 +239,7 @@
 <p>由于spring boot默认需要<code>index.html</code>才能访问静态资源首页，这是我们不希望的，添加一个路径，将<code>/</code>跳转至index.html。如下修改<code>JwebApplication.class</code>     </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JwebApplication</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SpringApplication.run(JwebApplication.class, args);<br>    &#125;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index.html&quot;</span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>至此，已经完成了java服务的创建，您可以使用命令行<code>java -jar xxx.jar --spring.resources.static-locations=file:your-static-dir</code>来部署您的静态资源了，但，这命令行是不是太长了…</p>
+<p>至此，已经完成了java服务的创建，您可以使用命令行<code>java -jar xxx.jar --spring.resources.static-locations=file:your-static-dir</code>来部署您的静态资源了，但，这命令行是不是太长了...</p>
 <h1 id="shell脚本" class="article-heading">Shell脚本<a class="article-anchor" href="#shell脚本" aria-hidden="true"></a></h1>
 <p>shell脚本的目的是为了简化命令行而编写的，提供类似docsify-cli一样的命令     </p>
 <p>目前的脚本如下：</p>
@@ -379,7 +379,7 @@ s.setAttribute('data-timestamp', +new Date());
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.4
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.5
 </div>
 
         </div>

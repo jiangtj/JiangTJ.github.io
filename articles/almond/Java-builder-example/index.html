@@ -8,12 +8,12 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="初看java设计模式-建造者模式时，肯定有和我一样有疑惑的。网上的例子几乎都一样，但是却没new xxx.Builder().buildxx().buildxx()…这样的。那么我今天来讲讲这种建造者模式的实现。 首先按照我的惯例，先给例子后解说 例子 Product.java">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="初看java设计模式-建造者模式时，肯定有和我一样有疑惑的。网上的例子几乎都一样，但是却没new xxx.Builder().buildxx().buildxx()...这样的。那么我今天来讲讲这种建造者模式的实现。 首先按照我的惯例，先给例子后解说 例子 Product.java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java设计模式之建筑者模式.">
 <meta property="og:url" content="https://jiangtj.com/articles/almond/Java-builder-example/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="初看java设计模式-建造者模式时，肯定有和我一样有疑惑的。网上的例子几乎都一样，但是却没new xxx.Builder().buildxx().buildxx()…这样的。那么我今天来讲讲这种建造者模式的实现。 首先按照我的惯例，先给例子后解说 例子 Product.java">
+<meta property="og:description" content="初看java设计模式-建造者模式时，肯定有和我一样有疑惑的。网上的例子几乎都一样，但是却没new xxx.Builder().buildxx().buildxx()...这样的。那么我今天来讲讲这种建造者模式的实现。 首先按照我的惯例，先给例子后解说 例子 Product.java">
 <meta property="og:locale">
 <meta property="article:published_time" content="2016-07-18T16:00:00.000Z">
 <meta property="article:modified_time" content="2016-07-18T16:00:00.000Z">
@@ -221,7 +221,7 @@
 
     <div class="post-body">
       
-      <p>初看java设计模式-建造者模式时，肯定有和我一样有疑惑的。网上的例子几乎都一样，但是却没new xxx.Builder().buildxx().buildxx()…这样的。那么我今天来讲讲这种建造者模式的实现。</p>
+      <p>初看java设计模式-建造者模式时，肯定有和我一样有疑惑的。网上的例子几乎都一样，但是却没new xxx.Builder().buildxx().buildxx()...这样的。那么我今天来讲讲这种建造者模式的实现。</p>
 <p>首先按照我的惯例，先给例子后解说</p>
 <h3 id="例子" class="article-heading">例子<a class="article-anchor" href="#例子" aria-hidden="true"></a></h3>
 <p>Product.java</p>
@@ -241,7 +241,7 @@
 <blockquote>
 <p>Lombok更优雅的方式实现建造者模式（17-10-25更新）</p>
 </blockquote>
-<p>Lombok,可以通过注解方式，减少大量的臃肿的代码。比如getter和setter，看着就头疼。使用Lombok，你可以直接@Getter和@Setter来代替这部分，当然一般都是@Data，把一些列常用的注解都加上。<br>除了这些，它还提供了一些其他的不常用到的注解，来消除特定场合的臃肿的代码。比如@Cleanup减少try…catch，@Log减少写获取log实例的代码。这些都很实用。<br>当然，这里要讲的是与建造者相关的@Builder，还是看代码把    </p>
+<p>Lombok,可以通过注解方式，减少大量的臃肿的代码。比如getter和setter，看着就头疼。使用Lombok，你可以直接@Getter和@Setter来代替这部分，当然一般都是@Data，把一些列常用的注解都加上。<br>除了这些，它还提供了一些其他的不常用到的注解，来消除特定场合的臃肿的代码。比如@Cleanup减少try...catch，@Log减少写获取log实例的代码。这些都很实用。<br>当然，这里要讲的是与建造者相关的@Builder，还是看代码把    </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><span class="hljs-comment">//=@Setter @Getter @ToString @EqualsAndHashCode</span><br><span class="hljs-comment">//这个@Builder就是用来生成建造者模式的，只需要小小的一个注解，就能实现了</span><br><span class="hljs-meta">@Builder</span><br><span class="hljs-comment">//下面两个注解，因为@Builder必须要全属性构造方法，才能使用。</span><br><span class="hljs-comment">//虽然默认会生成全属性构造方法，但使用@NoArgsConstructor会覆盖掉这个默认，因此需要添加@AllArgsConstructor</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestEntity</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> Integer age;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>实现过程相当简单，为它我也编写了一个测试类    </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//这个也是Lombok的一个注解</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestEntityTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>&#123;<br>        TestEntity entity = TestEntity.builder()<br>                .name(<span class="hljs-string">&quot;MrJ&quot;</span>)<br>                .age(<span class="hljs-number">100</span>)<br>                .build();<br>        log.error(entity.toString());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -366,7 +366,7 @@ s.setAttribute('data-timestamp', +new Date());
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.4
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.5
 </div>
 
         </div>

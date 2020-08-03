@@ -238,7 +238,7 @@
 <li>灵活与可扩展性，在插件中，我们就要能修改大部分内容。</li>
 <li>操作简单，我们通过极少的代码集成我们想要的功能。</li>
 </ol>
-<p>除此外，ivan-nginx还关心文档的问题，但如果能完全独立，存放在插件库中也不是什么大问题。在此期间，我也进行过尝试<a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/711">PR:Refactoring comments</a>，毕竟现在的评论系统真的”烂”，一堆<code>if else</code>。这次的重构是挺好的尝试，但我不敢轻易合，因为影响大（几乎所有人），而后来发现了另一个方案，是Hexo的一个插件<a rel="noopener" target="_blank" href="https://github.com/hexojs/hexo-inject">hexo-inject</a>，通过注入代码的方式实现定制内容，由于hexo本身与主题分离，它仅能提供4个注入点，可扩展性远远不够。但如果能在NexT中实现，就完全不同了，于是我提了<a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/868">PR:Add new filter type theme_inject</a></p>
+<p>除此外，ivan-nginx还关心文档的问题，但如果能完全独立，存放在插件库中也不是什么大问题。在此期间，我也进行过尝试<a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/711">PR:Refactoring comments</a>，毕竟现在的评论系统真的&quot;烂&quot;，一堆<code>if else</code>。这次的重构是挺好的尝试，但我不敢轻易合，因为影响大（几乎所有人），而后来发现了另一个方案，是Hexo的一个插件<a rel="noopener" target="_blank" href="https://github.com/hexojs/hexo-inject">hexo-inject</a>，通过注入代码的方式实现定制内容，由于hexo本身与主题分离，它仅能提供4个注入点，可扩展性远远不够。但如果能在NexT中实现，就完全不同了，于是我提了<a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/868">PR:Add new filter type theme_inject</a></p>
 <a id="more"></a>
 
 <h1 id="使用-injects" class="article-heading">使用 Injects<a class="article-anchor" href="#使用-injects" aria-hidden="true"></a></h1>
@@ -258,7 +258,7 @@
 <p>创建<code>views/gitter.styl</code>文件</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.gitter-open-chat-button</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: slateblue;<br>  <span class="hljs-attribute">margin-bottom</span>: .<span class="hljs-number">8rem</span>;<br>  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">1rem</span>;<br>  <span class="hljs-attribute">padding</span>: .<span class="hljs-number">4rem</span> .<span class="hljs-number">8rem</span>;<br>  <span class="hljs-attribute">border-radius</span>: .<span class="hljs-number">6rem</span>;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> .<span class="hljs-number">4rem</span> <span class="hljs-number">#111</span>;<br>  <span class="hljs-attribute">opacity</span>: .<span class="hljs-number">9</span>;<br>&#125;<br><br><span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-pseudo">:focus</span>,<span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: slateblue;<br>  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">0.8rem</span> <span class="hljs-number">#111</span>;<br>&#125;<br><br><span class="hljs-selector-class">.gitter-open-chat-button</span><span class="hljs-selector-class">.is-collapsed</span> &#123;<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(<span class="hljs-number">150%</span>);<br>&#125;<br><br><span class="hljs-selector-class">.sidebar-toggle</span> &#123;<br>  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">18px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>再次运行，按钮的样式变咯，你觉得相对于原来是好看还是…？</p>
+<p>再次运行，按钮的样式变咯，你觉得相对于原来是好看还是...？</p>
 <h1 id="制作npm插件" class="article-heading">制作NPM插件<a class="article-anchor" href="#制作npm插件" aria-hidden="true"></a></h1>
 <p>开源的精神在于分享，当你将你的主题自定义之后，你可能会写一篇文章《如何实现在NexT中XXXX》。然后，Visitor看到后，跟着你一点点的改。虽然没什么问题。但毕竟“懒”才是原动力，如果我们能将这一切放入到一个NPM插件中，那么他们使用的时候，就只需要<code>yarn add xxxx</code>就行了。这将多方便呀！！！</p>
 <p>接下来要实现是一个集合滑动到底部/头部和阅读进度的插件，最终效果见<a rel="noopener" target="_blank" href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a>，以及右下角的那个按钮</p>
@@ -436,7 +436,7 @@ s.setAttribute('data-timestamp', +new Date());
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.4
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.5
 </div>
 
         </div>

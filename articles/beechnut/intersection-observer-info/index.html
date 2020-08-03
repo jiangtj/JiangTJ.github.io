@@ -226,7 +226,7 @@
 
 <h1 id="例子" class="article-heading">例子<a class="article-anchor" href="#例子" aria-hidden="true"></a></h1>
 <p>先看下，下面是一个简单的小例子</p>
-<header style="margin-bottom: -20px">html</header><pre><code class="html">&lt;div id=&quot;e1&quot; style=&quot;background-color:black;width:100%;height:500px;&quot;&gt;
+<header style="margin-bottom: -20px">html</header><pre><code class="language-html">&lt;div id=&quot;e1&quot; style=&quot;background-color:black;width:100%;height:500px;&quot;&gt;
   &lt;ul style=&quot;color:white;&quot;&gt;
     &lt;li&gt;boundingClientRect:&lt;span id=&quot;el-boundingClientRect&quot;&gt;&lt;/span&gt;&lt;/li&gt;
     &lt;li&gt;intersectionRatio:&lt;span id=&quot;el-intersectionRatio&quot;&gt;&lt;/span&gt;&lt;/li&gt;
@@ -236,7 +236,7 @@
     &lt;li&gt;time:&lt;span id=&quot;el-time&quot;&gt;&lt;/span&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
-<header style="margin-bottom: -20px">js</header><pre><code class="js">var observer = new IntersectionObserver((entries,observer) =&gt; {
+<header style="margin-bottom: -20px">js</header><pre><code class="language-js">var observer = new IntersectionObserver((entries,observer) =&gt; {
   // 我只监听了一个对象
   let entry = entries[0]
   document.querySelector(&quot;#el-boundingClientRect&quot;).innerHTML = JSON.stringify(entry.boundingClientRect);
@@ -281,7 +281,7 @@ observer.observe(document.querySelector("#e1"));
 <h1 id="构造器" class="article-heading">构造器<a class="article-anchor" href="#构造器" aria-hidden="true"></a></h1>
 <p>通过例子，我们可以看到Intersection Observer需要通过构造器来创建，即<code>new IntersectionObserver(callback[, options])</code>，参数有两部分组成，一个必传的回调函数以及一个可选的配置参数</p>
 <h2 id="回调callback" class="article-heading">回调Callback<a class="article-anchor" href="#回调callback" aria-hidden="true"></a></h2>
-<p>Intersection Observer的翻译就是“交点观察”，因此，他的回调就成了重点。当观察元素与根元素之间的交叉状态发生变化时，它会将这部分信息反馈回来–通过回调告知</p>
+<p>Intersection Observer的翻译就是“交点观察”，因此，他的回调就成了重点。当观察元素与根元素之间的交叉状态发生变化时，它会将这部分信息反馈回来--通过回调告知</p>
 <p>在回调函数里，我们会接受到两个对象，发生状态变化的元素集合以及监听者本身（注意：创建时，会将所有被观察元素的状态传递过来），监听者本身我们可以通过它增加或者减少监听的元素或者销毁自身（后续讲），这里我们更关注观察元素</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callback</span>(<span class="hljs-params">entries,observer</span>) </span>&#123;<br>  entries -&gt; 一系列被观察的元素<br>  observer -&gt; 观察者<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -300,7 +300,7 @@ observer.observe(document.querySelector("#e1"));
 <p>我们可以通过 options 配置 IntersectionObserver，他包含以下几项配置</p>
 <ul>
 <li>root: 监听元素的祖先元素Element对象，其边界盒将被视作视口。目标在根的可见区域的的任何不可见部分都会被视为不可见。默认情况下文档视口会作为root</li>
-<li>rootMargin: 一个在计算交叉值时添加至根的边界盒(bounding_box)中的一组偏移量，类型为字符串(string) ，可以有效的缩小或扩大根的判定范围从而满足计算需要。语法大致和CSS 中的margin 属性等同。默认值是”0px 0px 0px 0px”。</li>
+<li>rootMargin: 一个在计算交叉值时添加至根的边界盒(bounding_box)中的一组偏移量，类型为字符串(string) ，可以有效的缩小或扩大根的判定范围从而满足计算需要。语法大致和CSS 中的margin 属性等同。默认值是&quot;0px 0px 0px 0px&quot;。</li>
 <li>threshold: 规定了一个监听目标与边界盒交叉区域的比例值，可以是一个具体的数值或是一组0.0到1.0之间的数组。若指定值为0.0，则意味着监听元素即使与根有1像素交叉，此元素也会被视为可见. 若指定值为1.0，则意味着整个元素都交叉时视为可见。阈值的默认值为0.0。</li>
 </ul>
 <p>在上面的例子中，我未修改root与rootMargin，你可以将浏览器的窗口作为可见区域，threshold定义了一系列数组，意味着到达那些交叉比时触发回调</p>
@@ -308,7 +308,7 @@ observer.observe(document.querySelector("#e1"));
 <p>在创建或者回调函数中，我们可以得到 IntersectionObserver 对象，他包含以下属性：</p>
 <ul>
 <li>root: 所监听对象的具体祖先元素(element)。如果未传入值或值为null，则默认使用顶级文档的视窗</li>
-<li>rootMargin: 计算交叉时添加到根(root)边界盒bounding box的矩形偏移量， 可以有效的缩小或扩大根的判定范围从而满足计算需要。此属性返回的值可能与调用构造函数时指定的值不同，因此可能需要更改该值，以匹配内部要求。所有的偏移量均可用像素(pixel)(px)或百分比(percentage)(%)来表达, 默认值为”0px 0px 0px 0px”</li>
+<li>rootMargin: 计算交叉时添加到根(root)边界盒bounding box的矩形偏移量， 可以有效的缩小或扩大根的判定范围从而满足计算需要。此属性返回的值可能与调用构造函数时指定的值不同，因此可能需要更改该值，以匹配内部要求。所有的偏移量均可用像素(pixel)(px)或百分比(percentage)(%)来表达, 默认值为&quot;0px 0px 0px 0px&quot;</li>
 <li>thresholds: 一个包含阈值的列表, 按升序排列, 列表中的每个阈值都是监听对象的交叉区域与边界区域的比率。当监听对象的任何阈值被越过时，都会生成一个通知(Notification)。如果构造器未传入值, 则默认值为0</li>
 </ul>
 <p>IntersectionObserver 的属性也都是只读，他在创建之后不支持修改</p>
@@ -323,8 +323,8 @@ observer.observe(document.querySelector("#e1"));
 <h1 id="真实的例子" class="article-heading">真实的例子<a class="article-anchor" href="#真实的例子" aria-hidden="true"></a></h1>
 <h2 id="懒加载" class="article-heading">懒加载<a class="article-anchor" href="#懒加载" aria-hidden="true"></a></h2>
 <p>IntersectionObserver 可以很简单的实现图片懒加载，开头就提到的，看下面很少的代码，我们就实现了懒加载的功能（目前已经好些图片懒加载框架使用它了，比如我的博客所使用的lozad.js）</p>
-<header style="margin-bottom: -20px">html</header><pre><code class="html">&lt;img id=&quot;e2-lazy&quot; load-url=&quot;/images/avatar.jpg&quot; /&gt;</code></pre>
-<header style="margin-bottom: -20px">js</header><pre><code class="js">var observer = new IntersectionObserver((entries,observer) =&gt; {
+<header style="margin-bottom: -20px">html</header><pre><code class="language-html">&lt;img id=&quot;e2-lazy&quot; load-url=&quot;/images/avatar.jpg&quot; /&gt;</code></pre>
+<header style="margin-bottom: -20px">js</header><pre><code class="language-js">var observer = new IntersectionObserver((entries,observer) =&gt; {
   let entry = entries[0]
   if (entry.isIntersecting) {
     let el = entry.target;
@@ -483,7 +483,7 @@ s.setAttribute('data-timestamp', +new Date());
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.4
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.5
 </div>
 
         </div>

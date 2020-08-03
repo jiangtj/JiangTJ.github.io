@@ -246,7 +246,7 @@
 <h1 id="custom-theme" class="article-heading">Custom Theme<a class="article-anchor" href="#custom-theme" aria-hidden="true"></a></h1>
 <p>This problem is often mentioned, I want to get updates from the official remote repository, but I want to be able to modify the file of the theme, add my own code, how to deal with it?</p>
 <p>One way is to fork, and then use the theme of your fork as a submodule, but each update needs to synchronize the official update to the theme of your fork (somewhat troublesome)</p>
-<p>The other one is introduced here: replacement. I don’t make changes to the theme file, but I can create a file outside. The idea is to replace the file in the same way as the file path of the theme.</p>
+<p>The other one is introduced here: replacement. I don&#39;t make changes to the theme file, but I can create a file outside. The idea is to replace the file in the same way as the file path of the theme.</p>
 <h2 id="replacement" class="article-heading">Replacement<a class="article-anchor" href="#replacement" aria-hidden="true"></a></h2>
 <p>First, install a hexo plugin <a rel="noopener" target="_blank" href="https://github.com/jiangtj/hexo-theme-plus">hexo-theme-plus</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm i --save @jiangtj/hexo-theme-plus<br></code></pre></td></tr></table></figure>
@@ -259,7 +259,7 @@
 
 <p><code>hexo s</code> run preview, we can see the bottom, the author has added Ծ‸ Ծ</p>
 <blockquote>
-<p>Replace has a bit of defects. First, it only supports files under <code>layout</code>. Secondly, it needs theme support (using partial, you can’t use the specific syntax of the template, such as include). Cake except for the <code>layout</code> root directory, all support replacement. But NexT requires you to replace the syntax of <code>include</code> <code>macro</code> etc.</p>
+<p>Replace has a bit of defects. First, it only supports files under <code>layout</code>. Secondly, it needs theme support (using partial, you can&#39;t use the specific syntax of the template, such as include). Cake except for the <code>layout</code> root directory, all support replacement. But NexT requires you to replace the syntax of <code>include</code> <code>macro</code> etc.</p>
 </blockquote>
 <h2 id="injection" class="article-heading">Injection<a class="article-anchor" href="#injection" aria-hidden="true"></a></h2>
 <p>Another way, you can also inject any code you want at the injection point. See my previous article <a href="/articles/beechnut/hexo-next-injects/">Hexo NexT Advanced Tutorial Injects</a></p>
@@ -267,13 +267,13 @@
 <p>In the case of Git repository synchronization, if you need to work on another computer, the only thing you need to do is add <code>--recursive</code> to the <code>git clone</code> command.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> --recursive https://github.com/your-name/your-blog<br></code></pre></td></tr></table></figure>
 
-<p>If it’s a GUI tool, then nothing needs to be changed. They default to adding <code>--recursive</code></p>
+<p>If it&#39;s a GUI tool, then nothing needs to be changed. They default to adding <code>--recursive</code></p>
 <p>If you forget to add <code>--recursive</code>, you can execute the following command. Of course, you can also add it to your npm scripts, so you can remember it.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git submodule init<br>git submodule update<br></code></pre></td></tr></table></figure>
 
 <h1 id="summary" class="article-heading">Summary<a class="article-anchor" href="#summary" aria-hidden="true"></a></h1>
 <ol>
-<li>Don’t modify any theme files. I believe that replacing and injecting, you can modify any theme code, which ensures that your theme repository can be set directly to the official repository, and the update has no conflicts.</li>
+<li>Don&#39;t modify any theme files. I believe that replacing and injecting, you can modify any theme code, which ensures that your theme repository can be set directly to the official repository, and the update has no conflicts.</li>
 <li>There are very few commands to remember, just two <code>git submodule update --remote</code> and <code>git clone --recursive repo</code></li>
 </ol>
       
@@ -359,7 +359,7 @@ s.setAttribute('data-timestamp', +new Date());
 <span class="post-meta-divider">|</span>
 
 <div class="theme-info">
-  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.4
+  主题 – <a href="https://github.com/JiangTJ/hexo-theme-cake" class="theme-link" rel="noopener" target="_blank">Cake</a> v3.1.5
 </div>
 
         </div>
