@@ -9,8 +9,27 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个两个三个小朋友 四个五个...</description>
-    <pubDate>Wed, 17 Jun 2020 01:46:00 GMT</pubDate>
+    <pubDate>Tue, 25 Aug 2020 01:43:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Hexo 5.0.0 正式发布</title>
+      <link>https://jiangtj.com/articles/cherry/hexo-5/</link>
+      <guid>https://jiangtj.com/articles/cherry/hexo-5/</guid>
+      <pubDate>Tue, 25 Aug 2020 01:43:40 GMT</pubDate>
+      
+      <description>文章转载自&lt;a href=&quot;https://blog.skk.moe/post/hexo-5/&quot;&gt;Sukka&lt;/a&gt;，Sukka为hexo 5.0带来了许多特性🎉</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E8%BD%AC%E8%BD%BD/">转载</category>
+      
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/hexo-5/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Gradle 初探</title>
@@ -471,31 +490,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/spring-cloud-contract-dsl/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>一点点解析Vue CLI之Create</title>
-      <link>https://jiangtj.com/articles/beechnut/vue-cli-create/</link>
-      <guid>https://jiangtj.com/articles/beechnut/vue-cli-create/</guid>
-      <pubDate>Tue, 16 Apr 2019 13:27:47 GMT</pubDate>
-      
-      <description>&lt;p&gt;Nodejs除了赋予前端后端的能力外，还能有各种各样的脚本，极大的简单各种操作。在早期，脚本做的工作大都是生成固定的模版，所以你需要了解的，仅仅生成的项目就够了。然而，随着框架的完善，架构师往往希望通过脚本处理默认的配置或者环境，这样能减少环境差异导致的问题，还能简化升级核心框架的升级，例如Vue CLI做的事。&lt;/p&gt;
-&lt;p&gt;这时候，我们不得不探一探它的神秘面纱。&lt;/p&gt;
-&lt;p&gt;这次带来的是Create的原理解析。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Vue/">Vue</category>
-      
-      <category domain="https://jiangtj.com/tags/Vue-CLI/">Vue CLI</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/vue-cli-create/#disqus_thread</comments>
       
     </item>
     
