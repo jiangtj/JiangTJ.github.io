@@ -107,7 +107,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2ss"><span class="nav-number">2.</span> <span class="nav-text">部署SS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8ss"><span class="nav-number">3.</span> <span class="nav-text">使用SS</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2ss"><span class="nav-number">2.</span> <span class="nav-text">部署SS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E5%87%AD%E8%AF%81"><span class="nav-number">2.1.</span> <span class="nav-text">管理凭证</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8ss"><span class="nav-number">3.</span> <span class="nav-text">使用SS</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -230,8 +230,10 @@
 <li>点击添加，选择你的服务器供应商（如果没有，选第四个）<img src="/articles/beechnut/vpn-white/1.png" class=""></li>
 <li>复制下图步骤1中的脚本，在服务器上运行<img src="/articles/beechnut/vpn-white/2.png" class=""></li>
 <li>耐心等待安装完成</li>
-<li>复制安装结束后的输出内容至上图步骤2的输入框内</li>
+<li>复制安装结束后的输出内容（管理凭证）至上图步骤2的输入框内</li>
 </ol>
+<h2 id="管理凭证" class="article-heading">管理凭证<a class="article-anchor" href="#管理凭证" aria-hidden="true"></a></h2>
+<p>管理凭证是你管理服务器上的outline的唯一凭证，假如你不小心删除了服务器或者你希望在另一台机器上也管理你的outline，你可以在以下路径寻找到<code>opt/outline/access.txt</code>，老用户在<code>/root/shadowbox/access.txt</code>，我的更奇葩在<code>~/shadowbox/access.txt</code>...算元老级了吧</p>
 <h1 id="使用ss" class="article-heading">使用SS<a class="article-anchor" href="#使用ss" aria-hidden="true"></a></h1>
 <ol>
 <li>添加密钥，你可以为不同使用者分配不同的key<img src="/articles/beechnut/vpn-white/3.png" class=""></li>
