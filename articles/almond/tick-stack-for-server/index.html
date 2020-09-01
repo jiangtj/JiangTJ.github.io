@@ -8,12 +8,12 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="TICK Stack是由一系列的服务组成的监控分析处理数据的解决方案，一般用于系统监控，或者收集处理与时间紧密相关的数据。     它包含了以下服务：     Telegraf 是一个插件驱动的代理服务，用于收集并提供系统数据（如CPU、内存等） InfluxDB 是一个时序数据库，为满足高负载的读写而开发的数据库 Chronograf 通过图表可视化分析数据的服务 Kapacitor 是数据处理">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="TICK Stack是由一系列的服务组成的监控分析处理数据的解决方案，一般用于系统监控，或者收集处理与时间紧密相关的数据。 它包含了以下服务：  Telegraf 是一个插件驱动的代理服务，用于收集并提供系统数据（如CPU、内存等） InfluxDB 是一个时序数据库，为满足高负载的读写而开发的数据库 Chronograf 通过图表可视化分析数据的服务 Kapacitor 是数据处理服务，用于批处">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TICK Stack 实践之监控服务器">
 <meta property="og:url" content="https://jiangtj.com/articles/almond/tick-stack-for-server/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="TICK Stack是由一系列的服务组成的监控分析处理数据的解决方案，一般用于系统监控，或者收集处理与时间紧密相关的数据。     它包含了以下服务：     Telegraf 是一个插件驱动的代理服务，用于收集并提供系统数据（如CPU、内存等） InfluxDB 是一个时序数据库，为满足高负载的读写而开发的数据库 Chronograf 通过图表可视化分析数据的服务 Kapacitor 是数据处理">
+<meta property="og:description" content="TICK Stack是由一系列的服务组成的监控分析处理数据的解决方案，一般用于系统监控，或者收集处理与时间紧密相关的数据。 它包含了以下服务：  Telegraf 是一个插件驱动的代理服务，用于收集并提供系统数据（如CPU、内存等） InfluxDB 是一个时序数据库，为满足高负载的读写而开发的数据库 Chronograf 通过图表可视化分析数据的服务 Kapacitor 是数据处理服务，用于批处">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-05-20T16:00:00.000Z">
 <meta property="article:modified_time" content="2018-05-20T16:00:00.000Z">
@@ -210,8 +210,8 @@
 
     <div class="post-body">
       
-      <p><a rel="noopener" target="_blank" href="https://www.influxdata.com/time-series-platform/">TICK Stack</a>是由一系列的服务组成的监控分析处理数据的解决方案，一般用于系统监控，或者收集处理与时间紧密相关的数据。    </p>
-<p>它包含了以下服务：   </p>
+      <p><a rel="noopener" target="_blank" href="https://www.influxdata.com/time-series-platform/">TICK Stack</a>是由一系列的服务组成的监控分析处理数据的解决方案，一般用于系统监控，或者收集处理与时间紧密相关的数据。</p>
+<p>它包含了以下服务：</p>
 <ul>
 <li>Telegraf 是一个插件驱动的代理服务，用于收集并提供系统数据（如CPU、内存等）</li>
 <li>InfluxDB 是一个时序数据库，为满足高负载的读写而开发的数据库</li>
@@ -221,30 +221,32 @@
 <a id="more"></a>
 
 <h1 id="安装" class="article-heading">安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h1>
-<p>TICK在官网<a rel="noopener" target="_blank" href="https://portal.influxdata.com/downloads">https://portal.influxdata.com/downloads</a>提供相应的下载安装方式，注意需要翻墙（JQuery引用的是Google源，会导致页面点击无反应）<br>下面是Ubuntu &amp; Debian的安装方式     </p>
+<p>TICK在官网<a rel="noopener" target="_blank" href="https://portal.influxdata.com/downloads">https://portal.influxdata.com/downloads</a>提供相应的下载安装方式，注意需要翻墙（JQuery引用的是Google源，会导致页面点击无反应）
+下面是Ubuntu &amp; Debian的安装方式</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># telegraf</span><br>wget https://dl.influxdata.com/telegraf/releases/telegraf_1.6.2-1_amd64.deb<br>sudo dpkg -i telegraf_1.6.2-1_amd64.deb<br><span class="hljs-comment"># influxdb</span><br>wget https://dl.influxdata.com/influxdb/releases/influxdb_1.5.2_amd64.deb<br>sudo dpkg -i influxdb_1.5.2_amd64.deb<br><span class="hljs-comment"># chronograf</span><br>wget https://dl.influxdata.com/chronograf/releases/chronograf_1.4.4.2_amd64.deb<br>sudo dpkg -i chronograf_1.4.4.2_amd64.deb<br><span class="hljs-comment"># kapacitor</span><br>wget https://dl.influxdata.com/kapacitor/releases/kapacitor_1.4.1_amd64.deb<br>sudo dpkg -i kapacitor_1.4.1_amd64.deb<br></code></pre></td></tr></table></figure>
 
-<p>也可以通过添加apt源安装      </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -<br><span class="hljs-built_in">source</span> /etc/lsb-release<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb https://repos.influxdata.com/<span class="hljs-variable">$&#123;DISTRIB_ID,,&#125;</span> <span class="hljs-variable">$&#123;DISTRIB_CODENAME&#125;</span> stable&quot;</span> | sudo tee /etc/apt/sources.list.d/influxdb.list<br>sudo apt-get update <br>sudo apt-get install influxdb<br>sudo apt-get install telegraf<br>sudo apt-get install chronograf<br>sudo apt-get install kapacitor<br></code></pre></td></tr></table></figure>
+<p>也可以通过添加apt源安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -<br><span class="hljs-built_in">source</span> /etc/lsb-release<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb https://repos.influxdata.com/<span class="hljs-variable">$&#123;DISTRIB_ID,,&#125;</span> <span class="hljs-variable">$&#123;DISTRIB_CODENAME&#125;</span> stable&quot;</span> | sudo tee /etc/apt/sources.list.d/influxdb.list<br>sudo apt-get update<br>sudo apt-get install influxdb<br>sudo apt-get install telegraf<br>sudo apt-get install chronograf<br>sudo apt-get install kapacitor<br></code></pre></td></tr></table></figure>
 
 
 <h1 id="运行" class="article-heading">运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1>
-<p>通过linux命令启动相应的服务    </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo service telegraf start<br>sudo service influxd start<br>sudo service kapacitor start<br>sudo service chronograf start<br></code></pre></td></tr></table></figure>
-<p>默认情况下，访问<a rel="noopener" target="_blank" href="http://chronograf-ip:8888">http://chronograf-ip:8888</a>即可    </p>
+<p>通过linux命令启动相应的服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl start telegraf<br>sudo systemctl start influxdb<br>sudo systemctl start kapacitor<br>sudo systemctl start chronograf<br></code></pre></td></tr></table></figure>
+<p>默认情况下，访问<a rel="noopener" target="_blank" href="http://chronograf-ip:8888">http://chronograf-ip:8888</a>即可</p>
 <h1 id="配置" class="article-heading">配置<a class="article-anchor" href="#配置" aria-hidden="true"></a></h1>
-<p>一般情况下需要调整配置文件，使服务满足我们的需求，如权限等。<br>可以查看官方相关的文档配置    </p>
+<p>一般情况下需要调整配置文件，使服务满足我们的需求，如权限等。
+可以查看官方相关的文档配置</p>
 <ul>
-<li><a rel="noopener" target="_blank" href="https://docs.influxdata.com/chronograf/v1.4/introduction/getting-started/">chronograf</a>   </li>
-<li><a rel="noopener" target="_blank" href="https://docs.influxdata.com/influxdb/v1.5/">influxdb</a>    </li>
+<li><a rel="noopener" target="_blank" href="https://docs.influxdata.com/chronograf/v1.4/introduction/getting-started/">chronograf</a></li>
+<li><a rel="noopener" target="_blank" href="https://docs.influxdata.com/influxdb/v1.5/">influxdb</a></li>
 </ul>
-<p>目前Chronograf 的权限支持github,google等账号体系，但企业内部使用可能需要重新开发，满足企业内部帐号权限系统  </p>
+<p>目前Chronograf 的权限支持github,google等账号体系，但企业内部使用可能需要重新开发，满足企业内部帐号权限系统</p>
 <h1 id="其他" class="article-heading">其他<a class="article-anchor" href="#其他" aria-hidden="true"></a></h1>
-<p>事实上，监控的功能挺多余的，云服务商一般都为我们提供了不错的监控服务。但influxdb，目前来说最主流的时序数据库，可以用来存储其他一些数据。例如网站的访问量等。再通过chronograf展示数据，在<a rel="noopener" target="_blank" href="https://www.dnocm.com/">我的博客</a>的左侧菜单上有站点数据，就是通过这种方式来实现的，<a rel="noopener" target="_blank" href="https://gitlab.com/JiangTJ/jiangtj.gitlab.io/blob/master/source/_data/metric.swig">我统计用的js脚本可以点这里看</a>。   </p>
+<p>事实上，监控的功能挺多余的，云服务商一般都为我们提供了不错的监控服务。但influxdb，目前来说最主流的时序数据库，可以用来存储其他一些数据。例如网站的访问量等。再通过chronograf展示数据，在<a rel="noopener" target="_blank" href="https://www.dnocm.com/">我的博客</a>的左侧菜单上有站点数据，就是通过这种方式来实现的，<a rel="noopener" target="_blank" href="https://gitlab.com/JiangTJ/jiangtj.gitlab.io/blob/master/source/_data/metric.swig">我统计用的js脚本可以点这里看</a>。</p>
 <h1 id="参考" class="article-heading">参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1>
 <ul>
-<li><a rel="noopener" target="_blank" href="https://blog.csdn.net/lin_credible/article/details/60579738">TICK技术栈 -- DevOps轻量级监控解决方案</a>  </li>
-<li><a rel="noopener" target="_blank" href="https://www.influxdata.com/time-series-platform/">Open Source Time Series Platform</a>  </li>
+<li><a rel="noopener" target="_blank" href="https://blog.csdn.net/lin_credible/article/details/60579738">TICK技术栈 -- DevOps轻量级监控解决方案</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.influxdata.com/time-series-platform/">Open Source Time Series Platform</a></li>
 </ul>
       
     </div>
