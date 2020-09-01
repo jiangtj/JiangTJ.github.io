@@ -16,10 +16,10 @@
 <meta property="og:description" content="TICK Stack是由一系列的服务组成的监控分析处理数据的解决方案，一般用于系统监控，或者收集处理与时间紧密相关的数据。 它包含了以下服务：  Telegraf 是一个插件驱动的代理服务，用于收集并提供系统数据（如CPU、内存等） InfluxDB 是一个时序数据库，为满足高负载的读写而开发的数据库 Chronograf 通过图表可视化分析数据的服务 Kapacitor 是数据处理服务，用于批处">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-05-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2018-05-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-31T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
 <meta property="article:tag" content="TICK Stack">
-<meta name="twitter:card" content="summary">  <title>TICK Stack 实践之监控服务器 | Dnocm ☀</title>    <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/tick-stack-for-server/"},"headline":"TICK Stack 实践之监控服务器","image":[],"datePublished":"2018-05-20T16:00:00.000Z","dateModified":"2018-05-20T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="twitter:card" content="summary">  <title>TICK Stack 实践之监控服务器 | Dnocm ☀</title>    <link rel="manifest" href="/manifest.json" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/tick-stack-for-server/"},"headline":"TICK Stack 实践之监控服务器","image":[],"datePublished":"2018-05-20T16:00:00.000Z","dateModified":"2020-08-31T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
 
@@ -232,10 +232,11 @@
 <h1 id="运行" class="article-heading">运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h1>
 <p>通过linux命令启动相应的服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl start telegraf<br>sudo systemctl start influxdb<br>sudo systemctl start kapacitor<br>sudo systemctl start chronograf<br></code></pre></td></tr></table></figure>
+
 <p>默认情况下，访问<a rel="noopener" target="_blank" href="http://chronograf-ip:8888">http://chronograf-ip:8888</a>即可</p>
 <h1 id="配置" class="article-heading">配置<a class="article-anchor" href="#配置" aria-hidden="true"></a></h1>
-<p>一般情况下需要调整配置文件，使服务满足我们的需求，如权限等。
-可以查看官方相关的文档配置</p>
+<p>一般情况下需要调整配置文件，使服务满足我们的需求，如权限等。</p>
+<p>可以查看官方相关的文档配置</p>
 <ul>
 <li><a rel="noopener" target="_blank" href="https://docs.influxdata.com/chronograf/v1.4/introduction/getting-started/">chronograf</a></li>
 <li><a rel="noopener" target="_blank" href="https://docs.influxdata.com/influxdb/v1.5/">influxdb</a></li>

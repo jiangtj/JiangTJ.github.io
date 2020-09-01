@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jiangtj.com/articles/almond/tick-stack-for-server/</loc>
+    
+    <lastmod>2020-08-31</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jiangtj.com/articles/beechnut/vpn-white/</loc>
+    
+    <lastmod>2020-08-31</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jiangtj.com/articles/cherry/flutter-install/</loc>
     
     <lastmod>2020-08-28</lastmod>
@@ -331,13 +345,6 @@
   </url>
   
   <url>
-    <loc>https://jiangtj.com/articles/beechnut/vpn-white/</loc>
-    
-    <lastmod>2019-02-24</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jiangtj.com/articles/beechnut/about-google-ads/</loc>
     
     <lastmod>2019-01-11</lastmod>
@@ -425,13 +432,6 @@
     <loc>https://jiangtj.com/articles/almond/dart-vs-node/</loc>
     
     <lastmod>2018-05-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jiangtj.com/articles/almond/tick-stack-for-server/</loc>
-    
-    <lastmod>2018-05-20</lastmod>
     
   </url>
   
