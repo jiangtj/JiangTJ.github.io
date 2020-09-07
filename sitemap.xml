@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jiangtj.com/articles/cherry/junit-5-info/</loc>
+    
+    <lastmod>2020-09-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jiangtj.com/articles/almond/tick-stack-for-server/</loc>
     
     <lastmod>2020-08-31</lastmod>
@@ -208,13 +215,6 @@
     <loc>https://jiangtj.com/articles/cherry/github-packages-npm/</loc>
     
     <lastmod>2020-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jiangtj.com/articles/cherry/junit-5-info/</loc>
-    
-    <lastmod>2020-01-16</lastmod>
     
   </url>
   
