@@ -34,7 +34,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -233,10 +233,8 @@
 <li>关联netlify实例，以及初始化Git LFS配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">netlify link<br>netlify lm:setup<br></code></pre></td></tr></table></figure></li>
 <li>添加需要Git LFS管理的文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git lfs track <span class="hljs-string">&quot;source/images/**&quot;</span><br>git lfs track <span class="hljs-string">&quot;*.jpg&quot;</span><br></code></pre></td></tr></table></figure></li>
 <li>想正常一样操作Git即可<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit -m <span class="hljs-string">&quot;track&quot;</span><br>git push origin master<br></code></pre></td></tr></table></figure>
-
-</li>
+注意：在初次安装Large Media插件时，可能需要关掉命令终端，重新启动来加载脚本</li>
 </ol>
-<p>注意：在初次安装Large Media插件时，可能需要关掉命令终端，重新启动来加载脚本</p>
 <h1 id="图像转换功能" class="article-heading">图像转换功能<a class="article-anchor" href="#图像转换功能" aria-hidden="true"></a></h1>
 <p>这是另一大激动人心的功能，能帮我们自动转换图片大小。可以省下我们很多事。或者说我们可以不再准备多套分辨率了，想调用api一样获得</p>
 <p>通过响应式懒加载库lazod.js实现了该功能，<a rel="noopener" target="_blank" href="https://github.com/JiangTJ/hexo-theme-next/blob/neet/scripts/filters/lazyload.js">过滤器</a>，但奇怪的地方是图片明明一样的，但在不同屏幕下，显示大小不同。所以我改为宽度100%作为默认方案。</p>
@@ -355,7 +353,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -364,7 +362,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

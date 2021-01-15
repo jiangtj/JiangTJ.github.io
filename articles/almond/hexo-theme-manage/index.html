@@ -36,7 +36,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -248,7 +248,6 @@
 <h1 id="gitlab-ci" class="article-heading">GitLab CI<a class="article-anchor" href="#gitlab-ci" aria-hidden="true"></a></h1>
 <p>在gitlab ci中需要针对子模块做额外的配置，将<code>GIT_SUBMODULE_STRATEGY</code>变量改为<code>normal</code>或者<code>recursive</code></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">variables:</span><br>  <span class="hljs-attr">GIT_SUBMODULE_STRATEGY:</span> <span class="hljs-string">recursive</span><br></code></pre></td></tr></table></figure>
-
 <h1 id="npm依赖更新" class="article-heading">npm依赖更新<a class="article-anchor" href="#npm依赖更新" aria-hidden="true"></a></h1>
 <p>除了主题外还有hexo相关脚本需要更新。事实上，我们很难知道哪些脚本发布了新版本，这和npm更新机制有很大关系，如果在版本号前添加了<code>^</code>那么npm会下载兼容的最新版本包（除非存在<code>package.lock</code>或者<code>yarn.loc</code>），比如<code>^1.0.0</code>，如果存在<code>1.0.1</code>版本，那么你下载下来的是后者。。。    </p>
 <p>关于依赖的管理，通过GitHub市场中的<a rel="noopener" target="_blank" href="https://github.com/marketplace/category/dependency-management">依赖管理工具</a>会是个不错的办法，比如我所使用的<a rel="noopener" target="_blank" href="https://github.com/marketplace/dependabot">dependabot</a>，它会帮助我检测最新的依赖，并更新它（提交PR），我做的事就只剩Merge了。    </p>
@@ -372,7 +371,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -381,7 +380,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

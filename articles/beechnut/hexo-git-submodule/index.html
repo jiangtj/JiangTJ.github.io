@@ -33,7 +33,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -233,19 +233,15 @@
 <h1 id="初始化项目" class="article-heading">初始化项目<a class="article-anchor" href="#初始化项目" aria-hidden="true"></a></h1>
 <p>首先我们创建一个新的hexo项目，命令行运行以下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Create a new hexo project</span><br>hexo init &lt;dir&gt;<br><span class="hljs-built_in">cd</span> &lt;dir&gt;<br></code></pre></td></tr></table></figure>
-
 <p>将该项目使用Git管理</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git init<br><span class="hljs-comment"># do something by yourself, if you want to push it to GitHub.</span><br></code></pre></td></tr></table></figure>
-
 <p>添加Cake主题作为该项目的Git子模块</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git submodule add https://github.com/JiangTJ/hexo-theme-cake themes/cake<br></code></pre></td></tr></table></figure>
-
 <p>修改Hexo中的配置文件<code>theme</code>为<code>cake</code></p>
 <p>一个基本的项目通过上面的步骤可以创建，如果你看到这篇文章前已经有自己的博客项目，定位到未完成的步骤起，跟着走完。</p>
 <h1 id="更新主题版本" class="article-heading">更新主题版本<a class="article-anchor" href="#更新主题版本" aria-hidden="true"></a></h1>
 <p>如果你使用的主题仍在被维护，那么你能从远程获取更新。这部操作很简单，像下面这样：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git submodule update --remote<br></code></pre></td></tr></table></figure>
-
 <p>它会从远程拉取最新master上的代码至你的子模块（也就是你的主题）中</p>
 <blockquote>
 <p>如果你想修改拉取的分支通过<code>git config -f .gitmodules submodule.themes/cake.branch stable</code>，一般情况下，master分支足够好，不需要修改</p>
@@ -253,7 +249,6 @@
 <h1 id="使用npm脚本替换" class="article-heading">使用npm脚本替换<a class="article-anchor" href="#使用npm脚本替换" aria-hidden="true"></a></h1>
 <p>git submodule的命令不好记，另一种方式是使用npm脚本替换。编辑<code>package.json</code>文件，添加以下内容：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;mrtt-hexo-blog&quot;</span>,<br>  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,<br>  <span class="hljs-attr">&quot;private&quot;</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;update-theme&quot;</span>: <span class="hljs-string">&quot;git submodule update --remote&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;hexo&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;3.9.0&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;dependencies&quot;</span>: &#123;<br>    <span class="hljs-comment">//...</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>之后每次更新都只需要运行<code>npm run update-theme</code></p>
 <h1 id="自定义主题" class="article-heading">自定义主题<a class="article-anchor" href="#自定义主题" aria-hidden="true"></a></h1>
 <p>这个问题经常被提到，想要从官方的远程仓库获取更新，但又希望能修改主题的文件，添加自己的代码，也就是传说中的魔改，怎么处理呢</p>
@@ -262,13 +257,10 @@
 <h2 id="替换" class="article-heading">替换<a class="article-anchor" href="#替换" aria-hidden="true"></a></h2>
 <p>首先，安装一个hexo插件<a rel="noopener" target="_blank" href="https://github.com/jiangtj/hexo-theme-plus">hexo-theme-plus</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm i --save @jiangtj/hexo-theme-plus<br></code></pre></td></tr></table></figure>
-
 <p>默认情况下，已经配置好了替换路径，如果你需要修改，在hexo中修改以下配置</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">theme_plus:</span><br>  <span class="hljs-attr">custom_path:</span> <span class="hljs-string">custom/theme</span> <span class="hljs-comment"># disabled: set &#x27;false&#x27;</span><br></code></pre></td></tr></table></figure>
-
 <p>在<code>custom/theme</code>创建对应的主题文件，比如<code>$&#123;theme_dir&#125;/layout/_partials/footer.swig</code>，将它复制到<code>$&#123;hexo_dir&#125;/custom/theme/_partials/footer.swig</code>，然后稍微做些修改，比如我在作者信息那里加了个颜表情Ծ‸ Ծ</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;author&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;copyrightHolder&quot;</span>&gt;</span>&#123;&#123; theme.footer.copyright || author &#125;&#125; Ծ‸ Ծ<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p><code>hexo s</code>运行预览，我们可以看到最底下，作者的后面已经加上了Ծ‸ Ծ</p>
 <blockquote>
 <p>Replace存在一点缺陷，首先只支持<code>layout</code>下的文件，其次需要主题支持（使用partial，不能用模版的特定的语法比如include），Cake除了<code>layout</code>根目录下外，其余都支持替换，但NexT需要你替换<code>include</code> <code>macro</code>等语法</p>
@@ -278,11 +270,9 @@
 <h1 id="另一台电脑上编辑" class="article-heading">另一台电脑上编辑<a class="article-anchor" href="#另一台电脑上编辑" aria-hidden="true"></a></h1>
 <p>使用Git仓库同步的情况下，如果你需要在另一台电脑上工作，你唯一需要做的事是在<code>git clone</code>命令上加上<code>--recursive</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> --recursive https://github.com/your-name/your-blog<br></code></pre></td></tr></table></figure>
-
 <p>如果是GUI工具，那么什么都不用改变，它们默认都是加<code>--recursive</code>的</p>
 <p>如果你忘记加<code>--recursive</code>了，多执行下以下命令，当然你也可以将它加入到你的npm scripts里，方便记住它</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git submodule init<br>git submodule update<br></code></pre></td></tr></table></figure>
-
 <h1 id="总结" class="article-heading">总结<a class="article-anchor" href="#总结" aria-hidden="true"></a></h1>
 <ol>
 <li>不要修改任何主题文件，我相信替换与注入配合，你已经能修改任何的主题代码了，这能保证你的主题仓库可以直接设置为官方的仓库，且更新无冲突</li>
@@ -401,7 +391,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -410,7 +400,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

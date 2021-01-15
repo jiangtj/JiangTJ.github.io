@@ -34,7 +34,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -234,18 +234,14 @@
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.my-example.urls</span>=<span class="hljs-string">http://example.com,http://spring.io</span><br></code></pre></td></tr></table></figure>
 <p>注意：在properties，如果遗漏中间的索引，会导致无法绑定异常，下面是不被允许的：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">foo[0]</span> = <span class="hljs-string">a</span><br><span class="hljs-meta">foo[2]</span> = <span class="hljs-string">b</span><br></code></pre></td></tr></table></figure>
-
 <h2 id="map-类型" class="article-heading">Map 类型<a class="article-anchor" href="#map-类型" aria-hidden="true"></a></h2>
 <p>Map类型标准格式很简单<code>my-example.key=value</code>，yml类似的，但当遇到特殊字符时，就需要特别处理，但官方文档上讲的，不是很清楚，所以写了几个例子做实验   </p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">jwt.test.xx</span>=<span class="hljs-string">1</span><br><span class="hljs-meta">jwt.test.xx-xx</span>=<span class="hljs-string">2</span><br><span class="hljs-meta">jwt.test.XX-xx</span>=<span class="hljs-string">3</span><br><span class="hljs-meta">jwt.test.[ww-ww]</span>=<span class="hljs-string">4</span><br><span class="hljs-meta">jwt.test.&#x27;[uuu/w1]&#x27;</span>=<span class="hljs-string">5</span><br><span class="hljs-meta">jwt.test.[uuu/w2]</span>=<span class="hljs-string">6</span><br></code></pre></td></tr></table></figure>
-
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">jwt:</span><br>  <span class="hljs-attr">ymltest:</span><br>    <span class="hljs-attr">foo:</span> <span class="hljs-number">1</span><br>    <span class="hljs-attr">ppp-vvv:</span> <span class="hljs-number">2</span><br>    [<span class="hljs-string">scfds-tgro</span>]<span class="hljs-string">:</span> <span class="hljs-number">3</span><br>    <span class="hljs-string">&#x27;[csf-te]&#x27;</span><span class="hljs-string">:</span> <span class="hljs-number">4</span><br>    <span class="hljs-string">&#x27;[csf/e]&#x27;</span><span class="hljs-string">:</span> <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
-
 <p>结果如下图所示：<br><img data-src="/images/md/others/spring-test-map.png" alt="">    </p>
 <h2 id="环境变量" class="article-heading">环境变量<a class="article-anchor" href="#环境变量" aria-hidden="true"></a></h2>
 <p>在环境变量中，使用<code>_</code>代替<code>.</code>或者<code>[]</code>，如果<code>_</code>包围的是一数字，就替换为<code>[]</code>，其余情况为<code>.</code>，例如：   </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">MY_FOO_1_ &#x3D; my.foo[1]<br>MY_FOO_1_BAR &#x3D; my.foo[1].bar<br>MY_FOO_1_2_ &#x3D; my.foo[1][2]<br></code></pre></td></tr></table></figure>
-
 <h1 id="读取配置属性" class="article-heading">读取配置属性<a class="article-anchor" href="#读取配置属性" aria-hidden="true"></a></h1>
 <p>如果，你需要从环境中读出属性值到你的app中，你需要使用与配置文件一样规则的名称</p>
 <ul>
@@ -372,7 +368,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -381,7 +377,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

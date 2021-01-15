@@ -34,7 +34,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -204,8 +204,7 @@
       <p>一个脚本，自动从GitLab上下载jar，同时重启服务。为后续的CI自动部署做准备</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/sh</span><br><span class="hljs-comment">#defined</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;通过GitLab-CI下载jar&quot;</span><br>wget -O bill-server.jar <span class="hljs-string">&quot;https://gitlab.com/dream-room/bill-server/-/jobs/artifacts/<span class="hljs-variable">$1</span>/raw/target/bill-server.jar?job=release-build&quot;</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;查询已存在进程&quot;</span><br>pgrep -af bill-server<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;结束已存在进程&quot;</span><br>pkill -f bill-server<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;开始运行<span class="hljs-variable">$1</span>&quot;</span><br>nohup java -jar bill-server.jar &amp;<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;更新结束&quot;</span><br></code></pre></td></tr></table></figure>
 <p>运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh bill-start.sh release-0.0.3<br></code></pre></td></tr></table></figure>
-      
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sh bill-start.sh release-0.0.3<br></code></pre></td></tr></table></figure>      
     </div>
 
     
@@ -320,7 +319,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -329,7 +328,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

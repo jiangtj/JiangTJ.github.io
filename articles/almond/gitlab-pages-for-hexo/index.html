@@ -36,7 +36,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -265,7 +265,6 @@
 <h4 id="git-remote" class="article-heading">Git remote<a class="article-anchor" href="#git-remote" aria-hidden="true"></a></h4>
 <p>Assert your project remote url is <a rel="noopener" target="_blank" href="https://gitlab.com/your-gitlab-name/project-name">https://gitlab.com/your-gitlab-name/project-name</a>.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git init<br>git remote add origin git@gitlab.com:&lt;your-gitlab-name&gt;/&lt;project-name&gt;.git<br>git add .<br>git commit -m <span class="hljs-string">&quot;Initial commit&quot;</span><br>git push -u origin master<br></code></pre></td></tr></table></figure>
-
 <h4 id="add-ci-config" class="article-heading">Add CI config<a class="article-anchor" href="#add-ci-config" aria-hidden="true"></a></h4>
 <p>Please rename <code>&lt;*-name&gt;</code> to real name, such as <code>sed -ri &#39;s/.*(url:.*)/url: https:\/\/www.dnocm.com/g&#39; _config.yml</code>   </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget -O .gitlab-ci.yml https://gitlab.com/JiangTJ/hexo/raw/master/.gitlab-ci.yml?inline=<span class="hljs-literal">false</span><br>sed -ri <span class="hljs-string">&#x27;s/.*(url:.*)/url: https:\/\/&lt;your-gitlab-name&gt;.gitlab.io/g&#x27;</span> _config.yml<br></code></pre></td></tr></table></figure>
@@ -387,7 +386,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -396,7 +395,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

@@ -32,7 +32,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -204,19 +204,14 @@
 
 <p>例如，一个支付服务，我们通常的实现如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">PayService</span> </span>&#123;<br>    <span class="hljs-function">Result <span class="hljs-title">pay</span><span class="hljs-params">()</span></span>;<br>&#125;<br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AliService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">PayService</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Result <span class="hljs-title">pay</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Result.of(<span class="hljs-string">&quot;success&quot;</span>, <span class="hljs-string">&quot;Paying by Ali!&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WechatService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">PayService</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Result <span class="hljs-title">pay</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Result.of(<span class="hljs-string">&quot;success&quot;</span>, <span class="hljs-string">&quot;Paying by Wechat!&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>抽象出支付对象，同时有多个实现，如果我们需要通过编号获取对应的支付服务实现，可以通过以下工厂获取</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> PayService <span class="hljs-title">get</span><span class="hljs-params">(String no)</span> </span>&#123;<br>  <span class="hljs-keyword">switch</span> (no) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;wechat&quot;</span>: <span class="hljs-keyword">return</span> wechatService;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;ali&quot;</span>: <span class="hljs-keyword">return</span> aliService;<br>    <span class="hljs-keyword">default</span>: <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>改编成switch expressions，语法上会更简单，将会像下面一样</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> PayService <span class="hljs-title">get</span><span class="hljs-params">(String no)</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">switch</span> (no) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;wechat&quot;</span> -&gt; wechatService;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;ali&quot;</span> -&gt; aliService;<br>    <span class="hljs-keyword">default</span> -&gt; <span class="hljs-keyword">null</span>;<br>  &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>如果使用完整的代码块写的话，需要像下面那样编写</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> PayService <span class="hljs-title">get</span><span class="hljs-params">(String no)</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">switch</span> (no) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;wechat&quot;</span> -&gt; wechatService;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;ali&quot;</span> -&gt; &#123;<br>      <span class="hljs-keyword">break</span> aliService;<br>    &#125;<br>    <span class="hljs-keyword">default</span> -&gt; <span class="hljs-keyword">null</span>;<br>  &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p>加括号和break后返回值，预览的特性不是很稳定，上面的写法是jdk12，在jdk13中JEP 354取代JEP 325，对这部分进行的修改，添加了yield关键字进行返回，同时要求你使用switch expressions时，必须穷尽所有情况返回预期值以及不能有跳出switch的操作（return、continue等等）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> PayService <span class="hljs-title">get</span><span class="hljs-params">(String no)</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">switch</span> (no) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;wechat&quot;</span> -&gt; wechatService;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;ali&quot;</span> -&gt; &#123;<br>      yield aliService;<br>    &#125;<br>    <span class="hljs-keyword">default</span>:<br>      yield <span class="hljs-keyword">null</span>;<br>  &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>毕竟是预览特性，十分不稳定，就目前来看，添加关键字为了一点点的简写，有点得不偿失吧</p>
 </blockquote>
@@ -332,7 +327,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -341,7 +336,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

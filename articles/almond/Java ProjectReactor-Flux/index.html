@@ -51,7 +51,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -240,15 +240,12 @@
 <h4 id="step1搭建环境" class="article-heading">step1:搭建环境<a class="article-anchor" href="#step1搭建环境" aria-hidden="true"></a></h4>
 <p>spring boot部分工具如idea提供了可视化操作，选择reactive-web模块即可（你也可以多选一些你需要的模块），如果没有可视化的工具，也可访问官网的开始页面<a rel="noopener" target="_blank" href="https://start.spring.io/">https://start.spring.io/</a>，或者在pom中引入一下模块（web开发主流仍是maven，所以未采用gradle）   </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-webflux<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.projectreactor<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>reactor-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <h4 id="step2编写处理类" class="article-heading">step2:编写处理类<a class="article-anchor" href="#step2编写处理类" aria-hidden="true"></a></h4>
 <p>编写一个简单的处理类，TestHandler    </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-meta">@NonNullApi</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestHandler</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;ServerResponse&gt; <span class="hljs-title">data</span><span class="hljs-params">(ServerRequest request)</span></span>&#123;<br>        Mono&lt;String&gt; mono =  Mono.justOrEmpty(request.queryParam(<span class="hljs-string">&quot;data&quot;</span>))<br>                .defaultIfEmpty(<span class="hljs-string">&quot;this is null&quot;</span>)<br>                .map(it -&gt; it.concat(<span class="hljs-string">&quot;! from server webflux!&quot;</span>));<br>        <span class="hljs-keyword">return</span> ServerResponse.ok().body(mono,String.class);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
 <h4 id="step3编写路由" class="article-heading">step3:编写路由<a class="article-anchor" href="#step3编写路由" aria-hidden="true"></a></h4>
 <p>spring webflux也提供了函数试的路由配置，如下    </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RoutingConfiguration</span> </span>&#123;<br><br>    <span class="hljs-comment">//...</span><br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> RouterFunction&lt;ServerResponse&gt; <span class="hljs-title">testRouterFunction</span><span class="hljs-params">(TestHandler handle)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> RouterFunctions.route(GET(<span class="hljs-string">&quot;/test&quot;</span>).and(accept(APPLICATION_JSON)), handle::data);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
 <h4 id="step4测试，验证" class="article-heading">step4:测试，验证<a class="article-anchor" href="#step4测试，验证" aria-hidden="true"></a></h4>
 <p>当浏览器输入<a rel="noopener" target="_blank" href="http://localhost:8080/test%EF%BC%8C%E5%BE%97%E5%88%B0%E7%BB%93%E6%9E%9C%EF%BC%9Athis">http://localhost:8080/test，得到结果：this</a> is null! from server webflux!
 当浏览器输入<a rel="noopener" target="_blank" href="http://localhost:8688/test?data=hi%EF%BC%8C%E5%BE%97%E5%88%B0%E7%BB%93%E6%9E%9C%EF%BC%9Ahi">http://localhost:8688/test?data=hi，得到结果：hi</a>! from server webflux!</p>
@@ -320,7 +317,7 @@ Returns: a Flux<br>没看懂，好像是说，通过编程方式创建一个一�
 <p>public static &lt;I,O&gt; Flux<O> zip(Function&lt;? super Object[],? extends O&gt; combinator, Publisher&lt;? extends I&gt;... sources)
 通过混合者，合并多个流成一个输出流，一一对应合并
 <img data-src="https://raw.githubusercontent.com/reactor/reactor-core/v3.1.0.RC1/src/docs/marble/zip.png" alt="">  </p>
-<h4 id class="article-heading">...<a class="article-anchor" href="#" aria-hidden="true"></a></h4>
+<h4 id="" class="article-heading">...<a class="article-anchor" href="#" aria-hidden="true"></a></h4>
 <p>看一下下面的api<br>public static &lt;T1,T2,T3,V&gt; Flux<V> combineLatest(Publisher&lt;? extends T1&gt; source1, Publisher&lt;? extends T2&gt; source2, Publisher&lt;? extends T3&gt; source3, Function&lt;Object[],V&gt; combinator) 
 public static &lt;T1,T2,T3,T4,V&gt; Flux<V> combineLatest(Publisher&lt;? extends T1&gt; source1, Publisher&lt;? extends T2&gt; source2, Publisher&lt;? extends T3&gt; source3, Publisher&lt;? extends T4&gt; source4, Function&lt;Object[],V&gt; combinator)<br>...<br>public static &lt;T1,T2&gt; Flux&lt;Tuple2&lt;T1,T2&gt;&gt; zip(Publisher&lt;? extends T1&gt; source1, lisher&lt;? extends T2&gt; source2)<br>public static &lt;T1,T2,T3&gt; Flux&lt;Tuple3&lt;T1,T2,T3&gt;&gt; zip(Publisher&lt;? extends T1&gt; source1, lisher&lt;? extends T2&gt; source2, lisher&lt;? extends T3&gt; source3)<br>...<br>ヽ(o_ _)o摔倒，我也是服了project reactor 官方。</p>
 <h3 id="常用的实例方法" class="article-heading">常用的实例方法<a class="article-anchor" href="#常用的实例方法" aria-hidden="true"></a></h3>
@@ -485,7 +482,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -494,7 +491,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

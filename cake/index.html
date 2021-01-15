@@ -33,7 +33,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -232,21 +232,19 @@
 <p>为什么要单独独立出一个主题？这主要包含以下几点原因</p>
 <ol>
 <li>实践一些新特性，大部分我都会添加至NexT中，但由于NexT的用户量，需要考虑兼容性，支持会慢些</li>
-<li>更大的控制权，我可以做任何事，重构/去除一些有异议的功能，比如下面的例子<ul>
+<li>更大的控制权，我可以做任何事，重构/去除一些有异议的功能，比如下面的例子</li>
+</ol>
+<ul>
 <li>Exturl <del>加密对于前端来说没有意义，所以会去除</del> 据说对SEO有效，但我仍然去掉了</li>
 <li>Note Tag 重构，调整其header的方式，去除了样式配置（保留一种好看的，原因是可以通过stylus自定义）</li>
 </ul>
-</li>
-</ol>
 <blockquote>
 <p>所以如果你喜欢我的样式，可以尝试使用，如果更喜欢更多内置功能，<a rel="noopener" target="_blank" href="https://github.com/next-theme/hexo-theme-next">NexT</a>可能更适合你</p>
 </blockquote>
 <h1 id="快速开始" class="article-heading">快速开始<a class="article-anchor" href="#快速开始" aria-hidden="true"></a></h1>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn add hexo-theme-cake<br></code></pre></td></tr></table></figure>
-
 <p>修改 <code>theme</code> 为 <code>cake</code>, 如果你是一个 linux 用户, 可以执行下面的命令行. 其他用户需要手动修改.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sed -ri <span class="hljs-string">&#x27;s/^theme:.*/theme: cake/g&#x27;</span> _config.yml &amp;&amp; hexo check<br></code></pre></td></tr></table></figure>
-
 <p><strong>如果你第一次使用cake主题, 你可以执行 <code>hexo check</code> 来检测你的环境是否完整.</strong></p>
 <p><code>hexo s</code>运行，你就能本地预览啦</p>
       
@@ -317,7 +315,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -326,7 +324,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>

@@ -31,7 +31,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -209,7 +209,6 @@
 <h3 id="安装" class="article-heading">安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h3>
 <p>执行以下命令，从PPA源安装shadowsocks-libev，shadowsocks-libev是纯C实现的Shadowsocks服务端，相对于Python，有更好的性能</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install software-properties-common -y<br>sudo add-apt-repository ppa:max-c-lv/shadowsocks-libev -y<br>sudo apt-get update<br>sudo apt install shadowsocks-libev<br></code></pre></td></tr></table></figure>
-
 <h3 id="运行" class="article-heading">运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h3>
 <p>shadowsocks-libev需要修改配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Edit the configuration file</span><br>sudo vim /etc/shadowsocks-libev/config.json<br><span class="hljs-comment"># Edit the default configuration for debian</span><br>sudo vim /etc/default/shadowsocks-libev<br></code></pre></td></tr></table></figure>
@@ -217,7 +216,6 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;server&quot;</span>:<span class="hljs-string">&quot;my_server_ip&quot;</span>,<br>    <span class="hljs-attr">&quot;server_port&quot;</span>:<span class="hljs-number">8388</span>,<br>    <span class="hljs-attr">&quot;local_port&quot;</span>:<span class="hljs-number">1080</span>,<br>    <span class="hljs-attr">&quot;password&quot;</span>:<span class="hljs-string">&quot;barfoo!&quot;</span>,<br>    <span class="hljs-attr">&quot;timeout&quot;</span>:<span class="hljs-number">600</span>,<br>    <span class="hljs-attr">&quot;method&quot;</span>:<span class="hljs-string">&quot;chacha20-ietf-poly1305&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>通过命令行运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Start the service</span><br>sudo /etc/init.d/shadowsocks-libev start    <span class="hljs-comment"># for sysvinit, or</span><br>sudo systemctl start shadowsocks-libev      <span class="hljs-comment"># for systemd</span><br></code></pre></td></tr></table></figure>
-
 <h2 id="python" class="article-heading">Python<a class="article-anchor" href="#python" aria-hidden="true"></a></h2>
 <p>您可以安装Python的shadowsocks，centos或者其他看这里<a rel="noopener" target="_blank" href="https://github.com/shadowsocksr-backup/shadowsocksr">https://github.com/shadowsocksr-backup/shadowsocksr</a></p>
 <h3 id="安装-1" class="article-heading">安装<a class="article-anchor" href="#安装-1" aria-hidden="true"></a></h3>
@@ -225,7 +223,6 @@
 <h3 id="运行-1" class="article-heading">运行<a class="article-anchor" href="#运行-1" aria-hidden="true"></a></h3>
 <p>基于Python的shadowsocks运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Example</span><br>sudo ssserver -k password --user nobody -d start<br><span class="hljs-comment"># See help</span><br>sudo ssserver --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
-
 <h2 id="其他" class="article-heading">其他<a class="article-anchor" href="#其他" aria-hidden="true"></a></h2>
 <p>建议开启<code>fastopen</code>,修改<code>/etc/sysctl.conf</code>文件中的<code>net.ipv4.tcp_fastopen = 3</code>
 其他高级配置，可在翻墙后访问<a rel="noopener" target="_blank" href="https://shadowsocks.org/en/config/advanced.html">https://shadowsocks.org/en/config/advanced.html</a></p>
@@ -314,7 +311,7 @@ s.setAttribute('data-timestamp', +new Date());
           <div class="copyright">
   
   &copy; 
-  <span>2020</span>
+  <span>2021</span>
   <span class="with-love">
     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
     <i class="[object Object]"></i>
@@ -323,7 +320,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.1.1
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
 </div>
 
 <span class="post-meta-divider">|</span>
