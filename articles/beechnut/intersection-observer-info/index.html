@@ -119,7 +119,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -224,7 +224,8 @@
     &lt;li&gt;rootBounds:&lt;span id=&quot;el-rootBounds&quot;&gt;&lt;/span&gt;&lt;/li&gt;
     &lt;li&gt;time:&lt;span id=&quot;el-time&quot;&gt;&lt;/span&gt;&lt;/li&gt;
   &lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
 <header style="margin-bottom: -20px">js</header><pre><code class="language-js">var observer = new IntersectionObserver((entries,observer) =&gt; {
   // 我只监听了一个对象
   let entry = entries[0]
@@ -238,7 +239,8 @@
 }, {
   threshold : [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 });
-observer.observe(document.querySelector(&quot;#e1&quot;));</code></pre>
+observer.observe(document.querySelector(&quot;#e1&quot;));
+</code></pre>
 <style></style><header style="margin-bottom: -20px">result</header><div class="template">
 <div id="e1" style="background-color:black;width:100%;height:500px;">
   <ul style="color:white;">
@@ -311,7 +313,8 @@ observer.observe(document.querySelector("#e1"));
 <h1 id="真实的例子" class="article-heading">真实的例子<a class="article-anchor" href="#真实的例子" aria-hidden="true"></a></h1>
 <h2 id="懒加载" class="article-heading">懒加载<a class="article-anchor" href="#懒加载" aria-hidden="true"></a></h2>
 <p>IntersectionObserver 可以很简单的实现图片懒加载，开头就提到的，看下面很少的代码，我们就实现了懒加载的功能（目前已经好些图片懒加载框架使用它了，比如我的博客所使用的lozad.js）</p>
-<header style="margin-bottom: -20px">html</header><pre><code class="language-html">&lt;img id=&quot;e2-lazy&quot; load-url=&quot;/images/avatar.jpg&quot; /&gt;</code></pre>
+<header style="margin-bottom: -20px">html</header><pre><code class="language-html">&lt;img id=&quot;e2-lazy&quot; load-url=&quot;/images/avatar.jpg&quot; /&gt;
+</code></pre>
 <header style="margin-bottom: -20px">js</header><pre><code class="language-js">var observer = new IntersectionObserver((entries,observer) =&gt; {
   let entry = entries[0]
   if (entry.isIntersecting) {
@@ -320,7 +323,8 @@ observer.observe(document.querySelector("#e1"));
     observer.disconnect();
   }
 });
-observer.observe(document.querySelector(&quot;#e2-lazy&quot;));</code></pre>
+observer.observe(document.querySelector(&quot;#e2-lazy&quot;));
+</code></pre>
 <style></style><header style="margin-bottom: -20px">result</header><div class="template">
 <img id="e2-lazy" load-url="/images/avatar.jpg" />
 </div><script>

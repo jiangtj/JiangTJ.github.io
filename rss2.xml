@@ -9,8 +9,33 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Wed, 20 Jan 2021 06:21:46 GMT</pubDate>
+    <pubDate>Fri, 29 Jan 2021 07:57:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>NPM 包代理</title>
+      <link>https://jiangtj.com/articles/cherry/npm-pack-proxy/</link>
+      <guid>https://jiangtj.com/articles/cherry/npm-pack-proxy/</guid>
+      <pubDate>Fri, 29 Jan 2021 07:57:56 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;在国外，最简单的是安装，在国内，最难得就是安装，太难了&lt;/p&gt;
+&lt;p&gt;下面是一份我正在用的&lt;code&gt;.yarnrc&lt;/code&gt;的配置&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/npm-pack-proxy/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>部署 Spring Boot 应用为 systemd 服务</title>
@@ -461,27 +486,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/spring-cloud-gateway/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Theme Show Case</title>
-      <link>https://jiangtj.com/articles/beechnut/theme-show-case/</link>
-      <guid>https://jiangtj.com/articles/beechnut/theme-show-case/</guid>
-      <pubDate>Fri, 17 May 2019 07:13:09 GMT</pubDate>
-      
-      <description>&lt;p&gt;展示些样式，逐步修改中~&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Theme/">Theme</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/theme-show-case/#disqus_thread</comments>
       
     </item>
     
