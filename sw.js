@@ -1,22 +1,2 @@
-/* global importScripts, workbox */
-
-'use strict';
-
-importScripts('https://cdn.jsdelivr.net/npm/workbox-sw@5/build/workbox-sw.min.js');
-
-const { NetworkFirst, StaleWhileRevalidate, CacheFirst } = workbox.strategies;
-const { registerRoute } = workbox.routing;
-const { ExpirationPlugin } = workbox.expiration;
-const { CacheableResponsePlugin } = workbox.cacheableResponse;
-
-
-
-registerRoute('/', new NetworkFirst({"cacheName":"index","plugins":[]}), 'GET');
-registerRoute(/\.(?:js|css)$/, new StaleWhileRevalidate({"cacheName":"js-css","plugins":[]}), 'GET');
-registerRoute(/\.(?:png|gif|jpg|jpeg|svg)$/, new CacheFirst({"cacheName":"images","plugins":[new ExpirationPlugin({"maxEntries":60,"maxAgeSeconds":2592000})]}), 'GET');
-registerRoute(/^https:\/\/fonts\.googleapis\.com/, new StaleWhileRevalidate({"cacheName":"google-fonts-stylesheets","plugins":[]}), 'GET');
-registerRoute(/^https:\/\/fonts\.gstatic\.com/, new CacheFirst({"cacheName":"google-fonts-webfonts","plugins":[new CacheableResponsePlugin({"statuses":[0,200]}),new ExpirationPlugin({"maxAgeSeconds":31536000})]}), 'GET');
-
-workbox.googleAnalytics.initialize();
-
-
+if(!self.define){const e=e=>{"require"!==e&&(e+=".js");let i=Promise.resolve();return r[e]||(i=new Promise((async i=>{if("document"in self){const r=document.createElement("script");r.src=e,document.head.appendChild(r),r.onload=i}else importScripts(e),i()}))),i.then((()=>{if(!r[e])throw new Error(`Module ${e} didn’t register its module`);return r[e]}))},i=(i,r)=>{Promise.all(i.map(e)).then((e=>r(1===e.length?e[0]:e)))},r={require:Promise.resolve(i)};self.define=(i,n,s)=>{r[i]||(r[i]=Promise.resolve().then((()=>{let r={};const o={uri:location.origin+i.slice(1)};return Promise.all(n.map((i=>{switch(i){case"exports":return r;case"module":return o;default:return e(i)}}))).then((e=>{const i=s(...e);return r.default||(r.default=i),r}))})))}}define("./sw.js",["./workbox-e2776ca5"],(function(e){"use strict";importScripts(),self.addEventListener("message",(e=>{e.data&&"SKIP_WAITING"===e.data.type&&self.skipWaiting()})),e.precacheAndRoute([{url:"cake/index.html",revision:"78dd1ecb57f1f4cf18912a3f45ea32ba"},{url:"categories/index.html",revision:"d41d8cd98f00b204e9800998ecf8427e"},{url:"more/index.html",revision:"109329e26dc35cb2acc1a2294e880995"},{url:"tags/index.html",revision:"d41d8cd98f00b204e9800998ecf8427e"},{url:"cake/options/index.html",revision:"97facf9ead7dc17e1f346f285bae30fd"},{url:"cake/plugins/index.html",revision:"f4ddb7ee6a7005b33890d90d0c1a4dd3"},{url:"downloads/code/hexo-newd.js",revision:"3b4604931332955cc94df28ebbe36b7c"},{url:"en/cake/index.html",revision:"78ad093536fd77b9918280e6cc2eb1f6"},{url:"more/bullhorn/index.html",revision:"a4e9292ea650564c641fd6e27b3f833f"},{url:"more/friends/index.html",revision:"e45e9540b33c44f657d8da0ed602e8da"},{url:"more/schedule/index.html",revision:"c2e0e5f0c420b2f29dfe270e3d279bc2"},{url:"more/tools/index.html",revision:"26d1eff6f8e18c9b82294274c37a2136"},{url:"more/vpn/index.html",revision:"3c49427b4b0f842295aacd4814ed9641"},{url:"en/cake/options/index.html",revision:"8de6e583855012c88cd10eee3e15f151"},{url:"en/cake/plugins/index.html",revision:"fb2352c6f75ffcf2b0d484decd729870"},{url:"more/bullhorn/articles/index.html",revision:"40142828ea1a4d104f1783dadbb0d65b"},{url:"more/bullhorn/tech/index.html",revision:"727ebbb48e34335b5665f650eb6f0c06"},{url:"more/tools/qrcode/index.html",revision:"27db4bb6d1a6b78cf4d336ceaf2437e1"},{url:"more/tools/regex/index.html",revision:"39e2cbd9c152db0b827eb2b2558c7d21"},{url:"en/articles/beechnut/hexo-git-submodule/index.html",revision:"b1a11b6e295ad774f48e7550fa4b22de"},{url:"en/articles/beechnut/hexo-next-injects/index.html",revision:"a802b44edcaa9b292b6ffb2e3c9b2cc3"}],{}),e.registerRoute("/",new e.NetworkFirst({cacheName:"index",plugins:[]}),"GET"),e.registerRoute(/\.(?:js|css)$/,new e.StaleWhileRevalidate({cacheName:"js-css",plugins:[]}),"GET"),e.registerRoute(/\.(?:png|gif|jpg|jpeg|svg)$/,new e.CacheFirst({cacheName:"images",plugins:[new e.ExpirationPlugin({maxEntries:60,maxAgeSeconds:2592e3,purgeOnQuotaError:!0})]}),"GET"),e.registerRoute(/^https:\/\/fonts\.googleapis\.com/,new e.StaleWhileRevalidate({cacheName:"google-fonts-stylesheets",plugins:[]}),"GET"),e.registerRoute(/^https:\/\/fonts\.gstatic\.com/,new e.CacheFirst({cacheName:"google-fonts-webfonts",plugins:[new e.CacheableResponsePlugin({statuses:[0,200]}),new e.ExpirationPlugin({maxAgeSeconds:31536e3,purgeOnQuotaError:!0})]}),"GET"),e.initialize({})}));
+//# sourceMappingURL=sw.js.map
