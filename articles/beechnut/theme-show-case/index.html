@@ -37,7 +37,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -230,7 +230,7 @@
     <div class="post-body">
       
       <p>展示些样式，逐步修改中~</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="title-1-code" class="article-heading">Title 1 <code>code</code><a class="article-anchor" href="#title-1-code" aria-hidden="true"></a></h1>
 <h2 id="title-2-code" class="article-heading">Title 2 <code>code</code><a class="article-anchor" href="#title-2-code" aria-hidden="true"></a></h2>
@@ -278,6 +278,7 @@
 </ul>
 <h1 id="code" class="article-heading">Code<a class="article-anchor" href="#code" aria-hidden="true"></a></h1>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo.extend.filter.register(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) </span>&#123;<br>  injects.head.file(<span class="hljs-string">&#x27;custom&#x27;</span>, <span class="hljs-string">&#x27;source/_data/head.swig&#x27;</span>, &#123;&#125;, &#123;<span class="hljs-attr">cache</span>: <span class="hljs-literal">true</span>&#125;);<br>  injects.sidebar.raw(<span class="hljs-string">&#x27;custom&#x27;</span>, <span class="hljs-string">&#x27;Put some in sidebar!&#x27;</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
 <h2 id="codeblock" class="article-heading">codeblock<a class="article-anchor" href="#codeblock" aria-hidden="true"></a></h2>
 <figure class="highlight objc"><figcaption><span>描述</span><a href="http://localhost:4000/articles/beechnut/theme-show-case/">haha.ocjc?</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs objc">[rectangle setX: <span class="hljs-number">10</span> y: <span class="hljs-number">10</span> width: <span class="hljs-number">20</span> height: <span class="hljs-number">20</span>];<br></code></pre></td></tr></table></figure>
 
@@ -410,6 +411,7 @@
 <p><img data-src="/articles/beechnut/theme-show-case/gua.png" alt=""></p>
 <p>或者居中显示，你可以使用center或者box样式：</p>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs md">&#123;% asset<span class="hljs-emphasis">_img center gua.png 呱呱呱 %&#125;</span><br><span class="hljs-emphasis">&#123;% asset_</span>img box gua.png 呱呱呱 %&#125;<br></code></pre></td></tr></table></figure>
+
 <img src="/articles/beechnut/theme-show-case/gua.png" class="center" title="呱呱呱">
 
 <img src="/articles/beechnut/theme-show-case/gua.png" class="box" title="呱呱呱">
@@ -419,6 +421,7 @@
 <p><a rel="noopener" target="_blank" href="https://www.dnocm.com/">dnocm 站点</a></p>
 <h1 id="button" class="article-heading">Button<a class="article-anchor" href="#button" aria-hidden="true"></a></h1>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs md">&#123;% btn #, Text &amp; Icon (buggy), fas fa-home %&#125;<br>&#123;% btn #, Text &amp; Icon (fixed width), fas fa-home fa-fw  %&#125;<br></code></pre></td></tr></table></figure>
+
 <a class="btn" href="#"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>Text & Icon (buggy)</a>
 <a class="btn" href="#"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>Text & Icon (fixed width)</a>
 
@@ -557,7 +560,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

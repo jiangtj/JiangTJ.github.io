@@ -31,7 +31,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -226,6 +226,7 @@
 <p>Although themes are managed by NPM, they can be easily configured, and hexo supports overridden configurations in themes through the key <code>theme_config</code></p>
 <p>For example, to add a website icon:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">theme_config:</span><br>  <span class="hljs-attr">favicons:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">rel:</span> <span class="hljs-string">icon</span><br>      <span class="hljs-attr">type:</span> <span class="hljs-string">image/png</span><br>      <span class="hljs-attr">sizes:</span> <span class="hljs-string">64x64</span><br>      <span class="hljs-attr">href:</span> <span class="hljs-string">/images/favicon/xin-64.png</span><br></code></pre></td></tr></table></figure>
+
 <p>If your hexo version is greater than 5.0, you can also configure it in <code>config.&lt;theme&gt;.yml</code>, which is equivalent to <code>theme_config</code></p>
 <p>For the complete configuration, <a rel="noopener" target="_blank" href="https://github.com/jiangtj/hexo-theme-cake/blob/master/_config.yml">go to the theme repository to view it</a></p>
 <h1 id="inject-content" class="article-heading">Inject content<a class="article-anchor" href="#inject-content" aria-hidden="true"></a></h1>
@@ -233,6 +234,7 @@
 <h1 id="replace-layout" class="article-heading">Replace layout<a class="article-anchor" href="#replace-layout" aria-hidden="true"></a></h1>
 <p>This part is the function of hexo, which is supported in most themes (you need to replace include with partial, and Cake can be replaced except for the root of layout).</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">Const fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>Hexo.extend.filter.register(<span class="hljs-string">&#x27;before_generate&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>  hexo.theme.setView(<span class="hljs-string">&#x27;File path to be replaced&#x27;</span>, fs.readFileSync(<span class="hljs-string">&#x27;your custom file&#x27;</span>).toString());<br>&#125;);<br></code></pre></td></tr></table></figure>
+
 <p>You can also simplify this part of the work with <a rel="noopener" target="_blank" href="https://github.com/JiangTJ/hexo-theme-plus">hexo-theme-plus</a></p>
       
     </div>
@@ -311,7 +313,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

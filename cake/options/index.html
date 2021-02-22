@@ -31,7 +31,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -226,6 +226,7 @@
 <p>虽然主题通过npm管理，但仍可以很方便的修改配置，hexo支持通过<code>theme_config</code>配置来覆盖主题中的配置</p>
 <p>例如，添加网站icon：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">theme_config:</span><br>  <span class="hljs-attr">favicons:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">rel:</span> <span class="hljs-string">icon</span><br>      <span class="hljs-attr">type:</span> <span class="hljs-string">image/png</span><br>      <span class="hljs-attr">sizes:</span> <span class="hljs-string">64x64</span><br>      <span class="hljs-attr">href:</span> <span class="hljs-string">/images/favicon/xin-64.png</span><br></code></pre></td></tr></table></figure>
+
 <p>如果你的hexo版本大于5.0，你还以在<code>_config.&lt;theme&gt;.yml</code>中配置，这等效于<code>theme_config</code></p>
 <p>完整的配置，<a rel="noopener" target="_blank" href="https://github.com/jiangtj/hexo-theme-cake/blob/master/_config.yml">前往主题仓库查看</a></p>
 <h1 id="注入布局" class="article-heading">注入布局<a class="article-anchor" href="#注入布局" aria-hidden="true"></a></h1>
@@ -233,6 +234,7 @@
 <h1 id="替换布局文件" class="article-heading">替换布局文件<a class="article-anchor" href="#替换布局文件" aria-hidden="true"></a></h1>
 <p>这部分是hexo的功能，在大部分主题中都支持</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br>hexo.extend.filter.register(<span class="hljs-string">&#x27;before_generate&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>  hexo.theme.setView(<span class="hljs-string">&#x27;需要替换的文件路径（相对于主题路径）&#x27;</span>, fs.readFileSync(<span class="hljs-string">&#x27;你的自定义文件&#x27;</span>).toString());<br>&#125;);<br></code></pre></td></tr></table></figure>
+
 <p>你也可以使用<a rel="noopener" target="_blank" href="https://github.com/JiangTJ/hexo-theme-plus">hexo-theme-plus</a>简化这部分工作</p>
       
     </div>
@@ -311,7 +313,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

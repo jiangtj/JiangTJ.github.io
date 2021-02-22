@@ -32,7 +32,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -211,7 +211,7 @@
     <div class="post-body">
       
       <p>Intersection Observer API提供了一种异步观察目标元素与祖先元素或顶级文档viewport的交集中的变化的方法。这使得以往较难实现的功能，更加简单，例如，监听图片元素，在适当的时候懒加载图片。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="例子" class="article-heading">例子<a class="article-anchor" href="#例子" aria-hidden="true"></a></h1>
 <p>先看下，下面是一个简单的小例子</p>
@@ -275,6 +275,7 @@ observer.observe(document.querySelector("#e1"));
 <p>Intersection Observer的翻译就是“交点观察”，因此，他的回调就成了重点。当观察元素与根元素之间的交叉状态发生变化时，它会将这部分信息反馈回来--通过回调告知</p>
 <p>在回调函数里，我们会接受到两个对象，发生状态变化的元素集合以及监听者本身（注意：创建时，会将所有被观察元素的状态传递过来），监听者本身我们可以通过它增加或者减少监听的元素或者销毁自身（后续讲），这里我们更关注观察元素</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callback</span>(<span class="hljs-params">entries,observer</span>) </span>&#123;<br>  entries -&gt; 一系列被观察的元素<br>  observer -&gt; 观察者<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p><code>entries</code> 是一个 <code>IntersectionObserverEntry</code> 对象的数组，<code>IntersectionObserverEntry</code> 包换以下元素（来自MDN）</p>
 <ul>
 <li>boundingClientRect: 返回包含目标元素的边界信息的DOMRectReadOnly. 边界的计算方式与 Element.getBoundingClientRect() 相同</li>
@@ -475,7 +476,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

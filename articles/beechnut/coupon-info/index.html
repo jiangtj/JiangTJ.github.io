@@ -35,7 +35,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -230,7 +230,7 @@
 <li>支持各种限制，甚至自定义限制</li>
 <li>尽可能的降低各个系统与优惠券系统的耦合性</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20191106145354.png" alt=""></p>
 <p><em>发放策略与其他系统紧密相关，暂时未设计数据结构</em></p>
@@ -241,8 +241,10 @@
 <p>优惠的策略与主体间是1对1的关系（一张优惠券一种优惠方式），理论上这部分可以和主体存放在一张表内</p>
 <p>优惠策略的关键在于handler处理器，所有的优惠策略处理器都需要继承优惠处理器相关的接口，例如java版如下（其他语言应该也能有类似的功能把）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DiscountHandler</span> </span>&#123;<br>    <span class="hljs-function">String <span class="hljs-title">name</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">default</span> BigDecimal <span class="hljs-title">handle</span><span class="hljs-params">(BigDecimal price, String args)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> price;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">order</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>比如满减与折扣策略的实现可以如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubtractDiscountHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DiscountHandler</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">name</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;立减&quot;</span>;<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> BigDecimal <span class="hljs-title">handle</span><span class="hljs-params">(BigDecimal price, String args)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> price.subtract(<span class="hljs-keyword">new</span> BigDecimal(args));<br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MultiplyDiscountHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">DiscountHandler</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">name</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;折扣&quot;</span>;<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> BigDecimal <span class="hljs-title">handle</span><span class="hljs-params">(BigDecimal price, String args)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> price.multiply(<span class="hljs-keyword">new</span> BigDecimal(args));<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">order</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>其中，name用于记录处理器的名称，spring可以获取所有DiscountHandler的实例，我们处理后，作为选择列表供用户选择，使用哪个处理器</p>
 <p>args在不同处理器时，具有不同的含义，在SubtractDiscountHandler下，填1，表示立减1元，MultiplyDiscountHandler下填0.9，表示打9折</p>
 <p>当用户选择优惠券(多张)后，获取选择的优惠券的处理器并依据order排序，依次处理价格(一般情况我们会把折扣放在后面处理，减少总的优惠额)</p>
@@ -250,6 +252,7 @@
 <p>限制规则与优惠策略处理的方式是一样的，不同点在于优惠券主体与限制规则是1对多的关系。</p>
 <p>限制规则的handler也与优惠券有点区别，大致如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LimitHandlerContext</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Object coupon;<br>    <span class="hljs-keyword">private</span> List&lt;Object&gt; selectedCoupons;<br>    <span class="hljs-keyword">private</span> Object params;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">LimitHandler</span> </span>&#123;<br>    <span class="hljs-function">String <span class="hljs-title">name</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">handle</span><span class="hljs-params">(LimitHandlerContext context, String args)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">int</span> <span class="hljs-title">order</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>与优惠策略不同，不在传递与处理价格，而是传入LimitHandlerContext容器，由此判断是否拦截（false：拦截，true：通过）</p>
 <ul>
 <li>coupon：指当前触发限制规则的优惠券</li>
@@ -393,7 +396,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

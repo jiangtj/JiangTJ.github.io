@@ -36,7 +36,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -219,7 +219,7 @@
 <blockquote>
 <p>There is also a tutorial in English</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="中文教程" class="article-heading">中文教程<a class="article-anchor" href="#中文教程" aria-hidden="true"></a></h2>
 <h3 id="环境搭建" class="article-heading">环境搭建<a class="article-anchor" href="#环境搭建" aria-hidden="true"></a></h3>
@@ -265,6 +265,7 @@
 <h4 id="git-remote" class="article-heading">Git remote<a class="article-anchor" href="#git-remote" aria-hidden="true"></a></h4>
 <p>Assert your project remote url is <a rel="noopener" target="_blank" href="https://gitlab.com/your-gitlab-name/project-name">https://gitlab.com/your-gitlab-name/project-name</a>.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git init<br>git remote add origin git@gitlab.com:&lt;your-gitlab-name&gt;/&lt;project-name&gt;.git<br>git add .<br>git commit -m <span class="hljs-string">&quot;Initial commit&quot;</span><br>git push -u origin master<br></code></pre></td></tr></table></figure>
+
 <h4 id="add-ci-config" class="article-heading">Add CI config<a class="article-anchor" href="#add-ci-config" aria-hidden="true"></a></h4>
 <p>Please rename <code>&lt;*-name&gt;</code> to real name, such as <code>sed -ri &#39;s/.*(url:.*)/url: https:\/\/www.dnocm.com/g&#39; _config.yml</code>   </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget -O .gitlab-ci.yml https://gitlab.com/JiangTJ/hexo/raw/master/.gitlab-ci.yml?inline=<span class="hljs-literal">false</span><br>sed -ri <span class="hljs-string">&#x27;s/.*(url:.*)/url: https:\/\/&lt;your-gitlab-name&gt;.gitlab.io/g&#x27;</span> _config.yml<br></code></pre></td></tr></table></figure>
@@ -395,7 +396,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

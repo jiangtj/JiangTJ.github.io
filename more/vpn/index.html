@@ -31,7 +31,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -196,7 +196,7 @@
       <h1 id="wikipedia" class="article-heading">Wikipedia<a class="article-anchor" href="#wikipedia" aria-hidden="true"></a></h1>
 <p>Shadowsocks可以指：一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种传输包。目前包使用Python、C、C++、C#、Go语言等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端部署到服务器上面，然后通过客户端连接并创建本地代理。</p>
 <p>目前Shadowsocks有多个实现支持，以自由软件形式发布的主要有原始Shadowsocks（以Python语言编写）、Shadowsocks-libev（分支项目openwrt-Shadowsocks）、Shadowsocks-rust、Shadowsocks-go/go-Shadowsocks2、libQtShadowsocks、Shadowsocks-qt5（仅作为客户端）、Shadowsocks-android（仅作为客户端）、Shadowsocks-windows（仅作为客户端）、ShadowsocksX-NG（仅作为客户端）、Outline、V2Ray、Brook等等，还有为数甚多的免费软件及专有软件（多数是iOS上运行的，如shadowrocket、Surge等）。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="服务端" class="article-heading">服务端<a class="article-anchor" href="#服务端" aria-hidden="true"></a></h1>
 <h2 id="outline-manage" class="article-heading">Outline Manage<a class="article-anchor" href="#outline-manage" aria-hidden="true"></a></h2>
@@ -209,6 +209,7 @@
 <h3 id="安装" class="article-heading">安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h3>
 <p>执行以下命令，从PPA源安装shadowsocks-libev，shadowsocks-libev是纯C实现的Shadowsocks服务端，相对于Python，有更好的性能</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install software-properties-common -y<br>sudo add-apt-repository ppa:max-c-lv/shadowsocks-libev -y<br>sudo apt-get update<br>sudo apt install shadowsocks-libev<br></code></pre></td></tr></table></figure>
+
 <h3 id="运行" class="article-heading">运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h3>
 <p>shadowsocks-libev需要修改配置文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Edit the configuration file</span><br>sudo vim /etc/shadowsocks-libev/config.json<br><span class="hljs-comment"># Edit the default configuration for debian</span><br>sudo vim /etc/default/shadowsocks-libev<br></code></pre></td></tr></table></figure>
@@ -216,6 +217,7 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;server&quot;</span>:<span class="hljs-string">&quot;my_server_ip&quot;</span>,<br>    <span class="hljs-attr">&quot;server_port&quot;</span>:<span class="hljs-number">8388</span>,<br>    <span class="hljs-attr">&quot;local_port&quot;</span>:<span class="hljs-number">1080</span>,<br>    <span class="hljs-attr">&quot;password&quot;</span>:<span class="hljs-string">&quot;barfoo!&quot;</span>,<br>    <span class="hljs-attr">&quot;timeout&quot;</span>:<span class="hljs-number">600</span>,<br>    <span class="hljs-attr">&quot;method&quot;</span>:<span class="hljs-string">&quot;chacha20-ietf-poly1305&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>通过命令行运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Start the service</span><br>sudo /etc/init.d/shadowsocks-libev start    <span class="hljs-comment"># for sysvinit, or</span><br>sudo systemctl start shadowsocks-libev      <span class="hljs-comment"># for systemd</span><br></code></pre></td></tr></table></figure>
+
 <h2 id="python" class="article-heading">Python<a class="article-anchor" href="#python" aria-hidden="true"></a></h2>
 <p>您可以安装Python的shadowsocks，centos或者其他看这里<a rel="noopener" target="_blank" href="https://github.com/shadowsocksr-backup/shadowsocksr">https://github.com/shadowsocksr-backup/shadowsocksr</a></p>
 <h3 id="安装-1" class="article-heading">安装<a class="article-anchor" href="#安装-1" aria-hidden="true"></a></h3>
@@ -223,6 +225,7 @@
 <h3 id="运行-1" class="article-heading">运行<a class="article-anchor" href="#运行-1" aria-hidden="true"></a></h3>
 <p>基于Python的shadowsocks运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Example</span><br>sudo ssserver -k password --user nobody -d start<br><span class="hljs-comment"># See help</span><br>sudo ssserver --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
 <h2 id="其他" class="article-heading">其他<a class="article-anchor" href="#其他" aria-hidden="true"></a></h2>
 <p>建议开启<code>fastopen</code>,修改<code>/etc/sysctl.conf</code>文件中的<code>net.ipv4.tcp_fastopen = 3</code>
 其他高级配置，可在翻墙后访问<a rel="noopener" target="_blank" href="https://shadowsocks.org/en/config/advanced.html">https://shadowsocks.org/en/config/advanced.html</a></p>
@@ -320,7 +323,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

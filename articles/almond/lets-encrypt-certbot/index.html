@@ -31,7 +31,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -211,7 +211,7 @@
       
       <p>谷歌Chrome安全产品经理艾米丽·谢克特（Emily Schechter）发表博文，证实当该公司在7月发布Chrome 68浏览器时，该浏览器将把所有未采用HTTPS（安全套接字层超文本传输协议）加密的网站都标记为“不安全”网站。    </p>
 <p>Chrome作为浏览器界的巨头，做出如此的决定，将极大的推进HTTPS的进程，我们自然也应该跟进，一同建立更安全的网络环境。但一般证书都是较为昂贵的，因此互联网安全研究小组Internet Security Research Group(ISRG)以及Linux基金会等，提供了公益的项目，用于加速HTTPS的发展    </p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="概念" class="article-heading">概念<a class="article-anchor" href="#概念" aria-hidden="true"></a></h1>
 <h2 id="https" class="article-heading">HTTPS<a class="article-anchor" href="#https" aria-hidden="true"></a></h2>
@@ -238,6 +238,7 @@
 <h2 id="重新获取证书" class="article-heading">重新获取证书<a class="article-anchor" href="#重新获取证书" aria-hidden="true"></a></h2>
 <p>证书都是有有效期的，我们需要在有效期内重新获取更新证书，Let’s Encrypt的证书有效期为3个月。所以我们需要通过Certbot工具自动的更新证书</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo certbot renew --dry-run<br></code></pre></td></tr></table></figure>
+
 <h1 id="校验" class="article-heading">校验<a class="article-anchor" href="#校验" aria-hidden="true"></a></h1>
 <p>打开配置好的地址<a rel="noopener" target="_blank" href="https://x.j-time.cn/">https://x.j-time.cn/</a>，能正常的通过https访问了，同时谷歌、火狐等浏览器，也将此站点标记为了安全站点</p>
 <h1 id="更多细节" class="article-heading">更多细节<a class="article-anchor" href="#更多细节" aria-hidden="true"></a></h1>
@@ -356,7 +357,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

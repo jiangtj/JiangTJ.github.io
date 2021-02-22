@@ -32,7 +32,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -212,7 +212,7 @@
       
       <p>Feign是轻量级、声明式的Http请求客户端，它吸收了来自的Retrofit JAXRS-2.0和WebSocket的灵感，为了使写Http请求变得更容易而诞生    </p>
 <p>Feign一开始作为Eureka的子项目，用于简化Http请求。但由于其不断完善，目前作为一个轻量级、声明式的Http请求客户端项目，独立维护。在Spring Cloud中，其引入了Feign，并提供了一系列默认的配置与Spring MVC注解的支持。因此，Feign一直被作为首先的Http请求客户端。   </p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="准备工作" class="article-heading">准备工作<a class="article-anchor" href="#准备工作" aria-hidden="true"></a></h1>
 <p>需要Eureka Server，这部分看之前的文档部署，这篇以及以后的文章不在多提</p>
@@ -235,9 +235,11 @@
 <p>该接口注解与Spring MVC的基本一致（@PathVariable不能省略value值）<br>其中@FeignClient定义该接口实例化为Feign服务并注入到Spring中，由Spring管理，value值为配置文件中微服务的名称（spring.application.name的值）   </p>
 <h2 id="调用feign服务" class="article-heading">调用Feign服务<a class="article-anchor" href="#调用feign服务" aria-hidden="true"></a></h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@Resource</span><br><span class="hljs-keyword">private</span> BaseClient baseClient;<br><br>   <br><span class="hljs-meta">@GetMapping(&quot;/base/curl&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String,String&gt; <span class="hljs-title">getBaseClientCurl</span><span class="hljs-params">()</span></span>&#123;<br>	Map&lt;String,String&gt; result = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br><br>	result.put(<span class="hljs-string">&quot;ID 1&quot;</span>,baseClient.getUser(<span class="hljs-number">1L</span>));<br>	Map&lt;String,String&gt; query = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br><br>	query.put(<span class="hljs-string">&quot;name&quot;</span>,<span class="hljs-string">&quot;Jone Taki&quot;</span>);<br>	result.put(<span class="hljs-string">&quot;Query Jone&quot;</span>,baseClient.getUser(query));<br><br>	result.put(<span class="hljs-string">&quot;Post&quot;</span>,baseClient.postUser(User.of(<span class="hljs-string">&quot;Jone Tiki&quot;</span>,<span class="hljs-number">20</span>,<span class="hljs-number">1</span>)));<br>	result.put(<span class="hljs-string">&quot;Put&quot;</span>,baseClient.postUser(User.of(<span class="hljs-string">&quot;Jone Kolo&quot;</span>,<span class="hljs-number">30</span>,<span class="hljs-number">1</span>)));<br><br>	<span class="hljs-keyword">try</span> &#123;<br>		baseClient.deleteUser();<br>		result.put(<span class="hljs-string">&quot;Delete&quot;</span>,<span class="hljs-string">&quot;success&quot;</span>);<br>	&#125; <span class="hljs-keyword">catch</span> (RuntimeException e) &#123;<br>		result.put(<span class="hljs-string">&quot;Delete&quot;</span>,<span class="hljs-string">&quot;fail: &quot;</span> + e.getMessage());<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> result;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
 <h2 id="访问接口测试" class="article-heading">访问接口测试<a class="article-anchor" href="#访问接口测试" aria-hidden="true"></a></h2>
 <p>我们能得到如下结果，其中Delete是失败的</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;Delete&quot;</span>:<span class="hljs-string">&quot;fail: BaseClient#deleteUser() failed and no fallback available.&quot;</span>,<br>    <span class="hljs-attr">&quot;Query Jone&quot;</span>:<span class="hljs-string">&quot;Your QueryParams is &#123;name=[Jone Taki]&#125;&quot;</span>,<br>    <span class="hljs-attr">&quot;Post&quot;</span>:<span class="hljs-string">&quot;Your Body is &#123;\&quot;name\&quot;:\&quot;Jone Tiki\&quot;,\&quot;age\&quot;:20,\&quot;sex\&quot;:1&#125;&quot;</span>,<br>    <span class="hljs-attr">&quot;ID 1&quot;</span>:<span class="hljs-string">&quot;Your id is 1&quot;</span>,<br>    <span class="hljs-attr">&quot;Put&quot;</span>:<span class="hljs-string">&quot;Your Body is &#123;\&quot;name\&quot;:\&quot;Jone Kolo\&quot;,\&quot;age\&quot;:30,\&quot;sex\&quot;:1&#125;&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>上述这些例子包含了基本的REST操作，也就是Feign的基本使用</p>
 <h1 id="参考" class="article-heading">参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1>
 <ul>
@@ -365,7 +367,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

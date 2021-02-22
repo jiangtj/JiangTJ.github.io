@@ -51,7 +51,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -232,7 +232,7 @@
       <p>Spring5现处在第四个预发布版，正式版将要发布了，它带来的一大特性就是响应式框架Spring WebFlux。默认使用ProjectReactor框架。因此。本文通过ProjectReactor中的Flux，来学习使用该框架，以及了解其传递的思想。   </p>
 <p>本文基于Reactor3.1 rc1    </p>
 <p>Reactor官方地址<a rel="noopener" target="_blank" href="http://projectreactor.io/">http://projectreactor.io/</a>，官方文档写的十分详细，如果您有不错的英文能力，建议直接阅读官方文档。  </p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="spring-webflux-实践" class="article-heading">Spring WebFlux 实践<a class="article-anchor" href="#spring-webflux-实践" aria-hidden="true"></a></h3>
 <p>首先，为大家带来一个使用了ProjectReactor的例子，该例子使用Spring Boot 2.0.0.BUILD-SNAPSHOT。因Spring Boot推荐默认配置（约定）优先，可以极大减少大量的重复的模版化代码，简化搭建过程。   </p>
@@ -240,12 +240,15 @@
 <h4 id="step1搭建环境" class="article-heading">step1:搭建环境<a class="article-anchor" href="#step1搭建环境" aria-hidden="true"></a></h4>
 <p>spring boot部分工具如idea提供了可视化操作，选择reactive-web模块即可（你也可以多选一些你需要的模块），如果没有可视化的工具，也可访问官网的开始页面<a rel="noopener" target="_blank" href="https://start.spring.io/">https://start.spring.io/</a>，或者在pom中引入一下模块（web开发主流仍是maven，所以未采用gradle）   </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-webflux<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.projectreactor<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>reactor-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
 <h4 id="step2编写处理类" class="article-heading">step2:编写处理类<a class="article-anchor" href="#step2编写处理类" aria-hidden="true"></a></h4>
 <p>编写一个简单的处理类，TestHandler    </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-meta">@NonNullApi</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestHandler</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Mono&lt;ServerResponse&gt; <span class="hljs-title">data</span><span class="hljs-params">(ServerRequest request)</span></span>&#123;<br>        Mono&lt;String&gt; mono =  Mono.justOrEmpty(request.queryParam(<span class="hljs-string">&quot;data&quot;</span>))<br>                .defaultIfEmpty(<span class="hljs-string">&quot;this is null&quot;</span>)<br>                .map(it -&gt; it.concat(<span class="hljs-string">&quot;! from server webflux!&quot;</span>));<br>        <span class="hljs-keyword">return</span> ServerResponse.ok().body(mono,String.class);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h4 id="step3编写路由" class="article-heading">step3:编写路由<a class="article-anchor" href="#step3编写路由" aria-hidden="true"></a></h4>
 <p>spring webflux也提供了函数试的路由配置，如下    </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RoutingConfiguration</span> </span>&#123;<br><br>    <span class="hljs-comment">//...</span><br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> RouterFunction&lt;ServerResponse&gt; <span class="hljs-title">testRouterFunction</span><span class="hljs-params">(TestHandler handle)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> RouterFunctions.route(GET(<span class="hljs-string">&quot;/test&quot;</span>).and(accept(APPLICATION_JSON)), handle::data);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h4 id="step4测试，验证" class="article-heading">step4:测试，验证<a class="article-anchor" href="#step4测试，验证" aria-hidden="true"></a></h4>
 <p>当浏览器输入<a rel="noopener" target="_blank" href="http://localhost:8080/test%EF%BC%8C%E5%BE%97%E5%88%B0%E7%BB%93%E6%9E%9C%EF%BC%9Athis">http://localhost:8080/test，得到结果：this</a> is null! from server webflux!
 当浏览器输入<a rel="noopener" target="_blank" href="http://localhost:8688/test?data=hi%EF%BC%8C%E5%BE%97%E5%88%B0%E7%BB%93%E6%9E%9C%EF%BC%9Ahi">http://localhost:8688/test?data=hi，得到结果：hi</a>! from server webflux!</p>
@@ -491,7 +494,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

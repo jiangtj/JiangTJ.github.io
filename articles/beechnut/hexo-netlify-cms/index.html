@@ -35,7 +35,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -221,7 +221,7 @@
 </ul>
 <p>但无论那种都存在安全问题，如果在本地操作，那么完全没必要管理站点，不是本地的话且使用静态托管的话（如GitHub Page），如何确保是自己修改呢？这就需要一个安全服务，但本身只是偶尔修改使用，撘一个安全服务似乎不划算，所以这件事就一直搁置着  </p>
 <p>前段时间，我将静态服务迁移到了Netlify，发现它居然提供了CMS用于管理静态资源，我体验了Gatsby的例子，能上传媒体文件，能添加与修改文章，相对的安全性（Netlify会获取你的Git仓库很多权限，但我不认为它会做恶意破坏的行为）...满足了我的要求。 </p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>在将它应用到Hexo的时候，很不方便，官方例子很老旧，而且没有相关插件，所以简单的写了一个...</p>
 <p>下面是0.1.1的Hexo Netlify CMS插件的使用文档</p>
@@ -242,15 +242,20 @@
 <h2 id="其他配置" class="article-heading">其他配置<a class="article-anchor" href="#其他配置" aria-hidden="true"></a></h2>
 <p>自定义pages自动生成配置</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">netlify_cms:</span><br>  <span class="hljs-comment"># pages auto generate</span><br>  <span class="hljs-attr">pages:</span> <br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-comment"># over page collection config</span><br>    <span class="hljs-comment"># if fields not set, would use posts fields config</span><br>    <span class="hljs-attr">config:</span><br>      <span class="hljs-attr">label:</span> <span class="hljs-string">&quot;Page&quot;</span><br>      <span class="hljs-attr">delete:</span> <span class="hljs-literal">false</span><br>      <span class="hljs-attr">editor:</span><br>        <span class="hljs-attr">preview:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-comment"># fields: </span><br></code></pre></td></tr></table></figure>
+
 <p>自定义配置文件，覆盖<a rel="noopener" target="_blank" href="https://raw.githubusercontent.com/JiangTJ/hexo-netlify-cms/master/admin/config.yml">默认的</a></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">netlify_cms:</span><br>  <span class="hljs-attr">config_file:</span> <span class="hljs-string">netlify.yaml</span><br></code></pre></td></tr></table></figure>
+
 <p>开启/关闭覆盖时间格式配置(默认true)</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">netlify_cms:</span><br>  <span class="hljs-attr">over_format:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
 <p>添加脚本, 用于自定义组件和预览样式<br>例如：<br>添加<code>example/source/js/cms/youtube.js</code>至你的博客下   </p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># 需要跳过配置</span><br><span class="hljs-attr">skip_render:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">js/**</span><br><span class="hljs-attr">netlify_cms:</span><br>  <span class="hljs-attr">scripts:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">js/cms/youtube.js</span><br></code></pre></td></tr></table></figure>
+
 <p>另外，其他的<code>netlify_cms</code>配置变量可以在<a rel="noopener" target="_blank" href="https://www.netlifycms.org/docs/configuration-options/">Netlify CMS</a>中找到  </p>
 <h2 id="调试" class="article-heading">调试<a class="article-anchor" href="#调试" aria-hidden="true"></a></h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">yarn link<br>cd example<br>yarn link hexo-netlify-cms<br>hexo s<br></code></pre></td></tr></table></figure>
+
 <h1 id="关于脚本" class="article-heading">关于脚本<a class="article-anchor" href="#关于脚本" aria-hidden="true"></a></h1>
 <p>事实上只是简单的在admin的页面下引入，可以通过Netlift CMS的全局变量<code>CMS</code>添加你想实现的自定义组件等。但这块需要花很多时间维护，毕竟预览的原理和hexo生成文件并不一样...    </p>
 <p>后续可能会添加对Image Tag的支持(其它应该不考虑实现，因为用不到)....</p>
@@ -378,7 +383,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

@@ -34,7 +34,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -216,21 +216,24 @@
 <h1 id="缘" class="article-heading">缘<a class="article-anchor" href="#缘" aria-hidden="true"></a></h1>
 <p>某天晚上睡不着，充电。突然脑抽了一下，node能做到命令行快速的运行静态资源，例如<a rel="noopener" target="_blank" href="https://docsify.js.org/#/zh-cn/quickstart">docsify-cli</a>，能通过<code>docsify serve your-static-dir</code>直接部署静态资源，于是我想的是，相似的功能，java也能实现的把    </p>
 <p>直接部署静态资源，在开发过程中是很有必要的，例如测试跨域问题，您必须另外起个服务。如果是下载web服务器，并将资源拖拽过去的方式，就有点麻烦咯</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="java服务" class="article-heading">Java服务<a class="article-anchor" href="#java服务" aria-hidden="true"></a></h1>
 <p>java随着spring boot的出现，开发变得越来越简单，而spring boot正好提供了命令行的方式运行web服务。通过翻阅相关的文档，也发现spring boot中配置文件可以设置本地路径，例如<code>file:/mnt/c/111/</code>设置为c盘111文件夹（win10 bash）。所以java服务是基于spring boot的简单的服务      </p>
 <h2 id="创建项目" class="article-heading">创建项目<a class="article-anchor" href="#创建项目" aria-hidden="true"></a></h2>
 <p>您可以在<a rel="noopener" target="_blank" href="https://start.spring.io/">Spring官网</a>上下载基本的骨架，当然也可以通过idea等工具下载。一般来说添加以下依赖就够了，但如果您还有其他需求，例如和spring cloud配合，请引入相关的依赖     </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs maven">&lt;dependency&gt;<br>    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;<br>    &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;<br>&lt;&#x2F;dependency&gt;<br></code></pre></td></tr></table></figure>
+
 <h2 id="添加路由" class="article-heading">添加路由<a class="article-anchor" href="#添加路由" aria-hidden="true"></a></h2>
 <p>由于spring boot默认需要<code>index.html</code>才能访问静态资源首页，这是我们不希望的，添加一个路径，将<code>/</code>跳转至index.html。如下修改<code>JwebApplication.class</code>     </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JwebApplication</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SpringApplication.run(JwebApplication.class, args);<br>    &#125;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index.html&quot;</span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>至此，已经完成了java服务的创建，您可以使用命令行<code>java -jar xxx.jar --spring.resources.static-locations=file:your-static-dir</code>来部署您的静态资源了，但，这命令行是不是太长了...</p>
 <h1 id="shell脚本" class="article-heading">Shell脚本<a class="article-anchor" href="#shell脚本" aria-hidden="true"></a></h1>
 <p>shell脚本的目的是为了简化命令行而编写的，提供类似docsify-cli一样的命令     </p>
 <p>目前的脚本如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/sh</span><br><br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:your_dir</span><br><span class="hljs-meta">#</span><span class="bash"> Example: <span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/mnt/c/Users/MrTT/IdeaProjects/jweb/scripts</span><br><br><span class="hljs-meta">#</span><span class="bash"> 需要openJDK</span><br>if ! hash java 2&gt;/dev/null; then<br>  echo &quot;I require java but it&#x27;s not installed. Please install openJDK.&quot;;<br>  exit 1;<br>fi<br><br><span class="hljs-meta">#</span><span class="bash"> 获取脚本路径</span><br>script_path=`dirname $0`<br><br><span class="hljs-meta">#</span><span class="bash"> 修复环境</span><br>if [ ! -e $&#123;script_path&#125;&quot;/jweb.jar&quot; ]; then<br>  echo &quot;Downloading jar ...&quot;;<br>  wget -O jweb.jar &quot;https://gitlab.com/jiangtj/jweb/-/jobs/artifacts/release/raw/target/jweb.jar?job=build-release&quot;<br>  mv jweb.jar $&#123;script_path&#125;<br>fi<br><br><span class="hljs-meta">#</span><span class="bash"> java_command</span><br>java_command=&quot;java -jar &quot;$&#123;script_path&#125;&quot;/jweb.jar&quot;<br><br>while getopts &quot;c:p:w:&quot; opt; do<br>  case $&#123;opt&#125; in<br>    c)<br>      config_dir=`readlink -f $OPTARG`<br>      java_command=$&#123;java_command&#125;&quot; --spring.config.additional-location=file:&quot;$&#123;config_dir&#125;<br>      ;;<br>    p)<br>      java_command=$&#123;java_command&#125;&quot; --server.port=&quot;$OPTARG<br>      ;;<br>    w)<br>      static_dir=`readlink -f $OPTARG`<br>      java_command=$&#123;java_command&#125;&quot; --spring.resources.static-locations=file:&quot;$&#123;static_dir&#125;<br>      ;;<br>    \?)<br>      echo &quot;Please read docs !&quot;<br>      ;;<br>  esac<br>done<br><br><span class="hljs-meta">#</span><span class="bash"> 运行</span><br>echo $&#123;java_command&#125;<br><span class="hljs-meta">$</span><span class="bash">&#123;java_command&#125;</span><br></code></pre></td></tr></table></figure>
+
 <p>实现几个功能点：    </p>
 <ol>
 <li>判断是否存在java环境</li>
@@ -365,7 +368,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

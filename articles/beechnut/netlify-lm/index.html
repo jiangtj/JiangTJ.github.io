@@ -34,7 +34,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -220,7 +220,7 @@
 
 <p>1G的存储，1G的带宽是，这量实在是。。。在2月26日，Netlify宣布了流量限制100G，也宣布新的功能，图像转换功能为流量限制做铺垫，以及这个转换功能所附带的大文件存储。一半伤心一半心动。虽然转换功能也有限制，2500次每月（同一次相同转换会缓存，只消耗1次次数），所以对于大部分中小型网站来说都够用了，当然100G的带宽，也是一样。</p>
 <p>作为转换功能基础的文件存储，则没提及，可能无限制吧。所以是时候升级啦。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="为什么要使用lfs" class="article-heading">为什么要使用LFS<a class="article-anchor" href="#为什么要使用lfs" aria-hidden="true"></a></h1>
 <p>原因涉及到Git的底层原理，很多介绍上只说了会使存储库变的很大，所以要用LFS，但事实上二进制文件就是很大的，用了LFS，最后还不是得下一堆二进制文件。根本原因不是这个，而是Git的底层文件系统。Git的所有文件都存放在<code>.git\objects</code>中，而修改是保存一个新的文件，而目录中以hash值引用，旧文件是不会被删除的，删除也是一样。所以整个<code>.git</code>文件夹会变得特别膨大。</p>
@@ -233,8 +233,10 @@
 <li>关联netlify实例，以及初始化Git LFS配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">netlify link<br>netlify lm:setup<br></code></pre></td></tr></table></figure></li>
 <li>添加需要Git LFS管理的文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git lfs track <span class="hljs-string">&quot;source/images/**&quot;</span><br>git lfs track <span class="hljs-string">&quot;*.jpg&quot;</span><br></code></pre></td></tr></table></figure></li>
 <li>想正常一样操作Git即可<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit -m <span class="hljs-string">&quot;track&quot;</span><br>git push origin master<br></code></pre></td></tr></table></figure>
-注意：在初次安装Large Media插件时，可能需要关掉命令终端，重新启动来加载脚本</li>
+
+</li>
 </ol>
+<p>注意：在初次安装Large Media插件时，可能需要关掉命令终端，重新启动来加载脚本</p>
 <h1 id="图像转换功能" class="article-heading">图像转换功能<a class="article-anchor" href="#图像转换功能" aria-hidden="true"></a></h1>
 <p>这是另一大激动人心的功能，能帮我们自动转换图片大小。可以省下我们很多事。或者说我们可以不再准备多套分辨率了，想调用api一样获得</p>
 <p>通过响应式懒加载库lazod.js实现了该功能，<a rel="noopener" target="_blank" href="https://github.com/JiangTJ/hexo-theme-next/blob/neet/scripts/filters/lazyload.js">过滤器</a>，但奇怪的地方是图片明明一样的，但在不同屏幕下，显示大小不同。所以我改为宽度100%作为默认方案。</p>
@@ -362,7 +364,7 @@ s.setAttribute('data-timestamp', +new Date());
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>

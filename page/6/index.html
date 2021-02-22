@@ -29,7 +29,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector.css" /><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -202,8 +202,10 @@
 </blockquote>
 <h3 id="数据表的创建" class="article-heading">数据表的创建<a class="article-anchor" href="#数据表的创建" aria-hidden="true"></a></h3>
 <ul>
-<li><p>制造数据</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">EXISTS</span> test; <br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test( <br>    ID <span class="hljs-type">INT</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <br>    `Name` <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <br>    <span class="hljs-keyword">PRIMARY</span> <span class="hljs-keyword">KEY</span>( ID ) <br>)ENGINE<span class="hljs-operator">=</span>INNODB <span class="hljs-keyword">DEFAULT</span> CHARSET utf8; <br></code></pre></td></tr></table></figure>      
+<li>制造数据<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">EXISTS</span> test; <br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test( <br>    ID <span class="hljs-type">INT</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <br>    `Name` <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <br>    <span class="hljs-keyword">PRIMARY</span> KEY( ID ) <br>)ENGINE<span class="hljs-operator">=</span>INNODB <span class="hljs-keyword">DEFAULT</span> CHARSET utf8; <br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>      
 <div class="read-more-btn">
   <a href="/articles/almond/mysql-in-and-exists/" rel="contents">
     阅读全文 &raquo;
@@ -907,7 +909,7 @@
 </div>
 
 <div class="powered-by">
-  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.3.0
+  由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
 </div>
 
 <span class="post-meta-divider">|</span>
