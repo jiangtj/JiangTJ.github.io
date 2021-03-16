@@ -9,8 +9,30 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Fri, 29 Jan 2021 07:57:56 GMT</pubDate>
+    <pubDate>Tue, 16 Mar 2021 05:38:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Spring Boot 2.4 新的配置文件处理方式</title>
+      <link>https://jiangtj.com/articles/cherry/spring-boot-2-4-config/</link>
+      <guid>https://jiangtj.com/articles/cherry/spring-boot-2-4-config/</guid>
+      <pubDate>Tue, 16 Mar 2021 05:38:27 GMT</pubDate>
+      
+      <description>&lt;p&gt;配置文件是 Spring Boot 的一个核心特性，自正式版发布以来，几乎未改动过，而在2.4中，Spring 官方调整了配置文件的处理逻辑&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;外部配置文件优先于内部 Profile 配置&lt;/li&gt;
+&lt;li&gt;重命名 &lt;code&gt;spring.profiles&lt;/code&gt; 为 &lt;code&gt;spring.config.activate.on-profile&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新增 Profile 组&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+      
+      
+      
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/spring-boot-2-4-config/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>NPM 包代理</title>
@@ -459,33 +481,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/hexo-next-injects/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Spring Cloud 之 Gateway （Greenwich版）</title>
-      <link>https://jiangtj.com/articles/beechnut/spring-cloud-gateway/</link>
-      <guid>https://jiangtj.com/articles/beechnut/spring-cloud-gateway/</guid>
-      <pubDate>Mon, 20 May 2019 13:16:33 GMT</pubDate>
-      
-      <description>&lt;p&gt;众所周知，netflix OSS 2.0 难产了，上一代的zuul网关虽说不错，但其并不是异步的。所以，Spring团队推出了基于Spring Webflux的全新异步的网关--Spring Cloud Gateway。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;本文内容基于Spring Cloud Gateway 2.1.0.GA&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;来跟着我一步步，探索它的&lt;del&gt;魅力&lt;/del&gt;坑吧！&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Spring-Cloud/">Spring Cloud</category>
-      
-      <category domain="https://jiangtj.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/spring-cloud-gateway/#disqus_thread</comments>
       
     </item>
     
