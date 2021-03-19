@@ -75,6 +75,10 @@ table {
 .note {
   --border-color: #ccc;
 }
+img,
+.comments-body {
+  opacity: 1;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --color: #9ab;
