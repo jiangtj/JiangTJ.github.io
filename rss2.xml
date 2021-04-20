@@ -9,8 +9,32 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Tue, 16 Mar 2021 05:38:27 GMT</pubDate>
+    <pubDate>Tue, 20 Apr 2021 08:44:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>R2DBC-传统数据库也能响应式编程</title>
+      <link>https://jiangtj.com/articles/cherry/r2dbc/</link>
+      <guid>https://jiangtj.com/articles/cherry/r2dbc/</guid>
+      <pubDate>Tue, 20 Apr 2021 08:44:55 GMT</pubDate>
+      
+      <description>&lt;p&gt;R2DBC 是 Reactive Relational Database Connectivity （关系型数据库的响应式连接） 的缩写，最近在项目中尝试 Webflux，被迫，使用 R2DBC 进行数据库操作（我还是更喜欢关系型数据库而不是文档型）。当然在实际使用后，发现这个框架虽然有些不足，但这才是我喜欢的DB框架&lt;/p&gt;
+&lt;p&gt;这里零散的记录下我遇到的一些问题，或者钟爱的一些特性，或者自己写的小工具&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Webflux/">Webflux</category>
+      
+      <category domain="https://jiangtj.com/tags/R2DBC/">R2DBC</category>
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/r2dbc/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Spring Boot 2.4 新的配置文件处理方式</title>
@@ -458,29 +482,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/hexo-git-submodule/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Hexo NexT 高阶教程之 Injects</title>
-      <link>https://jiangtj.com/articles/beechnut/hexo-next-injects/</link>
-      <guid>https://jiangtj.com/articles/beechnut/hexo-next-injects/</guid>
-      <pubDate>Thu, 11 Jul 2019 01:54:31 GMT</pubDate>
-      
-      <description>一个全新的自定义主题方式，分享你的Code。</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Hexo/">Hexo</category>
-      
-      <category domain="https://jiangtj.com/tags/NexT/">NexT</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/hexo-next-injects/#disqus_thread</comments>
       
     </item>
     
