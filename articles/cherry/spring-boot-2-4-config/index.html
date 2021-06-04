@@ -233,13 +233,13 @@
 </ol>
 <p>举个例子，假如有以下三个配置文件</p>
 <p>Jar 包内部的 application.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">secret&#x3D;default-password<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">secret=default-password<br></code></pre></td></tr></table></figure>
 
 <p>Jar 包内部的 application-dev.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">secret&#x3D;dev-password<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">secret=dev-password<br></code></pre></td></tr></table></figure>
 
 <p>Jar 包外部的 application.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">secret&#x3D;prod-password<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">secret=prod-password<br></code></pre></td></tr></table></figure>
 
 <p>之前版本 <code>secret</code> 为 <code>dev-password</code>，而在新版本中 <code>secret</code> 为 <code>prod-password</code></p>
 <p>同时用于顺序的调整，对 Profile-specific 配置文件做了一定的限制，禁止其使用 <code>spring.profiles.active</code> 和 <code>spring.profiles.include</code>，官方说的原因是，对于 <code>spring.config.activate.on-profile</code> 的判断只进行一次，所以不能嵌套使用，在实际使用中，避免这样的嵌套，可以更简洁明了</p>

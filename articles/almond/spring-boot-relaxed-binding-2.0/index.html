@@ -246,7 +246,7 @@
 <p>结果如下图所示：<br><img data-src="/images/md/others/spring-test-map.png" alt="">    </p>
 <h2 id="环境变量" class="article-heading">环境变量<a class="article-anchor" href="#环境变量" aria-hidden="true"></a></h2>
 <p>在环境变量中，使用<code>_</code>代替<code>.</code>或者<code>[]</code>，如果<code>_</code>包围的是一数字，就替换为<code>[]</code>，其余情况为<code>.</code>，例如：   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">MY_FOO_1_ &#x3D; my.foo[1]<br>MY_FOO_1_BAR &#x3D; my.foo[1].bar<br>MY_FOO_1_2_ &#x3D; my.foo[1][2]<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">MY_FOO_1_ = my.foo[1]<br>MY_FOO_1_BAR = my.foo[1].bar<br>MY_FOO_1_2_ = my.foo[1][2]<br></code></pre></td></tr></table></figure>
 
 <h1 id="读取配置属性" class="article-heading">读取配置属性<a class="article-anchor" href="#读取配置属性" aria-hidden="true"></a></h1>
 <p>如果，你需要从环境中读出属性值到你的app中，你需要使用与配置文件一样规则的名称</p>
