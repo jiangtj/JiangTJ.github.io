@@ -9,8 +9,27 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Tue, 20 Apr 2021 08:44:55 GMT</pubDate>
+    <pubDate>Thu, 01 Jul 2021 12:54:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>WinGet Windows官方的包管理工具</title>
+      <link>https://jiangtj.com/articles/cherry/winget/</link>
+      <guid>https://jiangtj.com/articles/cherry/winget/</guid>
+      <pubDate>Thu, 01 Jul 2021 12:54:09 GMT</pubDate>
+      
+      <description>当你重装电脑的时候，这或许能让你最快进入状态</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/winget/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>R2DBC-传统数据库也能响应式编程</title>
@@ -459,29 +478,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/hexo-netlify-cms-1.0/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>使用Git Submodule管理Hexo主题</title>
-      <link>https://jiangtj.com/articles/beechnut/hexo-git-submodule/</link>
-      <guid>https://jiangtj.com/articles/beechnut/hexo-git-submodule/</guid>
-      <pubDate>Wed, 07 Aug 2019 15:23:25 GMT</pubDate>
-      
-      <description>“小白”都能玩耍的的方式，将一切井井有条</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Git/">Git</category>
-      
-      <category domain="https://jiangtj.com/tags/Hexo/">Hexo</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/hexo-git-submodule/#disqus_thread</comments>
       
     </item>
     
