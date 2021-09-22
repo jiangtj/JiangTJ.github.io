@@ -31,7 +31,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" /><link rel="preload" as="style" href="/css/injector/auto.css" /><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/dark.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/auto.css" /><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -199,8 +199,7 @@
 
     <div class="post-body">
       
-      <h1 id="定义场景" class="article-heading">定义场景<a class="article-anchor" href="#定义场景" aria-hidden="true"></a></h1>
-<p>spring boot应用在手动部署过程中主要分为两步，打包编译与上传部署（也可能存在测试环境，但由于该项目目前只有我开发，并未写测试用例）。同样的在gitlab-ci文件中也定义相应的两步骤</p>
+      <h1 id="定义场景" class="article-heading"><a href="#定义场景" class="headerlink" title="定义场景"></a>定义场景<a class="article-anchor" href="#定义场景" aria-hidden="true"></a></h1><p>spring boot应用在手动部署过程中主要分为两步，打包编译与上传部署（也可能存在测试环境，但由于该项目目前只有我开发，并未写测试用例）。同样的在gitlab-ci文件中也定义相应的两步骤</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">stages:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">build</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">deploy</span><br></code></pre></td></tr></table></figure>      
 <div class="read-more-btn">
   <a href="/articles/almond/spring-boot-autodeploy-with-gitlab/" rel="contents">
@@ -408,13 +407,10 @@
     <div class="post-body">
       
       <blockquote>
-<p>文章中的表参考这里的创建<a rel="noopener" target="_blank" href="http://blog.csdn.net/stevendbaguo/article/details/73467649">http://blog.csdn.net/stevendbaguo/article/details/73467649</a></p>
+<p>文章中的表参考这里的创建<a target="_blank" rel="noopener" href="http://blog.csdn.net/stevendbaguo/article/details/73467649">http://blog.csdn.net/stevendbaguo/article/details/73467649</a></p>
 </blockquote>
-<h3 id="数据表的创建" class="article-heading">数据表的创建<a class="article-anchor" href="#数据表的创建" aria-hidden="true"></a></h3>
-<ul>
-<li>制造数据<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">EXISTS</span> test; <br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test( <br>    ID <span class="hljs-type">INT</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <br>    `Name` <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <br>    <span class="hljs-keyword">PRIMARY</span> KEY( ID ) <br>)ENGINE<span class="hljs-operator">=</span>INNODB <span class="hljs-keyword">DEFAULT</span> CHARSET utf8; <br></code></pre></td></tr></table></figure>
-
-</li>
+<h3 id="数据表的创建" class="article-heading"><a href="#数据表的创建" class="headerlink" title="数据表的创建"></a>数据表的创建<a class="article-anchor" href="#数据表的创建" aria-hidden="true"></a></h3><ul>
+<li>制造数据<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">EXISTS</span> test; <br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> test( <br>    ID <span class="hljs-type">INT</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <br>    `Name` <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>, <br>    <span class="hljs-keyword">PRIMARY</span> KEY( ID ) <br>)ENGINE<span class="hljs-operator">=</span>INNODB <span class="hljs-keyword">DEFAULT</span> CHARSET utf8; <br></code></pre></td></tr></table></figure></li>
 </ul>      
 <div class="read-more-btn">
   <a href="/articles/almond/mysql-in-and-exists/" rel="contents">
@@ -634,7 +630,7 @@
       
       <p>Spring5现处在第四个预发布版，正式版将要发布了，它带来的一大特性就是响应式框架Spring WebFlux。默认使用ProjectReactor框架。因此。本文通过ProjectReactor中的Flux，来学习使用该框架，以及了解其传递的思想。   </p>
 <p>本文基于Reactor3.1 rc1    </p>
-<p>Reactor官方地址<a rel="noopener" target="_blank" href="http://projectreactor.io/">http://projectreactor.io/</a>，官方文档写的十分详细，如果您有不错的英文能力，建议直接阅读官方文档。  </p>      
+<p>Reactor官方地址<a target="_blank" rel="noopener" href="http://projectreactor.io/">http://projectreactor.io/</a>，官方文档写的十分详细，如果您有不错的英文能力，建议直接阅读官方文档。  </p>      
 <div class="read-more-btn">
   <a href="/articles/almond/Java%20ProjectReactor-Flux/" rel="contents">
     阅读全文 &raquo;
@@ -776,10 +772,9 @@
     <div class="post-body">
       
       <blockquote>
-<p>这篇是对 <a rel="noopener" target="_blank" href="http://www.iteye.com/blogs/subjects/shiro">开涛的《跟我学shiro》</a> 的部分章节补充，更详细的探讨shiro的过滤器和拦截器</p>
+<p>这篇是对 <a target="_blank" rel="noopener" href="http://www.iteye.com/blogs/subjects/shiro">开涛的《跟我学shiro》</a> 的部分章节补充，更详细的探讨shiro的过滤器和拦截器</p>
 </blockquote>
-<h3 id="拦截器与过滤器定义" class="article-heading">拦截器与过滤器定义<a class="article-anchor" href="#拦截器与过滤器定义" aria-hidden="true"></a></h3>
-<ul>
+<h3 id="拦截器与过滤器定义" class="article-heading"><a href="#拦截器与过滤器定义" class="headerlink" title="拦截器与过滤器定义"></a>拦截器与过滤器定义<a class="article-anchor" href="#拦截器与过滤器定义" aria-hidden="true"></a></h3><ul>
 <li>过滤器是一个程序，它先于与之相关的servlet或JSP页面运行在服务器上。它依赖于servlet容器。</li>
 <li>拦截器，在AOP（Aspect-Oriented Programming）中用于在某个方法或字段被访问之前，进行拦截然后在之前或之后加入某些操作。拦截是AOP的一种实现策略。</li>
 </ul>
@@ -852,8 +847,7 @@
 
     <div class="post-body">
       
-      <h3 id="最重要的" class="article-heading">最重要的<a class="article-anchor" href="#最重要的" aria-hidden="true"></a></h3>
-<p>选择程序猿，便意味着你始终要学习。如果说想着看完这里的全部，就能靠这混吃一辈子，那还是放弃把。<br>这里是我的曾今学习的方式，但我的学习方法可能不是很适合你。所以我只当只领路羊，接下来的学习，都得靠你自己。<br>加油！</p>      
+      <h3 id="最重要的" class="article-heading"><a href="#最重要的" class="headerlink" title="最重要的"></a>最重要的<a class="article-anchor" href="#最重要的" aria-hidden="true"></a></h3><p>选择程序猿，便意味着你始终要学习。如果说想着看完这里的全部，就能靠这混吃一辈子，那还是放弃把。<br>这里是我的曾今学习的方式，但我的学习方法可能不是很适合你。所以我只当只领路羊，接下来的学习，都得靠你自己。<br>加油！</p>      
 <div class="read-more-btn">
   <a href="/articles/almond/for%20friend,%20how%20working%20in%20java/" rel="contents">
     阅读全文 &raquo;

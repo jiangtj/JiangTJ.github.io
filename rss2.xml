@@ -108,8 +108,8 @@
       <guid>https://jiangtj.com/articles/cherry/deploy-spring-boot/</guid>
       <pubDate>Wed, 20 Jan 2021 06:21:46 GMT</pubDate>
       
-      <description>&lt;p&gt;很久之前，我写过一个&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https://dnocm.com/articles/almond/spring-boot-autorun-with-gitlab/&quot;&gt;脚本&lt;/a&gt;用于重启Spring Boot应用，但最近在看Spring Boot文档，发现之前写的的确不够优雅&lt;/p&gt;
-&lt;p&gt;Spring Boot 文档中，有一大章专门写&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment&quot;&gt;关于如何在系统中部署&lt;/a&gt;，其中，个人认为最佳的方案是作为一个systemd服务运行，由Liunx服务直接调度&lt;/p&gt;</description>
+      <description>&lt;p&gt;很久之前，我写过一个&lt;a href=&quot;https://dnocm.com/articles/almond/spring-boot-autorun-with-gitlab/&quot;&gt;脚本&lt;/a&gt;用于重启Spring Boot应用，但最近在看Spring Boot文档，发现之前写的的确不够优雅&lt;/p&gt;
+&lt;p&gt;Spring Boot 文档中，有一大章专门写&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment&quot;&gt;关于如何在系统中部署&lt;/a&gt;，其中，个人认为最佳的方案是作为一个systemd服务运行，由Liunx服务直接调度&lt;/p&gt;</description>
       
       
       
@@ -289,7 +289,7 @@
 &lt;li&gt;&lt;del&gt;不能使用yarn安装（这个已经修复了）&lt;/del&gt;&lt;/li&gt;
 &lt;li&gt;必须认证授权才能使用，即便你的包是开源的，很不方便&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&quot;https://jiangtj-lab.github.io/pic-repo/img-apricot/20200422094211.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&quot;https://jiangtj-lab.github.io/pic-repo/img-apricot/20200422094211.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;但不管怎样，GitHub Packages始终是个不错的备选方案&lt;/p&gt;</description>
       
       
@@ -413,8 +413,7 @@
       <guid>https://jiangtj.com/articles/beechnut/retrofit-utils/</guid>
       <pubDate>Fri, 06 Sep 2019 03:51:17 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;使用&quot; class=&quot;article-heading&quot;&gt;使用&lt;a class=&quot;article-anchor&quot; href=&quot;#使用&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs java&quot;&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 同步返回Optional&amp;lt;T&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; repos = RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;octocat&amp;quot;&lt;/span&gt;)).orElse(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;());&lt;br&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 异步&lt;/span&gt;&lt;br&gt;RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;octocat&amp;quot;&lt;/span&gt;), repos -&amp;gt; &amp;#123;&lt;br&gt;  &lt;span class=&quot;hljs-comment&quot;&gt;//业务逻辑&lt;/span&gt;&lt;br&gt;&amp;#125;);&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
+      <description>&lt;h1 id=&quot;使用&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;a class=&quot;article-anchor&quot; href=&quot;#使用&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs java&quot;&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 同步返回Optional&amp;lt;T&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; repos = RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;octocat&amp;quot;&lt;/span&gt;)).orElse(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;());&lt;br&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 异步&lt;/span&gt;&lt;br&gt;RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;octocat&amp;quot;&lt;/span&gt;), repos -&amp;gt; &amp;#123;&lt;br&gt;  &lt;span class=&quot;hljs-comment&quot;&gt;//业务逻辑&lt;/span&gt;&lt;br&gt;&amp;#125;);&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
       
       
       

@@ -31,7 +31,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" /><link rel="preload" as="style" href="/css/injector/auto.css" /><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/dark.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/auto.css" /><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -467,8 +467,8 @@
 
     <div class="post-body">
       
-      <p>很久之前，我写过一个<a rel="noopener" target="_blank" href="https://dnocm.com/articles/almond/spring-boot-autorun-with-gitlab/">脚本</a>用于重启Spring Boot应用，但最近在看Spring Boot文档，发现之前写的的确不够优雅</p>
-<p>Spring Boot 文档中，有一大章专门写<a rel="noopener" target="_blank" href="https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment">关于如何在系统中部署</a>，其中，个人认为最佳的方案是作为一个systemd服务运行，由Liunx服务直接调度</p>      
+      <p>很久之前，我写过一个<a target="_blank" rel="noopener" href="https://dnocm.com/articles/almond/spring-boot-autorun-with-gitlab/">脚本</a>用于重启Spring Boot应用，但最近在看Spring Boot文档，发现之前写的的确不够优雅</p>
+<p>Spring Boot 文档中，有一大章专门写<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment">关于如何在系统中部署</a>，其中，个人认为最佳的方案是作为一个systemd服务运行，由Liunx服务直接调度</p>      
 <div class="read-more-btn">
   <a href="/articles/cherry/deploy-spring-boot/" rel="contents">
     阅读全文 &raquo;
@@ -539,33 +539,29 @@
 
     <div class="post-body">
       
-      <p>国内无法访问谷歌的服务，所以参考这篇 <a rel="noopener" target="_blank" href="https://flutter.dev/community/china">Using Flutter in China</a> 官方的文档，进行配置</p>
-<p>Flutter的中文社区为： <a rel="noopener" target="_blank" href="https://flutter.cn">https://flutter.cn</a></p>
-<h1 id="sdk下载" class="article-heading">SDK下载<a class="article-anchor" href="#sdk下载" aria-hidden="true"></a></h1>
-<p>使用 <a rel="noopener" target="_blank" href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn/</a> 代替 <a rel="noopener" target="_blank" href="https://storage.googleapis.com/">https://storage.googleapis.com/</a> ,下载对应的SDK，例如</p>
+      <p>国内无法访问谷歌的服务，所以参考这篇 <a target="_blank" rel="noopener" href="https://flutter.dev/community/china">Using Flutter in China</a> 官方的文档，进行配置</p>
+<p>Flutter的中文社区为： <a target="_blank" rel="noopener" href="https://flutter.cn/">https://flutter.cn</a></p>
+<h1 id="SDK下载" class="article-heading"><a href="#SDK下载" class="headerlink" title="SDK下载"></a>SDK下载<a class="article-anchor" href="#SDK下载" aria-hidden="true"></a></h1><p>使用 <a target="_blank" rel="noopener" href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn/</a> 代替 <a target="_blank" rel="noopener" href="https://storage.googleapis.com/">https://storage.googleapis.com/</a> ,下载对应的SDK，例如</p>
 <ul>
-<li><p>Original URL: <a rel="noopener" target="_blank" href="https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip">https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip</a></p>
+<li><p>Original URL: <a target="_blank" rel="noopener" href="https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip">https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip</a></p>
 </li>
-<li><p>Mirrored URL: <a rel="noopener" target="_blank" href="https://storage.flutter-io.cn/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip">https://storage.flutter-io.cn/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip</a></p>
+<li><p>Mirrored URL: <a target="_blank" rel="noopener" href="https://storage.flutter-io.cn/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip">https://storage.flutter-io.cn/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip</a></p>
 </li>
 </ul>
-<p>或者使用迅雷下载，迅雷P2P加速可以绕过(<a rel="noopener" target="_blank" href="http://down.sandai.net/thunder11/XunLeiSetup11.0.2.52Preview.exe">迅雷11内测版下载</a>)</p>
-<h1 id="android-studio" class="article-heading">Android Studio<a class="article-anchor" href="#android-studio" aria-hidden="true"></a></h1>
-<p>Jetbrains 的<a rel="noopener" target="_blank" href="https://www.jetbrains.com/toolbox-app/">下载工具</a>已经支持下载 Android Studio, 可以通过它下载</p>
+<p>或者使用迅雷下载，迅雷P2P加速可以绕过(<a target="_blank" rel="noopener" href="http://down.sandai.net/thunder11/XunLeiSetup11.0.2.52Preview.exe">迅雷11内测版下载</a>)</p>
+<h1 id="Android-Studio" class="article-heading"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio<a class="article-anchor" href="#Android-Studio" aria-hidden="true"></a></h1><p>Jetbrains 的<a target="_blank" rel="noopener" href="https://www.jetbrains.com/toolbox-app/">下载工具</a>已经支持下载 Android Studio, 可以通过它下载</p>
 <p>Android SDK 现在似乎不被屏蔽了。。。</p>
-<h1 id="使用镜像" class="article-heading">使用镜像<a class="article-anchor" href="#使用镜像" aria-hidden="true"></a></h1>
-<p>Flutter 依赖于 Dart 的依赖环境，在国内需要通过镜像访问。所以在在运行Fltter命令之前，需要设置两个环境变量：<code>PUB_HOSTORD_URL</code>和<code>FALTER_STORKER_BASE_URL</code>。</p>
+<h1 id="使用镜像" class="article-heading"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像<a class="article-anchor" href="#使用镜像" aria-hidden="true"></a></h1><p>Flutter 依赖于 Dart 的依赖环境，在国内需要通过镜像访问。所以在在运行Fltter命令之前，需要设置两个环境变量：<code>PUB_HOSTORD_URL</code>和<code>FALTER_STORKER_BASE_URL</code>。</p>
 <p>MacOS/Linux 用户</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> PUB_HOSTED_URL=https://pub.flutter-io.cn<br><span class="hljs-built_in">export</span> FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn<br></code></pre></td></tr></table></figure>
 
 <p>Windows 用户</p>
 <p>在 <code>电脑 -&gt; 属性 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量</code> 中修改</p>
-<h1 id="下载-gradle" class="article-heading">下载 Gradle<a class="article-anchor" href="#下载-gradle" aria-hidden="true"></a></h1>
-<p>Gradle 没被墙，但是下载很慢，如果不手动下载，可能长时间卡在这一步</p>
+<h1 id="下载-Gradle" class="article-heading"><a href="#下载-Gradle" class="headerlink" title="下载 Gradle"></a>下载 Gradle<a class="article-anchor" href="#下载-Gradle" aria-hidden="true"></a></h1><p>Gradle 没被墙，但是下载很慢，如果不手动下载，可能长时间卡在这一步</p>
 <p>当你创建一个新项目时，会生成一些文件，其中有个<code>$&#123;project&#125;/android/gradle/wrapper/gradle-wrapper.properties</code></p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment">#Fri Jun 23 08:50:38 CEST 2017</span><br><span class="hljs-attr">distributionBase</span>=<span class="hljs-string">GRADLE_USER_HOME</span><br><span class="hljs-attr">distributionPath</span>=<span class="hljs-string">wrapper/dists</span><br><span class="hljs-attr">zipStoreBase</span>=<span class="hljs-string">GRADLE_USER_HOME</span><br><span class="hljs-attr">zipStorePath</span>=<span class="hljs-string">wrapper/dists</span><br><span class="hljs-attr">distributionUrl</span>=<span class="hljs-string">https\://services.gradle.org/distributions/gradle-5.6.2-all.zip</span><br></code></pre></td></tr></table></figure>
 
-<p>这个文件描述了 Gradle 下载的位置，以及它的分发地址(我这需要下载bin归档，不知道是我环境问题还是什么，即<a rel="noopener" target="_blank" href="https://services.gradle.org/distributions/gradle-5.6.2-bin.zip">https://services.gradle.org/distributions/gradle-5.6.2-bin.zip</a>)</p>
+<p>这个文件描述了 Gradle 下载的位置，以及它的分发地址(我这需要下载bin归档，不知道是我环境问题还是什么，即<a target="_blank" rel="noopener" href="https://services.gradle.org/distributions/gradle-5.6.2-bin.zip">https://services.gradle.org/distributions/gradle-5.6.2-bin.zip</a>)</p>
 <p>存放的位置很奇怪，是<code>$&#123;GRADLE_USER_HOME&#125;/wrapper/dists/gradle-S&#123;version&#125;-all/$&#123;sha&#125;/</code>，比较简单的方法是先运行下，再去找这个目录，把已经下好的 gradle 归档文件直接丢进去，不需要减压或重命名</p>
 <p>暂时就这些，如果还有以后补充</p>
       
@@ -627,7 +623,7 @@
 
   
   
-  <div class="post-description">文章转载自<a href="https://blog.skk.moe/post/hexo-5/">Sukka</a>，Sukka为hexo 5.0带来了许多特性🎉</div>
+  <div class="post-description">文章转载自<a target="_blank" rel="noopener" href="https://blog.skk.moe/post/hexo-5/">Sukka</a>，Sukka为hexo 5.0带来了许多特性🎉</div>
   
 
 </div>
@@ -709,8 +705,7 @@
       
       <p>第一次接触 Gradle 是在数年前做android开发的时候，然而后来我的工作都是 Maven 做web开发，所以 Gradle 也就忘得差不多了（其实本来就没学多少）</p>
 <p>我相信每个看到这篇文章的人，都是用过 Maven 的， 想学习 Gradle，但在开始前，我们应该弄清楚为什么要学它，它能带来怎样的益处（相对于 Maven）？</p>
-<h1 id="why" class="article-heading">Why<a class="article-anchor" href="#why" aria-hidden="true"></a></h1>
-<p>如果你问 Gradle 优于 Maven 么？ 答案必定是不一定</p>
+<h1 id="Why" class="article-heading"><a href="#Why" class="headerlink" title="Why"></a>Why<a class="article-anchor" href="#Why" aria-hidden="true"></a></h1><p>如果你问 Gradle 优于 Maven 么？ 答案必定是不一定</p>
 <p>在 Maven 中有完善的依赖管理以及成熟的构建流程，在绝大多数的项目中都能很好的运行。但也是那一套流程，使的 Maven 十分死板。而且 Maven 是只属于 Java 的项目构建工具</p>
 <p>在 Gradle 中就灵活的多，你可以随意的定义流程，但一个大型的项目规范是十分重要的，即便是构建流程，也要有规范，也是要统一的，试问假如我要构建一个普通的Web应用，自己定的构建流程又怎么能比过这么长时间积累下来的 Maven 的流程的？ 但我的项目是个缝合怪呢，有java有node，那么 Gradle 就能同时组织它们。 Gradle 是 Java 环境下的构建工具， 它不是 Java 项目构建工具， 就如 node 里的 Gulp</p>      
 <div class="read-more-btn">
@@ -777,14 +772,14 @@
 <p>看对比，github pages整体比netlify稳定的多，但github不支持重定向。而腾讯云的解析服务，重定向需要备案，所以dnocm只好保持不动，选择新增了一个部署</p>
 <p>同时也尝试了coding，但在国外的ping不理想，所以干脆一次性部署了多个</p>
 <ul>
-<li><a rel="noopener" target="_blank" href="https://dnocm.com">https://dnocm.com</a>(<a rel="noopener" target="_blank" href="https://www.dnocm.com">https://www.dnocm.com</a>) 由netlify提供服务</li>
-<li><a href="https://jiangtj.com">https://jiangtj.com</a> 由github pages提供服务</li>
-<li><a rel="noopener" target="_blank" href="https://jiangtj.gitlab.io">https://jiangtj.gitlab.io</a> 由gitlab pages提供服务</li>
-<li><a rel="noopener" target="_blank" href="https://zh.jiangtj.com">https://zh.jiangtj.com</a>(<a rel="noopener" target="_blank" href="https://www.jiangtj.com">https://www.jiangtj.com</a>) 由coding提供服务，中国访问较快</li>
+<li><a target="_blank" rel="noopener" href="https://dnocm.com/">https://dnocm.com</a>(<a target="_blank" rel="noopener" href="https://www.dnocm.com/">https://www.dnocm.com</a>) 由netlify提供服务</li>
+<li><a href="https://jiangtj.com/">https://jiangtj.com</a> 由github pages提供服务</li>
+<li><a target="_blank" rel="noopener" href="https://jiangtj.gitlab.io/">https://jiangtj.gitlab.io</a> 由gitlab pages提供服务</li>
+<li><a target="_blank" rel="noopener" href="https://zh.jiangtj.com/">https://zh.jiangtj.com</a>(<a target="_blank" rel="noopener" href="https://www.jiangtj.com/">https://www.jiangtj.com</a>) 由coding提供服务，中国访问较快</li>
 </ul>
 <p>假如，你在访问当前地址时，感觉卡，可以试试前往我的其他域名下</p>
-<p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200519112323.png" alt=""></p>
-<p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200519170805.png" alt=""></p>
+<p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200519112323.png"></p>
+<p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200519170805.png"></p>
       
     </div>
 
@@ -842,12 +837,11 @@
       
       <p>馋好久了，最近总算是改完了</p>
 <p>当切换系统的色彩方案（亮/暗）时，能自动切换到对应的模式</p>
-<p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200511154312.png" alt=""></p>
-<h1 id="相关提交" class="article-heading">相关提交<a class="article-anchor" href="#相关提交" aria-hidden="true"></a></h1>
-<ul>
-<li><a rel="noopener" target="_blank" href="https://github.com/jiangtj/hexo-theme-cake/pull/55">https://github.com/jiangtj/hexo-theme-cake/pull/55</a></li>
-<li><a rel="noopener" target="_blank" href="https://github.com/jiangtj-lab/hexo-cake-local-search/commit/350e77722eca991e9678abdd8278663eda66d1dc">https://github.com/jiangtj-lab/hexo-cake-local-search/commit/350e77722eca991e9678abdd8278663eda66d1dc</a></li>
-<li><a rel="noopener" target="_blank" href="https://github.com/jiangtj-lab/hexo-cake-moon-menu/commit/8556fe6cb26e993c99805cd9b9d28d80039734b1">https://github.com/jiangtj-lab/hexo-cake-moon-menu/commit/8556fe6cb26e993c99805cd9b9d28d80039734b1</a></li>
+<p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200511154312.png"></p>
+<h1 id="相关提交" class="article-heading"><a href="#相关提交" class="headerlink" title="相关提交"></a>相关提交<a class="article-anchor" href="#相关提交" aria-hidden="true"></a></h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/jiangtj/hexo-theme-cake/pull/55">https://github.com/jiangtj/hexo-theme-cake/pull/55</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jiangtj-lab/hexo-cake-local-search/commit/350e77722eca991e9678abdd8278663eda66d1dc">https://github.com/jiangtj-lab/hexo-cake-local-search/commit/350e77722eca991e9678abdd8278663eda66d1dc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jiangtj-lab/hexo-cake-moon-menu/commit/8556fe6cb26e993c99805cd9b9d28d80039734b1">https://github.com/jiangtj-lab/hexo-cake-moon-menu/commit/8556fe6cb26e993c99805cd9b9d28d80039734b1</a></li>
 </ul>
       
     </div>

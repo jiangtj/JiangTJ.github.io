@@ -31,7 +31,7 @@
 
   gtag('config', 'UA-132230328-1');
 </script>
-<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" /><link rel="preload" as="style" href="/css/injector/auto.css" /><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/dark.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/auto.css" /><!-- hexo injector head_end start --><link rel="manifest" href="/manifest.json" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/rss2.xml" title="Dnocm ☀" type="application/rss+xml">
 </head>
 
 <body>
@@ -209,7 +209,7 @@
 
     <div class="post-body">
       
-      <p>不多说废话，介绍一种简单又近乎完美的主题管理方式。文章中使用<a rel="noopener" target="_blank" href="https://github.com/jiangtj/hexo-theme-cake">Cake</a>主题介绍，如果你使用NexT替换对应的链接。</p>
+      <p>不多说废话，介绍一种简单又近乎完美的主题管理方式。文章中使用<a target="_blank" rel="noopener" href="https://github.com/jiangtj/hexo-theme-cake">Cake</a>主题介绍，如果你使用NexT替换对应的链接。</p>
 <p>需要提前储备的知识，如果不懂请至百度</p>
 <ul>
 <li>基本的Git操作（Git Init/Add/Commit/Pust/Fetch/Pull）</li>
@@ -294,13 +294,12 @@
 
     <div class="post-body">
       
-      <h1 id="前世因" class="article-heading">前世因<a class="article-anchor" href="#前世因" aria-hidden="true"></a></h1>
-<p>这要追溯到3月份，Mimi的<a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/663">PR:Adding Submodule</a>，我们讨论了如何管理第三方依赖。LEAFERx提出了使用NPM管理会更好，他进行了实践PR:Extract leancloud-counter to plugins <a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/677">#677</a> <a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/707">#707</a>。在我看来LEAFERx的方案并不好，因为复杂。所以要做到插件化，有两个必须达到的要求：</p>
+      <h1 id="前世因" class="article-heading"><a href="#前世因" class="headerlink" title="前世因"></a>前世因<a class="article-anchor" href="#前世因" aria-hidden="true"></a></h1><p>这要追溯到3月份，Mimi的<a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/pull/663">PR:Adding Submodule</a>，我们讨论了如何管理第三方依赖。LEAFERx提出了使用NPM管理会更好，他进行了实践PR:Extract leancloud-counter to plugins <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/pull/677">#677</a> <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/pull/707">#707</a>。在我看来LEAFERx的方案并不好，因为复杂。所以要做到插件化，有两个必须达到的要求：</p>
 <ol>
 <li>灵活与可扩展性，在插件中，我们就要能修改大部分内容。</li>
 <li>操作简单，我们通过极少的代码集成我们想要的功能。</li>
 </ol>
-<p>除此外，ivan-nginx还关心文档的问题，但如果能完全独立，存放在插件库中也不是什么大问题。在此期间，我也进行过尝试<a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/711">PR:Refactoring comments</a>，毕竟现在的评论系统真的&quot;烂&quot;，一堆<code>if else</code>。这次的重构是挺好的尝试，但我不敢轻易合，因为影响大（几乎所有人），而后来发现了另一个方案，是Hexo的一个插件<a rel="noopener" target="_blank" href="https://github.com/hexojs/hexo-inject">hexo-inject</a>，通过注入代码的方式实现定制内容，由于hexo本身与主题分离，它仅能提供4个注入点，可扩展性远远不够。但如果能在NexT中实现，就完全不同了，于是我提了<a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next/pull/868">PR:Add new filter type theme_inject</a></p>      
+<p>除此外，ivan-nginx还关心文档的问题，但如果能完全独立，存放在插件库中也不是什么大问题。在此期间，我也进行过尝试<a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/pull/711">PR:Refactoring comments</a>，毕竟现在的评论系统真的”烂”，一堆<code>if else</code>。这次的重构是挺好的尝试，但我不敢轻易合，因为影响大（几乎所有人），而后来发现了另一个方案，是Hexo的一个插件<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-inject">hexo-inject</a>，通过注入代码的方式实现定制内容，由于hexo本身与主题分离，它仅能提供4个注入点，可扩展性远远不够。但如果能在NexT中实现，就完全不同了，于是我提了<a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/pull/868">PR:Add new filter type theme_inject</a></p>      
 <div class="read-more-btn">
   <a href="/articles/beechnut/hexo-next-injects/" rel="contents">
     阅读全文 &raquo;
@@ -369,7 +368,7 @@
 
     <div class="post-body">
       
-      <p>众所周知，netflix OSS 2.0 难产了，上一代的zuul网关虽说不错，但其并不是异步的。所以，Spring团队推出了基于Spring Webflux的全新异步的网关--Spring Cloud Gateway。</p>
+      <p>众所周知，netflix OSS 2.0 难产了，上一代的zuul网关虽说不错，但其并不是异步的。所以，Spring团队推出了基于Spring Webflux的全新异步的网关–Spring Cloud Gateway。</p>
 <blockquote>
 <p>本文内容基于Spring Cloud Gateway 2.1.0.GA</p>
 </blockquote>
@@ -512,8 +511,8 @@
       <p>目前使用的NexT主题，也是NexT成员。但果然还是希望自己的站点能够与众不同点，所以想写个自己的主题。整理下一些资源</p>
 <p><strong>参考主题</strong></p>
 <ul>
-<li><a rel="noopener" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT</a>：最熟悉的</li>
-<li><a rel="noopener" target="_blank" href="https://github.com/elmorec/hexo-theme-inside">Inside</a>：厉害的作者，使用Angular重写了生成器</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">NexT</a>：最熟悉的</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/elmorec/hexo-theme-inside">Inside</a>：厉害的作者，使用Angular重写了生成器</li>
 </ul>
 <p>计划：基于NexT改进，参照Inside的设计风格</p>
 <p>Canary Channel：</p>
@@ -731,8 +730,7 @@
     <div class="post-body">
       
       <p>Spring Cloud Contract是契约测试的一个实现，最早看到契约测试还是在《微服务设计》书中，不过那时候绝对想不到真的会接触它。</p>
-<h1 id="什么是契约测试？" class="article-heading">什么是契约测试？<a class="article-anchor" href="#什么是契约测试？" aria-hidden="true"></a></h1>
-<p>首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：</p>
+<h1 id="什么是契约测试？" class="article-heading"><a href="#什么是契约测试？" class="headerlink" title="什么是契约测试？"></a>什么是契约测试？<a class="article-anchor" href="#什么是契约测试？" aria-hidden="true"></a></h1><p>首先，先谈谈思想，什么是契约测试？事实上在很多地方都称为消费者驱动契约(CDC) ，似乎都喜欢加驱动，比如TDD测试驱动等，但我不喜欢在这里加，契约是由提供者与消费者共同制定的，不可能由一方驱动。而契约测试也将同时作用于两方：</p>
 <ul>
 <li>验证提供方是否履约</li>
 <li>验证消费方在提供方履约下是否正常工作</li>
@@ -800,7 +798,7 @@
       
       <img src="/articles/beechnut/google-vs-baidu/baidu.png" class="box" title="baidu">
 <img src="/articles/beechnut/google-vs-baidu/google.png" class="box" title="google">
-<p><a href="https://www.baidu.com"><img class="box" title="baidu" data-src="/articles/beechnut/google-vs-baidu/baidu.png" src="/articles/beechnut/google-vs-baidu/baidu.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com"><img class="box" title="baidu" data-src="/articles/beechnut/google-vs-baidu/baidu.png" src="/articles/beechnut/google-vs-baidu/baidu.png"></a></p>
 <p>在针对性的SEO优化方面</p>
 <ul>
 <li>百度： 提供sitemap与提供百度蜘蛛自动推送</li>
