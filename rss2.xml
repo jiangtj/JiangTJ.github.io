@@ -9,8 +9,32 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Thu, 01 Jul 2021 12:54:09 GMT</pubDate>
+    <pubDate>Fri, 24 Sep 2021 08:15:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>为 Spring WebFlux 提供 &#39;ApplicationEventPublisher&#39;</title>
+      <link>https://jiangtj.com/articles/cherry/webflux-event/</link>
+      <guid>https://jiangtj.com/articles/cherry/webflux-event/</guid>
+      <pubDate>Fri, 24 Sep 2021 08:15:07 GMT</pubDate>
+      
+      <description>&lt;p&gt;在 Spring 中提供了 ApplicationEventPublisher，用于发布事件，这在一些场景下十分有用，比如，当我创建一个货物，而另一个服务监听货物的创建并为其创建库存。所以在Spring MVC中很实用，我也常常用它来解耦，但是当我切换为 WebFlux 时，就尴尬了。因为 ApplicationEventPublisher 是同步操作，它并不支持响应式，即流操作。&lt;/p&gt;
+&lt;p&gt;所以，我在 WebFlux 中实现一个类似的发布订阅模式，以替代 ApplicationEventPublisher&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/WebFlux/">WebFlux</category>
+      
+      <category domain="https://jiangtj.com/tags/Event/">Event</category>
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/webflux-event/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>WinGet Windows官方的包管理工具</title>
@@ -448,35 +472,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/jdk12-switch-expressions/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Hexo Netlify CMS 1.0</title>
-      <link>https://jiangtj.com/articles/beechnut/hexo-netlify-cms-1.0/</link>
-      <guid>https://jiangtj.com/articles/beechnut/hexo-netlify-cms-1.0/</guid>
-      <pubDate>Thu, 08 Aug 2019 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;Hexo Netlify CMS隔了好久终于迎来了一次大更新（不兼容），主要有以下的更新内容&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;扩展fields，在原本的Netlify</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Hexo/">Hexo</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/hexo-netlify-cms-1.0/#disqus_thread</comments>
       
     </item>
     
