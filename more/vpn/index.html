@@ -10,17 +10,17 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="WikipediaShadowsocks可以指：一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种传输包。目前包使用Python、C、C++、C#、Go语言等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端部署到服务器上面，然后通">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="提示！警惕外网的资讯，“真相”，“自由”，“民主”。 教程分为两部分，一个是服务器搭建，一个是客户端 服务端下载 Outline Manage 依据上面的内容进行配置即可完成 Outline 的技术相当不错，服务端使用了docker，有能力可以了解下它所启动的两服务，尤其是另一个保持docker应用最新的服务，以后在你工作中也有可能会用到哦 (如果你无法下载到 Outline Manage，可以发">
 <meta property="og:type" content="website">
-<meta property="og:title" content="VPN教程 - Shadowsocks">
+<meta property="og:title" content="VPN教程">
 <meta property="og:url" content="https://jiangtj.com/more/vpn/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="WikipediaShadowsocks可以指：一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种传输包。目前包使用Python、C、C++、C#、Go语言等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端部署到服务器上面，然后通">
+<meta property="og:description" content="提示！警惕外网的资讯，“真相”，“自由”，“民主”。 教程分为两部分，一个是服务器搭建，一个是客户端 服务端下载 Outline Manage 依据上面的内容进行配置即可完成 Outline 的技术相当不错，服务端使用了docker，有能力可以了解下它所启动的两服务，尤其是另一个保持docker应用最新的服务，以后在你工作中也有可能会用到哦 (如果你无法下载到 Outline Manage，可以发">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-12-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-05-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-07T16:00:00.000Z">
 <meta property="article:author" content="Mr.J">
-<meta name="twitter:card" content="summary">  <title>VPN教程 - Shadowsocks | Dnocm ☀</title>    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/more/vpn/index.html"},"headline":"VPN教程 - Shadowsocks","image":[],"datePublished":"2018-12-31T16:00:00.000Z","dateModified":"2020-05-19T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="twitter:card" content="summary">  <title>VPN教程 | Dnocm ☀</title>    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/more/vpn/index.html"},"headline":"VPN教程","image":[],"datePublished":"2018-12-31T16:00:00.000Z","dateModified":"2021-12-07T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
 
@@ -103,7 +103,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Wikipedia"><span class="nav-number">1.</span> <span class="nav-text">Wikipedia</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Outline-Manage"><span class="nav-number">2.1.</span> <span class="nav-text">Outline Manage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shadowsocks-libev"><span class="nav-number">2.2.</span> <span class="nav-text">shadowsocks-libev</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">2.2.2.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">2.3.</span> <span class="nav-text">Python</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">2.4.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">3.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96VPN"><span class="nav-number">4.</span> <span class="nav-text">其他VPN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#L2TP"><span class="nav-number">4.1.</span> <span class="nav-text">L2TP</span></a></li></ol></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA%EF%BC%81"><span class="nav-number">1.</span> <span class="nav-text">提示！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">3.</span> <span class="nav-text">客户端</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -173,7 +173,7 @@
       
       <h1 class="post-title">
         
-        VPN教程 - Shadowsocks
+        VPN教程
         
       </h1>
       
@@ -195,46 +195,13 @@
 
     <div class="post-body">
       
-      <h1 id="Wikipedia" class="article-heading"><a href="#Wikipedia" class="headerlink" title="Wikipedia"></a>Wikipedia<a class="article-anchor" href="#Wikipedia" aria-hidden="true"></a></h1><p>Shadowsocks可以指：一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种传输包。目前包使用Python、C、C++、C#、Go语言等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端部署到服务器上面，然后通过客户端连接并创建本地代理。</p>
-<p>目前Shadowsocks有多个实现支持，以自由软件形式发布的主要有原始Shadowsocks（以Python语言编写）、Shadowsocks-libev（分支项目openwrt-Shadowsocks）、Shadowsocks-rust、Shadowsocks-go/go-Shadowsocks2、libQtShadowsocks、Shadowsocks-qt5（仅作为客户端）、Shadowsocks-android（仅作为客户端）、Shadowsocks-windows（仅作为客户端）、ShadowsocksX-NG（仅作为客户端）、Outline、V2Ray、Brook等等，还有为数甚多的免费软件及专有软件（多数是iOS上运行的，如shadowrocket、Surge等）。</p>
-<span id="more"></span>
-
-<h1 id="服务端" class="article-heading"><a href="#服务端" class="headerlink" title="服务端"></a>服务端<a class="article-anchor" href="#服务端" aria-hidden="true"></a></h1><h2 id="Outline-Manage" class="article-heading"><a href="#Outline-Manage" class="headerlink" title="Outline Manage"></a>Outline Manage<a class="article-anchor" href="#Outline-Manage" aria-hidden="true"></a></h2><p>最简单的方式是通过Outline Manage配置，可在<a target="_blank" rel="noopener" href="https://github.com/Jigsaw-Code/outline-server/">Outline的GitHub</a>上下载，选择<code>Set up Outline anywhere</code>，在linux上运行步骤一的脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bash -c <span class="hljs-string">&quot;<span class="hljs-subst">$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh)</span>&quot;</span><br></code></pre></td></tr></table></figure>
-<p>将您linux上安装输出信息放入步骤二的输入框内，接下来添加key，复制key中的密钥<code>ss://xxxxxx?outline=1</code>至您的客户端即可
-其他方式见下面</p>
-<h2 id="shadowsocks-libev" class="article-heading"><a href="#shadowsocks-libev" class="headerlink" title="shadowsocks-libev"></a>shadowsocks-libev<a class="article-anchor" href="#shadowsocks-libev" aria-hidden="true"></a></h2><p>本文使用Ubuntu16.04，其他版本可查看官方文档<a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-libev">https://github.com/shadowsocks/shadowsocks-libev</a></p>
-<h3 id="安装" class="article-heading"><a href="#安装" class="headerlink" title="安装"></a>安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h3><p>执行以下命令，从PPA源安装shadowsocks-libev，shadowsocks-libev是纯C实现的Shadowsocks服务端，相对于Python，有更好的性能</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install software-properties-common -y<br>sudo add-apt-repository ppa:max-c-lv/shadowsocks-libev -y<br>sudo apt-get update<br>sudo apt install shadowsocks-libev<br></code></pre></td></tr></table></figure>
-
-<h3 id="运行" class="article-heading"><a href="#运行" class="headerlink" title="运行"></a>运行<a class="article-anchor" href="#运行" aria-hidden="true"></a></h3><p>shadowsocks-libev需要修改配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Edit the configuration file</span><br>sudo vim /etc/shadowsocks-libev/config.json<br><span class="hljs-comment"># Edit the default configuration for debian</span><br>sudo vim /etc/default/shadowsocks-libev<br></code></pre></td></tr></table></figure>
-<p>参考配置</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;server&quot;</span>:<span class="hljs-string">&quot;my_server_ip&quot;</span>,<br>    <span class="hljs-attr">&quot;server_port&quot;</span>:<span class="hljs-number">8388</span>,<br>    <span class="hljs-attr">&quot;local_port&quot;</span>:<span class="hljs-number">1080</span>,<br>    <span class="hljs-attr">&quot;password&quot;</span>:<span class="hljs-string">&quot;barfoo!&quot;</span>,<br>    <span class="hljs-attr">&quot;timeout&quot;</span>:<span class="hljs-number">600</span>,<br>    <span class="hljs-attr">&quot;method&quot;</span>:<span class="hljs-string">&quot;chacha20-ietf-poly1305&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>通过命令行运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Start the service</span><br>sudo /etc/init.d/shadowsocks-libev start    <span class="hljs-comment"># for sysvinit, or</span><br>sudo systemctl start shadowsocks-libev      <span class="hljs-comment"># for systemd</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="Python" class="article-heading"><a href="#Python" class="headerlink" title="Python"></a>Python<a class="article-anchor" href="#Python" aria-hidden="true"></a></h2><p>您可以安装Python的shadowsocks，centos或者其他看这里<a target="_blank" rel="noopener" href="https://github.com/shadowsocksr-backup/shadowsocksr">https://github.com/shadowsocksr-backup/shadowsocksr</a></p>
-<h3 id="安装-1" class="article-heading"><a href="#安装-1" class="headerlink" title="安装"></a>安装<a class="article-anchor" href="#安装-1" aria-hidden="true"></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python-pip<br>sudo pip install shadowsocks<br></code></pre></td></tr></table></figure>
-<h3 id="运行-1" class="article-heading"><a href="#运行-1" class="headerlink" title="运行"></a>运行<a class="article-anchor" href="#运行-1" aria-hidden="true"></a></h3><p>基于Python的shadowsocks运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Example</span><br>sudo ssserver -k password --user nobody -d start<br><span class="hljs-comment"># See help</span><br>sudo ssserver --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="其他" class="article-heading"><a href="#其他" class="headerlink" title="其他"></a>其他<a class="article-anchor" href="#其他" aria-hidden="true"></a></h2><p>建议开启<code>fastopen</code>,修改<code>/etc/sysctl.conf</code>文件中的<code>net.ipv4.tcp_fastopen = 3</code>
-其他高级配置，可在翻墙后访问<a target="_blank" rel="noopener" href="https://shadowsocks.org/en/config/advanced.html">https://shadowsocks.org/en/config/advanced.html</a></p>
-<h1 id="客户端" class="article-heading"><a href="#客户端" class="headerlink" title="客户端"></a>客户端<a class="article-anchor" href="#客户端" aria-hidden="true"></a></h1><p>由于商店无法进入，可以在GitHub上下载，客户端推荐shadowsocks，因为outline目前只能全局代理</p>
-<ul>
-<li>shadowsocks-windows: <a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-windows">https://github.com/shadowsocks/shadowsocks-windows</a></li>
-<li>shadowsocks-android: <a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-android">https://github.com/shadowsocks/shadowsocks-android</a></li>
-</ul>
-<p>Or</p>
-<ul>
-<li>outline: <a target="_blank" rel="noopener" href="https://github.com/Jigsaw-Code/outline-client/">https://github.com/Jigsaw-Code/outline-client/</a></li>
-</ul>
-<h1 id="其他VPN" class="article-heading"><a href="#其他VPN" class="headerlink" title="其他VPN"></a>其他VPN<a class="article-anchor" href="#其他VPN" aria-hidden="true"></a></h1><h2 id="L2TP" class="article-heading"><a href="#L2TP" class="headerlink" title="L2TP"></a>L2TP<a class="article-anchor" href="#L2TP" aria-hidden="true"></a></h2><p>执行脚本一键安装运行：<a target="_blank" rel="noopener" href="https://github.com/hwdsl2/setup-ipsec-vpn">https://github.com/hwdsl2/setup-ipsec-vpn</a>，shadowsocks也有类似的<a target="_blank" rel="noopener" href="https://freed.ga/github/shadowsocksR.sh">脚本</a>(<a target="_blank" rel="noopener" href="https://www.qcgzxw.cn/1640.html">相关教程</a>)，但下载下来是乱码，反正我不放心。。。
-L2TP相对于shadowsocks来说，系统支持较好（可能部分系统如MIUI10，连接后会自动断开，我是被这个原因逼到shadowsocks的），无需安装第三方客户端，但也因此只有全局代理</p>
-<blockquote>
-<p>这篇文章长期更新，推荐的是我正在使用的VPN，其他VPN中是以前使用过的</p>
-</blockquote>
+      <h1 id="提示！" class="article-heading"><a href="#提示！" class="headerlink" title="提示！"></a>提示！<a class="article-anchor" href="#提示！" aria-hidden="true"></a></h1><p>警惕外网的资讯，“真相”，“自由”，“民主”。</p>
+<p>教程分为两部分，一个是服务器搭建，一个是客户端</p>
+<h1 id="服务端" class="article-heading"><a href="#服务端" class="headerlink" title="服务端"></a>服务端<a class="article-anchor" href="#服务端" aria-hidden="true"></a></h1><p>下载 <a target="_blank" rel="noopener" href="https://github.com/Jigsaw-Code/outline-server/">Outline Manage</a> 依据上面的内容进行配置即可完成</p>
+<p>Outline 的技术相当不错，服务端使用了docker，有能力可以了解下它所启动的两服务，尤其是另一个保持docker应用最新的服务，以后在你工作中也有可能会用到哦</p>
+<p>(如果你无法下载到 Outline Manage，可以发送email给我哦)</p>
+<h1 id="客户端" class="article-heading"><a href="#客户端" class="headerlink" title="客户端"></a>客户端<a class="article-anchor" href="#客户端" aria-hidden="true"></a></h1><p>Outline Manage 本身就能链接到你的服务器，然后去下载一些其他客户端（Outline Manage 作为客户端实在不好用），shadowsocks或者clash，都是能用的</p>
+<p>我使用的clash，GitHub有ss转clash配置的工具，你也可以自己编写，clash的好处是，不同端有一样的规则。macos与Android支持不错，win有点差。在win电脑上，我是docker运行clash服务，并手动设置系统代理，你可以和我一样配置</p>
       
     </div>
 
