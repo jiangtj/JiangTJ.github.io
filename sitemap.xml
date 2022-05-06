@@ -254,15 +254,6 @@
   </url>
   
   <url>
-    <loc>https://jiangtj.com/more/bullhorn/tech/index.html</loc>
-    
-    <lastmod>2020-05-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jiangtj.com/more/tools/qrcode/index.html</loc>
     
     <lastmod>2020-05-19</lastmod>
@@ -273,6 +264,15 @@
   
   <url>
     <loc>https://jiangtj.com/more/tools/regex/index.html</loc>
+    
+    <lastmod>2020-05-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiangtj.com/more/bullhorn/tech/index.html</loc>
     
     <lastmod>2020-05-19</lastmod>
     
