@@ -26,9 +26,9 @@ https://jiangtj.com/more/tools/index.html
 https://jiangtj.com/en/cake/options/index.html
 https://jiangtj.com/en/cake/plugins/index.html
 https://jiangtj.com/more/bullhorn/articles/index.html
+https://jiangtj.com/more/bullhorn/tech/index.html
 https://jiangtj.com/more/tools/qrcode/index.html
 https://jiangtj.com/more/tools/regex/index.html
-https://jiangtj.com/more/bullhorn/tech/index.html
 https://jiangtj.com/en/articles/beechnut/hexo-git-submodule/index.html
 https://jiangtj.com/en/articles/beechnut/hexo-next-injects/index.html
 https://jiangtj.com/articles/cherry/new-deploy/
