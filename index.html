@@ -107,7 +107,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -147,6 +147,76 @@
         
         <div id="content" class="content">
           <section>
+  
+  
+
+<article class="post post-type-normal">
+  <div class="card post-block">
+
+    
+
+    <header class="post-header">
+
+      
+      <h1 class="post-title">
+        
+        <a href="/articles/cherry/linux-proxy/">linux 代理</a>
+        
+      </h1>
+      
+
+      <div class="post-meta">
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2023-02-21 16:32:26">2023-02-21</time>
+  </span>
+  
+
+  
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span><a href="/categories/%E8%BF%90%E7%BB%B4/" rel="index"><span>运维</span></a></span>  </span>
+  
+
+  
+  
+
+</div>
+
+    </header>
+
+    <div class="post-body">
+      
+      <h1 id="env" class="article-heading"><a href="#env" class="headerlink" title="env"></a>env<a class="article-anchor" href="#env" aria-hidden="true"></a></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> http_proxy=http://192.168.1.20:7890<br><span class="hljs-built_in">export</span> https_proxy=http://192.168.1.20:7890<br></code></pre></td></tr></table></figure>
+
+<h1 id="profile" class="article-heading"><a href="#profile" class="headerlink" title="profile"></a>profile<a class="article-anchor" href="#profile" aria-hidden="true"></a></h1><p>在 <code>~/.profile</code> 持久化当前用户的代理，全局在 <code>/etc/profile</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> http_proxy=http://192.168.1.20:7890<br><span class="hljs-built_in">export</span> https_proxy=http://192.168.1.20:7890<br></code></pre></td></tr></table></figure>
+
+<h1 id="wget" class="article-heading"><a href="#wget" class="headerlink" title="wget"></a>wget<a class="article-anchor" href="#wget" aria-hidden="true"></a></h1><p>修改 <code>~/.wgetrc</code> 创建 <code>wget</code> 代理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#You can set the default proxies for Wget to use for http, https, and ftp.</span><br><span class="hljs-comment"># They will override the value in the environment.</span><br>https_proxy = http://192.168.1.20:7890<br>http_proxy = http://192.168.1.20:7890<br>ftp_proxy = http://192.168.1.20:7890<br><br><span class="hljs-comment"># If you do not want to use proxy at all, set this to off.</span><br>use_proxy = on<br></code></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+
+    
+
+    
+  </div>
+</article>
   
   
 
@@ -783,73 +853,6 @@
     阅读全文 &raquo;
   </a>
 </div>
-      
-    </div>
-
-    
-    
-
-    
-
-    
-  </div>
-</article>
-  
-  
-
-<article class="post post-type-normal">
-  <div class="card post-block">
-
-    
-
-    <header class="post-header">
-
-      
-      <h1 class="post-title">
-        
-        <a href="/articles/cherry/new-deploy/">新网址！</a>
-        
-      </h1>
-      
-
-      <div class="post-meta">
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">发表于</span>
-    <time title="创建时间：2020-05-19 13:29:58">2020-05-19</time>
-  </span>
-  
-
-  
-
-  
-
-  
-  
-
-</div>
-
-    </header>
-
-    <div class="post-body">
-      
-      <p>netlify免费版的网络真的太差了（跟1年多前刚使用的时候比，差太多），所以原本打算迁移到github pages</p>
-<p>看对比，github pages整体比netlify稳定的多，但github不支持重定向。而腾讯云的解析服务，重定向需要备案，所以dnocm只好保持不动，选择新增了一个部署</p>
-<p>同时也尝试了coding，但在国外的ping不理想，所以干脆一次性部署了多个</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://dnocm.com/">https://dnocm.com</a>(<a target="_blank" rel="noopener" href="https://www.dnocm.com/">https://www.dnocm.com</a>) 由netlify提供服务</li>
-<li><a href="https://jiangtj.com/">https://jiangtj.com</a> 由github pages提供服务</li>
-<li><a target="_blank" rel="noopener" href="https://jiangtj.gitlab.io/">https://jiangtj.gitlab.io</a> 由gitlab pages提供服务</li>
-<li><a target="_blank" rel="noopener" href="https://zh.jiangtj.com/">https://zh.jiangtj.com</a>(<a target="_blank" rel="noopener" href="https://www.jiangtj.com/">https://www.jiangtj.com</a>) 由coding提供服务，中国访问较快</li>
-</ul>
-<p>假如，你在访问当前地址时，感觉卡，可以试试前往我的其他域名下</p>
-<p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200519112323.png"></p>
-<p><img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200519170805.png"></p>
       
     </div>
 
