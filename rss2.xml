@@ -9,8 +9,27 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Tue, 21 Feb 2023 08:32:26 GMT</pubDate>
+    <pubDate>Thu, 23 Feb 2023 03:25:11 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>使用 Helm 管理开发环境</title>
+      <link>https://jiangtj.com/articles/cherry/helm-for-dev/</link>
+      <guid>https://jiangtj.com/articles/cherry/helm-for-dev/</guid>
+      <pubDate>Thu, 23 Feb 2023 03:25:11 GMT</pubDate>
+      
+      <description>helm来管理开发环境会不会比docker更方便呢</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E8%BF%90%E7%BB%B4/">运维</category>
+      
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/helm-for-dev/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>linux 代理</title>
@@ -453,29 +472,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/npm-publish-no-password/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>一个简单的retrofit工具类</title>
-      <link>https://jiangtj.com/articles/beechnut/retrofit-utils/</link>
-      <guid>https://jiangtj.com/articles/beechnut/retrofit-utils/</guid>
-      <pubDate>Fri, 06 Sep 2019 03:51:17 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;使用&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;a class=&quot;article-anchor&quot; href=&quot;#使用&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs java&quot;&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 同步返回Optional&amp;lt;T&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;hljs-type&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;hljs-variable&quot;&gt;repos&lt;/span&gt; &lt;span class=&quot;hljs-operator&quot;&gt;=&lt;/span&gt; RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;octocat&amp;quot;&lt;/span&gt;)).orElse(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-title class_&quot;&gt;ArrayList&lt;/span&gt;&amp;lt;&amp;gt;());&lt;br&gt;&lt;span class=&quot;hljs-comment&quot;&gt;// 异步&lt;/span&gt;&lt;br&gt;RetrofitUtils.execute(service.listRepos(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;octocat&amp;quot;&lt;/span&gt;), repos -&amp;gt; &amp;#123;&lt;br&gt;  &lt;span class=&quot;hljs-comment&quot;&gt;//业务逻辑&lt;/span&gt;&lt;br&gt;&amp;#125;);&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Java/">Java</category>
-      
-      <category domain="https://jiangtj.com/tags/Retrofit/">Retrofit</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/retrofit-utils/#disqus_thread</comments>
       
     </item>
     
