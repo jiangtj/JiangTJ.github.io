@@ -9,8 +9,32 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Thu, 23 Feb 2023 03:25:11 GMT</pubDate>
+    <pubDate>Thu, 09 Mar 2023 00:09:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>在 Docker 中使用 Hexo</title>
+      <link>https://jiangtj.com/articles/cherry/docker-dev/</link>
+      <guid>https://jiangtj.com/articles/cherry/docker-dev/</guid>
+      <pubDate>Thu, 09 Mar 2023 00:09:49 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;在项目的根目录创建一个 &lt;code&gt;compose-dev.yaml&lt;/code&gt; 定义docker compose用于生成开发环境，由于博客不需要额外的数据库等，所以很简单&lt;/p&gt;
+&lt;figure class=&quot;highlight</description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://jiangtj.com/articles/cherry/docker-dev/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>使用 Helm 管理开发环境</title>
@@ -439,39 +463,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/coupon-info/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>npm 免密 publish</title>
-      <link>https://jiangtj.com/articles/beechnut/npm-publish-no-password/</link>
-      <guid>https://jiangtj.com/articles/beechnut/npm-publish-no-password/</guid>
-      <pubDate>Fri, 27 Sep 2019 02:59:05 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;blockquote&gt;
-&lt;p&gt;做个笔记，毕竟多台电脑，需要配置&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;创建token&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/NPM/">NPM</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/npm-publish-no-password/#disqus_thread</comments>
       
     </item>
     

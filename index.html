@@ -107,7 +107,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -147,6 +147,73 @@
         
         <div id="content" class="content">
           <section>
+  
+  
+
+<article class="post post-type-normal">
+  <div class="card post-block">
+
+    
+
+    <header class="post-header">
+
+      
+      <h1 class="post-title">
+        
+        <a href="/articles/cherry/docker-dev/">在 Docker 中使用 Hexo</a>
+        
+      </h1>
+      
+
+      <div class="post-meta">
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2023-03-09 08:09:49">2023-03-09</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+
+</div>
+
+    </header>
+
+    <div class="post-body">
+      
+      <p>在项目的根目录创建一个 <code>compose-dev.yaml</code> 定义docker compose用于生成开发环境，由于博客不需要额外的数据库等，所以很简单</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">blog:</span><br>    <span class="hljs-attr">build:</span><br>      <span class="hljs-attr">context:</span> <span class="hljs-string">.</span><br>      <span class="hljs-attr">target:</span> <span class="hljs-string">dev-envs</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>context 指定docker位置</li>
+<li>target 指定docker镜像构建目标</li>
+</ul>
+<p>然后创建 <code>Dockerfile</code></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs Dockerfile"><span class="hljs-comment"># syntax=docker/dockerfile:1.4</span><br><br><span class="hljs-keyword">FROM</span> node:lts AS buildhexo<br><span class="hljs-keyword">RUN</span><span class="language-bash"> yarn global add hexo-cli</span><br><br><span class="hljs-keyword">FROM</span> buildhexo AS development<br><span class="hljs-keyword">WORKDIR</span><span class="language-bash"> /app</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> . .</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> yarn install</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> hexo s</span><br><br><span class="hljs-keyword">FROM</span> buildhexo as dev-envs<br><span class="hljs-comment"># 添加工具git docker vscode</span><br><span class="hljs-comment"># RUN &lt;&lt;EOF</span><br><span class="hljs-comment"># apt-get update</span><br><span class="hljs-comment"># apt-get install -y --no-install-recommends git</span><br><span class="hljs-comment"># EOF</span><br><span class="hljs-comment"># RUN &lt;&lt;EOF</span><br><span class="hljs-comment"># useradd -s /bin/bash -m vscode</span><br><span class="hljs-comment"># groupadd docker</span><br><span class="hljs-comment"># usermod -aG docker vscode</span><br><span class="hljs-comment"># EOF</span><br><span class="hljs-comment"># install Docker tools (cli, buildx, compose)</span><br><span class="hljs-comment"># COPY --from=gloursdocker/docker / /</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> /bin/sh -c <span class="hljs-string">&quot;while sleep 1000; do :; done&quot;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>上面<code>dev-envs</code>是被指定执行的，而<code>development</code>不会被执行，注释的内容是因为我遇到了网络问题，是从其他模板中复制过来的，理论上没问题，结尾的<code>CMD /bin/sh -c &quot;while sleep 1000; do :; done&quot;</code>用于保持容器运行</p>
+<p>最后，在docker桌面版中，按提示，创建Dev Environments即可</p>
+      
+    </div>
+
+    
+    
+
+    
+
+    
+  </div>
+</article>
   
   
 
@@ -784,80 +851,6 @@
 <p>这个文件描述了 Gradle 下载的位置，以及它的分发地址(我这需要下载bin归档，不知道是我环境问题还是什么，即<a target="_blank" rel="noopener" href="https://services.gradle.org/distributions/gradle-5.6.2-bin.zip">https://services.gradle.org/distributions/gradle-5.6.2-bin.zip</a>)</p>
 <p>存放的位置很奇怪，是<code>$&#123;GRADLE_USER_HOME&#125;/wrapper/dists/gradle-S&#123;version&#125;-all/$&#123;sha&#125;/</code>，比较简单的方法是先运行下，再去找这个目录，把已经下好的 gradle 归档文件直接丢进去，不需要减压或重命名</p>
 <p>暂时就这些，如果还有以后补充</p>
-      
-    </div>
-
-    
-    
-
-    
-
-    
-  </div>
-</article>
-  
-  
-
-<article class="post post-type-normal">
-  <div class="card post-block">
-
-    
-<div class="post-banner">
-  <img data-src="https://jiangtj-lab.github.io/pic-repo/img-apricot/20200825094705.png"  alt=""/></div>
-
-
-    <header class="post-header">
-
-      
-      <h1 class="post-title">
-        
-        <a href="/articles/cherry/hexo-5/">Hexo 5.0.0 正式发布</a>
-        
-      </h1>
-      
-
-      <div class="post-meta">
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">发表于</span>
-    <time title="创建时间：2020-08-25 09:43:40">2020-08-25</time>
-  </span>
-  
-
-  
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">分类于</span>
-    <span><a href="/categories/%E8%BD%AC%E8%BD%BD/" rel="index"><span>转载</span></a></span>  </span>
-  
-
-  
-  
-  <div class="post-description">文章转载自<a target="_blank" rel="noopener" href="https://blog.skk.moe/post/hexo-5/">Sukka</a>，Sukka为hexo 5.0带来了许多特性🎉</div>
-  
-
-</div>
-
-    </header>
-
-    <div class="post-body">
-      
-      <p>Node.js 上最快的静态站点生成器 Hexo 发布了 5.0.0 版本。作为 Hexo 核心团队成员，让我为大家介绍一下 Hexo 5.0.0 中的新特性，以及如何从 Hexo 4.x 版本升级到 Hexo 5.0.0。</p>      
-<div class="read-more-btn">
-  <a href="/articles/cherry/hexo-5/" rel="contents">
-    阅读全文 &raquo;
-  </a>
-</div>
       
     </div>
 
