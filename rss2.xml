@@ -9,8 +9,35 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Thu, 09 Mar 2023 00:09:49 GMT</pubDate>
+    <pubDate>Tue, 21 Mar 2023 06:32:15 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Spring Cloud 平台搭建(序)：聊一聊与做些准备</title>
+      <link>https://jiangtj.com/articles/durian/cloud-0/</link>
+      <guid>https://jiangtj.com/articles/durian/cloud-0/</guid>
+      <pubDate>Tue, 21 Mar 2023 06:32:15 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;开场白&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#开场白&quot; class=&quot;headerlink&quot; title=&quot;开场白&quot;&gt;&lt;/a&gt;开场白&lt;a class=&quot;article-anchor&quot; href=&quot;#开场白&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Spring-Cloud-%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/">Spring Cloud 平台搭建</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/cloud-0/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>在 Docker 中使用 Hexo</title>
@@ -440,29 +467,6 @@
       
       
       <comments>https://jiangtj.com/articles/beechnut/intersection-observer-info/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>探究：优惠券的设计</title>
-      <link>https://jiangtj.com/articles/beechnut/coupon-info/</link>
-      <guid>https://jiangtj.com/articles/beechnut/coupon-info/</guid>
-      <pubDate>Tue, 05 Nov 2019 06:15:10 GMT</pubDate>
-      
-      <description>优惠券一直都是系统中较为复杂的部分，往往设计多个模块（支付、活动、用户等等），将从架构设计角度展开，设计一种合理的架构</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E6%9E%B6%E6%9E%84/">架构</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/%E4%BC%98%E6%83%A0%E5%88%B8/">优惠券</category>
-      
-      <category domain="https://jiangtj.com/tags/%E8%AE%BE%E8%AE%A1/">设计</category>
-      
-      
-      <comments>https://jiangtj.com/articles/beechnut/coupon-info/#disqus_thread</comments>
       
     </item>
     

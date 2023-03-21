@@ -107,7 +107,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -125,7 +125,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -147,6 +147,116 @@
         
         <div id="content" class="content">
           <section>
+  
+  
+
+<article class="post post-type-normal">
+  <div class="card post-block">
+
+    
+
+    <header class="post-header">
+
+      
+      <h1 class="post-title">
+        
+        <a href="/articles/durian/cloud-0/">Spring Cloud 平台搭建(序)：聊一聊与做些准备</a>
+        
+      </h1>
+      
+
+      <div class="post-meta">
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2023-03-21 14:32:15">2023-03-21</time>
+  </span>
+  
+
+  
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
+  
+
+  
+  
+
+</div>
+
+    </header>
+
+    <div class="post-body">
+      
+      <h1 id="开场白" class="article-heading"><a href="#开场白" class="headerlink" title="开场白"></a>开场白<a class="article-anchor" href="#开场白" aria-hidden="true"></a></h1><p>学技术的我相信绝大部分都是理科生，和一样，写博客会很为难，不知道怎么开场，但救星来了，那就是ChatGPT，当然，我这里不是（需要填手机号，然后提示不提供服务，哎），是new bing生成的，让我们欣赏下AI吧</p>
+<p>你好，欢迎来到我的博客。今天我想和大家聊一聊spring cloud，这是一个基于spring boot的微服务框架，它提供了一系列的组件和工具，让我们可以快速地开发和部署分布式系统。</p>
+<p>什么是微服务呢？简单地说，就是把一个大型的单体应用拆分成多个小的、独立的、可复用的服务，每个服务负责一个特定的功能或业务领域，它们之间通过轻量级的通信协议进行交互。这样做有什么好处呢？主要有以下几点：</p>
+<ul>
+<li>可扩展性：当某个服务需要扩容或缩容时，我们只需要对该服务进行操作，而不影响其他服务。</li>
+<li>灵活性：当某个服务需要更新或替换时，我们只需要对该服务进行操作，而不影响其他服务。</li>
+<li>容错性：当某个服务出现故障时，我们可以快速地恢复或切换到备用方案，而不影响其他服务。</li>
+<li>解耦性：每个服务都有自己的数据存储和业务逻辑，它们之间通过定义好的接口进行交互，这样可以降低耦合度和依赖性。</li>
+</ul>
+<p>当然，微服务也有一些挑战和问题，比如：</p>
+<ul>
+<li>服务治理：如何管理众多的微服务？如何保证它们之间的协调和一致性？如何监控和追踪它们的状态和性能？</li>
+<li>服务发现：如何让微服务之间找到彼此？如何处理动态变化的网络地址和端口？</li>
+<li>服务配置：如何统一管理微服务的配置信息？如何实现配置信息的动态更新和刷新？</li>
+<li>服务熔断：如何防止某个故障的微服务导致整个系统崩溃？如何实现故障隔离和降级策略？</li>
+<li>服务网关：如何为外部客户端提供统一的访问入口？如何实现负载均衡、路由转发、认证授权、限流熔断等功能？</li>
+</ul>
+<p>这就是spring cloud要解决的问题。spring cloud是一个生态系统，它包含了多个子项目，每个子项目都针对上述问题提供了一个解决方案。例如：</p>
+<ul>
+<li>Eureka：一个基于RESTful风格的注册中心，提供了微服务之间的发现与注册功能。</li>
+<li>Config：一个集中式配置管理工具，提供了从外部源（比如Git）获取配置信息并推送给各个微服务的功能。</li>
+<li>Hystrix：一个断路器模式实现工具，提供了故障检测、熔断保护、降级处理等功能。</li>
+<li>Zuul：一个基于过滤器模式实现的网关工具，提供了路由转发、认证授权、限流熔断等功能。</li>
+<li>Ribbon：一个客户端负载均衡工具，在调用其他微服 务时自动选择最优节点。</li>
+<li>Feign: 一个声明式RESTful客户端工具，在调用其他微服 务时自动封装请求参数并解析响应结果。</li>
+</ul>
+<p>除此之外还有很多其他子项目，在这里就不一一介绍了。如果你想深入学习spring cloud，请参考官方文档</p>
+<h1 id="准备做什么" class="article-heading"><a href="#准备做什么" class="headerlink" title="准备做什么"></a>准备做什么<a class="article-anchor" href="#准备做什么" aria-hidden="true"></a></h1><p>挺震撼的，现在的AI生成介绍类内容已经不比人类差了。上面那段话除了有点过时之外，并没有什么问题，而且我准备写的内容也不是一个个集成spring cloud组件的例子，所以过时的内容影响不大，也懒得改了</p>
+<p>关于spring cloud平台搭建，主要考虑的是简单易用，能开箱即用，所以在组件的选择上会选用特定的组件来集成。如果你想全面地了解spring cloud，也许其他教程会更合适。当然，如果只是想了解基本概念，我推荐你看《微服务设计》这本书。</p>
+<p>废话不多说了，让我们开始准备搭建整个平台吧。在学习之前，让我们先创建一个根项目</p>
+<h1 id="parent-项目" class="article-heading"><a href="#parent-项目" class="headerlink" title="parent 项目"></a>parent 项目<a class="article-anchor" href="#parent-项目" aria-hidden="true"></a></h1><p>首先创建一个parent项目，你可以用maven的命令行也可以用ide创建，但是最简单的是直接拷贝一个<code>pom.xml</code>文件，因为这是个管理依赖版本的父工程，不需要其他的文件，如果用ide创建可能还要删除一些文件</p>
+<p>修改<code>pom.xml</code>为以下内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.jtj.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span> <span class="hljs-comment">&lt;!-- lookup parent from repository --&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.reporting.outputEncoding</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">spring-cloud.version</span>&gt;</span>2022.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">spring-cloud.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">spring-cloud-alibaba.version</span>&gt;</span>2022.0.0.0-RC1<span class="hljs-tag">&lt;/<span class="hljs-name">spring-cloud-alibaba.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">spring-boot-admin.version</span>&gt;</span>3.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">spring-boot-admin.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">jjwt.version</span>&gt;</span>0.11.5<span class="hljs-tag">&lt;/<span class="hljs-name">jjwt.version</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- &lt;maven.test.skip&gt;true&lt;/maven.test.skip&gt; --&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modules</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">modules</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.jsonwebtoken<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jjwt-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;jjwt.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.jsonwebtoken<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jjwt-impl<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;jjwt.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.jsonwebtoken<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jjwt-jackson<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;jjwt.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>de.codecentric<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-admin-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring-boot-admin.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring-cloud-alibaba.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>按照规范，我的包名应该为<code>com.jiangtj</code>，毕竟jiangtj.com这个域名才是我的，这项目是在一个很早前的项目上改的懒得改路径</p>
+<h1 id="基础业务模块" class="article-heading"><a href="#基础业务模块" class="headerlink" title="基础业务模块"></a>基础业务模块<a class="article-anchor" href="#基础业务模块" aria-hidden="true"></a></h1><p>除了父项目，我们还需要添加两个子模块，<code>base-reactive</code> <code>base-servlet</code>，他们分别是spring 5开始的两个web类型，好用的平台自然是要都兼容的（主要我喜欢<code>base-reactive</code>，但它还是不怎么完善）</p>
+<p>如果idea，直接选择创建模块在选择spring initializr，再选择相应的web依赖就好</p>
+<p>然后修改pom文件的父依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.jtj.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在parent的pom中也添加这两模块</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><br><span class="hljs-tag">&lt;<span class="hljs-name">modules</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- template --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>base-reactive<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">module</span>&gt;</span>base-servlet<span class="hljs-tag">&lt;/<span class="hljs-name">module</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">modules</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>最终的项目结构是这样的，会在后续的文章里不断添加模块</p>
+<p><img data-src="https://raw.githubusercontent.com/jiangtj/picgo-repo/master/img-a20230321175410.png"></p>
+<h1 id="尾" class="article-heading"><a href="#尾" class="headerlink" title="尾"></a>尾<a class="article-anchor" href="#尾" aria-hidden="true"></a></h1><p>事实上这个项目我已经写了一部分了，并开源在GitHub上，期待你们的星星</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jiangtj/spring-cloud-examples">https://github.com/jiangtj/spring-cloud-examples</a></p>
+      
+    </div>
+
+    
+    
+
+    
+
+    
+  </div>
+</article>
   
   
 
@@ -761,96 +871,6 @@
     阅读全文 &raquo;
   </a>
 </div>
-      
-    </div>
-
-    
-    
-
-    
-
-    
-  </div>
-</article>
-  
-  
-
-<article class="post post-type-normal">
-  <div class="card post-block">
-
-    
-
-    <header class="post-header">
-
-      
-      <h1 class="post-title">
-        
-        <a href="/articles/cherry/flutter-install/">Flutter 环境搭建注意事项</a>
-        
-      </h1>
-      
-
-      <div class="post-meta">
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">发表于</span>
-    <time title="创建时间：2020-08-28 16:21:58">2020-08-28</time>
-  </span>
-  
-
-  
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">分类于</span>
-    <span><a href="/categories/%E5%89%8D%E7%AB%AF/" rel="index"><span>前端</span></a></span>  </span>
-  
-
-  
-  
-  <div class="post-description">Flutter 是谷歌推出的，用于构建跨平台原生应用</div>
-  
-
-</div>
-
-    </header>
-
-    <div class="post-body">
-      
-      <p>国内无法访问谷歌的服务，所以参考这篇 <a target="_blank" rel="noopener" href="https://flutter.dev/community/china">Using Flutter in China</a> 官方的文档，进行配置</p>
-<p>Flutter的中文社区为： <a target="_blank" rel="noopener" href="https://flutter.cn/">https://flutter.cn</a></p>
-<h1 id="SDK下载" class="article-heading"><a href="#SDK下载" class="headerlink" title="SDK下载"></a>SDK下载<a class="article-anchor" href="#SDK下载" aria-hidden="true"></a></h1><p>使用 <a target="_blank" rel="noopener" href="https://storage.flutter-io.cn/">https://storage.flutter-io.cn/</a> 代替 <a target="_blank" rel="noopener" href="https://storage.googleapis.com/">https://storage.googleapis.com/</a> ,下载对应的SDK，例如</p>
-<ul>
-<li><p>Original URL: <a target="_blank" rel="noopener" href="https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip">https://storage.googleapis.com/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip</a></p>
-</li>
-<li><p>Mirrored URL: <a target="_blank" rel="noopener" href="https://storage.flutter-io.cn/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip">https://storage.flutter-io.cn/flutter_infra/releases/stable/windows/flutter_windows_v1.0.0-stable.zip</a></p>
-</li>
-</ul>
-<p>或者使用迅雷下载，迅雷P2P加速可以绕过(<a target="_blank" rel="noopener" href="http://down.sandai.net/thunder11/XunLeiSetup11.0.2.52Preview.exe">迅雷11内测版下载</a>)</p>
-<h1 id="Android-Studio" class="article-heading"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio<a class="article-anchor" href="#Android-Studio" aria-hidden="true"></a></h1><p>Jetbrains 的<a target="_blank" rel="noopener" href="https://www.jetbrains.com/toolbox-app/">下载工具</a>已经支持下载 Android Studio, 可以通过它下载</p>
-<p>Android SDK 现在似乎不被屏蔽了。。。</p>
-<h1 id="使用镜像" class="article-heading"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像<a class="article-anchor" href="#使用镜像" aria-hidden="true"></a></h1><p>Flutter 依赖于 Dart 的依赖环境，在国内需要通过镜像访问。所以在在运行Fltter命令之前，需要设置两个环境变量：<code>PUB_HOSTORD_URL</code>和<code>FALTER_STORKER_BASE_URL</code>。</p>
-<p>MacOS&#x2F;Linux 用户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> PUB_HOSTED_URL=https://pub.flutter-io.cn<br><span class="hljs-built_in">export</span> FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn<br></code></pre></td></tr></table></figure>
-
-<p>Windows 用户</p>
-<p>在 <code>电脑 -&gt; 属性 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量</code> 中修改</p>
-<h1 id="下载-Gradle" class="article-heading"><a href="#下载-Gradle" class="headerlink" title="下载 Gradle"></a>下载 Gradle<a class="article-anchor" href="#下载-Gradle" aria-hidden="true"></a></h1><p>Gradle 没被墙，但是下载很慢，如果不手动下载，可能长时间卡在这一步</p>
-<p>当你创建一个新项目时，会生成一些文件，其中有个<code>$&#123;project&#125;/android/gradle/wrapper/gradle-wrapper.properties</code></p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment">#Fri Jun 23 08:50:38 CEST 2017</span><br><span class="hljs-attr">distributionBase</span>=<span class="hljs-string">GRADLE_USER_HOME</span><br><span class="hljs-attr">distributionPath</span>=<span class="hljs-string">wrapper/dists</span><br><span class="hljs-attr">zipStoreBase</span>=<span class="hljs-string">GRADLE_USER_HOME</span><br><span class="hljs-attr">zipStorePath</span>=<span class="hljs-string">wrapper/dists</span><br><span class="hljs-attr">distributionUrl</span>=<span class="hljs-string">https\://services.gradle.org/distributions/gradle-5.6.2-all.zip</span><br></code></pre></td></tr></table></figure>
-
-<p>这个文件描述了 Gradle 下载的位置，以及它的分发地址(我这需要下载bin归档，不知道是我环境问题还是什么，即<a target="_blank" rel="noopener" href="https://services.gradle.org/distributions/gradle-5.6.2-bin.zip">https://services.gradle.org/distributions/gradle-5.6.2-bin.zip</a>)</p>
-<p>存放的位置很奇怪，是<code>$&#123;GRADLE_USER_HOME&#125;/wrapper/dists/gradle-S&#123;version&#125;-all/$&#123;sha&#125;/</code>，比较简单的方法是先运行下，再去找这个目录，把已经下好的 gradle 归档文件直接丢进去，不需要减压或重命名</p>
-<p>暂时就这些，如果还有以后补充</p>
       
     </div>
 
