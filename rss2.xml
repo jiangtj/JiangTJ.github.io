@@ -18,13 +18,16 @@
       <guid>https://jiangtj.com/articles/durian/cloud-0/</guid>
       <pubDate>Tue, 21 Mar 2023 06:32:15 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;开场白&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#开场白&quot; class=&quot;headerlink&quot; title=&quot;开场白&quot;&gt;&lt;/a&gt;开场白&lt;a class=&quot;article-anchor&quot; href=&quot;#开场白&quot;</description>
-          
-        
+      <description>&lt;h1 id=&quot;开场白&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#开场白&quot; class=&quot;headerlink&quot; title=&quot;开场白&quot;&gt;&lt;/a&gt;开场白&lt;a class=&quot;article-anchor&quot; href=&quot;#开场白&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;学技术的我相信绝大部分都是理科生，和一样，写博客会很为难，不知道怎么开场，但救星来了，那就是ChatGPT，当然，我这里不是（需要填手机号，然后提示不提供服务，哎），是new bing生成的，让我们欣赏下AI吧&lt;/p&gt;
+&lt;p&gt;你好，欢迎来到我的博客。今天我想和大家聊一聊spring cloud，这是一个基于spring boot的微服务框架，它提供了一系列的组件和工具，让我们可以快速地开发和部署分布式系统。&lt;/p&gt;
+&lt;p&gt;什么是微服务呢？简单地说，就是把一个大型的单体应用拆分成多个小的、独立的、可复用的服务，每个服务负责一个特定的功能或业务领域，它们之间通过轻量级的通信协议进行交互。这样做有什么好处呢？主要有以下几点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可扩展性：当某个服务需要扩容或缩容时，我们只需要对该服务进行操作，而不影响其他服务。&lt;/li&gt;
+&lt;li&gt;灵活性：当某个服务需要更新或替换时，我们只需要对该服务进行操作，而不影响其他服务。&lt;/li&gt;
+&lt;li&gt;容错性：当某个服务出现故障时，我们可以快速地恢复或切换到备用方案，而不影响其他服务。&lt;/li&gt;
+&lt;li&gt;解耦性：每个服务都有自己的数据存储和业务逻辑，它们之间通过定义好的接口进行交互，这样可以降低耦合度和依赖性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当然，微服务也有一些挑战和问题，比如：&lt;/p&gt;</description>
       
       
       
