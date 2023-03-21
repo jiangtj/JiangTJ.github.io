@@ -10,17 +10,18 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="谷歌Chrome安全产品经理艾米丽·谢克特（Emily Schechter）发表博文，证实当该公司在7月发布Chrome 68浏览器时，该浏览器将把所有未采用HTTPS（安全套接字层超文本传输协议）加密的网站都标记为“不安全”网站。     Chrome作为浏览器界的巨头，做出如此的决定，将极大的推进HTTPS的进程，我们自然也应该跟进，一同建立更安全的网络环境。但一般证书都是较为昂贵的，因此互联">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="Nacos 是什么？Nacos 是一个易用的动态服务发现、配置和服务管理平台，可以帮助你在云原生时代，轻松构建、交付、管理自己的微服务平台，快速复用和组合业务服务，快速交付商业创新的价值。 Nacos 是阿里巴巴开源的一个项目，它的名字来源于Na ming and Co nfiguration S ervice。nacos提供了以下几个核心功能： Nacos 提供了以下主要功能：  动态服务发现：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Certbot 为你的HTTP服务加一层SSL协议">
-<meta property="og:url" content="https://jiangtj.com/articles/almond/lets-encrypt-certbot/index.html">
+<meta property="og:title" content="Spring Cloud 平台搭建(一)：服务注册与配置中心Nacos">
+<meta property="og:url" content="https://jiangtj.com/articles/durian/cloud-1/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="谷歌Chrome安全产品经理艾米丽·谢克特（Emily Schechter）发表博文，证实当该公司在7月发布Chrome 68浏览器时，该浏览器将把所有未采用HTTPS（安全套接字层超文本传输协议）加密的网站都标记为“不安全”网站。     Chrome作为浏览器界的巨头，做出如此的决定，将极大的推进HTTPS的进程，我们自然也应该跟进，一同建立更安全的网络环境。但一般证书都是较为昂贵的，因此互联">
+<meta property="og:description" content="Nacos 是什么？Nacos 是一个易用的动态服务发现、配置和服务管理平台，可以帮助你在云原生时代，轻松构建、交付、管理自己的微服务平台，快速复用和组合业务服务，快速交付商业创新的价值。 Nacos 是阿里巴巴开源的一个项目，它的名字来源于Na ming and Co nfiguration S ervice。nacos提供了以下几个核心功能： Nacos 提供了以下主要功能：  动态服务发现：">
 <meta property="og:locale">
-<meta property="article:published_time" content="2018-04-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2018-04-26T16:00:00.000Z">
+<meta property="article:published_time" content="2023-03-21T13:35:15.000Z">
+<meta property="article:modified_time" content="2023-03-21T13:35:15.000Z">
 <meta property="article:author" content="Mr.J">
-<meta name="twitter:card" content="summary">  <title>Certbot 为你的HTTP服务加一层SSL协议 | Dnocm ☀</title>    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/almond/lets-encrypt-certbot/"},"headline":"Certbot 为你的HTTP服务加一层SSL协议","image":[],"datePublished":"2018-04-26T16:00:00.000Z","dateModified":"2018-04-26T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta property="article:tag" content="Spring Cloud 平台搭建">
+<meta name="twitter:card" content="summary">  <title>Spring Cloud 平台搭建(一)：服务注册与配置中心Nacos | Dnocm ☀</title>    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/durian/cloud-1/"},"headline":"Spring Cloud 平台搭建(一)：服务注册与配置中心Nacos","image":[],"datePublished":"2023-03-21T13:35:15.000Z","dateModified":"2023-03-21T13:35:15.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
 
@@ -103,7 +104,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS"><span class="nav-number">1.1.</span> <span class="nav-text">HTTPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let%E2%80%99s-Encrypt"><span class="nav-number">1.2.</span> <span class="nav-text">Let’s Encrypt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Certbot"><span class="nav-number">1.3.</span> <span class="nav-text">Certbot</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B"><span class="nav-number">2.2.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx%E4%BB%A3%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">Nginx代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E8%8E%B7%E5%8F%96%E8%AF%81%E4%B9%A6"><span class="nav-number">2.4.</span> <span class="nav-text">重新获取证书</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%A1%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">校验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E7%BB%86%E8%8A%82"><span class="nav-number">4.</span> <span class="nav-text">更多细节</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nacos-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">Nacos 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-Nacos%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用 Nacos？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%90%A7"><span class="nav-number">3.</span> <span class="nav-text">快速上手吧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E4%B8%8A%E6%80%8E%E4%B9%88%E9%83%A8%E7%BD%B2%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">线上怎么部署？</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -172,7 +173,7 @@
       
       <h1 class="post-title">
         
-        Certbot 为你的HTTP服务加一层SSL协议
+        Spring Cloud 平台搭建(一)：服务注册与配置中心Nacos
         
       </h1>
       
@@ -186,7 +187,7 @@
       <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
     </span>
     <span class="post-meta-item-text">发表于</span>
-    <time title="创建时间：2018-04-27 00:00:00">2018-04-27</time>
+    <time title="创建时间：2023-03-21 21:35:15">2023-03-21</time>
   </span>
   
 
@@ -199,7 +200,7 @@
       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
     </span>
     <span class="post-meta-item-text">分类于</span>
-    <span><a href="/categories/%E8%BF%90%E7%BB%B4/" rel="index"><span>运维</span></a></span>  </span>
+    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
   
 
   
@@ -211,29 +212,50 @@
 
     <div class="post-body">
       
-      <p>谷歌Chrome安全产品经理艾米丽·谢克特（Emily Schechter）发表博文，证实当该公司在7月发布Chrome 68浏览器时，该浏览器将把所有未采用HTTPS（安全套接字层超文本传输协议）加密的网站都标记为“不安全”网站。    </p>
-<p>Chrome作为浏览器界的巨头，做出如此的决定，将极大的推进HTTPS的进程，我们自然也应该跟进，一同建立更安全的网络环境。但一般证书都是较为昂贵的，因此互联网安全研究小组Internet Security Research Group(ISRG)以及Linux基金会等，提供了公益的项目，用于加速HTTPS的发展    </p>
-<span id="more"></span>
+      <h1 id="Nacos-是什么？" class="article-heading"><a href="#Nacos-是什么？" class="headerlink" title="Nacos 是什么？"></a>Nacos 是什么？<a class="article-anchor" href="#Nacos-是什么？" aria-hidden="true"></a></h1><p>Nacos 是一个易用的动态服务发现、配置和服务管理平台，可以帮助你在云原生时代，轻松构建、交付、管理自己的微服务平台，快速复用和组合业务服务，快速交付商业创新的价值。</p>
+<p>Nacos 是阿里巴巴开源的一个项目，它的名字来源于Na ming and Co nfiguration S ervice。nacos提供了以下几个核心功能：</p>
+<p>Nacos 提供了以下主要功能：</p>
+<ul>
+<li><strong>动态服务发现</strong>：Nacos 可以让你注册和发现各种类型的微服务，包括 HTTP、RPC 和 WebSocket 等，并提供负载均衡、流量控制和故障转移等能力。</li>
+<li><strong>动态配置管理</strong>：Nacos 可以让你集中管理应用的配置信息，并支持配置变更推送、版本控制和灰度发布等功能。</li>
+<li><strong>动态 DNS 服务</strong>：Nacos 可以让你基于权重路由请求到不同的后端集群，并支持域名解析、健康检查和故障隔离等功能。</li>
+<li><strong>服务及其元数据管理</strong>：Nacos 可以让你存储和查询微服务及其元数据信息，并支持元数据驱动的开发模式。</li>
+</ul>
+<h1 id="为什么要使用-Nacos？" class="article-heading"><a href="#为什么要使用-Nacos？" class="headerlink" title="为什么要使用 Nacos？"></a>为什么要使用 Nacos？<a class="article-anchor" href="#为什么要使用-Nacos？" aria-hidden="true"></a></h1><p>在微服务架构中，我们需要解决以下几个问题：</p>
+<ul>
+<li>如何发现和调用其他微服务？</li>
+<li>如何管理微服务之间的依赖关系？</li>
+<li>如何动态调整微服务的配置？</li>
+<li>如何保证微服务之间的高可用性和弹性？</li>
+<li>如何实现微服务之间的分布式事务？</li>
+</ul>
+<p>这些问题都需要一个强大而灵活的中间件来支撑。而 Nacos 正是这样一个中间件，它可以为我们提供一站式的解决方案。</p>
+<h1 id="快速上手吧" class="article-heading"><a href="#快速上手吧" class="headerlink" title="快速上手吧"></a>快速上手吧<a class="article-anchor" href="#快速上手吧" aria-hidden="true"></a></h1><p>Nacos 官方提供了许多的部署方式，他们在 <code>nacos-group</code> 组织里，比如 <code>nacos-docker</code> 提供在 docker 运行 Nacos，提供了很多个 docker compose 编排脚本，还有 <code>nacos-k8s</code> 提供了些 k8s 下的脚本</p>
+<p>不过，开发环境下，我们只要能快速运行起来就好，运行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run --name nacos-quick -e MODE=standalone -p 8848:8848 -p 9848:9848 -d nacos/nacos-server:v2.2.0<br></code></pre></td></tr></table></figure>
 
-<h1 id="概念" class="article-heading"><a href="#概念" class="headerlink" title="概念"></a>概念<a class="article-anchor" href="#概念" aria-hidden="true"></a></h1><h2 id="HTTPS" class="article-heading"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS<a class="article-anchor" href="#HTTPS" aria-hidden="true"></a></h2><p>HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。 它是一个URI scheme（抽象标识符体系），句法类同http:体系。用于安全的HTTP数据传输。https:URL表明它使用了HTTP，但HTTPS存在不同于HTTP的默认端口及一个加密&#x2F;身份验证层（在HTTP与TCP之间）。</p>
-<h2 id="Let’s-Encrypt" class="article-heading"><a href="#Let’s-Encrypt" class="headerlink" title="Let’s Encrypt"></a>Let’s Encrypt<a class="article-anchor" href="#Let’s-Encrypt" aria-hidden="true"></a></h2><p>Let’s Encrypt是一个公益的，免费的，自动化的和开源的证书颁发机构(CA)。是由互联网安全研究小组(ISRG)提供的服务。</p>
-<h2 id="Certbot" class="article-heading"><a href="#Certbot" class="headerlink" title="Certbot"></a>Certbot<a class="article-anchor" href="#Certbot" aria-hidden="true"></a></h2><p>Certbot是一个简单易用的工具，它能为您的Web服务器获取和部署SSL&#x2F;TLS证书。Certbot是EFF和其他公司为Let’s Encrypt提供的客户端。在之前，它被称为“官方的Let’s Encrypt客户端”或“Let’s Encrypt 的Python客户端”。Certbot同样支持其他的支持ACME协议的证书颁发机构。</p>
-<h1 id="配置" class="article-heading"><a href="#配置" class="headerlink" title="配置"></a>配置<a class="article-anchor" href="#配置" aria-hidden="true"></a></h1><h2 id="安装" class="article-heading"><a href="#安装" class="headerlink" title="安装"></a>安装<a class="article-anchor" href="#安装" aria-hidden="true"></a></h2><p>可以在官网<a target="_blank" rel="noopener" href="https://certbot.eff.org/">https://certbot.eff.org/</a>上获取其安装文档，由于我服务端是Ubuntu16.04，同时以安装Nginx，所以选择了与此相应的安装文档。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo apt-get update<br>$ sudo apt-get install software-properties-common<br>$ sudo add-apt-repository ppa:certbot/certbot<br>$ sudo apt-get update<br>$ sudo apt-get install python-certbot-nginx <br></code></pre></td></tr></table></figure>
-<p>Ubuntu上一般通过apt-get包管理工具安装。</p>
-<h2 id="开始" class="article-heading"><a href="#开始" class="headerlink" title="开始"></a>开始<a class="article-anchor" href="#开始" aria-hidden="true"></a></h2><p>Certbot 有支持多环境的Nginx插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo certbot --nginx<br></code></pre></td></tr></table></figure>
-<p>接下来是一些列问答式的配置，安装要求，或者自己的需求填写好<br>之后，我们可以发现网站已经可以通过https访问了</p>
-<h2 id="Nginx代理" class="article-heading"><a href="#Nginx代理" class="headerlink" title="Nginx代理"></a>Nginx代理<a class="article-anchor" href="#Nginx代理" aria-hidden="true"></a></h2><p>Certbot 的Nginx配置在<code>/etc/nginx/sites-enabled/default</code>中，我们可以找到配置的网站</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">server &#123;<br>    root /var/www/html;<br>    index index.html index.htm index.nginx-debian.html;<br>    server_name x.j-time.cn; # managed by Certbot<br><br>                <br>    location / &#123;<br>        # First attempt to serve request as file, then<br>        # as directory, then fall back to displaying a 404.<br>        try_files $uri $uri/ =404;<br>    &#125;<br><br>    location /bill-server/ &#123;<br>         proxy_pass  http://localhost:8689/;<br>    &#125;<br><br>    ## ...<br><br>&#125;<br></code></pre></td></tr></table></figure>
-<p>在这之中，我可以实现我们自己的代理，例如简单的转发到本地一个服务上</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo service nginx restart<br></code></pre></td></tr></table></figure>
-<p>重新Nginx服务</p>
-<h2 id="重新获取证书" class="article-heading"><a href="#重新获取证书" class="headerlink" title="重新获取证书"></a>重新获取证书<a class="article-anchor" href="#重新获取证书" aria-hidden="true"></a></h2><p>证书都是有有效期的，我们需要在有效期内重新获取更新证书，Let’s Encrypt的证书有效期为3个月。所以我们需要通过Certbot工具自动的更新证书</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo certbot renew --dry-run<br></code></pre></td></tr></table></figure>
+<p>修改版本号到最新版本，这样服务就运行在了<code>8848</code>端口上(<code>9848</code>是节点间通讯的端口，用于集群)，打开 localhost:8848&#x2F;nacos，输入默认的用户名密码nacos，就可以看到管理界面了</p>
+<p>图todo</p>
+<p>接下来，在<a href="https://jiangtj.com/articles/durian/cloud-0/#%E5%9F%BA%E7%A1%80%E4%B8%9A%E5%8A%A1%E6%A8%A1%E5%9D%97">两个基础业务模块</a>中添加服务注册需要的依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h1 id="校验" class="article-heading"><a href="#校验" class="headerlink" title="校验"></a>校验<a class="article-anchor" href="#校验" aria-hidden="true"></a></h1><p>打开配置好的地址<a target="_blank" rel="noopener" href="https://x.j-time.cn/">https://x.j-time.cn/</a>，能正常的通过https访问了，同时谷歌、火狐等浏览器，也将此站点标记为了安全站点</p>
-<h1 id="更多细节" class="article-heading"><a href="#更多细节" class="headerlink" title="更多细节"></a>更多细节<a class="article-anchor" href="#更多细节" aria-hidden="true"></a></h1><p><a target="_blank" rel="noopener" href="https://certbot.eff.org/docs/index.html">Certbot Documentation</a></p>
+<p>在Applications中添加注解启用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-meta">@EnableDiscoveryClient</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BaseServletApplication</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(BaseServletApplication.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>除此之外，你还需要更改配置文件，配置 Nacos 配置中心地址以及以 Nacos 协议导入配置</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">spring.cloud.nacos.config.server-addr</span>=<span class="hljs-string">127.0.0.1:8848</span><br><span class="hljs-attr">spring.config.import</span>=<span class="hljs-string">nacos:auth.properties</span><br><span class="hljs-comment"># 如果你希望支持动态刷新的话，添加?refresh=true</span><br><span class="hljs-comment"># spring.config.import=nacos:auth.properties?refresh=true</span><br></code></pre></td></tr></table></figure>
+
+<p>在 Nacos 管理平台上添加 <code>auth.properties</code> 这是后面鉴权时会用到的，这里暂时只是介绍怎么用 Nacos 配置中心</p>
+<p>图todo</p>
+<p>如果你需要引入多个配置文件，只需要填写多个import，用逗号隔开即可</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">spring.cloud.nacos.config.server-addr</span>=<span class="hljs-string">127.0.0.1:8848</span><br><span class="hljs-attr">spring.config.import</span>=<span class="hljs-string">nacos:auth.properties,nacos:base-servlet.properties</span><br></code></pre></td></tr></table></figure>
+
+<p>运行两个服务后（修改为不同端口，我是17000与17001），我们可以观察到，他们在服务注册中心注册了</p>
+<p>图todo</p>
+<h1 id="线上怎么部署？" class="article-heading"><a href="#线上怎么部署？" class="headerlink" title="线上怎么部署？"></a>线上怎么部署？<a class="article-anchor" href="#线上怎么部署？" aria-hidden="true"></a></h1><p>线上部署与开发其实差不多，不过多指定一个数据库即可，下面是官方的mysql8单机的例子，已经很完善了，不需要修改，数据库挂载卷也都是配好的。另外 Nacos 是支持环境变量配置的，如果你是外部数据库，可以配置 <code>MYSQL_SERVICE_HOST</code> 等变量就好了</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">version:</span> <span class="hljs-string">&quot;3.8&quot;</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">nacos:</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">nacos/nacos-server:$&#123;NACOS_VERSION&#125;</span><br>    <span class="hljs-attr">container_name:</span> <span class="hljs-string">nacos-standalone-mysql</span><br>    <span class="hljs-attr">env_file:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">../env/nacos-standlone-mysql.env</span><br>    <span class="hljs-attr">volumes:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">./standalone-logs/:/home/nacos/logs</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8848:8848&quot;</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;9848:9848&quot;</span><br>    <span class="hljs-attr">depends_on:</span><br>      <span class="hljs-attr">mysql:</span><br>        <span class="hljs-attr">condition:</span> <span class="hljs-string">service_healthy</span><br>    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span><br>  <span class="hljs-attr">mysql:</span><br>    <span class="hljs-attr">container_name:</span> <span class="hljs-string">mysql</span><br>    <span class="hljs-attr">build:</span><br>      <span class="hljs-attr">context:</span> <span class="hljs-string">.</span><br>      <span class="hljs-attr">dockerfile:</span> <span class="hljs-string">./image/mysql/8/Dockerfile</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">example/mysql:8.0.30</span><br>    <span class="hljs-attr">env_file:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">../env/mysql.env</span><br>    <span class="hljs-attr">volumes:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">./mysql:/var/lib/mysql</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;3306:3306&quot;</span><br>    <span class="hljs-attr">healthcheck:</span><br>      <span class="hljs-attr">test:</span> [ <span class="hljs-string">&quot;CMD&quot;</span>, <span class="hljs-string">&quot;mysqladmin&quot;</span> ,<span class="hljs-string">&quot;ping&quot;</span>, <span class="hljs-string">&quot;-h&quot;</span>, <span class="hljs-string">&quot;localhost&quot;</span> ]<br>      <span class="hljs-attr">interval:</span> <span class="hljs-string">5s</span><br>      <span class="hljs-attr">timeout:</span> <span class="hljs-string">10s</span><br>      <span class="hljs-attr">retries:</span> <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<p>我这边推荐的是单例部署，毕竟这只是服务注册与配置中心，没有太多的并发请求，如果单例无法满足，那么你们的体量应当上 k8s，而 spring cloud 也有针对 k8s 的依赖，可以使用 k8s 的服务注册发现与配置功能。k8s可能是更好的选择，但我不使用的原因是，对于开发人员来说 nacos 更熟悉与易上手，而能看到这篇教程的人，我相信你也思考如何搭建微服务平台，那么在你面前有两条路，要么一步到位 k8s，要就是逐步进化，因为在早期，nacos 已经足够满足了，而即便到了后，也只需替换部分依赖与修改部分公用组件而已</p>
       
     </div>
 
@@ -253,7 +275,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://jiangtj.com/articles/almond/lets-encrypt-certbot/">https://jiangtj.com/articles/almond/lets-encrypt-certbot/</a>
+      <a href="https://jiangtj.com/articles/durian/cloud-1/">https://jiangtj.com/articles/durian/cloud-1/</a>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
       本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="creative-commons" class="svg-inline--fa fa-creative-commons icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M245.83 214.87l-33.22 17.28c-9.43-19.58-25.24-19.93-27.46-19.93-22.13 0-33.22 14.61-33.22 43.84 0 23.57 9.21 43.84 33.22 43.84 14.47 0 24.65-7.09 30.57-21.26l30.55 15.5c-6.17 11.51-25.69 38.98-65.1 38.98-22.6 0-73.96-10.32-73.96-77.05 0-58.69 43-77.06 72.63-77.06 30.72-.01 52.7 11.95 65.99 35.86zm143.05 0l-32.78 17.28c-9.5-19.77-25.72-19.93-27.9-19.93-22.14 0-33.22 14.61-33.22 43.84 0 23.55 9.23 43.84 33.22 43.84 14.45 0 24.65-7.09 30.54-21.26l31 15.5c-2.1 3.75-21.39 38.98-65.09 38.98-22.69 0-73.96-9.87-73.96-77.05 0-58.67 42.97-77.06 72.63-77.06 30.71-.01 52.58 11.95 65.56 35.86zM247.56 8.05C104.74 8.05 0 123.11 0 256.05c0 138.49 113.6 248 247.56 248 129.93 0 248.44-100.87 248.44-248 0-137.87-106.62-248-248.44-248zm.87 450.81c-112.54 0-203.7-93.04-203.7-202.81 0-105.42 85.43-203.27 203.72-203.27 112.53 0 202.82 89.46 202.82 203.26-.01 121.69-99.68 202.82-202.84 202.82z"></path></svg>BY-NC-SA</a> 许可协议。转载请注明出处！    </li>
@@ -262,6 +284,12 @@
 
 
     
+<div class="post-tags">
+  
+  <a href="/tags/Spring-Cloud-%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/" rel="tag"># Spring Cloud 平台搭建</a>
+  
+</div>
+
 
     
     <div class="reward-container"><div>Buy me a cup of milkshake 🍨.</div><div class="reward-box"><div class="reward-box-card wechat">
@@ -293,15 +321,11 @@
       
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/articles/almond/spring-boot-autodeploy-with-gitlab/" rel="prev" title="Spring Boot使用GitLab CI自动部署">
+    <a href="/articles/durian/cloud-0/" rel="prev" title="Spring Cloud 平台搭建(序)：聊一聊与做些准备">
       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg>
-      Spring Boot使用GitLa...
+      Spring Cloud 平台搭建(...
     </a></div>
-      <div class="post-nav-item">
-    <a href="/articles/almond/git-flow/" rel="next" title="Git工作流">
-      Git工作流
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>    </footer>
     
   </div>
@@ -317,8 +341,8 @@
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function () {
-this.page.url = 'https://jiangtj.com/articles/almond/lets-encrypt-certbot/';;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'articles/almond/lets-encrypt-certbot/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.url = 'https://jiangtj.com/articles/durian/cloud-1/';;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'articles/durian/cloud-1/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
