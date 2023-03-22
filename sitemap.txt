@@ -18,9 +18,9 @@ https://jiangtj.com/articles/cherry/flutter-install/
 https://jiangtj.com/articles/cherry/hexo-5/
 https://jiangtj.com/articles/cherry/gradle-start/
 https://jiangtj.com/cake/index.html
+https://jiangtj.com/categories/index.html
 https://jiangtj.com/more/index.html
 https://jiangtj.com/tags/index.html
-https://jiangtj.com/categories/index.html
 https://jiangtj.com/cake/options/index.html
 https://jiangtj.com/cake/plugins/index.html
 https://jiangtj.com/en/cake/index.html
