@@ -18,14 +18,18 @@
       <guid>https://jiangtj.com/articles/durian/cloud-2/</guid>
       <pubDate>Wed, 22 Mar 2023 02:59:02 GMT</pubDate>
       
-        
-        
-          
-          
       <description>&lt;p&gt;兄弟们，上强度啦，你们觉得微服务搭建过程什么最重要？说实话，我也不清楚，但是我知道，规范一定是最重要的那部分之一&lt;/p&gt;
-&lt;h1 id=&quot;RFC-7807-定义&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#RFC-7807-定义&quot;</description>
-          
-        
+&lt;h1 id=&quot;RFC-7807-定义&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#RFC-7807-定义&quot; class=&quot;headerlink&quot; title=&quot;RFC 7807 定义&quot;&gt;&lt;/a&gt;RFC 7807 定义&lt;a class=&quot;article-anchor&quot; href=&quot;#RFC-7807-定义&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;微服务规范最重要的就是服务间的调用，目前来说绝大多数都是restful接口，请求成功直接会返回业务数据，失败的话，一般都是抛出运行时异常，并统一捕获转化为对应的http状态码以及描述错误Json内容，这部分一般都是自定义的，但最近我看到了Spring最新官方文档其中Error Responses部分&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&quot;https://raw.githubusercontent.com/jiangtj/picgo-repo/master/img-a20230323142900.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;是的，错误部分也有了一个规范，它包含五个部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;type: 问题描述文档地址，如果不存在，则”about:blank”&lt;/li&gt;
+&lt;li&gt;title: 简短的描述问题&lt;/li&gt;
+&lt;li&gt;status: http 状态码，比如400、401、500等&lt;/li&gt;
+&lt;li&gt;detail: 详细说明发生问题的原因&lt;/li&gt;
+&lt;li&gt;instance: 问题发生的URL地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个和我原本自定义的错误内容差不多，所以，在这次搭建过程中，就使用了规范的定义，接下来就介绍我的开源项目&lt;a href=&quot;https://github.com/jiangtj/spring-cloud-examples&quot;&gt;Spring Cloud Examples&lt;/a&gt;中&lt;code&gt;micro-common&lt;/code&gt;模块&lt;/p&gt;</description>
       
       
       
@@ -46,13 +50,24 @@
       <guid>https://jiangtj.com/articles/durian/cloud-1/</guid>
       <pubDate>Tue, 21 Mar 2023 13:35:15 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;Nacos-是什么？&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#Nacos-是什么？&quot; class=&quot;headerlink&quot; title=&quot;Nacos 是什么？&quot;&gt;&lt;/a&gt;Nacos 是什么？&lt;a</description>
-          
-        
+      <description>&lt;h1 id=&quot;Nacos-是什么？&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#Nacos-是什么？&quot; class=&quot;headerlink&quot; title=&quot;Nacos 是什么？&quot;&gt;&lt;/a&gt;Nacos 是什么？&lt;a class=&quot;article-anchor&quot; href=&quot;#Nacos-是什么？&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Nacos 是一个易用的动态服务发现、配置和服务管理平台，可以帮助你在云原生时代，轻松构建、交付、管理自己的微服务平台，快速复用和组合业务服务，快速交付商业创新的价值。&lt;/p&gt;
+&lt;p&gt;Nacos 是阿里巴巴开源的一个项目，它的名字来源于Na ming and Co nfiguration S ervice。nacos提供了以下几个核心功能：&lt;/p&gt;
+&lt;p&gt;Nacos 提供了以下主要功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动态服务发现&lt;/strong&gt;：Nacos 可以让你注册和发现各种类型的微服务，包括 HTTP、RPC 和 WebSocket 等，并提供负载均衡、流量控制和故障转移等能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态配置管理&lt;/strong&gt;：Nacos 可以让你集中管理应用的配置信息，并支持配置变更推送、版本控制和灰度发布等功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态 DNS 服务&lt;/strong&gt;：Nacos 可以让你基于权重路由请求到不同的后端集群，并支持域名解析、健康检查和故障隔离等功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;服务及其元数据管理&lt;/strong&gt;：Nacos 可以让你存储和查询微服务及其元数据信息，并支持元数据驱动的开发模式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;为什么要使用-Nacos？&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#为什么要使用-Nacos？&quot; class=&quot;headerlink&quot; title=&quot;为什么要使用 Nacos？&quot;&gt;&lt;/a&gt;为什么要使用 Nacos？&lt;a class=&quot;article-anchor&quot; href=&quot;#为什么要使用-Nacos？&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;在微服务架构中，我们需要解决以下几个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何发现和调用其他微服务？&lt;/li&gt;
+&lt;li&gt;如何管理微服务之间的依赖关系？&lt;/li&gt;
+&lt;li&gt;如何动态调整微服务的配置？&lt;/li&gt;
+&lt;li&gt;如何保证微服务之间的高可用性和弹性？&lt;/li&gt;
+&lt;li&gt;如何实现微服务之间的分布式事务？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些问题都需要一个强大而灵活的中间件来支撑。而 Nacos 正是这样一个中间件，它可以为我们提供一站式的解决方案。&lt;/p&gt;</description>
       
       
       
