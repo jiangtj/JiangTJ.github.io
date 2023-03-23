@@ -9,8 +9,36 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Tue, 21 Mar 2023 13:35:15 GMT</pubDate>
+    <pubDate>Wed, 22 Mar 2023 02:59:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Spring Cloud 平台搭建(二)：统一异常处理 RFC 7807</title>
+      <link>https://jiangtj.com/articles/durian/cloud-2/</link>
+      <guid>https://jiangtj.com/articles/durian/cloud-2/</guid>
+      <pubDate>Wed, 22 Mar 2023 02:59:02 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;兄弟们，上强度啦，你们觉得微服务搭建过程什么最重要？说实话，我也不清楚，但是我知道，规范一定是最重要的那部分之一&lt;/p&gt;
+&lt;h1 id=&quot;RFC-7807-定义&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#RFC-7807-定义&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Spring-Cloud-%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/">Spring Cloud 平台搭建</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/cloud-2/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Spring Cloud 平台搭建(一)：服务注册与配置中心Nacos</title>
@@ -451,31 +479,6 @@
       
       
       <comments>https://jiangtj.com/articles/cherry/github-packages-npm/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>JUnit 5 教程</title>
-      <link>https://jiangtj.com/articles/cherry/junit-5-info/</link>
-      <guid>https://jiangtj.com/articles/cherry/junit-5-info/</guid>
-      <pubDate>Wed, 15 Jan 2020 16:00:00 GMT</pubDate>
-      
-      <description>欢迎欣赏新的一年第一篇博文😁</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Test/">Test</category>
-      
-      <category domain="https://jiangtj.com/tags/Unit-Test/">Unit Test</category>
-      
-      <category domain="https://jiangtj.com/tags/JUnit/">JUnit</category>
-      
-      
-      <comments>https://jiangtj.com/articles/cherry/junit-5-info/#disqus_thread</comments>
       
     </item>
     
