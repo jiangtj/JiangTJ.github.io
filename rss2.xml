@@ -18,7 +18,10 @@
       <guid>https://jiangtj.com/articles/durian/clpud-3/</guid>
       <pubDate>Wed, 29 Mar 2023 16:00:00 GMT</pubDate>
       
-      <description>&lt;p&gt;Spring Cloud Tencent 与 Spring Cloud Alibaba 的差别如下&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;配套源码：&lt;a href=&quot;https://github.com/jiangtj/spring-cloud-examples&quot;&gt;spring-cloud-examples&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Spring Cloud Tencent 与 Spring Cloud Alibaba 的差别如下&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; 配置中心 支持配置属性更新回调&lt;/li&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&gt; 配置中心 支持 import，但仍必须配置bootsrap.yaml&lt;/li&gt;
