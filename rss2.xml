@@ -19,7 +19,7 @@
       <pubDate>Wed, 29 Mar 2023 16:00:00 GMT</pubDate>
       
       <description>&lt;blockquote&gt;
-&lt;p&gt;配套源码：&lt;a href=&quot;https://github.com/jiangtj/spring-cloud-examples&quot;&gt;spring-cloud-examples&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;配套源码：&lt;a href=&quot;https://github.com/jiangtj/jc-platform&quot;&gt;J Cloud Platform&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Spring Cloud Tencent 与 Spring Cloud Alibaba 的差别如下&lt;/p&gt;
 &lt;ul&gt;
@@ -84,7 +84,7 @@
 &lt;li&gt;detail: 详细说明发生问题的原因&lt;/li&gt;
 &lt;li&gt;instance: 问题发生的URL地址&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;这个和我原本自定义的错误内容差不多，所以，在这次搭建过程中，就使用了规范的定义，接下来就介绍我的开源项目&lt;a href=&quot;https://github.com/jiangtj/spring-cloud-examples&quot;&gt;Spring Cloud Examples&lt;/a&gt;中&lt;code&gt;micro-common&lt;/code&gt;模块&lt;/p&gt;</description>
+&lt;p&gt;这个和我原本自定义的错误内容差不多，所以，在这次搭建过程中，就使用了规范的定义，接下来就介绍我的开源项目&lt;a href=&quot;https://github.com/jiangtj/jc-platform&quot;&gt;J Cloud Platform&lt;/a&gt;中&lt;code&gt;micro-common&lt;/code&gt;模块&lt;/p&gt;</description>
       
       
       
