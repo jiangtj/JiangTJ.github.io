@@ -9,13 +9,39 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Wed, 29 Mar 2023 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 07 Apr 2023 06:21:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>Spring Cloud 平台搭建(四)：Spring Boot Admin</title>
+      <link>https://jiangtj.com/articles/durian/cloud-4/</link>
+      <guid>https://jiangtj.com/articles/durian/cloud-4/</guid>
+      <pubDate>Fri, 07 Apr 2023 06:21:38 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;p&gt;源码：&lt;a href=&quot;https://github.com/jiangtj/jc-platform&quot;&gt;J Cloud Platform&lt;/a&gt;，期待你们的star ٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Spring Boot Admin 是简单，同时功能也比较全面的监控服务，所以对于快速搭建微服务框架来说，是最佳的。比如 ELK Stack 能更好的处理日志，以及一些运行数据，但是，他需要配置，同时，对于少量的微服务显得笨重，而且后期加难度也不大。&lt;/p&gt;
+&lt;p&gt;老规矩，先让AI介绍下概念，这是换成了Notion AI，我也不知道为啥我bing用不了了。。。&lt;/p&gt;
+&lt;h1 id=&quot;概念&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;a class=&quot;article-anchor&quot; href=&quot;#概念&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Spring Boot Admin是一个开源的第三方监控工具，可以用于管理和监控Spring Boot应用程序。它提供了一个简单易用的Web用户界面，让开发者可以轻松地查看应用程序的运行状况、性能指标、日志信息等。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Spring-Cloud-%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/">Spring Cloud 平台搭建</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/cloud-4/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Spring Cloud 平台搭建(三)：更换 Spring Cloud Tencent</title>
-      <link>https://jiangtj.com/articles/durian/clpud-3/</link>
-      <guid>https://jiangtj.com/articles/durian/clpud-3/</guid>
+      <link>https://jiangtj.com/articles/durian/cloud-3/</link>
+      <guid>https://jiangtj.com/articles/durian/cloud-3/</guid>
       <pubDate>Wed, 29 Mar 2023 16:00:00 GMT</pubDate>
       
       <description>&lt;blockquote&gt;
@@ -40,7 +66,7 @@
       <category domain="https://jiangtj.com/tags/Spring-Cloud-%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/">Spring Cloud 平台搭建</category>
       
       
-      <comments>https://jiangtj.com/articles/durian/clpud-3/#disqus_thread</comments>
+      <comments>https://jiangtj.com/articles/durian/cloud-3/#disqus_thread</comments>
       
     </item>
     
@@ -484,25 +510,6 @@
       
       
       <comments>https://jiangtj.com/articles/cherry/dark-mode/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>JPromise:Java版的Promise</title>
-      <link>https://jiangtj.com/articles/cherry/JPromise/</link>
-      <guid>https://jiangtj.com/articles/cherry/JPromise/</guid>
-      <pubDate>Thu, 23 Apr 2020 08:49:07 GMT</pubDate>
-      
-      <description>有一个小轮子</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
-      
-      
-      
-      <comments>https://jiangtj.com/articles/cherry/JPromise/#disqus_thread</comments>
       
     </item>
     
