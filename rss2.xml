@@ -9,8 +9,34 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Fri, 07 Apr 2023 06:21:38 GMT</pubDate>
+    <pubDate>Tue, 11 Apr 2023 12:13:14 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Spring Boot 自定义 Endpoint</title>
+      <link>https://jiangtj.com/articles/durian/custom-endpoint/</link>
+      <guid>https://jiangtj.com/articles/durian/custom-endpoint/</guid>
+      <pubDate>Tue, 11 Apr 2023 12:13:14 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;介绍&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;a class=&quot;article-anchor&quot; href=&quot;#介绍&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;下面是AI的介绍，如果你很了解可以直接跳到第二部分&lt;/p&gt;
+&lt;p&gt;在 Spring Boot 中，Endpoint 是一种可以暴露应用程序内部信息的机制。Endpoint 可以提供应用程序的健康状况、内存使用情况、线程信息、日志等等信息。通过访问这些 Endpoint，我们可以更加方便地了解应用程序的运行情况，进行问题排查和监控。&lt;/p&gt;
+&lt;p&gt;Spring Boot 提供了一些内置的 Endpoint，比如 &amp;#x2F;health、&amp;#x2F;metrics 等等，同时也支持自定义 Endpoint。我们可以通过在应用程序中添加 Spring Boot Actuator 依赖来启用这些内置的 Endpoint，也可以通过编写自定义 Endpoint 来扩展应用程序的监控能力。&lt;/p&gt;
+&lt;p&gt;一般来说，Endpoint 都是通过 HTTP 协议暴露出来的，可以通过浏览器、curl 命令等方式进行访问。同时，Spring Boot 还支持将 Endpoint 信息输出到控制台、JMX 等地方，方便我们查看。&lt;/p&gt;
+&lt;p&gt;在访问 Endpoint 时，我们需要提供正确的访问路径和身份验证信息（如果启用了身份验证）。Spring Boot 提供了许多安全措施来保护 Endpoint 的访问，比如只允许特定 IP 地址访问、启用 HTTPS 等等。&lt;/p&gt;
+&lt;p&gt;总之，Endpoint 是 Spring Boot 中非常重要的一个功能，可以帮助我们更加方便地监控和管理应用程序。如果您还没有使用过 Endpoint，建议您尝试一下，相信会有不错的体验。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Spring/">Spring</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/custom-endpoint/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Spring Cloud 平台搭建(四)：Spring Boot Admin</title>
@@ -485,31 +511,6 @@
       
       
       <comments>https://jiangtj.com/articles/cherry/new-deploy/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>暗色模式上线啦！！</title>
-      <link>https://jiangtj.com/articles/cherry/dark-mode/</link>
-      <guid>https://jiangtj.com/articles/cherry/dark-mode/</guid>
-      <pubDate>Mon, 11 May 2020 07:36:12 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;馋好久了，最近总算是改完了&lt;/p&gt;
-&lt;p&gt;当切换系统的色彩方案（亮&amp;#x2F;暗）时，能自动切换到对应的模式&lt;/p&gt;
-&lt;p&gt;&lt;img</description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://jiangtj.com/articles/cherry/dark-mode/#disqus_thread</comments>
       
     </item>
     
