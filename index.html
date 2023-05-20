@@ -107,7 +107,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -125,7 +125,7 @@
     
     <div class="site-state-item site-state-tags">
       <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span>
       </a>
     </div>
@@ -147,6 +147,140 @@
         
         <div id="content" class="content">
           <section>
+  
+  
+
+<article class="post post-type-normal">
+  <div class="card post-block">
+
+    
+
+    <header class="post-header">
+
+      
+      <h1 class="post-title">
+        
+        <a href="/articles/durian/spring-native-action/">GitHub Action 构建原生 Spring Boot 应用</a>
+        
+      </h1>
+      
+
+      <div class="post-meta">
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2023-05-20 14:18:29">2023-05-20</time>
+  </span>
+  
+
+  
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
+  
+
+  
+  
+
+</div>
+
+    </header>
+
+    <div class="post-body">
+      
+      <p>原生构建是非常消耗系统资源的，你可以看到编译过程中，cpu与内存都接近100%，所以能用免费的CI，那必须是要用的</p>
+<h1 id="创建一个-Action" class="article-heading"><a href="#创建一个-Action" class="headerlink" title="创建一个 Action"></a>创建一个 Action<a class="article-anchor" href="#创建一个-Action" aria-hidden="true"></a></h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">name:</span> <span class="hljs-string">Docker</span> <span class="hljs-string">Push</span><br><br><span class="hljs-attr">on:</span><br>  <span class="hljs-attr">push:</span><br>    <span class="hljs-attr">branches:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;**&quot;</span><br>    <span class="hljs-attr">tags:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;v*.*.*&quot;</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">docker_push:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br>    <span class="hljs-attr">permissions:</span><br>      <span class="hljs-attr">packages:</span> <span class="hljs-string">write</span><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Set</span> <span class="hljs-string">up</span> <span class="hljs-string">JDK</span> <span class="hljs-number">17</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-java@v3</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">java-version:</span> <span class="hljs-string">&#x27;17&#x27;</span><br>          <span class="hljs-attr">distribution:</span> <span class="hljs-string">&#x27;temurin&#x27;</span><br>          <span class="hljs-attr">cache:</span> <span class="hljs-string">maven</span><br></code></pre></td></tr></table></figure>
+
+<p>上面就是简单的action，监听分支与tags，然后checkout代码仓库并设置java环境，我们需要将构建产物发布，所以设置packages的权限为write</p>
+<h1 id="登录到-Github-容器注册中心" class="article-heading"><a href="#登录到-Github-容器注册中心" class="headerlink" title="登录到 Github 容器注册中心"></a>登录到 Github 容器注册中心<a class="article-anchor" href="#登录到-Github-容器注册中心" aria-hidden="true"></a></h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Login</span> <span class="hljs-string">to</span> <span class="hljs-string">GitHub</span> <span class="hljs-string">Container</span> <span class="hljs-string">Registry</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">docker/login-action@v2</span><br>  <span class="hljs-attr">with:</span><br>    <span class="hljs-attr">registry:</span> <span class="hljs-string">ghcr.io</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">github.actor</span> <span class="hljs-string">&#125;&#125;</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.GITHUB_TOKEN</span> <span class="hljs-string">&#125;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>在 steps 中添加上面的代码，就可以登录到 GitHub Container Registry，当然也可以改用docker hub，或者可以登录多个</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Login</span> <span class="hljs-string">to</span> <span class="hljs-string">Docker</span> <span class="hljs-string">Hub</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">docker/login-action@v2</span><br>  <span class="hljs-attr">with:</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.DOCKERHUB_USERNAME</span> <span class="hljs-string">&#125;&#125;</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.DOCKERHUB_TOKEN</span> <span class="hljs-string">&#125;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>registry 默认是 docker hub，但是，需要配置 DOCKERHUB_USERNAME 和 DOCKERHUB_TOKEN，我是觉得麻烦直接用了GitHub的</p>
+<h1 id="metadata-action-生成-tag" class="article-heading"><a href="#metadata-action-生成-tag" class="headerlink" title="metadata-action 生成 tag"></a>metadata-action 生成 tag<a class="article-anchor" href="#metadata-action-生成-tag" aria-hidden="true"></a></h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Docker</span> <span class="hljs-string">meta</span><br>  <span class="hljs-attr">id:</span> <span class="hljs-string">meta</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">docker/metadata-action@v4</span><br>  <span class="hljs-attr">with:</span><br>    <span class="hljs-attr">images:</span> <span class="hljs-string">ghcr.io/name/app</span><br></code></pre></td></tr></table></figure>
+
+<p>这是将 CI 中的 refs 转换我们需要的 tags，比如 <code>v1.0.5</code>，就需要转换为 <code>latest</code> <code>1</code> <code>1.0</code> <code>1.0.5</code>，而且，由于 docker tag 的特殊性，它需要拼接镜像的名称，<code>name/app:latest</code> 等，所以，我们需要这个action帮我们简化生成过程</p>
+<p>默认情况下的转换是这样的</p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Ref</th>
+<th>Docker Tags</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>pull_request</code></td>
+<td><code>refs/pull/2/merge</code></td>
+<td><code>pr-2</code></td>
+</tr>
+<tr>
+<td><code>push</code></td>
+<td><code>refs/heads/master</code></td>
+<td><code>master</code></td>
+</tr>
+<tr>
+<td><code>push</code></td>
+<td><code>refs/heads/releases/v1</code></td>
+<td><code>releases-v1</code></td>
+</tr>
+<tr>
+<td><code>push tag</code></td>
+<td><code>refs/tags/v1.2.3</code></td>
+<td><code>v1.2.3</code>, <code>latest</code></td>
+</tr>
+<tr>
+<td><code>push tag</code></td>
+<td><code>refs/tags/v2.0.8-beta.67</code></td>
+<td><code>v2.0.8-beta.67</code>, <code>latest</code></td>
+</tr>
+<tr>
+<td><code>workflow_dispatch</code></td>
+<td><code>refs/heads/master</code></td>
+<td><code>master</code></td>
+</tr>
+</tbody></table>
+<p>当然我们也可以自己设置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Docker</span> <span class="hljs-string">meta</span><br>  <span class="hljs-attr">id:</span> <span class="hljs-string">meta</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">docker/metadata-action@v4</span><br>  <span class="hljs-attr">with:</span><br>    <span class="hljs-attr">images:</span> <span class="hljs-string">|</span><br><span class="hljs-string">      name/app</span><br><span class="hljs-string"></span>    <span class="hljs-attr">tags:</span> <span class="hljs-string">|</span><br><span class="hljs-string">      type=ref,event=branch</span><br><span class="hljs-string">      type=ref,event=pr</span><br><span class="hljs-string">      type=semver,pattern=&#123;&#123;version&#125;&#125;</span><br><span class="hljs-string">      type=semver,pattern=&#123;&#123;major&#125;&#125;.&#123;&#123;minor&#125;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="通过-Maven-构建-Spring-Native" class="article-heading"><a href="#通过-Maven-构建-Spring-Native" class="headerlink" title="通过 Maven 构建 Spring Native"></a>通过 Maven 构建 Spring Native<a class="article-anchor" href="#通过-Maven-构建-Spring-Native" aria-hidden="true"></a></h1><p>我们需要在 pom 中添加原生的插件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.graalvm.buildtools<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>native-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">image</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>$&#123;docker.image.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">tags</span>&gt;</span>$&#123;docker.image.tags&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">tags</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">env</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">BP_OCI_SOURCE</span>&gt;</span>$&#123;project.scm.url&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">BP_OCI_SOURCE</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">env</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>需要配置 BP_OCI_SOURCE 为你的 GitHub 项目地址，为了让包与项目关联，这涉及到费用，只要你的项目开源，那么可以无限免费用，我是设置了一个 <code>project.scm.url</code> 这个是maven里的关于项目信息的配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">scm</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://github.com/yourname/project<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">scm</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在 aciton 中添加以下步骤</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Build</span> <span class="hljs-string">image</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    mvn -Pnative \</span><br><span class="hljs-string">    -Ddocker.image.name=ghcr.io/name/app \</span><br><span class="hljs-string">    -Ddocker.image.tags=$&#123;&#123; join( fromJSON(steps.meta.outputs.json).tags, &#x27;,&#x27; ) &#125;&#125; \</span><br><span class="hljs-string">    spring-boot:build-image</span><br></code></pre></td></tr></table></figure>
+
+<p>这样就可以构建出我们需要的镜像了，同时也打上了对应的 tags</p>
+<h1 id="推送-images" class="article-heading"><a href="#推送-images" class="headerlink" title="推送 images"></a>推送 images<a class="article-anchor" href="#推送-images" aria-hidden="true"></a></h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Push</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br>    <span class="hljs-string">docker</span> <span class="hljs-string">push</span> <span class="hljs-string">-a</span> <span class="hljs-string">ghcr.io/name/app</span><br></code></pre></td></tr></table></figure>
+
+<p><code>-a</code> 表示推送所有 tags</p>
+<h1 id="完整例子" class="article-heading"><a href="#完整例子" class="headerlink" title="完整例子"></a>完整例子<a class="article-anchor" href="#完整例子" aria-hidden="true"></a></h1><p>你可以前往的开源项目 <a target="_blank" rel="noopener" href="https://github.com/jiangtj/api-core">https://github.com/jiangtj/api-core</a> 查看</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">name:</span> <span class="hljs-string">Docker</span> <span class="hljs-string">Push</span><br><br><span class="hljs-attr">on:</span><br>  <span class="hljs-attr">push:</span><br>    <span class="hljs-attr">branches:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">master</span><br>    <span class="hljs-attr">tags:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;v*.*.*&quot;</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">docker_push:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br><br>    <span class="hljs-attr">permissions:</span><br>      <span class="hljs-attr">packages:</span> <span class="hljs-string">write</span><br><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Set</span> <span class="hljs-string">up</span> <span class="hljs-string">JDK</span> <span class="hljs-number">17</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-java@v3</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">java-version:</span> <span class="hljs-string">&#x27;17&#x27;</span><br>          <span class="hljs-attr">distribution:</span> <span class="hljs-string">&#x27;temurin&#x27;</span><br>          <span class="hljs-attr">cache:</span> <span class="hljs-string">maven</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Docker</span> <span class="hljs-string">meta</span><br>        <span class="hljs-attr">id:</span> <span class="hljs-string">meta</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">docker/metadata-action@v4</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-comment"># list of Docker images to use as base name for tags</span><br>          <span class="hljs-attr">images:</span> <span class="hljs-string">|</span><br><span class="hljs-string">            ghcr.io/jiangtj/api-core</span><br><span class="hljs-string"></span>          <span class="hljs-comment"># generate Docker tags based on the following events/attributes</span><br>          <span class="hljs-attr">tags:</span> <span class="hljs-string">|</span><br><span class="hljs-string">            type=schedule</span><br><span class="hljs-string">            type=ref,event=branch</span><br><span class="hljs-string">            type=semver,pattern=&#123;&#123;version&#125;&#125;</span><br><span class="hljs-string">            type=semver,pattern=&#123;&#123;major&#125;&#125;.&#123;&#123;minor&#125;&#125;,enable=$&#123;&#123; !startsWith(github.ref, &#x27;refs/tags/v0.&#x27;) &#125;&#125;</span><br><span class="hljs-string">            type=semver,pattern=&#123;&#123;major&#125;&#125;,enable=$&#123;&#123; !startsWith(github.ref, &#x27;refs/tags/v0.&#x27;) &#125;&#125;</span><br><span class="hljs-string"></span>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Login</span> <span class="hljs-string">to</span> <span class="hljs-string">GitHub</span> <span class="hljs-string">Container</span> <span class="hljs-string">Registry</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">docker/login-action@v2</span><br>        <span class="hljs-attr">with:</span><br>          <span class="hljs-attr">registry:</span> <span class="hljs-string">ghcr.io</span><br>          <span class="hljs-attr">username:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">github.actor</span> <span class="hljs-string">&#125;&#125;</span><br>          <span class="hljs-attr">password:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.GITHUB_TOKEN</span> <span class="hljs-string">&#125;&#125;</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Build</span> <span class="hljs-string">image</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">          mvn -Pnative \</span><br><span class="hljs-string">          -Ddocker.image.name=ghcr.io/jiangtj/api-core \</span><br><span class="hljs-string">          -Ddocker.image.tags=$&#123;&#123; join( fromJSON(steps.meta.outputs.json).tags, &#x27;,&#x27; ) &#125;&#125; \</span><br><span class="hljs-string">          spring-boot:build-image</span><br><span class="hljs-string"></span>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Push</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br>          <span class="hljs-string">docker</span> <span class="hljs-string">push</span> <span class="hljs-string">-a</span> <span class="hljs-string">ghcr.io/jiangtj/api-core</span><br></code></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+
+    
+
+    
+  </div>
+</article>
   
   
 
@@ -839,76 +973,6 @@
 
 <p><code>nacos-simple</code> 包含了一个 <code>nacos.yaml</code> 定义nacos服务和一个 <code>ingress.yaml</code> 定义转发，<a target="_blank" rel="noopener" href="https://github.com/jiangtj/helm-charts/tree/master/charts/nacos-simple">详见GitHub</a></p>
 <h1 id="总结" class="article-heading"><a href="#总结" class="headerlink" title="总结"></a>总结<a class="article-anchor" href="#总结" aria-hidden="true"></a></h1><p>k8s 能定义一系列的服务，对于一个复杂开发环境来说，会比 docker 更加简单，比如同时需要redis rabbitmq mysql等等，尤其还能通过 helm 同步定义，当然简单的环境，还是 docker 吧</p>
-      
-    </div>
-
-    
-    
-
-    
-
-    
-  </div>
-</article>
-  
-  
-
-<article class="post post-type-normal">
-  <div class="card post-block">
-
-    
-
-    <header class="post-header">
-
-      
-      <h1 class="post-title">
-        
-        <a href="/articles/cherry/linux-proxy/">linux 代理</a>
-        
-      </h1>
-      
-
-      <div class="post-meta">
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">发表于</span>
-    <time title="创建时间：2023-02-21 16:32:26">2023-02-21</time>
-  </span>
-  
-
-  
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">分类于</span>
-    <span><a href="/categories/%E8%BF%90%E7%BB%B4/" rel="index"><span>运维</span></a></span>  </span>
-  
-
-  
-  
-
-</div>
-
-    </header>
-
-    <div class="post-body">
-      
-      <h1 id="env" class="article-heading"><a href="#env" class="headerlink" title="env"></a>env<a class="article-anchor" href="#env" aria-hidden="true"></a></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> http_proxy=http://192.168.1.20:7890<br><span class="hljs-built_in">export</span> https_proxy=http://192.168.1.20:7890<br></code></pre></td></tr></table></figure>
-
-<h1 id="profile" class="article-heading"><a href="#profile" class="headerlink" title="profile"></a>profile<a class="article-anchor" href="#profile" aria-hidden="true"></a></h1><p>在 <code>~/.profile</code> 持久化当前用户的代理，全局在 <code>/etc/profile</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> http_proxy=http://192.168.1.20:7890<br><span class="hljs-built_in">export</span> https_proxy=http://192.168.1.20:7890<br></code></pre></td></tr></table></figure>
-
-<h1 id="wget" class="article-heading"><a href="#wget" class="headerlink" title="wget"></a>wget<a class="article-anchor" href="#wget" aria-hidden="true"></a></h1><p>修改 <code>~/.wgetrc</code> 创建 <code>wget</code> 代理</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#You can set the default proxies for Wget to use for http, https, and ftp.</span><br><span class="hljs-comment"># They will override the value in the environment.</span><br>https_proxy = http://192.168.1.20:7890<br>http_proxy = http://192.168.1.20:7890<br>ftp_proxy = http://192.168.1.20:7890<br><br><span class="hljs-comment"># If you do not want to use proxy at all, set this to off.</span><br>use_proxy = on<br></code></pre></td></tr></table></figure>
       
     </div>
 

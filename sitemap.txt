@@ -1,4 +1,5 @@
 https://jiangtj.com/downloads/code/install.json
+https://jiangtj.com/articles/durian/spring-native-action/
 https://jiangtj.com/articles/durian/custom-endpoint/
 https://jiangtj.com/articles/durian/cloud-4/
 https://jiangtj.com/articles/durian/cloud-3/
@@ -145,6 +146,7 @@ https://jiangtj.com/tags/Event/
 https://jiangtj.com/tags/Spring-Cloud-%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/
 https://jiangtj.com/tags/Spring/
 https://jiangtj.com/tags/Spring-Native/
+https://jiangtj.com/tags/GitHub-Action/
 https://jiangtj.com/tags/GraalVM/
 https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/
 https://jiangtj.com/categories/%E5%B7%A5%E5%85%B7/

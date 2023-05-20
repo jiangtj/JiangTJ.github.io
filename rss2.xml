@@ -9,8 +9,38 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Tue, 11 Apr 2023 12:13:14 GMT</pubDate>
+    <pubDate>Sat, 20 May 2023 06:18:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>GitHub Action 构建原生 Spring Boot 应用</title>
+      <link>https://jiangtj.com/articles/durian/spring-native-action/</link>
+      <guid>https://jiangtj.com/articles/durian/spring-native-action/</guid>
+      <pubDate>Sat, 20 May 2023 06:18:29 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;原生构建是非常消耗系统资源的，你可以看到编译过程中，cpu与内存都接近100%，所以能用免费的CI，那必须是要用的&lt;/p&gt;
+&lt;h1 id=&quot;创建一个-Action&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#创建一个-Action&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Spring-Native/">Spring Native</category>
+      
+      <category domain="https://jiangtj.com/tags/GitHub-Action/">GitHub Action</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/spring-native-action/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Spring Boot 自定义 Endpoint</title>
@@ -487,30 +517,6 @@
       
       
       <comments>https://jiangtj.com/articles/cherry/gradle-start/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>新网址！</title>
-      <link>https://jiangtj.com/articles/cherry/new-deploy/</link>
-      <guid>https://jiangtj.com/articles/cherry/new-deploy/</guid>
-      <pubDate>Tue, 19 May 2020 05:29:58 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;netlify免费版的网络真的太差了（跟1年多前刚使用的时候比，差太多），所以原本打算迁移到github pages&lt;/p&gt;
-&lt;p&gt;看对比，github</description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://jiangtj.com/articles/cherry/new-deploy/#disqus_thread</comments>
       
     </item>
     
