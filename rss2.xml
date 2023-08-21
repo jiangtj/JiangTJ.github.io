@@ -9,8 +9,30 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Sat, 20 May 2023 06:18:29 GMT</pubDate>
+    <pubDate>Mon, 21 Aug 2023 01:44:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>为 Spring Boot 应用添加 GraphQL</title>
+      <link>https://jiangtj.com/articles/durian/spring-graphql/</link>
+      <guid>https://jiangtj.com/articles/durian/spring-graphql/</guid>
+      <pubDate>Wed, 16 Aug 2023 01:50:35 GMT</pubDate>
+      
+      <description>&lt;p&gt;GraphQL 已经出现很久了，最近我在看 Spring 文档时，看到了相关的介绍（我记得以前是没的，不知道什么时候的新特性），就试了试，先来一段AI的介绍。如果你仅想看怎么实现，跳过下面这段&lt;/p&gt;
+&lt;h1 id=&quot;来着-Codeium-AI-的介绍&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#来着-Codeium-AI-的介绍&quot; class=&quot;headerlink&quot; title=&quot;来着 Codeium AI 的介绍&quot;&gt;&lt;/a&gt;来着 Codeium AI 的介绍&lt;a class=&quot;article-anchor&quot; href=&quot;#来着-Codeium-AI-的介绍&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;GraphQL是一种用于API开发的查询语言和运行时环境。它由Facebook开发并于2015年开源。GraphQL的主要目标是提供一种更高效、灵活和易于使用的方式来获取和操作数据。与传统的RESTful API相比，GraphQL允许客户端精确地指定需要的数据，并减少了不必要的网络传输和数据处理。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Spring/">Spring</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/spring-graphql/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>GitHub Action 构建原生 Spring Boot 应用</title>
@@ -494,29 +516,6 @@
       
       
       <comments>https://jiangtj.com/articles/cherry/hexo-5/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Gradle 初探</title>
-      <link>https://jiangtj.com/articles/cherry/gradle-start/</link>
-      <guid>https://jiangtj.com/articles/cherry/gradle-start/</guid>
-      <pubDate>Wed, 17 Jun 2020 01:46:00 GMT</pubDate>
-      
-      <description>跟我一起，学透它~~~</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Java/">Java</category>
-      
-      <category domain="https://jiangtj.com/tags/Gradle/">Gradle</category>
-      
-      
-      <comments>https://jiangtj.com/articles/cherry/gradle-start/#disqus_thread</comments>
       
     </item>
     

@@ -10,20 +10,18 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="Netlify提供了大文件存储以及图像转换功能，是时候升级一波啦。">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="GraphQL 已经出现很久了，最近我在看 Spring 文档时，看到了相关的介绍（我记得以前是没的，不知道什么时候的新特性），就试了试，先来一段AI的介绍。如果你仅想看怎么实现，跳过下面这段 来着 Codeium AI 的介绍GraphQL是一种用于API开发的查询语言和运行时环境。它由Facebook开发并于2015年开源。GraphQL的主要目标是提供一种更高效、灵活和易于使用的方式来获取和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git LFS使用--Netlify Large Media">
-<meta property="og:url" content="https://jiangtj.com/articles/beechnut/netlify-lm/index.html">
+<meta property="og:title" content="为 Spring Boot 应用添加 GraphQL">
+<meta property="og:url" content="https://jiangtj.com/articles/durian/spring-graphql/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="Netlify提供了大文件存储以及图像转换功能，是时候升级一波啦。">
+<meta property="og:description" content="GraphQL 已经出现很久了，最近我在看 Spring 文档时，看到了相关的介绍（我记得以前是没的，不知道什么时候的新特性），就试了试，先来一段AI的介绍。如果你仅想看怎么实现，跳过下面这段 来着 Codeium AI 的介绍GraphQL是一种用于API开发的查询语言和运行时环境。它由Facebook开发并于2015年开源。GraphQL的主要目标是提供一种更高效、灵活和易于使用的方式来获取和">
 <meta property="og:locale">
-<meta property="og:image" content="https://jiangtj.com/articles/beechnut/netlify-lm/1.png">
-<meta property="article:published_time" content="2019-03-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-03-02T16:00:00.000Z">
+<meta property="article:published_time" content="2023-08-16T01:50:35.000Z">
+<meta property="article:modified_time" content="2023-08-21T01:44:35.000Z">
 <meta property="article:author" content="Mr.J">
-<meta property="article:tag" content="Git">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jiangtj.com/articles/beechnut/netlify-lm/1.png">  <title>Git LFS使用--Netlify Large Media | Dnocm ☀</title>    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/beechnut/netlify-lm/"},"headline":"Git LFS使用--Netlify Large Media","image":[],"datePublished":"2019-03-02T16:00:00.000Z","dateModified":"2019-03-02T16:00:00.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">  <title>为 Spring Boot 应用添加 GraphQL | Dnocm ☀</title>    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/durian/spring-graphql/"},"headline":"为 Spring Boot 应用添加 GraphQL","image":[],"datePublished":"2023-08-16T01:50:35.000Z","dateModified":"2023-08-21T01:44:35.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
 
@@ -106,7 +104,7 @@
       </li>
     </ul>
     <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
-      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8LFS"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用LFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E8%BD%AC%E6%8D%A2%E5%8A%9F%E8%83%BD"><span class="nav-number">4.</span> <span class="nav-text">图像转换功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A5%E7%9D%80-Codeium-AI-%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">来着 Codeium AI 的介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-GraphQL-schema"><span class="nav-number">2.</span> <span class="nav-text">创建 GraphQL schema</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-RuntimeWiringConfigurer"><span class="nav-number">3.</span> <span class="nav-text">配置 RuntimeWiringConfigurer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
     </div>
     <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
@@ -175,7 +173,7 @@
       
       <h1 class="post-title">
         
-        Git LFS使用--Netlify Large Media
+        为 Spring Boot 应用添加 GraphQL
         
       </h1>
       
@@ -189,7 +187,7 @@
       <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
     </span>
     <span class="post-meta-item-text">发表于</span>
-    <time title="创建时间：2019-03-03 00:00:00">2019-03-03</time>
+    <time title="创建时间：2023-08-16 09:50:35">2023-08-16</time>
   </span>
   
 
@@ -202,12 +200,10 @@
       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
     </span>
     <span class="post-meta-item-text">分类于</span>
-    <span><a href="/categories/%E5%B7%A5%E5%85%B7/" rel="index"><span>工具</span></a></span>  </span>
+    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
   
 
   
-  
-  <div class="post-description">Netlify提供了大文件存储以及图像转换功能，是时候升级一波啦。</div>
   
 
 </div>
@@ -216,29 +212,36 @@
 
     <div class="post-body">
       
-      <h1 id="前言" class="article-heading"><a href="#前言" class="headerlink" title="前言"></a>前言<a class="article-anchor" href="#前言" aria-hidden="true"></a></h1><p>Git LFS一直都想尝试，但，GitHub上</p>
-<img src="/articles/beechnut/netlify-lm/1.png" class="">
-
-<p>1G的存储，1G的带宽是，这量实在是。。。在2月26日，Netlify宣布了流量限制100G，也宣布新的功能，图像转换功能为流量限制做铺垫，以及这个转换功能所附带的大文件存储。一半伤心一半心动。虽然转换功能也有限制，2500次每月（同一次相同转换会缓存，只消耗1次次数），所以对于大部分中小型网站来说都够用了，当然100G的带宽，也是一样。</p>
-<p>作为转换功能基础的文件存储，则没提及，可能无限制吧。所以是时候升级啦。</p>
+      <p>GraphQL 已经出现很久了，最近我在看 Spring 文档时，看到了相关的介绍（我记得以前是没的，不知道什么时候的新特性），就试了试，先来一段AI的介绍。如果你仅想看怎么实现，跳过下面这段</p>
+<h1 id="来着-Codeium-AI-的介绍" class="article-heading"><a href="#来着-Codeium-AI-的介绍" class="headerlink" title="来着 Codeium AI 的介绍"></a>来着 Codeium AI 的介绍<a class="article-anchor" href="#来着-Codeium-AI-的介绍" aria-hidden="true"></a></h1><p>GraphQL是一种用于API开发的查询语言和运行时环境。它由Facebook开发并于2015年开源。GraphQL的主要目标是提供一种更高效、灵活和易于使用的方式来获取和操作数据。与传统的RESTful API相比，GraphQL允许客户端精确地指定需要的数据，并减少了不必要的网络传输和数据处理。</p>
 <span id="more"></span>
 
-<h1 id="为什么要使用LFS" class="article-heading"><a href="#为什么要使用LFS" class="headerlink" title="为什么要使用LFS"></a>为什么要使用LFS<a class="article-anchor" href="#为什么要使用LFS" aria-hidden="true"></a></h1><p>原因涉及到Git的底层原理，很多介绍上只说了会使存储库变的很大，所以要用LFS，但事实上二进制文件就是很大的，用了LFS，最后还不是得下一堆二进制文件。根本原因不是这个，而是Git的底层文件系统。Git的所有文件都存放在<code>.git\objects</code>中，而修改是保存一个新的文件，而目录中以hash值引用，旧文件是不会被删除的，删除也是一样。所以整个<code>.git</code>文件夹会变得特别膨大。</p>
-<p>Git LFS能将二进制存储在别处，在Git中存储的只是标记文件，占用空间十分小。所以，当文件被删除后，空间占用也就少了，不会想原先那样，只增不减。</p>
-<h1 id="如何使用" class="article-heading"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用<a class="article-anchor" href="#如何使用" aria-hidden="true"></a></h1><p>这里使用Netlify Large Media做存储库。</p>
-<ol>
-<li>安装netlify-cli，以及登录<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install netlify-cli -g<br>netlify login<br></code></pre></td></tr></table></figure></li>
-<li>安装Large Media插件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">netlify plugins:install netlify-lm-plugin<br>netlify lm:install<br></code></pre></td></tr></table></figure></li>
-<li>关联netlify实例，以及初始化Git LFS配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">netlify <span class="hljs-built_in">link</span><br>netlify lm:setup<br></code></pre></td></tr></table></figure></li>
-<li>添加需要Git LFS管理的文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git lfs track <span class="hljs-string">&quot;source/images/**&quot;</span><br>git lfs track <span class="hljs-string">&quot;*.jpg&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li>想正常一样操作Git即可<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit -m <span class="hljs-string">&quot;track&quot;</span><br>git push origin master<br></code></pre></td></tr></table></figure></li>
-</ol>
-<p>注意：在初次安装Large Media插件时，可能需要关掉命令终端，重新启动来加载脚本</p>
-<h1 id="图像转换功能" class="article-heading"><a href="#图像转换功能" class="headerlink" title="图像转换功能"></a>图像转换功能<a class="article-anchor" href="#图像转换功能" aria-hidden="true"></a></h1><p>这是另一大激动人心的功能，能帮我们自动转换图片大小。可以省下我们很多事。或者说我们可以不再准备多套分辨率了，想调用api一样获得</p>
-<p>通过响应式懒加载库lazod.js实现了该功能，<a target="_blank" rel="noopener" href="https://github.com/JiangTJ/hexo-theme-next/blob/neet/scripts/filters/lazyload.js">过滤器</a>，但奇怪的地方是图片明明一样的，但在不同屏幕下，显示大小不同。所以我改为宽度100%作为默认方案。</p>
-<h1 id="参考" class="article-heading"><a href="#参考" class="headerlink" title="参考"></a>参考<a class="article-anchor" href="#参考" aria-hidden="true"></a></h1><ol>
-<li><a target="_blank" rel="noopener" href="https://www.netlify.com/docs/large-media/">Netlify Large Media Doc</a></li>
-</ol>
+<p>GraphQL的核心思想是客户端通过发送查询请求来获取所需的数据，而服务器则返回与请求匹配的结果。客户端可以精确地指定需要的字段和关联关系，而不需要在每个请求中获取整个对象的所有属性。这样可以避免过度获取不需要的数据，并减少网络传输和服务器负载。</p>
+<p>GraphQL还提供了强大的类型系统，允许定义字段的类型和验证规则。这样可以在编译时检测错误，并提供更好的开发体验和文档。</p>
+<p>总而言之，GraphQL是一种现代化的API查询语言和运行时环境，它提供了更高效、灵活和易于使用的方式来获取和操作数据。它已经被广泛采用，并在许多大型应用程序中取得了成功。</p>
+<h1 id="创建-GraphQL-schema" class="article-heading"><a href="#创建-GraphQL-schema" class="headerlink" title="创建 GraphQL schema"></a>创建 GraphQL schema<a class="article-anchor" href="#创建-GraphQL-schema" aria-hidden="true"></a></h1><p>以 <a target="_blank" rel="noopener" href="https://github.com/jiangtj/api-core">我的一个项目</a> 为例，为省市区的接口创建GraphQL</p>
+<p>首先，在 <code>resources/graphql/</code> 下，创建 <code>address.graphqls</code> （后缀也可以是<code>.gqls</code>）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs graphqls">type Query &#123;<br>    provinces: [Province!]!<br>    province(code: ID!): Province<br>    city(code: ID!): City<br>    area(code: ID!): Area<br>&#125;<br><br>type Province &#123;<br>    code: ID!<br>    name: String!<br>    cities: [City!]!<br>&#125;<br><br>type City &#123;<br>    code: ID!<br>    name: String!<br>    provinceCode: Int!<br>    areas: [Area!]!<br>&#125;<br><br>type Area &#123;<br>    code: ID!<br>    name: String!<br>    cityCode: Int!<br>    provinceCode: Int!<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>GraphQL 有两个入口，一个 Query 用于查询数据， 一个是 Mutation 用于更新对象，基础类型叫 Scalars，默认有以下六种 ID，String，Int，Float，Boolean，List。除了ID，其他都是很熟悉的，ID在 GraphQL 中等价于 String，不同的是ID是唯一的，所以可以作为Cache的依据</p>
+<h1 id="配置-RuntimeWiringConfigurer" class="article-heading"><a href="#配置-RuntimeWiringConfigurer" class="headerlink" title="配置 RuntimeWiringConfigurer"></a>配置 RuntimeWiringConfigurer<a class="article-anchor" href="#配置-RuntimeWiringConfigurer" aria-hidden="true"></a></h1><p>Spring GraphQL 会依据配置好的 RuntimeWiringConfigurer 获取数据，使用dataFetcher获取type中对应field内容，我们可以通过environment获取GraphQL的上下文内容，比如<code>getArgument</code>获取参数值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AddressGraphQlConfiguration</span> &#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    RuntimeWiringConfigurer <span class="hljs-title function_">customWiringConfigurer</span><span class="hljs-params">(AddressService addressService)</span> &#123;<br>        <span class="hljs-keyword">return</span> wiringBuilder -&gt; wiringBuilder<br>                .type(<span class="hljs-string">&quot;Query&quot;</span>, builder -&gt; builder<br>                        .dataFetcher(<span class="hljs-string">&quot;provinces&quot;</span>, environment -&gt; &#123;<br>                            <span class="hljs-keyword">return</span> addressService.getProvinces();<br>                        &#125;)<br>                        .dataFetcher(<span class="hljs-string">&quot;province&quot;</span>, environment -&gt; &#123;<br>                            <span class="hljs-type">String</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> environment.getArgument(<span class="hljs-string">&quot;code&quot;</span>);<br>                            <span class="hljs-keyword">return</span> addressService.getProvince(Integer.parseInt(code)).orElseThrow();<br>                        &#125;)<br>                        .dataFetcher(<span class="hljs-string">&quot;city&quot;</span>, environment -&gt; &#123;<br>                            <span class="hljs-type">String</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> environment.getArgument(<span class="hljs-string">&quot;code&quot;</span>);<br>                            <span class="hljs-keyword">return</span> addressService.getCity(Integer.parseInt(code)).orElseThrow();<br>                        &#125;)<br>                        .dataFetcher(<span class="hljs-string">&quot;area&quot;</span>, environment -&gt; &#123;<br>                            <span class="hljs-type">String</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> environment.getArgument(<span class="hljs-string">&quot;code&quot;</span>);<br>                            <span class="hljs-keyword">return</span> addressService.getArea(Integer.parseInt(code)).orElseThrow();<br>                        &#125;))<br>                .type(<span class="hljs-string">&quot;Province&quot;</span>, builder -&gt; builder<br>                        .dataFetcher(<span class="hljs-string">&quot;cities&quot;</span>, environment -&gt; &#123;<br>                            <span class="hljs-type">Province</span> <span class="hljs-variable">source</span> <span class="hljs-operator">=</span> environment.getSource();<br>                            <span class="hljs-keyword">return</span> addressService.getCitiesByPCode(source.code());<br>                        &#125;))<br>                .type(<span class="hljs-string">&quot;City&quot;</span>, builder -&gt; builder<br>                        .dataFetcher(<span class="hljs-string">&quot;areas&quot;</span>, environment -&gt; &#123;<br>                            <span class="hljs-type">City</span> <span class="hljs-variable">source</span> <span class="hljs-operator">=</span> environment.getSource();<br>                            <span class="hljs-keyword">return</span> addressService.getAreasByPCode(source.code());<br>                        &#125;));<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Spring 也支持注解形式配置，例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GreetingController</span> &#123;<br><br>        <span class="hljs-meta">@QueryMapping</span> <br>        <span class="hljs-keyword">public</span> String <span class="hljs-title function_">hello</span><span class="hljs-params">()</span> &#123; <br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello, world!&quot;</span>;<br>        &#125;<br><br>        <span class="hljs-meta">@SchemaMapping(typeName=&quot;Greeting&quot;, field=&quot;author&quot;)</span><br>        <span class="hljs-keyword">public</span> Author <span class="hljs-title function_">getAuthor</span><span class="hljs-params">(Greeting greeting)</span> &#123;<br>            <span class="hljs-comment">// ...</span><br>        &#125;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Spring 会使用内置的<code>AnnotatedControllerConfigurer</code>，配置所有注解的到RuntimeWiring中，所以上面等价于</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br>RuntimeWiringConfigurer <span class="hljs-title function_">customWiringConfigurer</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> wiringBuilder -&gt; wiringBuilder<br>            .type(<span class="hljs-string">&quot;Query&quot;</span>, builder -&gt; builder<br>                    .dataFetcher(<span class="hljs-string">&quot;hello&quot;</span>, environment -&gt; &#123;<br>                        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello, world!&quot;</span>;<br>                    &#125;))<br>            .type(<span class="hljs-string">&quot;Greeting&quot;</span>, builder -&gt; builder<br>                    .dataFetcher(<span class="hljs-string">&quot;author&quot;</span>, environment -&gt; &#123;<br>                        <span class="hljs-type">Greeting</span> <span class="hljs-variable">source</span> <span class="hljs-operator">=</span> environment.getSource();<br>                        <span class="hljs-comment">// ...</span><br>                    &#125;));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>@QueryMapping</code> 等价于 <code>@SchemaMapping(typeName=&quot;Query&quot;)</code>,<code>field</code>如果没有定义，会获取方法名，<code>typeName</code>同理，会获取Controller的前面的名字</p>
+<h1 id="总结" class="article-heading"><a href="#总结" class="headerlink" title="总结"></a>总结<a class="article-anchor" href="#总结" aria-hidden="true"></a></h1><p>上面的代码在我的项目<a target="_blank" rel="noopener" href="https://github.com/jiangtj/api-core">Api Core</a>中，需要参考的可以去看看，我对于GraphQL的评价是，它确实能实现，所要即所得，不会返回多于的数据，但是，在一定程度上隐藏了对象之间的复杂性，这对应编程人员来说要求会更高</p>
+<p>举个例子，上面的服务如果获取全部的省市区数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">&#123;<br>    provinces &#123;<br>        code<br>        name<br>        cities &#123;<br>            code<br>            name<br>            areas &#123;<br>                code<br>                name<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>这会对每个Province实例调用<code>Province</code>中定义<code>cities</code>，在<code>City</code>也一样，所以，一旦在type中直接使用了调用数据库的查询，那么这就等于for循环里不断的调用，所以需要使用 <code>DataLoader</code> 或者 <code>@BatchMapping</code> (是不是相对于RESTFul里显性的填充，在GraphQL中更难被察觉)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BookController</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">BookController</span><span class="hljs-params">(BatchLoaderRegistry registry)</span> &#123;<br>        registry.forTypePair(Long.class, Author.class).registerMappedBatchLoader((authorIds, env) -&gt; &#123;<br>            <span class="hljs-comment">// return Map&lt;Long, Author&gt;</span><br>        &#125;);<br>    &#125;<br><br>    <span class="hljs-meta">@SchemaMapping</span><br>    <span class="hljs-keyword">public</span> CompletableFuture&lt;Author&gt; <span class="hljs-title function_">author</span><span class="hljs-params">(Book book, DataLoader&lt;Long, Author&gt; loader)</span> &#123;<br>        <span class="hljs-keyword">return</span> loader.load(book.getAuthorId());<br>    &#125;<br><br>    <span class="hljs-comment">// 上面等价于</span><br>    <span class="hljs-meta">@BatchMapping</span><br>    <span class="hljs-keyword">public</span> Mono&lt;Map&lt;Book, Author&gt;&gt; <span class="hljs-title function_">author</span><span class="hljs-params">(List&lt;Book&gt; books)</span> &#123;<br>        <span class="hljs-comment">// ...</span><br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当然我的那个项目，省市区数据都在内存中，所以可以任性的用在type中直接获取，所以相对于RESTFul来说，各有优劣而已</p>
       
     </div>
 
@@ -258,7 +261,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://jiangtj.com/articles/beechnut/netlify-lm/">https://jiangtj.com/articles/beechnut/netlify-lm/</a>
+      <a href="https://jiangtj.com/articles/durian/spring-graphql/">https://jiangtj.com/articles/durian/spring-graphql/</a>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
       本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="creative-commons" class="svg-inline--fa fa-creative-commons icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M245.83 214.87l-33.22 17.28c-9.43-19.58-25.24-19.93-27.46-19.93-22.13 0-33.22 14.61-33.22 43.84 0 23.57 9.21 43.84 33.22 43.84 14.47 0 24.65-7.09 30.57-21.26l30.55 15.5c-6.17 11.51-25.69 38.98-65.1 38.98-22.6 0-73.96-10.32-73.96-77.05 0-58.69 43-77.06 72.63-77.06 30.72-.01 52.7 11.95 65.99 35.86zm143.05 0l-32.78 17.28c-9.5-19.77-25.72-19.93-27.9-19.93-22.14 0-33.22 14.61-33.22 43.84 0 23.55 9.23 43.84 33.22 43.84 14.45 0 24.65-7.09 30.54-21.26l31 15.5c-2.1 3.75-21.39 38.98-65.09 38.98-22.69 0-73.96-9.87-73.96-77.05 0-58.67 42.97-77.06 72.63-77.06 30.71-.01 52.58 11.95 65.56 35.86zM247.56 8.05C104.74 8.05 0 123.11 0 256.05c0 138.49 113.6 248 247.56 248 129.93 0 248.44-100.87 248.44-248 0-137.87-106.62-248-248.44-248zm.87 450.81c-112.54 0-203.7-93.04-203.7-202.81 0-105.42 85.43-203.27 203.72-203.27 112.53 0 202.82 89.46 202.82 203.26-.01 121.69-99.68 202.82-202.84 202.82z"></path></svg>BY-NC-SA</a> 许可协议。转载请注明出处！    </li>
@@ -269,7 +272,7 @@
     
 <div class="post-tags">
   
-  <a href="/tags/Git/" rel="tag"># Git</a>
+  <a href="/tags/Spring/" rel="tag"># Spring</a>
   
 </div>
 
@@ -304,15 +307,11 @@
       
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/articles/beechnut/vpn-white/" rel="prev" title="小白VPN教程">
+    <a href="/articles/durian/spring-native-action/" rel="prev" title="GitHub Action 构建原生 Spring Boot 应用">
       <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg>
-      小白VPN教程
+      GitHub Action 构建原生...
     </a></div>
-      <div class="post-nav-item">
-    <a href="/articles/beechnut/microservices-principles/" rel="next" title="微服务设计 - 原则">
-      微服务设计 - 原则
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>    </footer>
     
   </div>
@@ -328,8 +327,8 @@
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function () {
-this.page.url = 'https://jiangtj.com/articles/beechnut/netlify-lm/';;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'articles/beechnut/netlify-lm/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.url = 'https://jiangtj.com/articles/durian/spring-graphql/';;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'articles/durian/spring-graphql/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
