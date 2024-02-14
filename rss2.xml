@@ -9,8 +9,36 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Mon, 21 Aug 2023 01:44:35 GMT</pubDate>
+    <pubDate>Wed, 14 Feb 2024 14:09:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>在 Maven Central 发布你的jar包</title>
+      <link>https://jiangtj.com/articles/durian/maven-publish/</link>
+      <guid>https://jiangtj.com/articles/durian/maven-publish/</guid>
+      <pubDate>Wed, 14 Feb 2024 14:09:10 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;p&gt;在2024年2月1日，sonatype 终于放弃了原本的maven-central的注册方式，将提交issue注册改成了通过dns验证域名即可，这对于我们这些可能只想存个工具类的人来说，就方便太多了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;注册命名空间&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#注册命名空间&quot; class=&quot;headerlink&quot; title=&quot;注册命名空间&quot;&gt;&lt;/a&gt;注册命名空间&lt;a class=&quot;article-anchor&quot; href=&quot;#注册命名空间&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;首先，在&lt;a href=&quot;https://central.sonatype.com/&quot;&gt;maven central&lt;/a&gt;注册一个账号，推荐使用GitHub直接登录，这样的好处是你可以直接得到一个验证通过的Namespace&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&quot;https://github.com/jiangtj/blog/assets/15902347/d26c0f80-0146-42e6-bcb5-7e69c8637a93&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;点击 Add Namespace 按钮可以添加一个Namespace&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&quot;https://github.com/jiangtj/blog/assets/15902347/994f3744-8b28-4321-be7f-ff162a760166&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后在你的域名解析商那上添加一个TXT记录，比如上面的例子，主机记录为&lt;code&gt;testmvn&lt;/code&gt;，记录值为&lt;code&gt;提供的token&lt;/code&gt;，这样就可以得到一个和GitHub一样的Namespace了。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Maven/">Maven</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/maven-publish/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>为 Spring Boot 应用添加 GraphQL</title>
@@ -497,25 +525,6 @@
       
       
       <comments>https://jiangtj.com/articles/cherry/flutter-install/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Hexo 5.0.0 正式发布</title>
-      <link>https://jiangtj.com/articles/cherry/hexo-5/</link>
-      <guid>https://jiangtj.com/articles/cherry/hexo-5/</guid>
-      <pubDate>Tue, 25 Aug 2020 01:43:40 GMT</pubDate>
-      
-      <description>文章转载自&lt;a href=&quot;https://blog.skk.moe/post/hexo-5/&quot;&gt;Sukka&lt;/a&gt;，Sukka为hexo 5.0带来了许多特性🎉</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E8%BD%AC%E8%BD%BD/">转载</category>
-      
-      
-      
-      <comments>https://jiangtj.com/articles/cherry/hexo-5/#disqus_thread</comments>
       
     </item>
     

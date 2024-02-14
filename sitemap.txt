@@ -1,4 +1,5 @@
 https://jiangtj.com/downloads/code/install.json
+https://jiangtj.com/articles/durian/maven-publish/
 https://jiangtj.com/articles/durian/spring-graphql/
 https://jiangtj.com/articles/durian/spring-native-action/
 https://jiangtj.com/articles/durian/custom-endpoint/
@@ -105,9 +106,9 @@ https://jiangtj.com/tags/Mybatis/
 https://jiangtj.com/tags/Dart/
 https://jiangtj.com/tags/Node/
 https://jiangtj.com/tags/Spring-Cloud/
-https://jiangtj.com/tags/%E6%9D%82%E6%96%87/
-https://jiangtj.com/tags/%E5%AD%A6%E4%B9%A0/
 https://jiangtj.com/tags/Git/
+https://jiangtj.com/tags/%E5%AD%A6%E4%B9%A0/
+https://jiangtj.com/tags/%E6%9D%82%E6%96%87/
 https://jiangtj.com/tags/Hexo/
 https://jiangtj.com/tags/CI/
 https://jiangtj.com/tags/Jmeter/
@@ -146,14 +147,15 @@ https://jiangtj.com/tags/R2DBC/
 https://jiangtj.com/tags/Event/
 https://jiangtj.com/tags/Spring-Cloud-%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA/
 https://jiangtj.com/tags/Spring/
+https://jiangtj.com/tags/Maven/
 https://jiangtj.com/tags/Spring-Native/
 https://jiangtj.com/tags/GitHub-Action/
 https://jiangtj.com/tags/GraalVM/
 https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/
 https://jiangtj.com/categories/%E5%B7%A5%E5%85%B7/
 https://jiangtj.com/categories/%E5%89%8D%E7%AB%AF/
-https://jiangtj.com/categories/%E6%9D%82%E6%96%87/
 https://jiangtj.com/categories/%E5%9B%A2%E9%98%9F/
+https://jiangtj.com/categories/%E6%9D%82%E6%96%87/
 https://jiangtj.com/categories/%E8%BF%90%E7%BB%B4/
 https://jiangtj.com/categories/%E6%9E%B6%E6%9E%84/
 https://jiangtj.com/categories/%E8%BD%AC%E8%BD%BD/
