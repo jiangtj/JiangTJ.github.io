@@ -10,15 +10,18 @@
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Itim|Lobster.css">
-<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="何须更问浮生事，只此浮生是梦中">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dnocm ☀">
-<meta property="og:url" content="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/index.html">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon/xin-64.png" /><link rel="icon" type="image/png" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="apple-touch-icon" sizes="128x128" href="/images/favicon/xin-128.png" /><link rel="mask-icon" color="white" href="/images/favicon/xin.svg" />  <meta name="description" content="继上篇内容《在 Maven Central 发布你的jar包》，本篇将介绍如何通过 GitHub Action 自动发布你的 jar 包。 创建 GitHub Action添加以下 action 到你的 .github&#x2F;workflows 目录下 12345678910111213141516171819202122232425262728name: Publish to Maven C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过 GitHub Action 发布你的 jar 包">
+<meta property="og:url" content="https://jiangtj.com/articles/durian/maven-publish-action/index.html">
 <meta property="og:site_name" content="Dnocm ☀">
-<meta property="og:description" content="何须更问浮生事，只此浮生是梦中">
+<meta property="og:description" content="继上篇内容《在 Maven Central 发布你的jar包》，本篇将介绍如何通过 GitHub Action 自动发布你的 jar 包。 创建 GitHub Action添加以下 action 到你的 .github&#x2F;workflows 目录下 12345678910111213141516171819202122232425262728name: Publish to Maven C">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-02-16T07:59:15.000Z">
+<meta property="article:modified_time" content="2024-02-16T07:59:15.000Z">
 <meta property="article:author" content="Mr.J">
-<meta name="twitter:card" content="summary">  <title>分类:后端 | Dnocm ☀</title>    <script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta property="article:tag" content="Maven">
+<meta name="twitter:card" content="summary">  <title>通过 GitHub Action 发布你的 jar 包 | Dnocm ☀</title>    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiangtj.com/articles/durian/maven-publish-action/"},"headline":"通过 GitHub Action 发布你的 jar 包","image":[],"datePublished":"2024-02-16T07:59:15.000Z","dateModified":"2024-02-16T07:59:15.000Z","author":{"@type":"Person","name":"Mr.J"},"publisher":{"@type":"Organization","name":"Mr.J","logo":{"@type":"ImageObject","url":"https://jiangtj.com/images/avatar.jpg"}}}</script><script data-ad-client="ca-pub-8243423215749776" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="google-site-verification" content="TWf4Ma3V7xRcvKFWw_1iOCJKgNJmUUB1CmLucKjvV2A" />
 <meta name="baidu-site-verification" content="xtf2YgRPUK" />
 
@@ -92,7 +95,18 @@
 
     
 
-    <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-toc sidebar-nav-active">
+        文章目录
+      </li>
+      <li class="sidebar-nav-overview">
+        站点概览
+      </li>
+    </ul>
+    <div class="post-toc-wrap sidebar-panel sidebar-panel-active">
+      <div class="post-toc"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-GitHub-Action"><span class="nav-number">1.</span> <span class="nav-text">创建 GitHub Action</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-pom-%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">修改 pom 文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-GitHub-Action-%E5%AF%86%E9%92%A5"><span class="nav-number">3.</span> <span class="nav-text">添加 GitHub Action 密钥</span></a></li></ol></div>
+    </div>
+    <div class="site-overview-wrap sidebar-panel">
       <div class="site-overview">
   <div class="site-author">
     
@@ -146,341 +160,173 @@
       <main>
         
         <div id="content" class="content">
-          <div class="card post-block category">
-  <div class="post-collapse">
-    <div class="collection-title">
-      <h1>后端<small>分类</small></h1>
-    </div>
+          <div>
+  
+
+<article class="post post-type-normal">
+  <div class="card post-block">
+
     
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2024-02-16">
-        02-16
-      </time>
+
+    <header class="post-header">
+
+      
+      <h1 class="post-title">
+        
+        通过 GitHub Action 发布你的 jar 包
+        
+      </h1>
+      
+
+      <div class="post-meta">
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2024-02-16 15:59:15">2024-02-16</time>
+  </span>
+  
+
+  
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
+  
+
+  
+  
+
+</div>
+
+    </header>
+
+    <div class="post-body">
+      
+      <p>继上篇内容<a href="https://jiangtj.com/articles/durian/maven-publish/">《在 Maven Central 发布你的jar包》</a>，本篇将介绍如何通过 GitHub Action 自动发布你的 jar 包。</p>
+<h1 id="创建-GitHub-Action" class="article-heading"><a href="#创建-GitHub-Action" class="headerlink" title="创建 GitHub Action"></a>创建 GitHub Action<a class="article-anchor" href="#创建-GitHub-Action" aria-hidden="true"></a></h1><p>添加以下 action 到你的 .github&#x2F;workflows 目录下</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Publish</span> <span class="hljs-string">to</span> <span class="hljs-string">Maven</span> <span class="hljs-string">Central</span><br><span class="hljs-attr">on:</span><br>  <span class="hljs-attr">push:</span> <br>    <span class="hljs-attr">tags:</span> <br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;v*.*.*&quot;</span><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">build:</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span><br>    <span class="hljs-attr">steps:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v3</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Set</span> <span class="hljs-string">up</span> <span class="hljs-string">Apache</span> <span class="hljs-string">Maven</span> <span class="hljs-string">Central</span><br>        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-java@v4</span><br>        <span class="hljs-attr">with:</span> <span class="hljs-comment"># running setup-java again overwrites the settings.xml</span><br>          <span class="hljs-attr">java-version:</span> <span class="hljs-string">&#x27;17&#x27;</span><br>          <span class="hljs-attr">distribution:</span> <span class="hljs-string">&#x27;temurin&#x27;</span><br>          <span class="hljs-attr">cache:</span> <span class="hljs-string">maven</span><br>          <span class="hljs-attr">server-id:</span> <span class="hljs-string">central</span> <span class="hljs-comment"># Value of the distributionManagement/repository/id field of the pom.xml</span><br>          <span class="hljs-attr">server-username:</span> <span class="hljs-string">MAVEN_USERNAME</span> <span class="hljs-comment"># env variable for username in deploy</span><br>          <span class="hljs-attr">server-password:</span> <span class="hljs-string">MAVEN_CENTRAL_TOKEN</span> <span class="hljs-comment"># env variable for token in deploy</span><br>          <span class="hljs-attr">gpg-private-key:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.MAVEN_GPG_PRIVATE_KEY</span> <span class="hljs-string">&#125;&#125;</span> <span class="hljs-comment"># Value of the GPG private key to import</span><br>          <span class="hljs-attr">gpg-passphrase:</span> <span class="hljs-string">MAVEN_GPG_PASSPHRASE</span> <span class="hljs-comment"># env variable for GPG private key passphrase</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Publish</span> <span class="hljs-string">to</span> <span class="hljs-string">Apache</span> <span class="hljs-string">Maven</span> <span class="hljs-string">Central</span><br>        <span class="hljs-attr">run:</span> <span class="hljs-string">mvn</span> <span class="hljs-string">deploy</span><br>        <span class="hljs-attr">env:</span><br>          <span class="hljs-attr">MAVEN_USERNAME:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.MAVEN_USERNAME</span> <span class="hljs-string">&#125;&#125;</span><br>          <span class="hljs-attr">MAVEN_CENTRAL_TOKEN:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.MAVEN_CENTRAL_TOKEN</span> <span class="hljs-string">&#125;&#125;</span><br>          <span class="hljs-attr">MAVEN_GPG_PASSPHRASE:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.MAVEN_GPG_PASSPHRASE</span> <span class="hljs-string">&#125;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="修改-pom-文件" class="article-heading"><a href="#修改-pom-文件" class="headerlink" title="修改 pom 文件"></a>修改 pom 文件<a class="article-anchor" href="#修改-pom-文件" aria-hidden="true"></a></h1><p>Maven GPG Plugin 可能会报以下错误 <code>Inappropriate ioctl for device</code> 或者 <code>gpg: signing failed: No such file or directory</code>，所以需要在 <code>configuration</code> 中添加以下内容:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- Prevent gpg from using pinentry programs --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">gpgArguments</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">arg</span>&gt;</span>--pinentry-mode<span class="hljs-tag">&lt;/<span class="hljs-name">arg</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">arg</span>&gt;</span>loopback<span class="hljs-tag">&lt;/<span class="hljs-name">arg</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">gpgArguments</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="添加-GitHub-Action-密钥" class="article-heading"><a href="#添加-GitHub-Action-密钥" class="headerlink" title="添加 GitHub Action 密钥"></a>添加 GitHub Action 密钥<a class="article-anchor" href="#添加-GitHub-Action-密钥" aria-hidden="true"></a></h1><p>在 GitHub 仓库的 Settings -&gt; Secrets 中添加以下内容：</p>
+<ol>
+<li>MAVEN_GPG_PRIVATE_KEY: 通过命令行获取<code>gpg --armor --export-secret-keys YOUR_ID</code></li>
+<li>MAVEN_GPG_PASSPHRASE: 当前GPG私钥的密码</li>
+<li>MAVEN_USERNAME: maven central 用户名</li>
+<li>MAVEN_CENTRAL_TOKEN: maven central 的 token</li>
+</ol>
+<p>然后发布新的release版本，GitHub Action 会自动发布你的 jar 包到 Maven Central。</p>
+      
     </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/maven-publish-action/">
-        <span>通过 GitHub Action 发布你的 jar 包</span>
-      </a>
-    </h2>
-  </header>
-</article>
+
     
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2024-02-14">
-        02-14
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/maven-publish/">
-        <span>在 Maven Central 发布你的jar包</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-08-16">
-        08-16
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/spring-graphql/">
-        <span>为 Spring Boot 应用添加 GraphQL</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-05-20">
-        05-20
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/spring-native-action/">
-        <span>GitHub Action 构建原生 Spring Boot 应用</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-04-11">
-        04-11
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/custom-endpoint/">
-        <span>Spring Boot 自定义 Endpoint</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-04-07">
-        04-07
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/cloud-4/">
-        <span>Spring Cloud 平台搭建(四)：Spring Boot Admin</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-03-30">
-        03-30
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/cloud-3/">
-        <span>Spring Cloud 平台搭建(三)：更换 Spring Cloud Tencent</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-03-28">
-        03-28
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/spring-native/">
-        <span>GraalVM 构建 Spring Native 应用</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-03-22">
-        03-22
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/cloud-2/">
-        <span>Spring Cloud 平台搭建(二)：统一异常处理 RFC 7807</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-03-21">
-        03-21
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/cloud-1/">
-        <span>Spring Cloud 平台搭建(一)：服务注册与配置中心Nacos</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2023-03-21">
-        03-21
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/durian/cloud-0/">
-        <span>Spring Cloud 平台搭建(序)：聊一聊与做些准备</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2021-09-24">
-        09-24
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/cherry/webflux-event/">
-        <span>为 Spring WebFlux 提供 &#39;ApplicationEventPublisher&#39;</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2021-04-20">
-        04-20
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/cherry/r2dbc/">
-        <span>R2DBC-传统数据库也能响应式编程</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2021-01-20">
-        01-20
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/cherry/deploy-spring-boot/">
-        <span>部署 Spring Boot 应用为 systemd 服务</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2020-06-17">
-        06-17
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/cherry/gradle-start/">
-        <span>Gradle 初探</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2020-04-23">
-        04-23
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/cherry/JPromise/">
-        <span>JPromise:Java版的Promise</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2020-01-16">
-        01-16
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/cherry/junit-5-info/">
-        <span>JUnit 5 教程</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2019-09-06">
-        09-06
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/beechnut/retrofit-utils/">
-        <span>一个简单的retrofit工具类</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2019-08-19">
-        08-19
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/beechnut/jdk12-switch-expressions/">
-        <span>JDK12 新特性 switch expressions （预览）</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-    <article class="post-type-normal">
-  <header class="post-collapse-header">
-    <div class="post-collapse-time">
-      <time datetime="{{ moment(post.date).format() }}"
-        content="2019-05-20">
-        05-20
-      </time>
-    </div>
-    <h2 class="post-collapse-title">
-      <a href="/articles/beechnut/spring-cloud-gateway/">
-        <span>Spring Cloud 之 Gateway （Greenwich版）</span>
-      </a>
-    </h2>
-  </header>
-</article>
-    
-  </div>
+
+
+
+
+
+
+
+<div>
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者： </strong>
+      Mr.J
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://jiangtj.com/articles/durian/maven-publish-action/">https://jiangtj.com/articles/durian/maven-publish-action/</a>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="creative-commons" class="svg-inline--fa fa-creative-commons icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M245.83 214.87l-33.22 17.28c-9.43-19.58-25.24-19.93-27.46-19.93-22.13 0-33.22 14.61-33.22 43.84 0 23.57 9.21 43.84 33.22 43.84 14.47 0 24.65-7.09 30.57-21.26l30.55 15.5c-6.17 11.51-25.69 38.98-65.1 38.98-22.6 0-73.96-10.32-73.96-77.05 0-58.69 43-77.06 72.63-77.06 30.72-.01 52.7 11.95 65.99 35.86zm143.05 0l-32.78 17.28c-9.5-19.77-25.72-19.93-27.9-19.93-22.14 0-33.22 14.61-33.22 43.84 0 23.55 9.23 43.84 33.22 43.84 14.45 0 24.65-7.09 30.54-21.26l31 15.5c-2.1 3.75-21.39 38.98-65.09 38.98-22.69 0-73.96-9.87-73.96-77.05 0-58.67 42.97-77.06 72.63-77.06 30.71-.01 52.58 11.95 65.56 35.86zM247.56 8.05C104.74 8.05 0 123.11 0 256.05c0 138.49 113.6 248 247.56 248 129.93 0 248.44-100.87 248.44-248 0-137.87-106.62-248-248.44-248zm.87 450.81c-112.54 0-203.7-93.04-203.7-202.81 0-105.42 85.43-203.27 203.72-203.27 112.53 0 202.82 89.46 202.82 203.26-.01 121.69-99.68 202.82-202.84 202.82z"></path></svg>BY-NC-SA</a> 许可协议。转载请注明出处！    </li>
+  </ul>
 </div>
 
 
-<nav class="pagination">
-  <span class="page-number current">1</span><a class="page-number" href="/categories/%E5%90%8E%E7%AB%AF/page/2/">2</a><a class="extend next" rel="next" href="/categories/%E5%90%8E%E7%AB%AF/page/2/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" class="svg-inline--fa fa-angle-right icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></a></nav>
+    
+<div class="post-tags">
+  
+  <a href="/tags/Maven/" rel="tag"># Maven</a>
+  
+</div>
 
+
+    
+    <div class="reward-container"><div>Buy me a cup of milkshake 🍨.</div><div class="reward-box"><div class="reward-box-card wechat">
+  <img class="reward-image" src="/images/wechatpay.png" />
+  
+</div>
+<div class="reward-box-card alipay">
+  <img class="reward-image" src="/images/alipay.png" />
+  
+  <a class="reward-image-url" href="HTTPS://QR.ALIPAY.COM/FKX06416WJNHOWKMRQQFFE">点击跳转</a>
+  
+</div>
+<div class="reward-box-card paypal">
+  <img class="reward-image" src="/images/paypal.png" />
+  
+  <a class="reward-image-url" target="_blank" rel="noopener" href="https://www.paypal.me/jiangtj">https://www.paypal.me/jiangtj</a>
+  
+</div>
+<div class="reward-box-card kofi">
+  <img class="reward-image" src="/images/kofi.png" />
+  
+  <a class="reward-image-url" target="_blank" rel="noopener" href="https://ko-fi.com/jiangtj">https://ko-fi.com/jiangtj</a>
+  
+</div>
+</div><div class="reward-group"><a class="reward-button wechat"><span><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="weixin" class="svg-inline--fa fa-weixin icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154zm-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4zm-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2zM563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4zm-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6zm107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6z"></path></svg></span></a><a class="reward-button alipay"><span><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="alipay" class="svg-inline--fa fa-alipay icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M377.74 32H70.26C31.41 32 0 63.41 0 102.26v307.48C0 448.59 31.41 480 70.26 480h307.48c38.52 0 69.76-31.08 70.26-69.6-45.96-25.62-110.59-60.34-171.6-88.44-32.07 43.97-84.14 81-148.62 81-70.59 0-93.73-45.3-97.04-76.37-3.97-39.01 14.88-81.5 99.52-81.5 35.38 0 79.35 10.25 127.13 24.96 16.53-30.09 26.45-60.34 26.45-60.34h-178.2v-16.7h92.08v-31.24H88.28v-19.01h109.44V92.34h50.92v50.42h109.44v19.01H248.63v31.24h88.77s-15.21 46.62-38.35 90.92c48.93 16.7 100.01 36.04 148.62 52.74V102.26C447.83 63.57 416.43 32 377.74 32zM47.28 322.95c.99 20.17 10.25 53.73 69.93 53.73 52.07 0 92.58-39.68 117.87-72.9-44.63-18.68-84.48-31.41-109.44-31.41-67.45 0-79.35 33.06-78.36 50.58z"></path></svg></span></a><a class="reward-button paypal"><span><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" class="svg-inline--fa fa-paypal icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg></span></a><a class="reward-button kofi"><span><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="coffee" class="svg-inline--fa fa-coffee icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z"></path></svg></span></a></div></div>    
+
+    
+    <footer class="post-footer">
+      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/articles/durian/maven-publish/" rel="prev" title="在 Maven Central 发布你的jar包">
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg>
+      在 Maven Central 发布...
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>    </footer>
+    
+  </div>
+</article>
+</div>
         </div>
         
+
+
+
+
+<div class="card comment-body disqus active">
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = 'https://jiangtj.com/articles/durian/maven-publish-action/';;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'articles/durian/maven-publish-action/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jiangtj.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
       </main>
 
       <footer class="footer">

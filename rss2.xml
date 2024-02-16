@@ -9,8 +9,35 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Wed, 14 Feb 2024 14:09:10 GMT</pubDate>
+    <pubDate>Fri, 16 Feb 2024 07:59:15 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>通过 GitHub Action 发布你的 jar 包</title>
+      <link>https://jiangtj.com/articles/durian/maven-publish-action/</link>
+      <guid>https://jiangtj.com/articles/durian/maven-publish-action/</guid>
+      <pubDate>Fri, 16 Feb 2024 07:59:15 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;继上篇内容&lt;a href=&quot;https://jiangtj.com/articles/durian/maven-publish/&quot;&gt;《在 Maven Central 发布你的jar包》&lt;/a&gt;，本篇将介绍如何通过 GitHub Action 自动发布你的 jar</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Maven/">Maven</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/maven-publish-action/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>在 Maven Central 发布你的jar包</title>
@@ -500,31 +527,6 @@
       
       
       <comments>https://jiangtj.com/articles/cherry/deploy-spring-boot/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Flutter 环境搭建注意事项</title>
-      <link>https://jiangtj.com/articles/cherry/flutter-install/</link>
-      <guid>https://jiangtj.com/articles/cherry/flutter-install/</guid>
-      <pubDate>Fri, 28 Aug 2020 08:21:58 GMT</pubDate>
-      
-      <description>Flutter 是谷歌推出的，用于构建跨平台原生应用</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%89%8D%E7%AB%AF/">前端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Dart/">Dart</category>
-      
-      <category domain="https://jiangtj.com/tags/Flutter/">Flutter</category>
-      
-      <category domain="https://jiangtj.com/tags/Android/">Android</category>
-      
-      
-      <comments>https://jiangtj.com/articles/cherry/flutter-install/#disqus_thread</comments>
       
     </item>
     
