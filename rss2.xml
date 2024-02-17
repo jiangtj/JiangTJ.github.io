@@ -9,8 +9,31 @@
     <atom:link href="https://jiangtj.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>何须更问浮生事，只此浮生是梦中</description>
-    <pubDate>Fri, 16 Feb 2024 07:59:15 GMT</pubDate>
+    <pubDate>Sat, 17 Feb 2024 04:33:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Spring 6.1 新的 Web 客户端 RestClient</title>
+      <link>https://jiangtj.com/articles/durian/spring-restclient/</link>
+      <guid>https://jiangtj.com/articles/durian/spring-restclient/</guid>
+      <pubDate>Sat, 17 Feb 2024 04:33:19 GMT</pubDate>
+      
+      <description>&lt;p&gt;在 Spring 6.1 中，添加了一个新的同步 web 客户端 RestClient，提供更现代化的 fluent API，所以我们能在 spring mvc 里获得与 webflux 一样的 web 请求的编码体验（再加上 project loom 的支持，webflux 还有存在的意义么？）&lt;/p&gt;
+&lt;h1 id=&quot;创建-RestClient&quot; class=&quot;article-heading&quot;&gt;&lt;a href=&quot;#创建-RestClient&quot; class=&quot;headerlink&quot; title=&quot;创建 RestClient&quot;&gt;&lt;/a&gt;创建 RestClient&lt;a class=&quot;article-anchor&quot; href=&quot;#创建-RestClient&quot; aria-hidden=&quot;true&quot;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;RestClient 可以用过 &lt;code&gt;create()&lt;/code&gt; 方法直接简单的创建，也可以通过 &lt;code&gt;builder()&lt;/code&gt; 构建。在 &lt;code&gt;builder()&lt;/code&gt; 中，我们可以传入一些配置或者默认参数，这对于我们统一请求规范有很大的帮助&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs java&quot;&gt;&lt;span class=&quot;hljs-type&quot;&gt;RestClient&lt;/span&gt; &lt;span class=&quot;hljs-variable&quot;&gt;defaultClient&lt;/span&gt; &lt;span class=&quot;hljs-operator&quot;&gt;=&lt;/span&gt; RestClient.create();&lt;br&gt;&lt;br&gt;&lt;span class=&quot;hljs-type&quot;&gt;RestClient&lt;/span&gt; &lt;span class=&quot;hljs-variable&quot;&gt;customClient&lt;/span&gt; &lt;span class=&quot;hljs-operator&quot;&gt;=&lt;/span&gt; RestClient.builder()&lt;br&gt;  .requestFactory(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-title class_&quot;&gt;HttpComponentsClientHttpRequestFactory&lt;/span&gt;())&lt;br&gt;  .messageConverters(converters -&amp;gt; converters.add(&lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;hljs-title class_&quot;&gt;MyCustomMessageConverter&lt;/span&gt;()))&lt;br&gt;  .baseUrl(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;https://example.com&amp;quot;&lt;/span&gt;)&lt;br&gt;  .defaultUriVariables(Map.of(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;variable&amp;quot;&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;))&lt;br&gt;  .defaultHeader(&lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;My-Header&amp;quot;&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;&amp;quot;Foo&amp;quot;&lt;/span&gt;)&lt;br&gt;  .requestInterceptor(myCustomInterceptor)&lt;br&gt;  .requestInitializer(myCustomInitializer)&lt;br&gt;  .build();&lt;br&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</description>
+      
+      
+      
+      
+      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
+      
+      
+      <category domain="https://jiangtj.com/tags/Spring/">Spring</category>
+      
+      
+      <comments>https://jiangtj.com/articles/durian/spring-restclient/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>通过 GitHub Action 发布你的 jar 包</title>
@@ -505,28 +528,6 @@
       
       
       <comments>https://jiangtj.com/articles/cherry/npm-pack-proxy/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>部署 Spring Boot 应用为 systemd 服务</title>
-      <link>https://jiangtj.com/articles/cherry/deploy-spring-boot/</link>
-      <guid>https://jiangtj.com/articles/cherry/deploy-spring-boot/</guid>
-      <pubDate>Wed, 20 Jan 2021 06:21:46 GMT</pubDate>
-      
-      <description>&lt;p&gt;很久之前，我写过一个&lt;a href=&quot;https://dnocm.com/articles/almond/spring-boot-autorun-with-gitlab/&quot;&gt;脚本&lt;/a&gt;用于重启Spring Boot应用，但最近在看Spring Boot文档，发现之前写的的确不够优雅&lt;/p&gt;
-&lt;p&gt;Spring Boot 文档中，有一大章专门写&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment&quot;&gt;关于如何在系统中部署&lt;/a&gt;，其中，个人认为最佳的方案是作为一个systemd服务运行，由Liunx服务直接调度&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://jiangtj.com/categories/%E5%90%8E%E7%AB%AF/">后端</category>
-      
-      
-      <category domain="https://jiangtj.com/tags/Java/">Java</category>
-      
-      
-      <comments>https://jiangtj.com/articles/cherry/deploy-spring-boot/#disqus_thread</comments>
       
     </item>
     

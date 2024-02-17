@@ -107,7 +107,7 @@
     
     <div class="site-state-item site-state-posts">
       <a href="/archives/">
-        <span class="site-state-item-count">78</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
@@ -147,6 +147,92 @@
         
         <div id="content" class="content">
           <section>
+  
+  
+
+<article class="post post-type-normal">
+  <div class="card post-block">
+
+    
+
+    <header class="post-header">
+
+      
+      <h1 class="post-title">
+        
+        <a href="/articles/durian/cloud-1/">Spring Cloud 平台搭建(一)：服务注册与配置中心Nacos</a>
+        
+      </h1>
+      
+
+      <div class="post-meta">
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">发表于</span>
+    <time title="创建时间：2023-03-21 21:35:15">2023-03-21</time>
+  </span>
+  
+
+  
+
+  
+  
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
+    </span>
+    <span class="post-meta-item-text">分类于</span>
+    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
+  
+
+  
+  
+
+</div>
+
+    </header>
+
+    <div class="post-body">
+      
+      <h1 id="Nacos-是什么？" class="article-heading"><a href="#Nacos-是什么？" class="headerlink" title="Nacos 是什么？"></a>Nacos 是什么？<a class="article-anchor" href="#Nacos-是什么？" aria-hidden="true"></a></h1><p>Nacos 是一个易用的动态服务发现、配置和服务管理平台，可以帮助你在云原生时代，轻松构建、交付、管理自己的微服务平台，快速复用和组合业务服务，快速交付商业创新的价值。</p>
+<p>Nacos 是阿里巴巴开源的一个项目，它的名字来源于Na ming and Co nfiguration S ervice。nacos提供了以下几个核心功能：</p>
+<p>Nacos 提供了以下主要功能：</p>
+<ul>
+<li><strong>动态服务发现</strong>：Nacos 可以让你注册和发现各种类型的微服务，包括 HTTP、RPC 和 WebSocket 等，并提供负载均衡、流量控制和故障转移等能力。</li>
+<li><strong>动态配置管理</strong>：Nacos 可以让你集中管理应用的配置信息，并支持配置变更推送、版本控制和灰度发布等功能。</li>
+<li><strong>动态 DNS 服务</strong>：Nacos 可以让你基于权重路由请求到不同的后端集群，并支持域名解析、健康检查和故障隔离等功能。</li>
+<li><strong>服务及其元数据管理</strong>：Nacos 可以让你存储和查询微服务及其元数据信息，并支持元数据驱动的开发模式。</li>
+</ul>
+<h1 id="为什么要使用-Nacos？" class="article-heading"><a href="#为什么要使用-Nacos？" class="headerlink" title="为什么要使用 Nacos？"></a>为什么要使用 Nacos？<a class="article-anchor" href="#为什么要使用-Nacos？" aria-hidden="true"></a></h1><p>在微服务架构中，我们需要解决以下几个问题：</p>
+<ul>
+<li>如何发现和调用其他微服务？</li>
+<li>如何管理微服务之间的依赖关系？</li>
+<li>如何动态调整微服务的配置？</li>
+<li>如何保证微服务之间的高可用性和弹性？</li>
+<li>如何实现微服务之间的分布式事务？</li>
+</ul>
+<p>这些问题都需要一个强大而灵活的中间件来支撑。而 Nacos 正是这样一个中间件，它可以为我们提供一站式的解决方案。</p>      
+<div class="read-more-btn">
+  <a href="/articles/durian/cloud-1/" rel="contents">
+    阅读全文 &raquo;
+  </a>
+</div>
+      
+    </div>
+
+    
+    
+
+    
+
+    
+  </div>
+</article>
   
   
 
@@ -769,76 +855,6 @@
       <p>在国外，最简单的是安装，在国内，最难得就是安装，太难了</p>
 <p>下面是一份我正在用的<code>.yarnrc</code>的配置</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">disable-self-update-check true<br>registry &quot;https://registry.npm.taobao.org&quot;<br>phantomjs_cdnurl &quot;https://npm.taobao.org/dist/phantomjs/&quot;<br>electron_mirror &quot;https://npm.taobao.org/mirrors/electron/&quot;<br>electron_builder_binaries_mirror &quot;https://npm.taobao.org/mirrors/electron-builder-binaries/&quot;<br>sass_binary_site &quot;https://npm.taobao.org/mirrors/node-sass/&quot;<br>profiler_binary_host_mirror &quot;https://npm.taobao.org/mirrors/node-inspector/&quot;<br>chromedriver_cdnurl &quot;https://cdn.npm.taobao.org/dist/chromedriver&quot;<br>operadriver_cdnurl &quot;http://npm.taobao.org/mirrors/operadriver&quot;<br>node_sqlite3_binary_host_mirror &quot;http://npm.taobao.org/mirrors&quot;<br>python_mirror &quot;http://npm.taobao.org/mirrors/python&quot;<br></code></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-
-    
-
-    
-  </div>
-</article>
-  
-  
-
-<article class="post post-type-normal">
-  <div class="card post-block">
-
-    
-
-    <header class="post-header">
-
-      
-      <h1 class="post-title">
-        
-        <a href="/articles/cherry/deploy-spring-boot/">部署 Spring Boot 应用为 systemd 服务</a>
-        
-      </h1>
-      
-
-      <div class="post-meta">
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar" class="svg-inline--fa fa-calendar icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 64h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V160h352v298c0 3.3-2.7 6-6 6z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">发表于</span>
-    <time title="创建时间：2021-01-20 14:21:46">2021-01-20</time>
-  </span>
-  
-
-  
-
-  
-  
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg>
-    </span>
-    <span class="post-meta-item-text">分类于</span>
-    <span><a href="/categories/%E5%90%8E%E7%AB%AF/" rel="index"><span>后端</span></a></span>  </span>
-  
-
-  
-  
-
-</div>
-
-    </header>
-
-    <div class="post-body">
-      
-      <p>很久之前，我写过一个<a target="_blank" rel="noopener" href="https://dnocm.com/articles/almond/spring-boot-autorun-with-gitlab/">脚本</a>用于重启Spring Boot应用，但最近在看Spring Boot文档，发现之前写的的确不够优雅</p>
-<p>Spring Boot 文档中，有一大章专门写<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment">关于如何在系统中部署</a>，其中，个人认为最佳的方案是作为一个systemd服务运行，由Liunx服务直接调度</p>      
-<div class="read-more-btn">
-  <a href="/articles/cherry/deploy-spring-boot/" rel="contents">
-    阅读全文 &raquo;
-  </a>
-</div>
       
     </div>
 
